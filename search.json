@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Harvey Mudd College E155 Course Website"
+  },
+  {
+    "objectID": "labs.html#lab-2-multiplexed-7-segment-display",
+    "href": "labs.html#lab-2-multiplexed-7-segment-display",
+    "title": "Labs",
+    "section": "Lab 2: Multiplexed 7-Segment Display",
+    "text": "Lab 2: Multiplexed 7-Segment Display"
+  },
+  {
+    "objectID": "labs.html#lab-3-keypad-scanner",
+    "href": "labs.html#lab-3-keypad-scanner",
+    "title": "Labs",
+    "section": "Lab 3: Keypad Scanner",
+    "text": "Lab 3: Keypad Scanner"
+  },
+  {
+    "objectID": "labs.html#lab-4-digital-audio",
+    "href": "labs.html#lab-4-digital-audio",
+    "title": "Labs",
+    "section": "Lab 4: Digital Audio",
+    "text": "Lab 4: Digital Audio"
+  },
+  {
+    "objectID": "labs.html#lab-5-interrupts",
+    "href": "labs.html#lab-5-interrupts",
+    "title": "Labs",
+    "section": "Lab 5: Interrupts",
+    "text": "Lab 5: Interrupts"
+  },
+  {
+    "objectID": "labs.html#lab-6-the-internet-of-things-and-serial-peripheral-interface",
+    "href": "labs.html#lab-6-the-internet-of-things-and-serial-peripheral-interface",
+    "title": "Labs",
+    "section": "Lab 6: The Internet of Things and Serial Peripheral Interface",
+    "text": "Lab 6: The Internet of Things and Serial Peripheral Interface"
+  },
+  {
+    "objectID": "labs.html#lab-7-the-advanced-encryption-standard",
+    "href": "labs.html#lab-7-the-advanced-encryption-standard",
+    "title": "Labs",
+    "section": "Lab 7: The Advanced Encryption Standard",
+    "text": "Lab 7: The Advanced Encryption Standard"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E155 Portfolio",
+    "section": "",
+    "text": "Georgia Tai is a junior engineering student at Harvey Mudd College (HMC) with an interest in computer engineering. Born and raised in Hsinchu, Taiwan, she developed a passion for electrical engineering. She is currently a Clay-Wolkin Fellow at HMC, working on an open-source verification suite for the RISC-V vector extension. Despite her current focus on verification, she also has a strong interest in hardware design and implementation. She hopes to continue developing her professional skills both inside and outside of this course."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
+    "section": "",
+    "text": "Learning Goals\n\n\nMy learning goals and focuses for MicroPs.\n\n\n\n\n\nAug 29, 2025\n\n\nGeorgia Tai\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/week0_learningGoals.html",
+    "href": "posts/week0_learningGoals.html",
+    "title": "Learning Goals",
+    "section": "",
+    "text": "I think this course will help me develop both hard and soft skills over the semester, and I’m excited to dive deeper into learning about microprocessors and digital systems.\nE85 really stood out as a valuable class to me because I had a lot of fun designing a multicycle RISC-V processor. Having focused on verification through research over the past summer, I’m eager to return to the design side and strengthen my skills in RTL design. In particular, I want to deepen my fluency in SystemVerilog, focusing on writing more efficient and clean code. As someone who hopes to pursue a career in hardware engineering, I see this as an important skill to have, allowing me to build a stronger foundation in design.\nOn the other hand, having heard that this class has a heavy workload, I also want to improve my time management and efficiency. While I feel fairly confident in learning through hands-on project, I want to push myself to work more systematically and efficiently through the labs and final project. I’m also looking forward to developing my technical writing skills, which I believe this course will give me the chance to by approaching projects more systematically and thoughtfully."
+  }
+]
