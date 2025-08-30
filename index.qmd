@@ -1,0 +1,15 @@
+---
+title: "E155 Portfolio"
+image: images/headshot.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/georgia-tai/
+    - icon: github
+      text: Github
+      href: https://github.com/georgiatai
+---
+
+Georgia Tai is a junior engineering student at Harvey Mudd College (HMC) with an interest in computer engineering. Born and raised in Hsinchu, Taiwan, she developed a passion for electrical engineering. She is currently a Clay-Wolkin Fellow at HMC, working on an open-source verification suite for the RISC-V vector extension. Despite her current focus on verification, she also has a strong interest in hardware design and implementation. She hopes to continue developing her professional skills both inside and outside of this course.

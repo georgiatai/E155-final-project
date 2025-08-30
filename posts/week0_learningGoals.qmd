@@ -1,0 +1,15 @@
+---
+title: "Learning Goals"
+description: "My learning goals and focuses for MicroPs."
+author: "Georgia Tai"
+date: "8/29/25"
+categories:
+  - reflection
+draft: false
+---
+
+I think this course will help me develop both hard and soft skills over the semester, and I'm excited to dive deeper into learning about microprocessors and digital systems. 
+
+E85 really stood out as a valuable class to me because I had a lot of fun designing a multicycle RISC-V processor. Having focused on verification through research over the past summer, I'm eager to return to the design side and strengthen my skills in RTL design. In particular, I want to deepen my fluency in SystemVerilog, focusing on writing more efficient and clean code. As someone who hopes to pursue a career in hardware engineering, I see this as an important skill to have, allowing me to build a stronger foundation in design.
+
+On the other hand, having heard that this class has a heavy workload, I also want to improve my time management and efficiency. While I feel fairly confident in learning through hands-on project, I want to push myself to work more systematically and efficiently through the labs and final project. I'm also looking forward to developing my technical writing skills, which I believe this course will give me the chance to by approaching projects more systematically and thoughtfully.
