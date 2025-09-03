@@ -1,3 +1,41 @@
 ---
 title: "Lab 1: FPGA and MCU Setup and Testing"
 ---
+
+# Introduction
+In this lab, a FPGA design was implemented to 1) blink an LED at 2.4Hz using an on-board high-speed oscillator, 2) control 2 LEDs with 4 switches, and 3) display a 4-digit binary input in hexadecimal using a 7-segment display. The logic of the second function, controlling LEDs with switches, is shown below:
+
+| s[3:2] | LED[1] | s[1:0] | LED[0] |
+|:------:|:------:|:------:|:------:|
+|   00   |    0   |   00   |    0   |
+|   01   |    1   |   01   |    0   |
+|   10   |    1   |   10   |    0   |
+|   11   |    0   |   11   |    1   |
+
+: Table 1: Logic of switch-controlled LEDs
+
+# Design
+The top level design, ([lab1_gt](https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/lab1_gt.sv)), included three modules: the on-board high-speed oscillator (`HSOSC`) from the iCE40 UltraPlus primitive library, a [LED decoder](https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/led_decoder.sv), and a [7-segment display decoder](https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/seven_seg_decoder.sv). 
+
+The 7-segment display decoder simply contained a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value, as shown in this graph. (ADD GRAPH OF HEX TABLE)
+
+The LED decoder included combinational logic to assign `led[0]` and `led[1]` using the inputs `switches[3:0]`. According to Table 1, `led[1]` can simply be assigned through a XOR gate and `led[0]` through an AND gate. The module also takes in a 24 MHz clock input `clk` given by the high-speed oscillator. It then uses a clock divider to toggle `led[2]`, allowing it to blink at 2.4 Hz.
+
+# Testing
+
+
+# Documentation
+## Block Diagram
+
+## Schematic of Segment Display Circuit
+
+
+# Results and Discussion
+## Testbench Simulation
+
+
+# Conclusion
+## Time spent
+
+
+# AI Prototype Summary
