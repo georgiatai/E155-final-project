@@ -40,6 +40,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -116,8 +147,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Testing and Results</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +182,184 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this lab, a FPGA design was implemented to 1) blink an LED at 2.4Hz using an on-board high-speed oscillator, 2) control 2 LEDs with 4 switches, and 3) display a 4-digit binary input in hexadecimal using a 7-segment display. The logic of the second function, controlling LEDs with switches, is shown below:</p>
+<table class="caption-top table">
+<caption>Table 1: Logic of switch-controlled LEDs</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">s[3:2]</th>
+<th style="text-align: center;">LED[1]</th>
+<th style="text-align: center;">s[1:0]</th>
+<th style="text-align: center;">LED[0]</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">00</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">01</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>The top level design, <a href="https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/lab1_gt.sv"><code>lab1_gt</code></a>, included three modules: the on-board high-speed oscillator (<code>HSOSC</code>) from the iCE40 UltraPlus primitive library, a <a href="https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/led2_counter.sv">counter for the blinking LED</a>, and a <a href="https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/seven_seg_decoder.sv">7-segment display decoder</a>. The general idea of the design can be visualized with the block diagram below:</p>
+<div id="fig-block" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/blockdiagram.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Block diagram of the FPGA design
+</figcaption>
+</figure>
+</div>
+<p>The 7-segment display decoder simply contained a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value. Each segment of the display is a LED controlled by an I/O pin from the UPduino board, and the shape of each hexadecimal value is unique, which will later be demonstrated in the Results section of this page.</p>
+<p>The LED decoder included combinational logic to assign <code>led[0]</code> and <code>led[1]</code> using the inputs <code>switches[3:0]</code>. According to Table 1, <code>led[1]</code> can simply be assigned through a XOR gate and <code>led[0]</code> through an AND gate. The module also takes in a 24 MHz clock input <code>clk</code> given by the high-speed oscillator. It then uses a counter incremented at each clock cycle to toggle <code>led[2]</code> every 5 million cycles, allowing the LED to blink at 2.4 Hz.</p>
+<p>On the physical side of design, the <a href="https://docs.broadcom.com/docs/AV02-1363EN">7-segment display</a> was externally accessed on a breadboard. The switch used for inputs and the LEDs are soldered on the <a href="https://hmc-e155.github.io/assets/doc/E155%20Development%20Board%20Schematic.pdf">board provided by the course</a>. The schematics for the physical circuit design is shown in the following graph:</p>
+<div id="fig-schematics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/blockdiagram.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Schematics of the circuit design
+</figcaption>
+</figure>
+</div>
+<p>A resistor value of <span class="math inline">\(220 \Omega\)</span> are chosen considering the voltage and current across the LEDs. According to the 7-segment display datasheet, the ideal current across the LEDs on the display should be 20mA. Given that <span class="math inline">\(V = IR\)</span>, a driving voltage of <span class="math inline">\(3.3V\)</span> and a voltage drop of <span class="math inline">\(2.1V\)</span> across red LEDs,</p>
+<p><span class="math display">\[
+R = \frac{3.3V - 2.1V}{0.02A} = 60 \Omega
+\]</span></p>
+<p>Since <span class="math inline">\(220 \Omega &gt; 60 \Omega\)</span>, a <span class="math inline">\(220 \Omega\)</span> resistor would allow the current to stay within the safety range and was tested to provide enough brightness.</p>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Testing and Results</h2>
+<p>At the beginning of the lab, we first had to solder the components onto the board. After soldering the board, I tested it with the <a href="https://hmc-e155.github.io/tutorials/tutorial-posts/lattice-radiant-ice40-ultraplus-project-setup/index.html">Radiant tutorial</a> provided on the course website and verified that the componenets are working as expected.</p>
+<p>The <code>led2_counter</code> module, which is used to make one of the LEDs blink at 2.4 Hz, is hard to test through a testbench due to its use of high-frequency oscillators. Alternatively, we can directly verify its functionality using an oscilloscope to measure the frequency of the blinking LED. As shown in <a href="#fig-oscilloscope" class="quarto-xref">Figure&nbsp;3</a>, <code>led[2]</code> is indeed blinking at approximately 2.4 Hz, fitting the one of the requirements of the lab.</p>
+<div id="fig-oscilloscope" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-oscilloscope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/oscilloscope.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-oscilloscope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Oscilloscope result of frequency of blinking LED, <code>led[2]</code>
+</figcaption>
+</figure>
+</div>
+<p>Since the inputs were only four switches, or 16 combinations, the other two self-designed modules, <code>lab1_gt</code> and <code>seven_seg_decoder</code>, can be easily tested through automated testbenches. I wrote two testbenches, one for the <a href="https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/testbench.sv">top level module</a> and the other for the <a href="https://github.com/georgiatai/e155-lab1/blob/main/fpga/src/testbench_seven_seg_decoder.sv">seven segment display decoder</a>, then created TV-file test vectors accordingly. Using Questa to simulate, the following figures show that both modules have successfully passed their testbench. Note that the <code>led[2]</code> is previously tested and can be neglected here.</p>
+<div id="fig-testbench_top" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-testbench_top-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-testbench_top" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-wavetop" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-wavetop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/testbench_top_wave.png" class="img-fluid figure-img" data-ref-parent="fig-testbench_top">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-wavetop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Waveform of the simulated top level module
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-testbench_top" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-endtop" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-endtop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/testbench_top_end.png" class="img-fluid figure-img" data-ref-parent="fig-testbench_top">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-endtop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Ending statement showing no errors for top level module
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-testbench_top-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Testbench results for the top level module <code>lab1_gt</code>
+</figcaption>
+</figure>
+</div>
+<div id="fig-testbench_seg" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-testbench_seg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-testbench_seg" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-waveseg" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-waveseg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/testbench_seg_wave.png" class="img-fluid figure-img" data-ref-parent="fig-testbench_seg">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-waveseg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Waveform of the simulated segment display module
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-testbench_seg" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-endseg" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-endseg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/testbench_seg_end.png" class="img-fluid figure-img" data-ref-parent="fig-testbench_seg">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-endseg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Ending statement showing no errors for segment display module
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-testbench_seg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Testbench results for the segment display module <code>seven_seg_decoder</code>
+</figcaption>
+</figure>
+</div>
+<p>After verifying the code with testbenches, the circuit which I built also has to be tested. The following video shows a completely demo of me trying all 16 combination of switch inputs on my system. As shown in the video, each combination of switches, relating to a single hexadecimal digit, has a unique pattern and was able to turn on successfully. On top of that, the three LEDs close to the left-bottom corner of the ribbon cable performed as expected. The two non-blinking LEDs, with the right one being <code>led[0]</code>, worked according to the described logic of <code>led[1]</code> and <code>led[0]</code>. Although this video was sped up by 1.5 times, the blinking LED <code>led[2]</code> was blinking at the expected frequency of 2.4 Hz, as previously verified.</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/7segvid.mp4"></video></div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In this lab, I successfully designed and built a seven-segment display, which was able to translate a 4-bit input given by a set of switches into unique single digit hexadecimal number. I was also able to create the LEDs as the lab required. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 15 hours on the lab. A lot of time was put into installing things and getting familiarized with the apps and environment. Hopefully, the whole lab flow would be easier in the future, and I can work more efficiently, focusing on designing and verifying the systems.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>For the AI prototype, I chose to use the default model of ChatGPT. After putting in the promopt, it returned its first code which had this error and caused systhesis to fail:</p>
+<pre><code>ERROR &lt;35901063&gt; - c:/users/user/desktop/e155_lab1/fpga/radiant_project/ai/source/impl_1/top.sv(17): instantiating unknown module SB_HFOSC. VERI-1063 [top.sv:17]</code></pre>
+<p>Looking at this error, I noticed that it was using a different module name compared to what we used, <code>HSOSC</code>, but I wasn’t sure if this module specified by chatGPT was actually available. However, I decided to simply throw in the error. ChatGPT insisted that <code>SB_HFOSC</code> was the right module, and repeatedly asked me to check my settings. At some point, it even threw in the idea of declaring the module as a black box with <code>(* blackbox *)</code>, whicih also caused other trivial issues and was still unable to solve the root cause. Knowing that this is a rabbit hole, I decided to search up <code>SB_HFOSC</code> online and found the following information in the iCE40 Oscillator Usage Guide:</p>
+<blockquote class="blockquote">
+<p>1.1. Key Features The following oscillators are available to iCEcube2 users: SB_LFOSC – Low Frequency Oscillator, SB_HFOSC – High Frequency Oscillator with output divider The following oscillators are available to Lattice Radiant Software users: LSOSC – Low Frequency Oscillator, HSOSC – High Frequency Oscillator with output divider</p>
+</blockquote>
+<p>I gave this information back to ChatGPT, and it then returned another draft of the module, which passed systhesis this time.</p>
+<p>Overall, I would rate the experience for coding with ChatGPT a 5.5/10. It did help explaining the calculations and also drafting the code, but I feel never really felt confident in the things it produced and had to also do a self mental check. Personally, I feel more confident in debugging and finding the non-reasonable parts from a piece of code than writing one from scratch. In this case, for example, I was able to find the unfamiliar module from ChatGPT’s code and also think of ways to make the code cleaner, but that was also partially because I had prior knowledge to the prompt. This time, ChatGPT providing a somewhat feasible draft did help improve the work efficiency, thus I rated it an above average score. That being said, the quality of it’s code is not always consistent, and I would most likely suggest one to be fairly confident in the topic of the prompt before asking a LLM to code from scratch.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -217,7 +434,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/georgiatai\.github\.io\/E155-portfolio\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -545,6 +762,7 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
