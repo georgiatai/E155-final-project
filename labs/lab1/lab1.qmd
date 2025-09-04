@@ -25,7 +25,7 @@ The LED decoder included combinational logic to assign `led[0]` and `led[1]` usi
 
 On the physical side of design, the [7-segment display](https://docs.broadcom.com/docs/AV02-1363EN) was externally accessed on a breadboard. The switch used for inputs and the LEDs are soldered on the [board provided by the course](https://hmc-e155.github.io/assets/doc/E155%20Development%20Board%20Schematic.pdf). The schematics for the physical circuit design is shown in the following graph:
 
-![Schematics of the circuit design](images/blockdiagram.jpeg){#fig-schematics}
+![Schematics of the circuit design](images/schematics.jpeg){#fig-schematics}
 
 A resistor value of $220 \Omega$ are chosen considering the voltage and current across the LEDs. According to the 7-segment display datasheet, the ideal current across the LEDs on the display should be 20mA. Given that $V = IR$, a driving voltage of $3.3V$ and a voltage drop of $2.1V$ across red LEDs, 
 
