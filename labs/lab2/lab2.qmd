@@ -29,16 +29,16 @@ The closest resistor I found was $330 \Omega$, which should not affect the curre
 The datasheet of the [2N3906 transistor](https://www.onsemi.com/pdf/datasheet/2n3906-d.pdf) shows that it has a base-emitter saturation voltage of 0.65 to 0.85 V when the current through the base is 1 mA. Aiming for a current slightly smaller than that to ensure safety, say 0.8 mA, the resistor value is:
 
 $$
-R_{transistor} = \frac{3.3V - 0.65V}{0.002A} \approx 1.3 k\Omega
-$$
-
-A resistor value of $390 \Omega$ are chosen considering the voltage and current across the LEDs. According to the dual 7-segment display datasheet, the voltage drop across the segments are about 1.8 V. The input voltage is the voltage given by the transistor, which is 2.6 V.Aiming for approximately 2 mA across the LEDs of the segments, 
-
-$$
-R = \frac{2.6V - 1.8V}{0.02A} = 400 \Omega
+R_{transistor} = \frac{V_{PIN} - V_{BE,SAT}}{I_{transistor}} = \frac{3.3V - 0.65V}{0.007A} \approx 380 \Omega
 $$
 
 The closest resistor I found was $390 \Omega$, which should not affect the current much.
+
+A resistor value of $220 \Omega$ are chosen considering the voltage and current across the LEDs. According to the dual 7-segment display datasheet, the voltage drop across the segments are about 1.8 V. The input voltage is the voltage given by the transistor, which is 2.6 V.Given that the collector-emitter saturation voltage was 0.4 V and aiming for approximately 5 mA across the LEDs of the segments, the resistor value is:
+
+$$
+R_{seg} = \frac{(V_{PIN} - V_{CE,SAT}) - V_{seg}}{I_{seg}} = \frac{(3.3V - 0.4V) - 1.8V}{0.005A} = 220 \Omega
+$$
 
 ## Testing and Results
 
@@ -64,14 +64,7 @@ Testbench results for the top level module `lab2_gt`
 Testbench results for the segment display module `seven_seg_decoder`
 :::
 
-::: {#fig-testbench_seg layout-ncol=3}
 
-![Waveform of the simulated clock divider module](images/testbench_clk_wave.png){#fig-waveseg}
-
-![Ending statement showing no errors for clock divider module](images/testbench_clk_end.png){#fig-endseg}
-
-Testbench results for the clock divider module `digit_selector`
-:::
 
 After verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output for both the display and the LEDs are correctly shown. Here is a picture of the complete device.
 
