@@ -1,3 +1,84 @@
 ---
 title: "Lab 3: Keypad Scanner"
 ---
+
+## Introduction
+The goal of this design is to practice multiplexing by designing a FPGA that can scan a 4-by-4 matrix keypad and display the two most recently-pressed digits on a dual 7-segment display. Only one 7-segment decoder module can be used for both digits on the display, resulting in the need of time-multiplexing, and the user inputs from the keypad may be asynchronous.
+
+## Design
+The top level design, [`lab3_gt`](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/lab3_gt.sv), included multiple modules: 
+* the on-board high-speed oscillator (`HSOSC`) from the iCE40 UltraPlus primitive library
+* a [keypad scanner](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_scanner.sv) to scan the keypad for presses and synchronize the input with a synchronizer
+* a [debouncer](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/debouncer.sv) for debouncing check on presses and releases, waiting for 100 ms
+* a [main FSM](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/press_FSM.sv) to determine "an actual press" on the keypad, design described below
+* a [keypad decoder](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_decoder.sv) to translate the row and column pressed into a 4-bit binary number
+* a [digit selector](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/digit_selector.sv) to toggle or select between the digits shown on the display
+* a [7-segment display decoder](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/seven_seg_decoder.sv). 
+
+The general idea of the design can be visualized with the block diagram below:
+
+![Block diagram of the FPGA design](images/blockdiagram1.jpeg){#fig-block}
+
+Reused from lab 1 and 2, `digitSelector` selects the digit which will be displayed on the dual 7-segment display with 60 Hz and `segDecoder` translates a given 4-bit binary number into 7-segment displayable hexadecimal. The 60 Hz frequency was chosen such that the human eyes can not catch that the two digits are turning on and off, creating the illusion that both digits are always on at the same time. The module achieves such frequency by taking in a 6 MHz clock input `clk` given by the high-speed oscillator and using a counter incremented at each clock cycle to toggle the enabling signal for each digit at 60 Hz. It then outputs both enabling signals and the 4-bit binary of the digit with the enabled signal.
+
+The 7-segment display decoder contains a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value. Each segment of the display is a LED controlled by an I/O pin from the UPduino board, and the shape of each hexadecimal value is unique. As per the constraint of this lab, this module is only used once and takes the 4-bit binary input of the selected digit given by `digitSelector`.
+
+The main finite state machine, `pressFSM`, was designed with the following state transition diagrams:
+
+![State transition diagram of the main FSM](images/pressFSM.jpeg){#fig-block}
+
+This FSM includes four states: `IDLE`, `DEBOUNCE`, `HOLD`, and `RELEASE`. The `IDLE` state works with the `keypad_scanner` to look for any pressed key. The keypad scanner drives voltage through each column of the keypad repeatedly, from column 0 to column 3, and searches for a pressed key when a corresponding row is high. When a key press is detected, the FSM transition into `DEBOUNCE`, which sends a `startDebounce` signal to the debouncer and waits for the `countDone` signal. The `countDone` signal indicates that the debounce period (100 ms) has ended, confirming that the key is in fact pressed and allowing the FSM to transition into state `HOLD`. Note that if the press is no longer detected (active rows changed when the same column is driven), the `DEBOUNCE` state moves back to the `IDLE` state. In state `HOLD`, if the rows input of the column originally pressed changes, then the FSM enters state `RELEASE`. This state uses a similar method with `DEBOUNCE` to check whether a key is actually released. The FSM moves on to `IDLE` if the release is true, and moves back to `HOLD` if it thinks that the release was simply a debounce.
+
+In terms of the circuitry design, similar to Lab 2, the [dual 7-segment display](https://docs.broadcom.com/docs/AV02-1107EN) was externally accessed on a breadboard, with each of its two common anode connected to a 2N3906 PNP transistor to provide enough current. The 4-by-4 keypad matrix was also externally connected, with a pull-down resistor of $680 \ohm$ connecting the rows to ground. Given the large $100 k \ohm$ internal pull-up resistors in the [PCB provided by the course](https://hmc-e155.github.io/assets/doc/E155%20Development%20Board%20Schematic.pdf), this pull-down resistor was chosen to be small enough to prevent the presence of a voltage divider. Two LEDs, `D7` and `D8`, on the PCB are also used to show the states which the FSM is in, mainly for debugging purposes. The schematics for the physical circuit design is shown in the following graph:
+
+![Schematics of the circuit design](images/schematics.jpeg){#fig-schematics}
+
+## Testing and Results
+
+Each of the modules are testes with automated testbenches. The [top level module](https://github.com/georgiatai/e155-lab2/blob/main/fpga/src/testbench.sv) was tested using a for-loop to stimulate all 256 (4-bit input `s0` * 4-bit input `s1`), checking that the outputs for segments are correct when the enabling signal for each digit, `disp0` and `disp1`, is on. The [seven segment display decoder](https://github.com/georgiatai/e155-lab2/blob/main/fpga/src/testbench_seven_seg_decoder.sv) is identical to Lab 1, checking the combinational logic for all 16 possible inputs. The [clock divider/digit selector](https://github.com/georgiatai/e155-lab2/blob/main/fpga/src/testbench_seven_seg_decoder.sv) checks that the enabling signals actually toggles and select the correct input for the 7-segment decoder after an expected amount of time. 
+
+Using Questa to simulate, the following figures show that All modules have successfully passed their testbench.
+
+::: {#fig-testbench_top layout-ncol=2}
+
+![Waveform of the simulated top level module](images/testbench_top_wave.png){#fig-wavetop}
+
+![Ending statement showing no errors for top level module](images/testbench_top_end.png){#fig-endtop}
+
+Testbench results for the top level module `lab2_gt`
+:::
+
+::: {#fig-testbench_seg layout-ncol=3}
+
+![Waveform of the simulated segment display module](images/testbench_seg_wave.png){#fig-waveseg}
+
+![Ending statement showing no errors for segment display module](images/testbench_seg_end.png){#fig-endseg}
+
+Testbench results for the segment display module `seven_seg_decoder`
+:::
+
+
+
+After verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output for both the display and the LEDs are correctly shown. Here is a picture of the complete device.
+
+![Figure of full device working](images/device.jpeg){#fig-device}
+
+## Conclusion
+In this lab, I successfully designed and built an FPGA design that was able to correctly display the two most recently-pressed key on a 4-by-4 matrix keypad using a dual 7-segment display. There was no observable blinking between the two digits, and the most recently-pressed digit shows on the right. When multiple keys are pressed, the system only register the original one and neglect the others. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 17 hours on the lab. I spent quite some time understanding how I wanted to scan my keypad and designing the cleanest FSM possible. Thanks to those efforts, the hardware debugging did not take much time. However, I hope to become more natural with coming up with FSMs and dealing with asynchronous inputs.
+
+## AI Prototype Summary
+For this AI prototype, I used ChatGPT. When feeding it the first prompt, the resulted design was able to synthesize the first time, surprisingly. By looking at the code, this design seemed somewhat similar to what I did, and seemed like is functionable. However, this design did assume `clk` to be an external input, and kept the counter in the top level module instead of in an independent module. One thing that I like about its design was that it did include a parameter in the top level module, allowing easy changes to the frequency which the two digits toggle.
+
+For the second prompt, since my counter module from Lab 1 was more than a clock divider and thus did not fit this purpose, I modified the prompt and asked it to:
+
+> Write SystemVerilog HDL to time multiplex a single seven segment decoder (that decodes from four bits to a common anode seven segment display) to decode two sets of input bits and drive two sets of seven output bits. Use the seven segment decoder provided in the attached files and the HSOSC from the iCE40UP library.
+
+The thinking time of this prompt was around 30 seconds, which was two times longer than the thinking time of privious prompt. When synthesizing it, it got this error:
+
+> Error	35901282	Synthesis	ERROR <35901282> - c:/users/user/desktop/engr 155/lab2/e155_lab2/fpga/radiant_project/ai_2/source/impl_1/top.sv(67): loop count limit exceeded forever never breaks. VERI-1282 [top.sv:67]	
+
+This error came from the `ifdef-elsif-else` statement which this design provide. ChatGPT said the purpose of it was to include common ways to instantiate an on-chip oscillator and allows the user to choose which one by using the ``ifdef`. However, it was pretty redundant and got stuck on its approach of instantiate the clock if there is no on-chip oscillator:
+
+> `forever #10 clk_hf = ~clk_hf;`
+
+It also made the same mistake of using `SB_HFOSC` instead of `HSOSC` in Lab 1. After asking it to remove the `ifdef-elsif-else` statement and assuming that the osciallator will be instantiate with one method, the new design was able to synthesize, and seemed like would work fine when I read through it.
