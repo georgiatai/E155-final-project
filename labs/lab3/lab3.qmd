@@ -7,17 +7,18 @@ The goal of this design is to practice multiplexing by designing a FPGA that can
 
 ## Design
 The top level design, [`lab3_gt`](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/lab3_gt.sv), included multiple modules: 
-* the on-board high-speed oscillator (`HSOSC`) from the iCE40 UltraPlus primitive library
-* a [keypad scanner](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_scanner.sv) to scan the keypad for presses and synchronize the input with a synchronizer
-* a [debouncer](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/debouncer.sv) for debouncing check on presses and releases, waiting for 100 ms
-* a [main FSM](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/press_FSM.sv) to determine "an actual press" on the keypad, design described below
-* a [keypad decoder](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_decoder.sv) to translate the row and column pressed into a 4-bit binary number
-* a [digit selector](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/digit_selector.sv) to toggle or select between the digits shown on the display
-* a [7-segment display decoder](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/seven_seg_decoder.sv). 
+
+* The on-board high-speed oscillator (`HSOSC`) from the iCE40 UltraPlus primitive library
+* A [keypad scanner](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_scanner.sv) to scan the keypad for presses and synchronize the input with a synchronizer
+* A [debouncer](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/debouncer.sv) for debouncing check on presses and releases, waiting for 100 ms
+* A [main FSM](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/press_FSM.sv) to determine "an actual press" on the keypad, design described below
+* A [keypad decoder](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_decoder.sv) to translate the row and column pressed into a 4-bit binary number
+* A [digit selector](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/digit_selector.sv) to toggle or select between the digits shown on the display
+* A [7-segment display decoder](https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/seven_seg_decoder.sv). 
 
 The general idea of the design can be visualized with the block diagram below:
 
-![Block diagram of the FPGA design](images/blockdiagram1.jpeg){#fig-block}
+![Block diagram of the FPGA design](images/blockdiagram.jpeg){#fig-block}
 
 Reused from lab 1 and 2, `digitSelector` selects the digit which will be displayed on the dual 7-segment display with 60 Hz and `segDecoder` translates a given 4-bit binary number into 7-segment displayable hexadecimal. The 60 Hz frequency was chosen such that the human eyes can not catch that the two digits are turning on and off, creating the illusion that both digits are always on at the same time. The module achieves such frequency by taking in a 6 MHz clock input `clk` given by the high-speed oscillator and using a counter incremented at each clock cycle to toggle the enabling signal for each digit at 60 Hz. It then outputs both enabling signals and the 4-bit binary of the digit with the enabled signal.
 
