@@ -36,33 +36,22 @@ In terms of the circuitry design, similar to Lab 2, the [dual 7-segment display]
 
 ## Testing and Results
 
-Each of the modules are testes with automated testbenches. The [top level module](https://github.com/georgiatai/e155-lab2/blob/main/fpga/src/testbench.sv) was tested using a for-loop to stimulate all 256 (4-bit input `s0` * 4-bit input `s1`), checking that the outputs for segments are correct when the enabling signal for each digit, `disp0` and `disp1`, is on. The [seven segment display decoder](https://github.com/georgiatai/e155-lab2/blob/main/fpga/src/testbench_seven_seg_decoder.sv) is identical to Lab 1, checking the combinational logic for all 16 possible inputs. The [clock divider/digit selector](https://github.com/georgiatai/e155-lab2/blob/main/fpga/src/testbench_seven_seg_decoder.sv) checks that the enabling signals actually toggles and select the correct input for the 7-segment decoder after an expected amount of time. 
+Each of the modules are testes with automated testbenches. The `keypad_scanner` was tested with inputting different rows and checking in two clock cycles if they are in sync. The `keypad_decoder` was simply tested with a set of combinational logic, making sure that the correct input of cols and rows outputs the right key in hexadecimal. The FSM module was tested, as the simulation tutorial, with key presses and releases, and ensuring that it passes through each of the 4 states. The `debouncer` and the `digit_selector` works very similarly, and only needs to show that the clock toggles.
 
 Using Questa to simulate, the following figures show that All modules have successfully passed their testbench.
 
-::: {#fig-testbench_top layout-ncol=2}
+![Waveform of the keypad scanner module `keypad_scanner`](images/testbench_keyscan_wave.png)
 
-![Waveform of the simulated top level module](images/testbench_top_wave.png){#fig-wavetop}
+![Waveform of the keypad decoder module `keypad_decoder`](images/testbench_keydec_wave.png)
 
-![Ending statement showing no errors for top level module](images/testbench_top_end.png){#fig-endtop}
-
-Testbench results for the top level module `lab2_gt`
-:::
-
-::: {#fig-testbench_seg layout-ncol=3}
+![Waveform of the FSM module `press_FSM`](images/testbench_pressFSM_wave.png)
 
 ![Waveform of the simulated segment display module](images/testbench_seg_wave.png){#fig-waveseg}
 
-![Ending statement showing no errors for segment display module](images/testbench_seg_end.png){#fig-endseg}
 
-Testbench results for the segment display module `seven_seg_decoder`
 :::
 
-
-
-After verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output for both the display and the LEDs are correctly shown. Here is a picture of the complete device.
-
-![Figure of full device working](images/device.jpeg){#fig-device}
+After verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output are correctly registered when keys are pressed.
 
 ## Conclusion
 In this lab, I successfully designed and built an FPGA design that was able to correctly display the two most recently-pressed key on a 4-by-4 matrix keypad using a dual 7-segment display. There was no observable blinking between the two digits, and the most recently-pressed digit shows on the right. When multiple keys are pressed, the system only register the original one and neglect the others. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 17 hours on the lab. I spent quite some time understanding how I wanted to scan my keypad and designing the cleanest FSM possible. Thanks to those efforts, the hardware debugging did not take much time. However, I hope to become more natural with coming up with FSMs and dealing with asynchronous inputs.
