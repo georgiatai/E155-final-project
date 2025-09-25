@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -116,8 +145,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#testing-and-results" id="toc-testing-and-results" class="nav-link" data-scroll-target="#testing-and-results">Testing and Results</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +180,106 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The goal of this design is to practice multiplexing by designing a FPGA that can scan a 4-by-4 matrix keypad and display the two most recently-pressed digits on a dual 7-segment display. Only one 7-segment decoder module can be used for both digits on the display, resulting in the need of time-multiplexing, and the user inputs from the keypad may be asynchronous.</p>
+</section>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>The top level design, <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/lab3_gt.sv"><code>lab3_gt</code></a>, included multiple modules:</p>
+<ul>
+<li>The on-board high-speed oscillator (<code>HSOSC</code>) from the iCE40 UltraPlus primitive library</li>
+<li>A <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_scanner.sv">keypad scanner</a> to scan the keypad for presses and synchronize the input with a synchronizer</li>
+<li>A <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/debouncer.sv">debouncer</a> for debouncing check on presses and releases, waiting for 100 ms</li>
+<li>A <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/press_FSM.sv">main FSM</a> to determine “an actual press” on the keypad, design described below</li>
+<li>A <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/keypad_decoder.sv">keypad decoder</a> to translate the row and column pressed into a 4-bit binary number</li>
+<li>A <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/digit_selector.sv">digit selector</a> to toggle or select between the digits shown on the display</li>
+<li>A <a href="https://github.com/georgiatai/e155-lab3/blob/main/fpga/src/seven_seg_decoder.sv">7-segment display decoder</a>.</li>
+</ul>
+<p>The general idea of the design can be visualized with the block diagram below:</p>
+<div id="fig-block" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/blockdiagram.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Block diagram of the FPGA design
+</figcaption>
+</figure>
+</div>
+<p>Reused from lab 1 and 2, <code>digitSelector</code> selects the digit which will be displayed on the dual 7-segment display with 60 Hz and <code>segDecoder</code> translates a given 4-bit binary number into 7-segment displayable hexadecimal. The 60 Hz frequency was chosen such that the human eyes can not catch that the two digits are turning on and off, creating the illusion that both digits are always on at the same time. The module achieves such frequency by taking in a 6 MHz clock input <code>clk</code> given by the high-speed oscillator and using a counter incremented at each clock cycle to toggle the enabling signal for each digit at 60 Hz. It then outputs both enabling signals and the 4-bit binary of the digit with the enabled signal.</p>
+<p>The 7-segment display decoder contains a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value. Each segment of the display is a LED controlled by an I/O pin from the UPduino board, and the shape of each hexadecimal value is unique. As per the constraint of this lab, this module is only used once and takes the 4-bit binary input of the selected digit given by <code>digitSelector</code>.</p>
+<p>The main finite state machine, <code>pressFSM</code>, was designed with the following state transition diagrams:</p>
+<div id="fig-block" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/pressFSM.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: State transition diagram of the main FSM
+</figcaption>
+</figure>
+</div>
+<p>This FSM includes four states: <code>IDLE</code>, <code>DEBOUNCE</code>, <code>HOLD</code>, and <code>RELEASE</code>. The <code>IDLE</code> state works with the <code>keypad_scanner</code> to look for any pressed key. The keypad scanner drives voltage through each column of the keypad repeatedly, from column 0 to column 3, and searches for a pressed key when a corresponding row is high. When a key press is detected, the FSM transition into <code>DEBOUNCE</code>, which sends a <code>startDebounce</code> signal to the debouncer and waits for the <code>countDone</code> signal. The <code>countDone</code> signal indicates that the debounce period (100 ms) has ended, confirming that the key is in fact pressed and allowing the FSM to transition into state <code>HOLD</code>. Note that if the press is no longer detected (active rows changed when the same column is driven), the <code>DEBOUNCE</code> state moves back to the <code>IDLE</code> state. In state <code>HOLD</code>, if the rows input of the column originally pressed changes, then the FSM enters state <code>RELEASE</code>. This state uses a similar method with <code>DEBOUNCE</code> to check whether a key is actually released. The FSM moves on to <code>IDLE</code> if the release is true, and moves back to <code>HOLD</code> if it thinks that the release was simply a debounce.</p>
+<p>In terms of the circuitry design, similar to Lab 2, the <a href="https://docs.broadcom.com/docs/AV02-1107EN">dual 7-segment display</a> was externally accessed on a breadboard, with each of its two common anode connected to a 2N3906 PNP transistor to provide enough current. The 4-by-4 keypad matrix was also externally connected, with a pull-down resistor of <span class="math inline">\(680 \ohm\)</span> connecting the rows to ground. Given the large <span class="math inline">\(100 k \ohm\)</span> internal pull-up resistors in the <a href="https://hmc-e155.github.io/assets/doc/E155%20Development%20Board%20Schematic.pdf">PCB provided by the course</a>, this pull-down resistor was chosen to be small enough to prevent the presence of a voltage divider. Two LEDs, <code>D7</code> and <code>D8</code>, on the PCB are also used to show the states which the FSM is in, mainly for debugging purposes. The schematics for the physical circuit design is shown in the following graph:</p>
+<div id="fig-schematics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/schematics.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Schematics of the circuit design
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="testing-and-results" class="level2">
+<h2 class="anchored" data-anchor-id="testing-and-results">Testing and Results</h2>
+<p>Each of the modules are testes with automated testbenches. The <code>keypad_scanner</code> was tested with inputting different rows and checking in two clock cycles if they are in sync. The <code>keypad_decoder</code> was simply tested with a set of combinational logic, making sure that the correct input of cols and rows outputs the right key in hexadecimal. The FSM module was tested, as the simulation tutorial, with key presses and releases, and ensuring that it passes through each of the 4 states. The <code>debouncer</code> and the <code>digit_selector</code> works very similarly, and only needs to show that the clock toggles.</p>
+<p>Using Questa to simulate, the following figures show that All modules have successfully passed their testbench.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/testbench_keyscan_wave.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform of the keypad scanner module <code>keypad_scanner</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/testbench_keydec_wave.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform of the keypad decoder module <code>keypad_decoder</code></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/testbench_pressFSM_wave.png" class="img-fluid figure-img"></p>
+<figcaption>Waveform of the FSM module <code>press_FSM</code></figcaption>
+</figure>
+</div>
+<div id="fig-waveseg" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-waveseg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/testbench_seg_wave.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-waveseg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Waveform of the simulated segment display module
+</figcaption>
+</figure>
+</div>
+<p>:::</p>
+<p>After verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output are correctly registered when keys are pressed.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In this lab, I successfully designed and built an FPGA design that was able to correctly display the two most recently-pressed key on a 4-by-4 matrix keypad using a dual 7-segment display. There was no observable blinking between the two digits, and the most recently-pressed digit shows on the right. When multiple keys are pressed, the system only register the original one and neglect the others. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 17 hours on the lab. I spent quite some time understanding how I wanted to scan my keypad and designing the cleanest FSM possible. Thanks to those efforts, the hardware debugging did not take much time. However, I hope to become more natural with coming up with FSMs and dealing with asynchronous inputs.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>For this AI prototype, I used ChatGPT. When feeding it the first prompt, the resulted design was unable to synthesize the first time. A synthesis error said that <code>new_key</code> is constantly driven from multiple places. Therefore, I asked it to fix it. Its second try also did not synthesize successfully, where there was a syntax error around <code>always_ff</code>. I also feeded back this error, and ChatGPT somehow came to the conclusion that my Lattice Radiant toolchain is not set up for full SystemVerilog-2005/2012 features. Later on, it decided to change its syntax to Verilog-2001 in its third try, which passed synthesis. The code it produced looks functionable at first sight. However, some of its choices, such as not having an <code>else</code> statement for the next state logic in FSM made me question whether this design would really work in real world.</p>
+<p>For the second approach of using modular prompts, after tailoring the port names of my seven-segment decoder into the code which ChatGPT produced, synthesis passed the first time. The general logic between the two prompts seemed similar, but the second prompt has a cleaner code and design. For example, the FSM of the second prompt had only 3 states whereas the first one had 4. The second prompt merged the press and release debounce into one. Similarly though, I still don’t like the fact that there is no else statements for the next state logic.</p>
+<p>Despite their uncertainty of capabilities, the prompts were able to generate synthesizable designs fairly fast enough.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
