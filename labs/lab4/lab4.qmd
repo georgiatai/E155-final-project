@@ -33,6 +33,8 @@ $$
 Therefore, the duration which the system can take is from 0 to approximately 4096 ms. On the other hand, the maximum and minimum frequency which the device can play is calculated with the following equation, with a chosen prescalar value of 799:
 $$
 f_{note} = \frac{f_{TIM}}{ARR+1} = \frac{f_{clk}}{PSC_{PWM}+1} \times \frac{1}{ARR+1}
+$$
+$$
 \Rightarrow 
 ARR_{PWM} = \frac{f_{clk}}{PSC_{PWM}+1} \times \frac{1}{f_{note}} - 1 
 $$
@@ -51,22 +53,34 @@ Therefore, the frequency which the system supports is from approximately 1.526 t
 
 For the frequency range of 220 to 1000 Hz, which is commonly used for most music, we calculate the error of our device from the desired frequency. We also choose 600 Hz to better represent across the range. First, we can calculate the actual `ARR` value with our chosen PWM timer prescalar of 799, note that the number is treated as `int` and rounded to the nearest whole number:
 $$
-ARR_{PWM, 220Hz}  = \frac{80000000}{799+1} \times \frac{1}{220} - 1  \approx 453.54 \approx 454 \newline
-ARR_{PWM, 600Hz}  = \frac{80000000}{799+1} \times \frac{1}{600} - 1  \approx 165.67 \approx 166 \newline
+ARR_{PWM, 220Hz}  = \frac{80000000}{799+1} \times \frac{1}{220} - 1  \approx 453.54 \approx 454
+$$
+$$
+ARR_{PWM, 600Hz}  = \frac{80000000}{799+1} \times \frac{1}{600} - 1  \approx 165.67 \approx 166 \\
+$$
+$$
 ARR_{PWM, 1000Hz} = \frac{80000000}{799+1} \times \frac{1}{1000} - 1 = 99
 $$
 
 The real PWM frequency produced by this `ARR` value is thus:
 $$
-f_{220Hz, prod}  = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 220Hz}  + 1} \approx 219.780219 \newline
-f_{600Hz, prod}  = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 600Hz}  + 1} \approx 598.8024 \newline
+f_{220Hz, prod}  = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 220Hz}  + 1} \approx 219.780219
+$$
+$$
+f_{600Hz, prod}  = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 600Hz}  + 1} \approx 598.8024
+$$
+$$
 f_{1000Hz, prod} = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 1000Hz} + 1} = 1000
 $$
 
 The error for each of these frequencies is:
 $$
-err_{220Hz}  = \frac{f_{220Hz, prod}  - 220}{220}   \approx -0.000999 \approx -0.1\% \newline
-err_{600Hz}  = \frac{f_{600Hz, prod}  - 600}{600}   \approx -0.001996 \approx -0.2\% \newline
+err_{220Hz}  = \frac{f_{220Hz, prod}  - 220}{220}   \approx -0.000999 \approx -0.1\%
+$$
+$$
+err_{600Hz}  = \frac{f_{600Hz, prod}  - 600}{600}   \approx -0.001996 \approx -0.2\%
+$$
+$$
 err_{1000Hz} = \frac{f_{1000Hz, prod} - 1000}{1000} = 0
 $$
 
