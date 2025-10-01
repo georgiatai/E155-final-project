@@ -1,3 +1,52 @@
 ---
 title: "Lab 4: Digital Audio"
 ---
+
+## Introduction
+The goal of this design is to practice using the MCU by generating square waves with timers and toggling a GPIO pin at specific frequencies and durations to play music. 
+
+## Design
+For this lab, I used [libraries](https://github.com/HMC-E155/tutorial-clock-configuration/tree/solution/lib) provided by the course for setting up the RCC, FLASH, and GPIO. Then, I referenced the STM32L432KC [reference manual](https://www.st.com/resource/en/reference_manual/rm0394-stm32l41xxx42xxx43xxx44xxx45xxx46xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), [programming manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf), and [datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf). This helped creating code for setting up `TIM15` and `TIM16`, which are general purpose timers used here for waiting a certain duration and generating the PWM signal, respectively.
+
+The two timers are similar enough such that they are defined with a single struct and kept in the same header file, [`STM32L432KC_TIM.h`](https://github.com/georgiatai/e155-lab4/blob/main/mcu/lib/STM32L432KC_TIM.h). The file [`STM32L432KC_TIM.c`](https://github.com/georgiatai/e155-lab4/blob/main/mcu/lib/STM32L432KC_TIM.c) contains functions with initializing the two timers and also functions for their waiting and signal generating purpose. `TIM15` was initialized according to the manuals with `initTIM` and waits for `ms` milliseconds with the function `delay_millis`. `TIM16` was initialized with function `initPWM` and uses the function `PWM_setDutyCycle` to generate a PWM signal with a certain duty cycle and frequency. Its output is sent from `TIM16_CH1` to `PA6` in `GPIOA` of the MCU.
+
+The circuitry design was referenced from the [LM386 datasheet](https://www.ti.com/lit/ds/symlink/lm386.pdf), where I chose to use the circuit with a gain of 50. The schematics for the physical circuit design is shown in the following graph:
+
+![Schematics of the circuit design](images/schematics.jpeg){#fig-schematics}
+
+## Prescalar Value Calculations
+The formula for the `ARR`, the auto-reload value, or the number of cycles compared with the count, can be calculated by the following formulas. The `ARR` field in the registers has 16 bits. Therefore, $0 \leq ARR \leq 2^{16}-1=65535$. The `ARR` value for duration can simply be calculated by the wait time multiplied by the frequency of the timer. Choosing a prescalar value of 4999 for the counter:
+$$
+ARR_{cnt} = \frac{ms}{1000} * f_{TIM} = \frac{ms}{1000} * \frac{f_{clk}}{(PSC_{cnt} + 1)}
+$$
+
+The minimum duration is found when `ARR` has the smallest value possible, or $ARR=0$:
+$$
+ARR_{cnt, min} = \frac{ms}{1000} * \frac{80000000}{4999+1} = 0 \Rightarrow ms = 0
+$$
+
+The maximum duration is found when `ARR` has the largest value possible, or $ARR=65535$:
+$$
+ARR_{cnt, max} = \frac{ms}{1000} * \frac{80000000}{4999+1} = 65535 \Rightarrow ms = 4095.9375
+$$
+
+Therefore, the duration which the system can take is from 0 to approximately 4096 ms. On the other hand, the 
+$$
+f_{note} = \frac{f_{TIM}}{ARR+1} = \frac{f_{clk}}{PSC_{PWM}+1} \frac{1}{ARR+1} 
+\Rightarrow 
+ARR_{PWM} = \frac{f_{clk}}{PSC_{PWM}+1} \frac{1}{f_{note}} - 1 
+$$
+
+
+## Testing and Results
+I was able to play Für Elise with the correct pitch and durations. On top of that, I chose to transcribe and another song of my choice: [Cheat Code](https://youtu.be/4VvbSmlcGxo?si=3Z56K4po3zwW2p6H) by NCT WISH. Since I couldn't find any free scores available online, I decided to simply listen and transcribe the last chorus of the song into a score, then making it into a series of pitches and durations. My device can successfully play the song, but it also made me realize how much more lively the song was with the arrangements. If I had more time, I think I would want to try recreating such arrangements, perhaps through changing pitches really rapidly, similar to some techniques that beat-boxers would use.
+
+## Conclusion
+In this lab, I successfully designed and built a MCU design that was able to play songs with correct pitches and durations, including the rests. As shown in previous sections, the pitches are calculated to be accurate within 1% across the frequency range. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 10 hours on the lab. Most of my times were spent on understanding the manuals and how each registers collaborated with each other. I hope I will be even more familiar with this process within the next few labs.
+
+## AI Prototype Summary
+For this AI prototype, I used ChatGPT. When feeding it the first prompt, the resulted design was unable to synthesize the first time. A synthesis error said that `new_key` is constantly driven from multiple places. Therefore, I asked it to fix it. Its second try also did not synthesize successfully, where there was a syntax error around `always_ff`. I also feeded back this error, and ChatGPT somehow came to the conclusion that my Lattice Radiant toolchain is not set up for full SystemVerilog-2005/2012 features. Later on, it decided to change its syntax to Verilog-2001 in its third try, which passed synthesis. The code it produced looks functionable at first sight. However, some of its choices, such as not having an `else` statement for the next state logic in FSM made me question whether this design would really work in real world.
+
+For the second approach of using modular prompts, after tailoring the port names of my seven-segment decoder into the code which ChatGPT produced, synthesis passed the first time. The general logic between the two prompts seemed similar, but the second prompt has a cleaner code and design. For example, the FSM of the second prompt had only 3 states whereas the first one had 4. The second prompt merged the press and release debounce into one. Similarly though, I still don't like the fact that there is no else statements for the next state logic.
+
+Despite their uncertainty of capabilities, the prompts were able to generate synthesizable designs fairly fast enough.
