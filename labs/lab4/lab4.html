@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -116,8 +145,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#prescalar-value-calculations" id="toc-prescalar-value-calculations" class="nav-link" data-scroll-target="#prescalar-value-calculations">Prescalar Value Calculations</a></li>
+  <li><a href="#testing-and-results" id="toc-testing-and-results" class="nav-link" data-scroll-target="#testing-and-results">Testing and Results</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +181,94 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The goal of this design is to practice using the MCU by generating square waves with timers and toggling a GPIO pin at specific frequencies and durations to play music.</p>
+</section>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>For this lab, I used <a href="https://github.com/HMC-E155/tutorial-clock-configuration/tree/solution/lib">libraries</a> provided by the course for setting up the RCC, FLASH, and GPIO. Then, I referenced the STM32L432KC <a href="https://www.st.com/resource/en/reference_manual/rm0394-stm32l41xxx42xxx43xxx44xxx45xxx46xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">reference manual</a>, <a href="https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf">programming manual</a>, and <a href="https://www.st.com/resource/en/datasheet/stm32l432kc.pdf">datasheet</a>. This helped creating code for setting up <code>TIM15</code> and <code>TIM16</code>, which are general purpose timers used here for waiting a certain duration and generating the PWM signal, respectively.</p>
+<p>The two timers are similar enough such that they are defined with a single struct and kept in the same header file, <a href="https://github.com/georgiatai/e155-lab4/blob/main/mcu/lib/STM32L432KC_TIM.h"><code>STM32L432KC_TIM.h</code></a>. The file <a href="https://github.com/georgiatai/e155-lab4/blob/main/mcu/lib/STM32L432KC_TIM.c"><code>STM32L432KC_TIM.c</code></a> contains functions with initializing the two timers and also functions for their waiting and signal generating purpose. <code>TIM15</code> was initialized according to the manuals with <code>initTIM</code> and waits for <code>ms</code> milliseconds with the function <code>delay_millis</code>. <code>TIM16</code> was initialized with function <code>initPWM</code> and uses the function <code>PWM_setDutyCycle</code> to generate a PWM signal with a certain duty cycle and frequency. Its output is sent from <code>TIM16_CH1</code> to <code>PA6</code> in <code>GPIOA</code> of the MCU.</p>
+<p>The circuitry design was referenced from the <a href="https://www.ti.com/lit/ds/symlink/lm386.pdf">LM386 datasheet</a>, where I chose to use the circuit with a gain of 50. The schematics for the physical circuit design is shown in the following graph:</p>
+<div id="fig-schematics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/schematics.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Schematics of the circuit design
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="prescalar-value-calculations" class="level2">
+<h2 class="anchored" data-anchor-id="prescalar-value-calculations">Prescalar Value Calculations</h2>
+<p>The formula for the <code>ARR</code>, the auto-reload value, or the number of cycles compared with the count, can be calculated by the following formulas. The <code>ARR</code> field in the registers has 16 bits. Therefore, <span class="math inline">\(0 \leq ARR \leq 2^{16}-1=65535\)</span>. The <code>ARR</code> value for duration can simply be calculated by the wait time multiplied by the frequency of the timer. Note that the wait time is inputted with an unit of milliseconds, and is thus scaled to seconds to comply with the timer frequency. Choosing a prescalar value of 4999 for the counter: <span class="math display">\[
+ARR_{cnt} = \frac{t}{1000} \times f_{TIM} = \frac{t}{1000} \times \frac{f_{clk}}{(PSC_{cnt} + 1)}
+\]</span></p>
+<p>The minimum duration is found when <code>ARR</code> has the smallest value possible, or <span class="math inline">\(ARR=0\)</span>: <span class="math display">\[
+ARR_{cnt, min} = \frac{t_{min}}{1000} \times \frac{80000000}{4999+1} = 0 \Rightarrow t_{min} = 0 \ ms
+\]</span></p>
+<p>The maximum duration is found when <code>ARR</code> has the largest value possible, or <span class="math inline">\(ARR=65535\)</span>: <span class="math display">\[
+ARR_{cnt, max} = \frac{t_{max}}{1000} \times \frac{80000000}{4999+1} = 65535 \Rightarrow t_{max} = 4095.9375 \ ms
+\]</span></p>
+<p>Therefore, the duration which the system can take is from 0 to approximately 4096 ms. On the other hand, the maximum and minimum frequency which the device can play is calculated with the following equation, with a chosen prescalar value of 799: <span class="math display">\[
+f_{note} = \frac{f_{TIM}}{ARR+1} = \frac{f_{clk}}{PSC_{PWM}+1} \times \frac{1}{ARR+1}
+\]</span> <span class="math display">\[
+\Rightarrow
+ARR_{PWM} = \frac{f_{clk}}{PSC_{PWM}+1} \times \frac{1}{f_{note}} - 1
+\]</span></p>
+<p>The minimum frequency is found when <code>ARR</code> has the largest value possible, or <span class="math inline">\(ARR=65535\)</span>: <span class="math display">\[
+ARR_{PWM, max} = \frac{80000000}{799+1} \times \frac{1}{f_{note, min}} - 1 = 65535 \Rightarrow f_{note, min} \approx 1.526 \ Hz
+\]</span></p>
+<p>The maximum frequency is found when <code>ARR</code> has the smallest value possible, or <span class="math inline">\(ARR=0\)</span>: <span class="math display">\[
+ARR_{PWM, min} = \frac{80000000}{799+1} \times \frac{1}{f_{note, max}} - 1 = 0 \Rightarrow f_{note, min} = 100000 \ Hz
+\]</span></p>
+<p>Therefore, the frequency which the system supports is from approximately 1.526 to 100000 Hz.</p>
+<p>For the frequency range of 220 to 1000 Hz, which is commonly used for most music, we calculate the error of our device from the desired frequency. We also choose 600 Hz to better represent across the range. First, we can calculate the actual <code>ARR</code> value with our chosen PWM timer prescalar of 799, note that the number is treated as <code>int</code> and rounded to the nearest whole number: <span class="math display">\[
+ARR_{PWM, 220Hz}  = \frac{80000000}{799+1} \times \frac{1}{220} - 1  \approx 453.54 \approx 454
+\]</span> <span class="math display">\[
+ARR_{PWM, 600Hz}  = \frac{80000000}{799+1} \times \frac{1}{600} - 1  \approx 165.67 \approx 166 \\
+\]</span> <span class="math display">\[
+ARR_{PWM, 1000Hz} = \frac{80000000}{799+1} \times \frac{1}{1000} - 1 = 99
+\]</span></p>
+<p>The real PWM frequency produced by this <code>ARR</code> value is thus: <span class="math display">\[
+f_{220Hz, prod}  = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 220Hz}  + 1} \approx 219.780219
+\]</span> <span class="math display">\[
+f_{600Hz, prod}  = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 600Hz}  + 1} \approx 598.8024
+\]</span> <span class="math display">\[
+f_{1000Hz, prod} = \frac{80000000}{799+1} \times \frac{1}{ARR_{PWM, 1000Hz} + 1} = 1000
+\]</span></p>
+<p>The error for each of these frequencies is: <span class="math display">\[
+err_{220Hz}  = \frac{f_{220Hz, prod}  - 220}{220}   \approx -0.000999 \approx -0.1\%
+\]</span> <span class="math display">\[
+err_{600Hz}  = \frac{f_{600Hz, prod}  - 600}{600}   \approx -0.001996 \approx -0.2\%
+\]</span> <span class="math display">\[
+err_{1000Hz} = \frac{f_{1000Hz, prod} - 1000}{1000} = 0
+\]</span></p>
+<p>The error for each frequencies is well below 1%, we can thus assume that the error will also be below 1% across the frequency range of 220 to 1000 Hz on the device.</p>
+</section>
+<section id="testing-and-results" class="level2">
+<h2 class="anchored" data-anchor-id="testing-and-results">Testing and Results</h2>
+<p>I was able to play Für Elise with the correct pitch and durations. On top of that, I chose to transcribe and another song of my choice: <a href="https://youtu.be/4VvbSmlcGxo?si=3Z56K4po3zwW2p6H">Cheat Code</a> by NCT WISH. Since I couldn’t find any free scores available online, I decided to simply listen and transcribe the last chorus of the song into a score, then making it into a series of pitches and durations. My device can successfully play the song, but it also made me realize how much more lively the song was with the arrangements. If I had more time, I think I would want to try recreating such arrangements, perhaps through changing pitches really rapidly, similar to some techniques that beat-boxers would use.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In this lab, I successfully designed and built a MCU design that was able to play songs with correct pitches and durations, including the rests. As shown in previous sections, the pitches are calculated to be accurate within 1% across the frequency range. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 10 hours on the lab. Most of my times were spent on understanding the manuals and how each registers collaborated with each other. I hope I will be even more familiar with this process within the next few labs.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>For this AI prototype, I used ChatGPT. When feeding it the first prompt, it concluded that:</p>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>On the Nucleo-L432KC, TIM2 is especially convenient because it’s 32-bit and widely mapped to GPIO pins. But for your frequency range, a 16-bit timer (like TIM15/16/17) is more than enough.</p>
+</blockquote>
+</blockquote>
+<p>It provided the formula to the correct timer frequency, however, the output frequency was different from what I expected by a factor of 2, as I believe that it was confusing the frequency with the duty cycle and the actual frequency of the note. For setting up the timers, it first suggested setting up <code>RCC</code> without much instructions, then <code>PSC</code>, <code>ARR</code>, <code>CCRx</code>, <code>CCMRx</code>, <code>CCER</code>, <code>BDTR</code>, <code>GPIO_AFR</code>, and <code>CR1</code>. The list pretty much covers what I have for making my device to work, but did not include <code>EGR</code> to update the events.</p>
+<p>After providing the reference manual and asking ChatGPT to confirm/modify its previous answer, it detailed the answer better, providing more keywords found in the manual, such as <code>TIM2_CHx</code> for the output channel of the timers, and explained better the mapping between the GPIO and the timers. It did not change anything about the formula, but did additionally mention <code>EGR</code> for as an optional step when setting up the timers.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

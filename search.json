@@ -49,6 +49,55 @@
     "text": "Lab 7: The Advanced Encryption Standard"
   },
   {
+    "objectID": "labs/lab4/lab4.html",
+    "href": "labs/lab4/lab4.html",
+    "title": "Lab 4: Digital Audio",
+    "section": "",
+    "text": "The goal of this design is to practice using the MCU by generating square waves with timers and toggling a GPIO pin at specific frequencies and durations to play music."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#introduction",
+    "href": "labs/lab4/lab4.html#introduction",
+    "title": "Lab 4: Digital Audio",
+    "section": "",
+    "text": "The goal of this design is to practice using the MCU by generating square waves with timers and toggling a GPIO pin at specific frequencies and durations to play music."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#design",
+    "href": "labs/lab4/lab4.html#design",
+    "title": "Lab 4: Digital Audio",
+    "section": "Design",
+    "text": "Design\nFor this lab, I used libraries provided by the course for setting up the RCC, FLASH, and GPIO. Then, I referenced the STM32L432KC reference manual, programming manual, and datasheet. This helped creating code for setting up TIM15 and TIM16, which are general purpose timers used here for waiting a certain duration and generating the PWM signal, respectively.\nThe two timers are similar enough such that they are defined with a single struct and kept in the same header file, STM32L432KC_TIM.h. The file STM32L432KC_TIM.c contains functions with initializing the two timers and also functions for their waiting and signal generating purpose. TIM15 was initialized according to the manuals with initTIM and waits for ms milliseconds with the function delay_millis. TIM16 was initialized with function initPWM and uses the function PWM_setDutyCycle to generate a PWM signal with a certain duty cycle and frequency. Its output is sent from TIM16_CH1 to PA6 in GPIOA of the MCU.\nThe circuitry design was referenced from the LM386 datasheet, where I chose to use the circuit with a gain of 50. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 1: Schematics of the circuit design"
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#prescalar-value-calculations",
+    "href": "labs/lab4/lab4.html#prescalar-value-calculations",
+    "title": "Lab 4: Digital Audio",
+    "section": "Prescalar Value Calculations",
+    "text": "Prescalar Value Calculations\nThe formula for the ARR, the auto-reload value, or the number of cycles compared with the count, can be calculated by the following formulas. The ARR field in the registers has 16 bits. Therefore, \\(0 \\leq ARR \\leq 2^{16}-1=65535\\). The ARR value for duration can simply be calculated by the wait time multiplied by the frequency of the timer. Note that the wait time is inputted with an unit of milliseconds, and is thus scaled to seconds to comply with the timer frequency. Choosing a prescalar value of 4999 for the counter: \\[\nARR_{cnt} = \\frac{t}{1000} \\times f_{TIM} = \\frac{t}{1000} \\times \\frac{f_{clk}}{(PSC_{cnt} + 1)}\n\\]\nThe minimum duration is found when ARR has the smallest value possible, or \\(ARR=0\\): \\[\nARR_{cnt, min} = \\frac{t_{min}}{1000} \\times \\frac{80000000}{4999+1} = 0 \\Rightarrow t_{min} = 0 \\ ms\n\\]\nThe maximum duration is found when ARR has the largest value possible, or \\(ARR=65535\\): \\[\nARR_{cnt, max} = \\frac{t_{max}}{1000} \\times \\frac{80000000}{4999+1} = 65535 \\Rightarrow t_{max} = 4095.9375 \\ ms\n\\]\nTherefore, the duration which the system can take is from 0 to approximately 4096 ms. On the other hand, the maximum and minimum frequency which the device can play is calculated with the following equation, with a chosen prescalar value of 799: \\[\nf_{note} = \\frac{f_{TIM}}{ARR+1} = \\frac{f_{clk}}{PSC_{PWM}+1} \\times \\frac{1}{ARR+1}\n\\] \\[\n\\Rightarrow\nARR_{PWM} = \\frac{f_{clk}}{PSC_{PWM}+1} \\times \\frac{1}{f_{note}} - 1\n\\]\nThe minimum frequency is found when ARR has the largest value possible, or \\(ARR=65535\\): \\[\nARR_{PWM, max} = \\frac{80000000}{799+1} \\times \\frac{1}{f_{note, min}} - 1 = 65535 \\Rightarrow f_{note, min} \\approx 1.526 \\ Hz\n\\]\nThe maximum frequency is found when ARR has the smallest value possible, or \\(ARR=0\\): \\[\nARR_{PWM, min} = \\frac{80000000}{799+1} \\times \\frac{1}{f_{note, max}} - 1 = 0 \\Rightarrow f_{note, min} = 100000 \\ Hz\n\\]\nTherefore, the frequency which the system supports is from approximately 1.526 to 100000 Hz.\nFor the frequency range of 220 to 1000 Hz, which is commonly used for most music, we calculate the error of our device from the desired frequency. We also choose 600 Hz to better represent across the range. First, we can calculate the actual ARR value with our chosen PWM timer prescalar of 799, note that the number is treated as int and rounded to the nearest whole number: \\[\nARR_{PWM, 220Hz}  = \\frac{80000000}{799+1} \\times \\frac{1}{220} - 1  \\approx 453.54 \\approx 454\n\\] \\[\nARR_{PWM, 600Hz}  = \\frac{80000000}{799+1} \\times \\frac{1}{600} - 1  \\approx 165.67 \\approx 166 \\\\\n\\] \\[\nARR_{PWM, 1000Hz} = \\frac{80000000}{799+1} \\times \\frac{1}{1000} - 1 = 99\n\\]\nThe real PWM frequency produced by this ARR value is thus: \\[\nf_{220Hz, prod}  = \\frac{80000000}{799+1} \\times \\frac{1}{ARR_{PWM, 220Hz}  + 1} \\approx 219.780219\n\\] \\[\nf_{600Hz, prod}  = \\frac{80000000}{799+1} \\times \\frac{1}{ARR_{PWM, 600Hz}  + 1} \\approx 598.8024\n\\] \\[\nf_{1000Hz, prod} = \\frac{80000000}{799+1} \\times \\frac{1}{ARR_{PWM, 1000Hz} + 1} = 1000\n\\]\nThe error for each of these frequencies is: \\[\nerr_{220Hz}  = \\frac{f_{220Hz, prod}  - 220}{220}   \\approx -0.000999 \\approx -0.1\\%\n\\] \\[\nerr_{600Hz}  = \\frac{f_{600Hz, prod}  - 600}{600}   \\approx -0.001996 \\approx -0.2\\%\n\\] \\[\nerr_{1000Hz} = \\frac{f_{1000Hz, prod} - 1000}{1000} = 0\n\\]\nThe error for each frequencies is well below 1%, we can thus assume that the error will also be below 1% across the frequency range of 220 to 1000 Hz on the device."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#testing-and-results",
+    "href": "labs/lab4/lab4.html#testing-and-results",
+    "title": "Lab 4: Digital Audio",
+    "section": "Testing and Results",
+    "text": "Testing and Results\nI was able to play Für Elise with the correct pitch and durations. On top of that, I chose to transcribe and another song of my choice: Cheat Code by NCT WISH. Since I couldn’t find any free scores available online, I decided to simply listen and transcribe the last chorus of the song into a score, then making it into a series of pitches and durations. My device can successfully play the song, but it also made me realize how much more lively the song was with the arrangements. If I had more time, I think I would want to try recreating such arrangements, perhaps through changing pitches really rapidly, similar to some techniques that beat-boxers would use."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#conclusion",
+    "href": "labs/lab4/lab4.html#conclusion",
+    "title": "Lab 4: Digital Audio",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn this lab, I successfully designed and built a MCU design that was able to play songs with correct pitches and durations, including the rests. As shown in previous sections, the pitches are calculated to be accurate within 1% across the frequency range. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 10 hours on the lab. Most of my times were spent on understanding the manuals and how each registers collaborated with each other. I hope I will be even more familiar with this process within the next few labs."
+  },
+  {
+    "objectID": "labs/lab4/lab4.html#ai-prototype-summary",
+    "href": "labs/lab4/lab4.html#ai-prototype-summary",
+    "title": "Lab 4: Digital Audio",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the first prompt, it concluded that:\n\n\nOn the Nucleo-L432KC, TIM2 is especially convenient because it’s 32-bit and widely mapped to GPIO pins. But for your frequency range, a 16-bit timer (like TIM15/16/17) is more than enough.\n\n\nIt provided the formula to the correct timer frequency, however, the output frequency was different from what I expected by a factor of 2, as I believe that it was confusing the frequency with the duty cycle and the actual frequency of the note. For setting up the timers, it first suggested setting up RCC without much instructions, then PSC, ARR, CCRx, CCMRx, CCER, BDTR, GPIO_AFR, and CR1. The list pretty much covers what I have for making my device to work, but did not include EGR to update the events.\nAfter providing the reference manual and asking ChatGPT to confirm/modify its previous answer, it detailed the answer better, providing more keywords found in the manual, such as TIM2_CHx for the output channel of the timers, and explained better the mapping between the GPIO and the timers. It did not change anything about the formula, but did additionally mention EGR for as an optional step when setting up the timers."
+  },
+  {
     "objectID": "labs/lab2/lab2.html",
     "href": "labs/lab2/lab2.html",
     "title": "Lab 2: Multiplexed 7-Segment Display",
@@ -187,6 +236,48 @@
     "title": "Lab 3: Keypad Scanner",
     "section": "AI Prototype Summary",
     "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the first prompt, the resulted design was unable to synthesize the first time. A synthesis error said that new_key is constantly driven from multiple places. Therefore, I asked it to fix it. Its second try also did not synthesize successfully, where there was a syntax error around always_ff. I also feeded back this error, and ChatGPT somehow came to the conclusion that my Lattice Radiant toolchain is not set up for full SystemVerilog-2005/2012 features. Later on, it decided to change its syntax to Verilog-2001 in its third try, which passed synthesis. The code it produced looks functionable at first sight. However, some of its choices, such as not having an else statement for the next state logic in FSM made me question whether this design would really work in real world.\nFor the second approach of using modular prompts, after tailoring the port names of my seven-segment decoder into the code which ChatGPT produced, synthesis passed the first time. The general logic between the two prompts seemed similar, but the second prompt has a cleaner code and design. For example, the FSM of the second prompt had only 3 states whereas the first one had 4. The second prompt merged the press and release debounce into one. Similarly though, I still don’t like the fact that there is no else statements for the next state logic.\nDespite their uncertainty of capabilities, the prompts were able to generate synthesizable designs fairly fast enough."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html",
+    "href": "labs/lab5/lab5.html",
+    "title": "Lab 5: Interrupts",
+    "section": "",
+    "text": "The goal of this design is to practice implementing interrupts by measuring the rotational speed of a motor with a MCU."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#introduction",
+    "href": "labs/lab5/lab5.html#introduction",
+    "title": "Lab 5: Interrupts",
+    "section": "",
+    "text": "The goal of this design is to practice implementing interrupts by measuring the rotational speed of a motor with a MCU."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#design",
+    "href": "labs/lab5/lab5.html#design",
+    "title": "Lab 5: Interrupts",
+    "section": "Design",
+    "text": "Design\nFor this lab, the motor being tested, with a known 408 pulses per revolution (PPR), is connected to a quadrature encoders whose two ports, encoder A and encoder B, have a 90 degree out of phase. By counting both the rising and falling edges of both encoder A and B, each pulse is equivalent to 4 trigger events, and thus the rotational speed, in rev/s, can be given by: \\[\nV_{rot} = \\frac{count_{trigger}}{4*408}\n\\]\nI used libraries provided by the course for setting up most of the MCU. However, I reused the timer functions which I created in lab 4, since I was more familiar with its prescalar calculations. Referencing the STM32L432KC reference manual, programming manual, and datasheet, I was able to utilize functions to set up and enable the interrupts. Specifically, PA9 for encoder A and PA10 for encoder B was chosen as they were 5V compatible.\nTo enable the interrupts and correctly handle them, I wrote the functions EXTI9_5_IRQHandler and EXTI15_10_IRQHandler, respectively for PA9 and PA10. The handlers should update (increase or decrease) the count of triggers and determine the direction of the rotation. From observation, it can be seen that which ever encoder came first for each rotating direction has high on rising edge and low on falling, whereas the other encoder is a low and high, respectively. On the other hand, which ever came the later for each rotating direction had both encoders on high or low when there is an edge. Using such logic, we can find the direction which the motor is spinning by reading the input pins when interrupts happen. The flow chart for the interrupt design is described in the following picture:\n\n\n\nFlow chart of interrupt design\n\n\nThen, for every 1 second delay, the device prints the rotation speed and direction which the motor is spinning.\nThe circuitry design was referenced from the motor datasheet attached above, and no additional components were connected. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 1: Schematics of the circuit design"
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#testing-and-results",
+    "href": "labs/lab5/lab5.html#testing-and-results",
+    "title": "Lab 5: Interrupts",
+    "section": "Testing and Results",
+    "text": "Testing and Results\nWhen 10.02V is supplied to the motor, the output of one of its encoder has a frequency of 954 Hz, as shown in the following oscilloscope trace:\n\n\n\nOscilloscope trace of encoder at 10.02V\n\n\nGiven that the PPR is 408, its rotational speed should be: \\[\n\\omega_{10.02V} = \\frac{954 \\ Hz}{408 \\ rev^{-1}} \\approx 2.338 \\  rev/s\n\\]\nThe motor speed outputted by my device was 2.361 rev/s, which is close to the calculated result, and the rotational direction was confirmed to be correct through visual observation. When the motor is turned off, the outputted motor speed is then 0. At both high and low speed, the device showed a steady output of reasonable motor speed.\nTo compare the performaces between interrupts and manual polling, I modified the delay_millis function in the TIM file. Within the while loop of waiting for the UIF flag to set, I added code to check if there is any changes in the values of both encoder, and recognize it as a trigger if there is a change. From then, I used a similar logic in the interrupt to count the number of trigger events and determine the direction of rotation. Once the flag is set, the device then calculates and outputs the rotational speed and direction. Supposedly, at higher motor speed, the manual polling would fail to detect some of the changes in encoders, resulting in an incorrect motor speed value."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#conclusion",
+    "href": "labs/lab5/lab5.html#conclusion",
+    "title": "Lab 5: Interrupts",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn this lab, I successfully designed and built a MCU design that was able to correctly measure the motor speed and rotational direction. As mentioned in previous sections, the motor speed are close to theoretical values and was steady throughout operations. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 8 hours on the lab. One issue that I spent the most time debugging was my hardware, which I believe had some soldering issues. When the MCU is connected with the ribbon cable, I was unable to read to the pins. However, when I directly wire the circuit to the MCU on a breadboard, my device worked fine."
+  },
+  {
+    "objectID": "labs/lab5/lab5.html#ai-prototype-summary",
+    "href": "labs/lab5/lab5.html#ai-prototype-summary",
+    "title": "Lab 5: Interrupts",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the prompt initially, it was completely unable to run as it was using the wrong syntax, such as GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1; or HAL_NVIC_EnableIRQ(EXTI0_IRQn);. After providing it the link to the header file of the device, however, it was able to generate correct syntax by using bit masking. At this point, the general logic of enabling and handling the interrupt seemed fine, but as it was not specified in the prompt, the code was missing parts that would calculate and output the motor speed. Interestingly, after asking for calculating and outputting the motor speed, ChatGPT once again generated new code with the wrong syntax, similar to those before the header file was provided. Therefore, although I do think that ChatGPT provides a reasonable place to start, for example how to enable the interrupts, it lacks more of integrating the system and outputting at our desired times."
   },
   {
     "objectID": "posts/week0_learningGoals.html",

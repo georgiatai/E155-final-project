@@ -68,6 +68,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -116,8 +145,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#testing-and-results" id="toc-testing-and-results" class="nav-link" data-scroll-target="#testing-and-results">Testing and Results</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -141,8 +180,61 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>The goal of this design is to practice implementing interrupts by measuring the rotational speed of a motor with a MCU.</p>
+</section>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>For this lab, the <a href="https://hmc-e155.github.io/assets/lab/25GA370.pdf">motor</a> being tested, with a known 408 pulses per revolution (PPR), is connected to a quadrature encoders whose two ports, encoder A and encoder B, have a 90 degree out of phase. By counting both the rising and falling edges of both encoder A and B, each pulse is equivalent to 4 trigger events, and thus the rotational speed, in rev/s, can be given by: <span class="math display">\[
+V_{rot} = \frac{count_{trigger}}{4*408}
+\]</span></p>
+<p>I used <a href="https://github.com/HMC-E155/tutorial-interrupts/tree/solution">libraries</a> provided by the course for setting up most of the MCU. However, I reused the <a href="https://github.com/georgiatai/e155-lab5/blob/main/mcu/lib/STM32L432KC_TIM.c">timer functions</a> which I created in lab 4, since I was more familiar with its prescalar calculations. Referencing the STM32L432KC <a href="https://www.st.com/resource/en/reference_manual/rm0394-stm32l41xxx42xxx43xxx44xxx45xxx46xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">reference manual</a>, <a href="https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf">programming manual</a>, and <a href="https://www.st.com/resource/en/datasheet/stm32l432kc.pdf">datasheet</a>, I was able to utilize functions to set up and enable the interrupts. Specifically, <code>PA9</code> for encoder A and <code>PA10</code> for encoder B was chosen as they were 5V compatible.</p>
+<p>To enable the interrupts and correctly handle them, I wrote the functions <code>EXTI9_5_IRQHandler</code> and <code>EXTI15_10_IRQHandler</code>, respectively for <code>PA9</code> and <code>PA10</code>. The handlers should update (increase or decrease) the count of triggers and determine the direction of the rotation. From observation, it can be seen that which ever encoder came first for each rotating direction has high on rising edge and low on falling, whereas the other encoder is a low and high, respectively. On the other hand, which ever came the later for each rotating direction had both encoders on high or low when there is an edge. Using such logic, we can find the direction which the motor is spinning by reading the input pins when interrupts happen. The flow chart for the interrupt design is described in the following picture:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/flowchart.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Flow chart of interrupt design</figcaption>
+</figure>
+</div>
+<p>Then, for every 1 second delay, the device prints the rotation speed and direction which the motor is spinning.</p>
+<p>The circuitry design was referenced from the motor datasheet attached above, and no additional components were connected. The schematics for the physical circuit design is shown in the following graph:</p>
+<div id="fig-schematics" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/schematics.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schematics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Schematics of the circuit design
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="testing-and-results" class="level2">
+<h2 class="anchored" data-anchor-id="testing-and-results">Testing and Results</h2>
+<p>When 10.02V is supplied to the motor, the output of one of its encoder has a frequency of 954 Hz, as shown in the following oscilloscope trace:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/oscilloscope_enc.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Oscilloscope trace of encoder at 10.02V</figcaption>
+</figure>
+</div>
+<p>Given that the PPR is 408, its rotational speed should be: <span class="math display">\[
+\omega_{10.02V} = \frac{954 \ Hz}{408 \ rev^{-1}} \approx 2.338 \  rev/s
+\]</span></p>
+<p>The motor speed outputted by my device was 2.361 rev/s, which is close to the calculated result, and the rotational direction was confirmed to be correct through visual observation. When the motor is turned off, the outputted motor speed is then 0. At both high and low speed, the device showed a steady output of reasonable motor speed.</p>
+<p>To compare the performaces between interrupts and manual polling, I modified the <code>delay_millis</code> function in the TIM file. Within the while loop of waiting for the <code>UIF</code> flag to set, I added code to check if there is any changes in the values of both encoder, and recognize it as a trigger if there is a change. From then, I used a similar logic in the interrupt to count the number of trigger events and determine the direction of rotation. Once the flag is set, the device then calculates and outputs the rotational speed and direction. Supposedly, at higher motor speed, the manual polling would fail to detect some of the changes in encoders, resulting in an incorrect motor speed value.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In this lab, I successfully designed and built a MCU design that was able to correctly measure the motor speed and rotational direction. As mentioned in previous sections, the motor speed are close to theoretical values and was steady throughout operations. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 8 hours on the lab. One issue that I spent the most time debugging was my hardware, which I believe had some soldering issues. When the MCU is connected with the ribbon cable, I was unable to read to the pins. However, when I directly wire the circuit to the MCU on a breadboard, my device worked fine.</p>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<p>For this AI prototype, I used ChatGPT. When feeding it the prompt initially, it was completely unable to run as it was using the wrong syntax, such as <code>GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;</code> or <code>HAL_NVIC_EnableIRQ(EXTI0_IRQn);</code>. After providing it the link to the header file of the device, however, it was able to generate correct syntax by using bit masking. At this point, the general logic of enabling and handling the interrupt seemed fine, but as it was not specified in the prompt, the code was missing parts that would calculate and output the motor speed. Interestingly, after asking for calculating and outputting the motor speed, ChatGPT once again generated new code with the wrong syntax, similar to those before the header file was provided. Therefore, although I do think that ChatGPT provides a reasonable place to start, for example how to enable the interrupts, it lacks more of integrating the system and outputting at our desired times.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
