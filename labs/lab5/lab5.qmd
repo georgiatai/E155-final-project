@@ -46,7 +46,7 @@ $$
 
 This made sense since when I tried to gate and use polling, the device also outputted correct motor speed even up until 4 rev/s. As for the interrupt, using a function generator, I found that the device can no longer output the correct frequency which it was receiving at around 13 kHz. Therefore, the maximum motor speed it should be able to detect is:
 $$
-\omega_{max, int} = \frac{13 * 10^3 \ Hz}{408 \ rev^{-1}} \approx 27.03 \  rev/s
+\omega_{max, int} = \frac{13 * 10^3 \ Hz}{408 \ rev^{-1}} \approx 31.86 \  rev/s
 $$
 
 The interrupt would thus work better at a high speed.
