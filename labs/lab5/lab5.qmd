@@ -1,3 +1,44 @@
 ---
 title: "Lab 5: Interrupts"
 ---
+
+## Introduction
+The goal of this design is to practice implementing interrupts by measuring the rotational speed of a motor with a MCU. 
+
+## Design
+For this lab, the [motor](https://hmc-e155.github.io/assets/lab/25GA370.pdf) being tested, with a known 408 pulses per revolution (PPR), is connected to a quadrature encoders whose two ports, encoder A and encoder B, have a 90 degree out of phase. By counting both the rising and falling edges of both encoder A and B, each pulse is equivalent to 4 trigger events, and thus the rotational speed, in rev/s, can be given by:
+$$
+V_{rot} = \frac{count_{trigger}}{4*408}
+$$
+
+I used [libraries](https://github.com/HMC-E155/tutorial-interrupts/tree/solution) provided by the course for setting up most of the MCU. However, I reused the [timer functions](https://github.com/georgiatai/e155-lab5/blob/main/mcu/lib/STM32L432KC_TIM.c) which I created in lab 4, since I was more familiar with its prescalar calculations. Referencing the STM32L432KC [reference manual](https://www.st.com/resource/en/reference_manual/rm0394-stm32l41xxx42xxx43xxx44xxx45xxx46xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf), [programming manual](https://www.st.com/resource/en/programming_manual/pm0214-stm32-cortexm4-mcus-and-mpus-programming-manual-stmicroelectronics.pdf), and [datasheet](https://www.st.com/resource/en/datasheet/stm32l432kc.pdf), I was able to utilize functions to set up and enable the interrupts. Specifically, `PA9` for encoder A and `PA10` for encoder B was chosen as they were 5V compatible.
+
+To enable the interrupts and correctly handle them, I wrote the functions `EXTI9_5_IRQHandler` and `EXTI15_10_IRQHandler`, respectively for `PA9` and `PA10`. The handlers should update (increase or decrease) the count of triggers and determine the direction of the rotation. From observation, it can be seen that which ever encoder came first for each rotating direction has high on rising edge and low on falling, whereas the other encoder is a low and high, respectively. On the other hand, which ever came the later for each rotating direction had both encoders on high or low when there is an edge. Using such logic, we can find the direction which the motor is spinning by reading the input pins when interrupts happen. The flow chart for the interrupt design is described in the following picture:
+
+![Flow chart of interrupt design](images/flowchart.jpeg)
+
+Then, for every 1 second delay, the device prints the rotation speed and direction which the motor is spinning.
+
+The circuitry design was referenced from the motor datasheet attached above, and no additional components were connected. The schematics for the physical circuit design is shown in the following graph:
+
+![Schematics of the circuit design](images/schematics.jpeg){#fig-schematics}
+
+## Testing and Results
+When 10.02V is supplied to the motor, the output of one of its encoder has a frequency of 954 Hz, as shown in the following oscilloscope trace:
+
+![Oscilloscope trace of encoder at 10.02V](images/oscilloscope_enc.jpeg)
+
+Given that the PPR is 408, its rotational speed should be:
+$$
+\omega_{10.02V} = \frac{954 \ Hz}{408 \ rev^{-1}} \approx 2.338 \  rev/s
+$$
+
+The motor speed outputted by my device was 2.361 rev/s, which is close to the calculated result, and the rotational direction was confirmed to be correct through visual observation. When the motor is turned off, the outputted motor speed is then 0. At both high and low speed, the device showed a steady output of reasonable motor speed.
+
+To compare the performaces between interrupts and manual polling, I modified the `delay_millis` function in the TIM file. Within the while loop of waiting for the `UIF` flag to set, I added code to check if there is any changes in the values of both encoder, and recognize it as a trigger if there is a change. From then, I used a similar logic in the interrupt to count the number of trigger events and determine the direction of rotation. Once the flag is set, the device then calculates and outputs the rotational speed and direction. Supposedly, at higher motor speed, the manual polling would fail to detect some of the changes in encoders, resulting in an incorrect motor speed value.
+
+## Conclusion
+In this lab, I successfully designed and built a MCU design that was able to correctly measure the motor speed and rotational direction. As mentioned in previous sections, the motor speed are close to theoretical values and was steady throughout operations. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 8 hours on the lab. One issue that I spent the most time debugging was my hardware, which I believe had some soldering issues. When the MCU is connected with the ribbon cable, I was unable to read to the pins. However, when I directly wire the circuit to the MCU on a breadboard, my device worked fine.
+
+## AI Prototype Summary
+For this AI prototype, I used ChatGPT. When feeding it the prompt initially, it was completely unable to run as it was using the wrong syntax, such as `GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;` or `HAL_NVIC_EnableIRQ(EXTI0_IRQn);`. After providing it the link to the header file of the device, however, it was able to generate correct syntax by using bit masking. At this point, the general logic of enabling and handling the interrupt seemed fine, but as it was not specified in the prompt, the code was missing parts that would calculate and output the motor speed. Interestingly, after asking for calculating and outputting the motor speed, ChatGPT once again generated new code with the wrong syntax, similar to those before the header file was provided. Therefore, although I do think that ChatGPT provides a reasonable place to start, for example how to enable the interrupts, it lacks more of integrating the system and outputting at our desired times.
