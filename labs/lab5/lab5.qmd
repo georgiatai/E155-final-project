@@ -26,7 +26,7 @@ The circuitry design was referenced from the motor datasheet attached above, and
 ## Testing and Results
 When 10.02V is supplied to the motor, the output of one of its encoder has a frequency of 954 Hz, as shown in the following oscilloscope trace:
 
-![Oscilloscope trace of encoder at 10.02V](images/oscilloscope_enc.jpeg)
+![Oscilloscope trace of encoder at 10.02V](images/oscilloscope_enc.jpeg){#fig-oscenc}
 
 Given that the PPR is 408, its rotational speed should be:
 $$
@@ -35,7 +35,21 @@ $$
 
 The motor speed outputted by my device was 2.361 rev/s, which is close to the calculated result, and the rotational direction was confirmed to be correct through visual observation. When the motor is turned off, the outputted motor speed is then 0. At both high and low speed, the device showed a steady output of reasonable motor speed.
 
-To compare the performaces between interrupts and manual polling, I modified the `delay_millis` function in the TIM file. Within the while loop of waiting for the `UIF` flag to set, I added code to check if there is any changes in the values of both encoder, and recognize it as a trigger if there is a change. From then, I used a similar logic in the interrupt to count the number of trigger events and determine the direction of rotation. Once the flag is set, the device then calculates and outputs the rotational speed and direction. Supposedly, at higher motor speed, the manual polling would fail to detect some of the changes in encoders, resulting in an incorrect motor speed value.
+To compare the performaces between interrupts and manual polling, I disabled the interrupt and toggled a pin for when each loop of my while loop is being ran, providing the motor a voltage of 10.02 V. The output is shown in the graph below:
+
+![Oscilloscope trace of polling output at 10.02V](images/oscilloscope_polnew.jpeg)
+
+The toggled pin had a frequency of 7.81 kHz. The maximum motor speed which it should be able to detect is thus:
+$$
+\omega_{max, pol} = \frac{7.81 * 10^3 \ Hz}{408 \ rev^{-1}} \approx 19.14 \  rev/s
+$$
+
+This made sense since when I tried to gate and use polling, the device also outputted correct motor speed even up until 4 rev/s. As for the interrupt, using a function generator, I found that the device can no longer output the correct frequency which it was receiving at around 13 kHz. Therefore, the maximum motor speed it should be able to detect is:
+$$
+\omega_{max, int} = \frac{13 * 10^3 \ Hz}{408 \ rev^{-1}} \approx 27.03 \  rev/s
+$$
+
+The interrupt would thus work better at a high speed.
 
 ## Conclusion
 In this lab, I successfully designed and built a MCU design that was able to correctly measure the motor speed and rotational direction. As mentioned in previous sections, the motor speed are close to theoretical values and was steady throughout operations. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 8 hours on the lab. One issue that I spent the most time debugging was my hardware, which I believe had some soldering issues. When the MCU is connected with the ribbon cable, I was unable to read to the pins. However, when I directly wire the circuit to the MCU on a breadboard, my device worked fine.
