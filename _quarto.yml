@@ -2,15 +2,11 @@ project:
   type: website
 
 website:
-  title: "E155 Portfolio"
+  title: "E155 Final Project"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - href: labs.qmd
-        text: Labs
-      - href: blog.qmd
-        text: Blog
       - href: resources.qmd
         text: Resources
 
