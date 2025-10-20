@@ -1,0 +1,73 @@
+---
+title: "Project Proposal"
+---
+Julia Gong and Georgia Tai
+
+## Project Description
+This project aims to take in sound inputs, whether using a keyboard, any instruments, or someone signing, transcribe the sound onto a score real-time with a given bpm, and play back the input melody. An FPGA will be used as the main calculation and display engine, using Fast Fourier Transform (FFT) to handle frequency analysis and driving a VGA display. A MCU will be used for interfacing the audio inputs and outputs.
+
+On the hardware level, an analog microphone will take in sounds, where the MCU will transform them into digital signals using ADC and send the transformed signals to the FPGA. The FPGA and the MCU are connected with a SPI. Then, the FPGA will use FFT to extract the frequency and duration of the note inputted. The array of notes will then be used by the FPGA to calculate the pixels for displaying the score on a VGA display. This array of notes, after transcription ends, will be sent to the MCU through SPI to generate the playback audio. The user should be able to start the playback with a hardware component such as a switch or a button, and control the volume with a potentiometer.
+
+[maybe we should describe more in detail on each component...? e.g. frequency of vga, expected constraints]
+
+[block diagram - Julia]
+
+## Project Specifications
+### Input: detection and analysis
+* User can stop and start transcription using physical hardware (e.g. switch/button)
+* System converts analog microphone signals into digital
+* Uses FFT to extract clear signal from input
+* Calculates frequency and duration of inputs accurately
+
+### Output: display and audio
+* Display updates at > 24 Hz
+* Notes display in real time 
+* Note durations are displayed for 120 bpm
+* Playback audio resembles the input 
+* Playback audio uses an audio codec so that output sound is not square wave
+* User can control the volume of playback audio
+* User can control when to playback the transcribed audio (e.g. switch/button), but can only play the audio  when transcription is stopped
+
+
+## Design Overview
+
+[description of functions of fpga and mcu - Georgia]
+
+## Calculations
+
+[fft calculations - Julia]
+[vga calculations - Georgia]
+
+## Proposed Timeline and Work Distribution
+
+| Week | Monday Date | Task                                                                                       | Time  | People | Notes                               |
+|------|-------------|--------------------------------------------------------------------------------------------|-------|--------|-------------------------------------|
+| 1    | 10/27       | Design FFT hardware on FGPA                                                                | 15hr+ |        |                                     |
+|      |             | Working microphone and SPI between FPGA & MCU                                              | 8hr+  |        |                                     |
+| 2    | 11/3        | VGA implementation: setting score interface, able to display notes (no input dependencies) | 15hr+ |        |                                     |
+|      |             | Prepare design review presentation                                                         | 2hr+  | Both   | 11/4-6: Design Review Presentation  |
+| 3    | 11/10       | Connecting input and VGA, allowing notes obtained by FFT to display on screen              | 10hr+ |        |                                     |
+| 4    | 11/17       | Prepare for project status report and demo                                                 | 2hr+  | Both   | 11/18: Project status report & demo |
+|      |             | Continuing to debug real time note display on VGA                                          | 15hr+ |        |                                     |
+|      |             | Implementing duration detection for different bpms                                         | 7hr+  |        | Less priority, if time allows       |
+| 5    | 11/24       | Integrating playback audio using SPI communication, audio codec, and speaker               | 8hr+  |        | 11/26-30: Thanksgiving break        |
+| 6    | 12/1        | Debugging integration/system in general                                                    | 10hr+ |        |                                     |
+|      |             | Prepare for Final Checkoff (e.g. write-up)                                                 | 6hr+  | Both   | 12/2-4: Final Check-off             |
+|      |             | Prepare for Demo Day                                                                       | 3hr+  | Both   | 12/5: Demo Day                      |
+: Proposed Timeline of Project
+
+
+## Bill of Materials
+
+|             Name             |   Part #  |    Manufacturer    |            Quantity            |                Price                 |
+|:----------------------------:|:---------:|:------------------:|:------------------------------:|:------------------------------------:|
+| Microphone                   | MAX4466   | Adafruit           | x1                             | $6.95                                |
+| Audio Codec                  | MAX98357A | Adafruit           | x1                             | $5.95                                |
+| VGA Breakout Cord            | 3124      | Adafruit           | x1                             | $4.50                                |
+| VGA Display                  |           |                    | x1                             | stockroom                            |
+| Op-amp                       | MCP601    |                    | x1                             | stockroom                            |
+| Potentiometer                |           |                    | x1                             | stockroom                            |
+| Speaker                      |           |                    | x1                             | stockroom                            |
+| STM32L432KC Microcontroller  |           | STMicroelectronics | x1                             | E155 teaching team                   |
+| UPDuino v3.1 ICE40 UP5K FPGA |           | tinyVision.ai      | x1                             | E155 teaching team                   |
+|                              |           |                    | Total including shipping + tax | $31.66 (shipping $12.56 & tax $1.70) |
