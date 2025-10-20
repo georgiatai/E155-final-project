@@ -32,9 +32,9 @@ On the hardware level, an analog microphone will take in sounds, where the MCU w
 The input signals from the microphone remain the riskiest element of the system. To improve the microphone input detection, the Maxim MAX4466 was chosen since it has a built in amplifier with a maximum adjustable gain of x125. 
 
 ### FPGA: UPDuino v3.1 (iCE40UP5K)
-* FFT & Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in SPRAM.
-* Duration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in SPRAM.
-* VGA Controller - VGA timing signals and framebuffer data extracted from SPRAM will be used to compose the score on a VGA screen in real time.
+* FFT & Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in DPRAM.
+* Duration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in DPRAM.
+* VGA Controller - VGA timing signals and framebuffer data extracted from DPRAM will be used to compose the score on a VGA screen in real time.
 * SPI Peripheral - This provides the FPGA as an SPI interface which the MCU can read and write to, bridging the connection between the two.
 
 ### MCU: STM32L432KC
@@ -116,7 +116,7 @@ $$
 
 In the case which scores and notes can be drawn with just black and white, we only need one bpp for each pixel. The memory required is thus 307200 bits, or 38.4 kB. 
 
-Given that the UPDuino v3.1 has a SPRAM of 128 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.
+Given that the UPDuino v3.1 has a DPRAM of 120 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.
 
 As for the estimated LUTs, the VGA controller should mainly be composed of counters (to keep tract of the pixels), pixel address calculator, framebuffer reader, RGB output mapping, and FSM control. The counters should each be around 10 bits (for 800 pixels per line and 525 lines), which gives around 10 LUTs for each of the horizontal and vertical counters. The address generator will need to compute both constant multiplication and addition, which will result in ~50 LUTs for considering 10 bits for both counters previously mentioned. The framebuffer reader may take 100 LUTs to read the address, construct a read control FSM, shift pixels, and buffer the frames if needed. The RGB output mapping will most likely need ~20 LUTs to check if a pixel is visible and the value of each of the three colors. Around 50 LUTs are estimated for the FSM control logic, which will handle the synchronization and mode logic of the VGA display. 
 
@@ -124,20 +124,20 @@ The total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our esti
 
 ## Proposed Timeline and Work Distribution
 
-| Week | Monday Date | Task                                                                                       | Time  | People | Notes                               |
-|------|-------------|--------------------------------------------------------------------------------------------|-------|--------|-------------------------------------|
-| 1    | 10/27       | Design FFT hardware on FGPA                                                                | 15hr+ |        |                                     |
-|      |             | Working microphone and SPI between FPGA & MCU                                              | 8hr+  |        |                                     |
-| 2    | 11/3        | VGA implementation: setting score interface, able to display notes (no input dependencies) | 15hr+ |        |                                     |
-|      |             | Prepare design review presentation                                                         | 2hr+  | Both   | 11/4-6: Design Review Presentation  |
-| 3    | 11/10       | Connecting input and VGA, allowing notes obtained by FFT to display on screen              | 10hr+ |        |                                     |
-| 4    | 11/17       | Prepare for project status report and demo                                                 | 2hr+  | Both   | 11/18: Project status report & demo |
-|      |             | Continuing to debug real time note display on VGA                                          | 15hr+ |        |                                     |
-|      |             | Implementing duration detection for different bpms                                         | 7hr+  |        | Less priority, if time allows       |
-| 5    | 11/24       | Integrating playback audio using SPI communication, audio codec, and speaker               | 8hr+  |        | 11/26-30: Thanksgiving break        |
-| 6    | 12/1        | Debugging integration/system in general                                                    | 10hr+ | Both       |                                     |
-|      |             | Prepare for Final Checkoff (e.g. write-up)                                                 | 6hr+  | Both   | 12/2-4: Final Check-off             |
-|      |             | Prepare for Demo Day                                                                       | 3hr+  | Both   | 12/5: Demo Day                      |
+| Week | Monday Date | Task                                                                                       | Time  | People          | Notes                               |
+|------|-------------|--------------------------------------------------------------------------------------------|-------|-----------------|-------------------------------------|
+| 1    | 10/27       | Design FFT hardware on FGPA                                                                | 15hr+ | Julia (Georgia) |                                     |
+|      |             | Working microphone and SPI between FPGA & MCU                                              | 8hr+  | Georgia         |                                     |
+| 2    | 11/3        | VGA implementation: setting score interface, able to display notes (no input dependencies) | 15hr+ | Georgia (Julia) |                                     |
+|      |             | Prepare design review presentation                                                         | 2hr+  | Both            | 11/4-6: Design Review Presentation  |
+| 3    | 11/10       | Connecting input and VGA, allowing notes obtained by FFT to display on screen              | 10hr+ | Both            |                                     |
+| 4    | 11/17       | Prepare for project status report and demo                                                 | 2hr+  | Both            | 11/18: Project status report & demo |
+|      |             | Continuing to debug real time note display on VGA                                          | 15hr+ | Georgia (Julia) |                                     |
+|      |             | Implementing duration detection for different bpms                                         | 7hr+  | Julia           | Less priority, if time allows       |
+| 5    | 11/24       | Integrating playback audio using SPI communication, audio codec, and speaker               | 8hr+  | Both            | 11/26-30: Thanksgiving break        |
+| 6    | 12/1        | Debugging integration/system in general                                                    | 10hr+ | Both            |                                     |
+|      |             | Prepare for Final Checkoff (e.g. write-up)                                                 | 6hr+  | Both            | 12/2-4: Final Check-off             |
+|      |             | Prepare for Demo Day                                                                       | 3hr+  | Both            | 12/5: Demo Day                      |
 : Proposed Timeline of Project
 
 
@@ -145,7 +145,7 @@ The total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our esti
 
 |             Name             |   Part #  |    Manufacturer    |            Quantity            |                Price                 |
 |:----------------------------:|:---------:|:------------------:|:------------------------------:|:------------------------------------:|
-| Microphone                   | MAX4466   | Adafruit           | x1                             | $6.95                                |
+| Microphone                   | MAX4466   | Adafruit           | x2                             | $6.95 * 2 = $13.90                   |
 | Audio Codec                  | MAX98357A | Adafruit           | x1                             | $5.95                                |
 | VGA Breakout Cord            | 3124      | Adafruit           | x1                             | $4.50                                |
 | VGA Display                  |           |                    | x1                             | stockroom                            |
@@ -154,4 +154,4 @@ The total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our esti
 | Speaker                      |           |                    | x1                             | stockroom                            |
 | STM32L432KC Microcontroller  |           | STMicroelectronics | x1                             | E155 teaching team                   |
 | UPDuino v3.1 ICE40 UP5K FPGA |           | tinyVision.ai      | x1                             | E155 teaching team                   |
-|                              |           |                    | Total including shipping + tax | $31.66 (shipping $12.56 & tax $1.70) |
+|                              |           |                    | Total including shipping + tax | $39.26 (shipping $12.56 & tax $2.35) |
