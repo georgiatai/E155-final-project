@@ -7,283 +7,52 @@
     "text": "Harvey Mudd College E155 Course Website"
   },
   {
-    "objectID": "labs.html#lab-2-multiplexed-7-segment-display",
-    "href": "labs.html#lab-2-multiplexed-7-segment-display",
-    "title": "Labs",
-    "section": "Lab 2: Multiplexed 7-Segment Display",
-    "text": "Lab 2: Multiplexed 7-Segment Display"
-  },
-  {
-    "objectID": "labs.html#lab-3-keypad-scanner",
-    "href": "labs.html#lab-3-keypad-scanner",
-    "title": "Labs",
-    "section": "Lab 3: Keypad Scanner",
-    "text": "Lab 3: Keypad Scanner"
-  },
-  {
-    "objectID": "labs.html#lab-4-digital-audio",
-    "href": "labs.html#lab-4-digital-audio",
-    "title": "Labs",
-    "section": "Lab 4: Digital Audio",
-    "text": "Lab 4: Digital Audio"
-  },
-  {
-    "objectID": "labs.html#lab-5-interrupts",
-    "href": "labs.html#lab-5-interrupts",
-    "title": "Labs",
-    "section": "Lab 5: Interrupts",
-    "text": "Lab 5: Interrupts"
-  },
-  {
-    "objectID": "labs.html#lab-6-the-internet-of-things-and-serial-peripheral-interface",
-    "href": "labs.html#lab-6-the-internet-of-things-and-serial-peripheral-interface",
-    "title": "Labs",
-    "section": "Lab 6: The Internet of Things and Serial Peripheral Interface",
-    "text": "Lab 6: The Internet of Things and Serial Peripheral Interface"
-  },
-  {
-    "objectID": "labs.html#lab-7-the-advanced-encryption-standard",
-    "href": "labs.html#lab-7-the-advanced-encryption-standard",
-    "title": "Labs",
-    "section": "Lab 7: The Advanced Encryption Standard",
-    "text": "Lab 7: The Advanced Encryption Standard"
-  },
-  {
-    "objectID": "labs/lab4/lab4.html",
-    "href": "labs/lab4/lab4.html",
-    "title": "Lab 4: Digital Audio",
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Project Proposal",
     "section": "",
-    "text": "The goal of this design is to practice using the MCU by generating square waves with timers and toggling a GPIO pin at specific frequencies and durations to play music."
+    "text": "Julia Gong and Georgia Tai"
   },
   {
-    "objectID": "labs/lab4/lab4.html#introduction",
-    "href": "labs/lab4/lab4.html#introduction",
-    "title": "Lab 4: Digital Audio",
-    "section": "",
-    "text": "The goal of this design is to practice using the MCU by generating square waves with timers and toggling a GPIO pin at specific frequencies and durations to play music."
+    "objectID": "proposal.html#project-description",
+    "href": "proposal.html#project-description",
+    "title": "Project Proposal",
+    "section": "Project Description",
+    "text": "Project Description\nThis project aims to take in sound inputs, whether using a keyboard, any instruments, or someone signing, transcribe the sound onto a score in real-time with a given bpm, and play back the input melody. An FPGA will be used as the main calculation and display engine, using Fast Fourier Transform (FFT) to handle frequency analysis and driving a VGA display. A MCU will be used for interfacing the audio inputs and outputs.\nOn the hardware level, an analog microphone will take in sounds, where the MCU will convert them into digital signals using ADC and send the converted signals to the FPGA. The MCU will then send the digital signals to the FPGA using SPI. Then, the FPGA will use FFT to extract the frequency and duration of the note inputted. The array of notes will then be used by the FPGA to calculate the pixels for displaying the score on a VGA display. This array of notes, after transcription ends, will be sent to the MCU through SPI to generate the playback audio. The user should be able to control the music transcription and play back audio with a hardware components such as a switch or a button, and control the volume with a potentiometer.\n\n\n\nThis image shows the block diagram of the music transcriber system."
   },
   {
-    "objectID": "labs/lab4/lab4.html#design",
-    "href": "labs/lab4/lab4.html#design",
-    "title": "Lab 4: Digital Audio",
-    "section": "Design",
-    "text": "Design\nFor this lab, I used libraries provided by the course for setting up the RCC, FLASH, and GPIO. Then, I referenced the STM32L432KC reference manual, programming manual, and datasheet. This helped creating code for setting up TIM15 and TIM16, which are general purpose timers used here for waiting a certain duration and generating the PWM signal, respectively.\nThe two timers are similar enough such that they are defined with a single struct and kept in the same header file, STM32L432KC_TIM.h. The file STM32L432KC_TIM.c contains functions with initializing the two timers and also functions for their waiting and signal generating purpose. TIM15 was initialized according to the manuals with initTIM and waits for ms milliseconds with the function delay_millis. TIM16 was initialized with function initPWM and uses the function PWM_setDutyCycle to generate a PWM signal with a certain duty cycle and frequency. Its output is sent from TIM16_CH1 to PA6 in GPIOA of the MCU.\nThe circuitry design was referenced from the LM386 datasheet, where I chose to use the circuit with a gain of 50. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 1: Schematics of the circuit design"
+    "objectID": "proposal.html#project-specifications",
+    "href": "proposal.html#project-specifications",
+    "title": "Project Proposal",
+    "section": "Project Specifications",
+    "text": "Project Specifications\n\nInput: detection and analysis\n\nUser can stop and start transcription using physical hardware (e.g. switch/button)\nSystem converts analog microphone signals into digital\nUses FFT to extract clear signal from input\nCalculates frequency and duration of inputs accurately\n\n\n\nOutput: display and audio\n\nDisplay updates at &gt; 24 Hz\nNotes display in real time\nNote durations are displayed for 120 bpm\nPlayback audio resembles the input\nPlayback audio uses an audio codec so that output sound is not square wave\nUser can control the volume of playback audio\nUser can control when to playback the transcribed audio (e.g. switch/button), but can only play the audio when transcription is stopped"
   },
   {
-    "objectID": "labs/lab4/lab4.html#prescalar-value-calculations",
-    "href": "labs/lab4/lab4.html#prescalar-value-calculations",
-    "title": "Lab 4: Digital Audio",
-    "section": "Prescalar Value Calculations",
-    "text": "Prescalar Value Calculations\nThe formula for the ARR, the auto-reload value, or the number of cycles compared with the count, can be calculated by the following formulas. The ARR field in the registers has 16 bits. Therefore, \\(0 \\leq ARR \\leq 2^{16}-1=65535\\). The ARR value for duration can simply be calculated by the wait time multiplied by the frequency of the timer. Note that the wait time is inputted with an unit of milliseconds, and is thus scaled to seconds to comply with the timer frequency. Choosing a prescalar value of 4999 for the counter: \\[\nARR_{cnt} = \\frac{t}{1000} \\times f_{TIM} = \\frac{t}{1000} \\times \\frac{f_{clk}}{(PSC_{cnt} + 1)}\n\\]\nThe minimum duration is found when ARR has the smallest value possible, or \\(ARR=0\\): \\[\nARR_{cnt, min} = \\frac{t_{min}}{1000} \\times \\frac{80000000}{4999+1} = 0 \\Rightarrow t_{min} = 0 \\ ms\n\\]\nThe maximum duration is found when ARR has the largest value possible, or \\(ARR=65535\\): \\[\nARR_{cnt, max} = \\frac{t_{max}}{1000} \\times \\frac{80000000}{4999+1} = 65535 \\Rightarrow t_{max} = 4095.9375 \\ ms\n\\]\nTherefore, the duration which the system can take is from 0 to approximately 4096 ms. On the other hand, the maximum and minimum frequency which the device can play is calculated with the following equation, with a chosen prescalar value of 799: \\[\nf_{note} = \\frac{f_{TIM}}{ARR+1} = \\frac{f_{clk}}{PSC_{PWM}+1} \\times \\frac{1}{ARR+1}\n\\] \\[\n\\Rightarrow\nARR_{PWM} = \\frac{f_{clk}}{PSC_{PWM}+1} \\times \\frac{1}{f_{note}} - 1\n\\]\nThe minimum frequency is found when ARR has the largest value possible, or \\(ARR=65535\\): \\[\nARR_{PWM, max} = \\frac{80000000}{799+1} \\times \\frac{1}{f_{note, min}} - 1 = 65535 \\Rightarrow f_{note, min} \\approx 1.526 \\ Hz\n\\]\nThe maximum frequency is found when ARR has the smallest value possible, or \\(ARR=0\\): \\[\nARR_{PWM, min} = \\frac{80000000}{799+1} \\times \\frac{1}{f_{note, max}} - 1 = 0 \\Rightarrow f_{note, min} = 100000 \\ Hz\n\\]\nTherefore, the frequency which the system supports is from approximately 1.526 to 100000 Hz.\nFor the frequency range of 220 to 1000 Hz, which is commonly used for most music, we calculate the error of our device from the desired frequency. We also choose 600 Hz to better represent across the range. First, we can calculate the actual ARR value with our chosen PWM timer prescalar of 799, note that the number is treated as int and rounded to the nearest whole number: \\[\nARR_{PWM, 220Hz}  = \\frac{80000000}{799+1} \\times \\frac{1}{220} - 1  \\approx 453.54 \\approx 454\n\\] \\[\nARR_{PWM, 600Hz}  = \\frac{80000000}{799+1} \\times \\frac{1}{600} - 1  \\approx 165.67 \\approx 166 \\\\\n\\] \\[\nARR_{PWM, 1000Hz} = \\frac{80000000}{799+1} \\times \\frac{1}{1000} - 1 = 99\n\\]\nThe real PWM frequency produced by this ARR value is thus: \\[\nf_{220Hz, prod}  = \\frac{80000000}{799+1} \\times \\frac{1}{ARR_{PWM, 220Hz}  + 1} \\approx 219.780219\n\\] \\[\nf_{600Hz, prod}  = \\frac{80000000}{799+1} \\times \\frac{1}{ARR_{PWM, 600Hz}  + 1} \\approx 598.8024\n\\] \\[\nf_{1000Hz, prod} = \\frac{80000000}{799+1} \\times \\frac{1}{ARR_{PWM, 1000Hz} + 1} = 1000\n\\]\nThe error for each of these frequencies is: \\[\nerr_{220Hz}  = \\frac{f_{220Hz, prod}  - 220}{220}   \\approx -0.000999 \\approx -0.1\\%\n\\] \\[\nerr_{600Hz}  = \\frac{f_{600Hz, prod}  - 600}{600}   \\approx -0.001996 \\approx -0.2\\%\n\\] \\[\nerr_{1000Hz} = \\frac{f_{1000Hz, prod} - 1000}{1000} = 0\n\\]\nThe error for each frequencies is well below 1%, we can thus assume that the error will also be below 1% across the frequency range of 220 to 1000 Hz on the device."
+    "objectID": "proposal.html#design-overview",
+    "href": "proposal.html#design-overview",
+    "title": "Project Proposal",
+    "section": "Design Overview",
+    "text": "Design Overview\nThe input signals from the microphone remain the riskiest element of the system. To improve the microphone input detection, the Maxim MAX4466 was chosen since it has a built in amplifier with a maximum adjustable gain of x125.\n\nFPGA: UPDuino v3.1 (iCE40UP5K)\n\nFFT & Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in SPRAM.\nDuration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in SPRAM.\nVGA Controller - VGA timing signals and framebuffer data extracted from SPRAM will be used to compose the score on a VGA screen in real time.\nSPI Peripheral - This provides the FPGA as an SPI interface which the MCU can read and write to, bridging the connection between the two.\n\n\n\nMCU: STM32L432KC\n\nADC - The microphone specifies to connect its output to the ADC pin. This will allow the MCU to buffer the samples and convert our desired input in to digital signals.\nI2S - This will allow the MCU to synthesize the audio for playback and send it to the audio codec, where the audio codec we chose to use expects I2S.\nControl - The MCU will handle user commands, reading buttons/switches for the start/end of transcription or playback and potentiometer for the volume of the playback audio.\nSPI Controller - The MCU will act as the SPI controller to send digital sound inputs to the FPGA and to receive the transcribed note array when transcription stops."
   },
   {
-    "objectID": "labs/lab4/lab4.html#testing-and-results",
-    "href": "labs/lab4/lab4.html#testing-and-results",
-    "title": "Lab 4: Digital Audio",
-    "section": "Testing and Results",
-    "text": "Testing and Results\nI was able to play Für Elise with the correct pitch and durations. On top of that, I chose to transcribe and another song of my choice: Cheat Code by NCT WISH. Since I couldn’t find any free scores available online, I decided to simply listen and transcribe the last chorus of the song into a score, then making it into a series of pitches and durations. My device can successfully play the song, but it also made me realize how much more lively the song was with the arrangements. If I had more time, I think I would want to try recreating such arrangements, perhaps through changing pitches really rapidly, similar to some techniques that beat-boxers would use."
+    "objectID": "proposal.html#calculations",
+    "href": "proposal.html#calculations",
+    "title": "Project Proposal",
+    "section": "Calculations",
+    "text": "Calculations\n\nFast Fourier Transform Calculations\nThe Fast Fourier Transform transforms a signal from the time to frequency domain by recursively dividing a discrete fourier transform (DFT) into its odd and even indexed elements. The odd and even DFTs are of size N/2, where N is the size of its non-spit DFT. Using the symmetry and periodicity properties of complex exponentials, the even part corresponds to a half sized DFT and odd part corresponds to a half sized DFT that is multiplied by the twiddle factor (which is complex exponential expressed by \\(W_N\\)).\nThese equations below show the DFT and how the DFT can be split into its even and odd components.\nDFT equation: \\[\nX[k] = \\sum_{n=0}^{N-1} x[n] W_N^{kn}\n\\] DFT equation split into even and odd components: \\[\nX[k]  = \\sum_{m=0}^{\\frac{N}{2}-1} x[2m] W_N^{k(2m)}\n+ \\sum_{m=0}^{\\frac{N}{2}-1} x[2m+1] W_N^{k(2m+1)}\n\\] where \\[\nW_N = e^{-j \\frac{2\\pi}{N}}\n\\]\nUsing Radix-2 decompositions, an N point FFT can be computed through:\n\n\\(\\log_2(N)\\) levels of transforms\nEach transform has \\(N/2\\) butterfly operations\nA total of \\(\\frac{N}{2} \\log_2(N)\\) butterfly operations\n\nWe decided to use a 512 point FFT for higher resolution processing of our microphone inputs. Since N = 512, we would require:\n\n\\(\\log_2(512) = 9\\) levels of transforms\n\\(512/2 = 256\\) butterfly operations\ntotal of \\(\\frac{512}{2} \\log_2(512) = 2304\\) butterfly operations\n\nTo calculate the amount of FPGA Block RAM used, each complex sample and twiddle factor contains 4 bytes (16 bits each for real and imaginary). There are a total of 512 complex samples and 256 twiddle factors.\nTotal number of bytes used: (512 x 4) + (256 x 4) = 3072 bytes or 3kB\nEach butterfly operation takes in two complex inputs (ex A and B), multiplies B by the twiddle factor, and adds/subtract. Four multiplications will be needed in hardware, which will be handled by 4 DSPs. A butterfly operation will required an approximated 300 LUTs (16 each for add/subtract, 32 each for complex add/subtract, 40 for multiply overhead when using DSPs, 40 for twiddle address, 100 for pipelined registers). An approximated LUTs are used for the FFT controller 400.\nThe number of LUTs required for a 512 point FFT with 2 pipelined butterfly operations can be calculated by:\n\\[\n\\text{Total LUTs} = (\\text{LUTs per butterfly}) \\times (\\text{\\# of pipelined butterflies}) + \\text{LUTs for controller}\n\\]\n\\[\n\\text{Total LUTs} = 300 \\times 2 + 400 = 1000 \\text{ LUTs}\n\\]\nIn order to calculate the duration of the notes using FFTs, two overlapping FFTs will be used. Using overlapping FFTs will ensure that input signals will be captured. The FPGA will check for new note activity after every FFT is computer to detect the start and stop of notes. The amount of FFT frames for a note can then be converted to note duration. The FFT frame length will depend on the MCU ADC sampling rate.\nUsing 2 overlapping FFTs will doule the amount of memory and LUTs used. The FFT computation will require approximately 6kB of block RAM and 2000 LUTs.\n\n\nVGA Calculations\nSuppose that we use a VGA screen of 640x480 @ 60 Hz, which normally has 800 pixels per line and 525 lines per frame, we can calculate the clock timing by:\n\\[\n\\text{Pixel clock} = (\\text{pixels per line}) \\times (\\text{lines per frame}) \\times \\text{frames per second}\n\\]\n\\[\n\\text{Pixel clock} = 800 \\times 525 \\times 60 = 25.2 \\text{ MHz}\n\\]\nThe visible pixels per frame is: \\[\n\\text{number of pixels} = 640 \\times 480 = 307200 \\text{ pixels}\n\\]\nIn the case which scores and notes can be drawn with just black and white, we only need one bpp for each pixel. The memory required is thus 307200 bits, or 38.4 kB.\nGiven that the UPDuino v3.1 has a SPRAM of 128 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.\nAs for the estimated LUTs, the VGA controller should mainly be composed of counters (to keep tract of the pixels), pixel address calculator, framebuffer reader, RGB output mapping, and FSM control. The counters should each be around 10 bits (for 800 pixels per line and 525 lines), which gives around 10 LUTs for each of the horizontal and vertical counters. The address generator will need to compute both constant multiplication and addition, which will result in ~50 LUTs for considering 10 bits for both counters previously mentioned. The framebuffer reader may take 100 LUTs to read the address, construct a read control FSM, shift pixels, and buffer the frames if needed. The RGB output mapping will most likely need ~20 LUTs to check if a pixel is visible and the value of each of the three colors. Around 50 LUTs are estimated for the FSM control logic, which will handle the synchronization and mode logic of the VGA display.\nThe total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our estimated LUTs for the FFT control is about 2000. Given that there are 5k available LUTs on the FPGA, we should have a reasonable amount of space to modify and complex our design, for example adding more buffers to the VGA display."
   },
   {
-    "objectID": "labs/lab4/lab4.html#conclusion",
-    "href": "labs/lab4/lab4.html#conclusion",
-    "title": "Lab 4: Digital Audio",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn this lab, I successfully designed and built a MCU design that was able to play songs with correct pitches and durations, including the rests. As shown in previous sections, the pitches are calculated to be accurate within 1% across the frequency range. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 10 hours on the lab. Most of my times were spent on understanding the manuals and how each registers collaborated with each other. I hope I will be even more familiar with this process within the next few labs."
+    "objectID": "proposal.html#proposed-timeline-and-work-distribution",
+    "href": "proposal.html#proposed-timeline-and-work-distribution",
+    "title": "Project Proposal",
+    "section": "Proposed Timeline and Work Distribution",
+    "text": "Proposed Timeline and Work Distribution\n\nProposed Timeline of Project\n\n\n\n\n\n\n\n\n\n\nWeek\nMonday Date\nTask\nTime\nPeople\nNotes\n\n\n\n\n1\n10/27\nDesign FFT hardware on FGPA\n15hr+\n\n\n\n\n\n\nWorking microphone and SPI between FPGA & MCU\n8hr+\n\n\n\n\n2\n11/3\nVGA implementation: setting score interface, able to display notes (no input dependencies)\n15hr+\n\n\n\n\n\n\nPrepare design review presentation\n2hr+\nBoth\n11/4-6: Design Review Presentation\n\n\n3\n11/10\nConnecting input and VGA, allowing notes obtained by FFT to display on screen\n10hr+\n\n\n\n\n4\n11/17\nPrepare for project status report and demo\n2hr+\nBoth\n11/18: Project status report & demo\n\n\n\n\nContinuing to debug real time note display on VGA\n15hr+\n\n\n\n\n\n\nImplementing duration detection for different bpms\n7hr+\n\nLess priority, if time allows\n\n\n5\n11/24\nIntegrating playback audio using SPI communication, audio codec, and speaker\n8hr+\n\n11/26-30: Thanksgiving break\n\n\n6\n12/1\nDebugging integration/system in general\n10hr+\nBoth\n\n\n\n\n\nPrepare for Final Checkoff (e.g. write-up)\n6hr+\nBoth\n12/2-4: Final Check-off\n\n\n\n\nPrepare for Demo Day\n3hr+\nBoth\n12/5: Demo Day"
   },
   {
-    "objectID": "labs/lab4/lab4.html#ai-prototype-summary",
-    "href": "labs/lab4/lab4.html#ai-prototype-summary",
-    "title": "Lab 4: Digital Audio",
-    "section": "AI Prototype Summary",
-    "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the first prompt, it concluded that:\n\n\nOn the Nucleo-L432KC, TIM2 is especially convenient because it’s 32-bit and widely mapped to GPIO pins. But for your frequency range, a 16-bit timer (like TIM15/16/17) is more than enough.\n\n\nIt provided the formula to the correct timer frequency, however, the output frequency was different from what I expected by a factor of 2, as I believe that it was confusing the frequency with the duty cycle and the actual frequency of the note. For setting up the timers, it first suggested setting up RCC without much instructions, then PSC, ARR, CCRx, CCMRx, CCER, BDTR, GPIO_AFR, and CR1. The list pretty much covers what I have for making my device to work, but did not include EGR to update the events.\nAfter providing the reference manual and asking ChatGPT to confirm/modify its previous answer, it detailed the answer better, providing more keywords found in the manual, such as TIM2_CHx for the output channel of the timers, and explained better the mapping between the GPIO and the timers. It did not change anything about the formula, but did additionally mention EGR for as an optional step when setting up the timers."
-  },
-  {
-    "objectID": "labs/lab2/lab2.html",
-    "href": "labs/lab2/lab2.html",
-    "title": "Lab 2: Multiplexed 7-Segment Display",
-    "section": "",
-    "text": "The goal of this design is to practice multiplexing by designing a FPGA that can take two 4-bit inputs and 1) show their hexadecimal values with a dual 7-segment display and 2) show their sum in binary with 5 LEDs. The constraint is that only one 7-segment decoder module can be used for both digits on the display, resulting in the need of time-multiplexing."
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#introduction",
-    "href": "labs/lab2/lab2.html#introduction",
-    "title": "Lab 2: Multiplexed 7-Segment Display",
-    "section": "",
-    "text": "The goal of this design is to practice multiplexing by designing a FPGA that can take two 4-bit inputs and 1) show their hexadecimal values with a dual 7-segment display and 2) show their sum in binary with 5 LEDs. The constraint is that only one 7-segment decoder module can be used for both digits on the display, resulting in the need of time-multiplexing."
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#design",
-    "href": "labs/lab2/lab2.html#design",
-    "title": "Lab 2: Multiplexed 7-Segment Display",
-    "section": "Design",
-    "text": "Design\nThe top level design, lab2_gt, included three modules: the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library, a clock divider to toggle or select between the digits shown on the display, and a 7-segment display decoder. The general idea of the design can be visualized with the block diagram below:\n\n\n\n\n\n\nFigure 1: Block diagram of the FPGA design\n\n\n\nThe clock divider, digitSelector, selects the digit which will be displayed on the dual 7-segment display with 60 Hz. The frequency was chosen such that the human eyes can not catch that the two digits are turning on and off, creating the illusion that both digits are always on at the same time. The module achieves such frequency by taking in a 48 MHz clock input clk given by the high-speed oscillator and using a counter incremented at each clock cycle to toggle the enabling signal for each digit at 60 Hz. It then outputs both enabling signals and the 4-bit binary of the digit with the enabled signal.\nThe 7-segment display decoder contains a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value. Each segment of the display is a LED controlled by an I/O pin from the UPduino board, and the shape of each hexadecimal value is unique. As per the constraint of this lab, this module is only used once and takes the 4-bit binary input of the selected digit given by digitSelector.\nIn terms of the circuitry design, the dual 7-segment display was externally accessed on a breadboard, with each of its two common anode connected to a 2N3906 PNP transistor to provide enough current. Other than the switch located on the PCB provided by the course, SW6, an external 4-input switch was also wired ono the breadboard. The switch on the PCB controls the left digit, whereas the one on the breadboard controls the right digit. The 5 LEDs for showing the sum are also connected on the breadboard. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 2: Schematics of the circuit design\n\n\n\nFor the LEDs display is the sum, I chose to use red LEDs, whose forward voltage is normally around 1.6 V. Aiming for around 5 mA of current, which should provide enough brightness and is well below the maximum current of both the I/O pin of the UPduino (8 mA, found in section 4.17 of the datasheet) and the LED (20 mA conventionally), the resistor values for each LED can be calculated with:\n\\[\nR_{LED} = \\frac{3.3V - 1.6V}{0.005A} = 340 \\Omega\n\\]\nThe closest resistor I found was \\(330 \\Omega\\), which should not affect the current much.\nThe datasheet of the 2N3906 transistor shows that it has a base-emitter saturation voltage of 0.65 to 0.85 V when the current through the base is 1 mA. Aiming for a current slightly smaller than that to ensure safety, say 0.8 mA, the resistor value is:\n\\[\nR_{transistor} = \\frac{V_{PIN} - V_{BE,SAT}}{I_{transistor}} = \\frac{3.3V - 0.65V}{0.007A} \\approx 380 \\Omega\n\\]\nThe closest resistor I found was \\(390 \\Omega\\), which should not affect the current much.\nA resistor value of \\(220 \\Omega\\) are chosen considering the voltage and current across the LEDs. According to the dual 7-segment display datasheet, the voltage drop across the segments are about 1.8 V. The input voltage is the voltage given by the transistor, which is 2.6 V.Given that the collector-emitter saturation voltage was 0.4 V and aiming for approximately 5 mA across the LEDs of the segments, the resistor value is:\n\\[\nR_{seg} = \\frac{(V_{PIN} - V_{CE,SAT}) - V_{seg}}{I_{seg}} = \\frac{(3.3V - 0.4V) - 1.8V}{0.005A} = 220 \\Omega\n\\]"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#testing-and-results",
-    "href": "labs/lab2/lab2.html#testing-and-results",
-    "title": "Lab 2: Multiplexed 7-Segment Display",
-    "section": "Testing and Results",
-    "text": "Testing and Results\nEach of the modules are testes with automated testbenches. The top level module was tested using a for-loop to stimulate all 256 (4-bit input s0 * 4-bit input s1), checking that the outputs for segments are correct when the enabling signal for each digit, disp0 and disp1, is on. The seven segment display decoder is identical to Lab 1, checking the combinational logic for all 16 possible inputs. The clock divider/digit selector checks that the enabling signals actually toggles and select the correct input for the 7-segment decoder after an expected amount of time.\nUsing Questa to simulate, the following figures show that All modules have successfully passed their testbench.\n\n\n\n\n\n\n\n\n\n\n\n(a) Waveform of the simulated top level module\n\n\n\n\n\n\n\n\n\n\n\n(b) Ending statement showing no errors for top level module\n\n\n\n\n\n\n\nFigure 3: Testbench results for the top level module lab2_gt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Waveform of the simulated segment display module\n\n\n\n\n\n\n\n\n\n\n\n(b) Ending statement showing no errors for segment display module\n\n\n\n\n\n\n\nFigure 4: Testbench results for the segment display module seven_seg_decoder\n\n\n\nAfter verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output for both the display and the LEDs are correctly shown. Here is a picture of the complete device.\n\n\n\n\n\n\nFigure 5: Figure of full device working"
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#conclusion",
-    "href": "labs/lab2/lab2.html#conclusion",
-    "title": "Lab 2: Multiplexed 7-Segment Display",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn this lab, I successfully designed and built an FPGA design that was able to correctly display hexadecimal values of two 4-bit binary input with only using one 7-segment decoder module. There was no observable blinking between the two digits. The binary sum of the two 4-bit inputs was also correctly shown with 5 LEDs. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 8 hours on the lab. Design did not take much time, but writing the testbenches and wiring up the circuits took a good amount of time. I hope to become more proficient in writing testbenches and be more aware of what should be tested in a design."
-  },
-  {
-    "objectID": "labs/lab2/lab2.html#ai-prototype-summary",
-    "href": "labs/lab2/lab2.html#ai-prototype-summary",
-    "title": "Lab 2: Multiplexed 7-Segment Display",
-    "section": "AI Prototype Summary",
-    "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the first prompt, the resulted design was able to synthesize the first time, surprisingly. By looking at the code, this design seemed somewhat similar to what I did, and seemed like is functionable. However, this design did assume clk to be an external input, and kept the counter in the top level module instead of in an independent module. One thing that I like about its design was that it did include a parameter in the top level module, allowing easy changes to the frequency which the two digits toggle.\nFor the second prompt, since my counter module from Lab 1 was more than a clock divider and thus did not fit this purpose, I modified the prompt and asked it to:\n\nWrite SystemVerilog HDL to time multiplex a single seven segment decoder (that decodes from four bits to a common anode seven segment display) to decode two sets of input bits and drive two sets of seven output bits. Use the seven segment decoder provided in the attached files and the HSOSC from the iCE40UP library.\n\nThe thinking time of this prompt was around 30 seconds, which was two times longer than the thinking time of privious prompt. When synthesizing it, it got this error:\n\nError 35901282 Synthesis ERROR &lt;35901282&gt; - c:/users/user/desktop/engr 155/lab2/e155_lab2/fpga/radiant_project/ai_2/source/impl_1/top.sv(67): loop count limit exceeded forever never breaks. VERI-1282 [top.sv:67]\n\nThis error came from the ifdef-elsif-else statement which this design provide. ChatGPT said the purpose of it was to include common ways to instantiate an on-chip oscillator and allows the user to choose which one by using the `ifdef. However, it was pretty redundant and got stuck on its approach of instantiate the clock if there is no on-chip oscillator:\n\nforever #10 clk_hf = ~clk_hf;\n\nIt also made the same mistake of using SB_HFOSC instead of HSOSC in Lab 1. After asking it to remove the ifdef-elsif-else statement and assuming that the osciallator will be instantiate with one method, the new design was able to synthesize, and seemed like would work fine when I read through it."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "E155 Portfolio",
-    "section": "",
-    "text": "Georgia Tai is a junior engineering student at Harvey Mudd College (HMC) with an interest in computer engineering. Born and raised in Hsinchu, Taiwan, she developed a passion for electrical engineering. She is currently a Clay-Wolkin Fellow at HMC, working on an open-source verification suite for the RISC-V vector extension. Despite her current focus on verification, she also has a strong interest in hardware design and implementation. She hopes to continue developing her professional skills both inside and outside of this course."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "E155 Blog",
-    "section": "",
-    "text": "Learning Goals\n\n\nMy learning goals and focuses for MicroPs.\n\n\n\n\n\nAug 29, 2025\n\n\nGeorgia Tai\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html",
-    "href": "labs/lab1/lab1.html",
-    "title": "Lab 1: FPGA and MCU Setup and Testing",
-    "section": "",
-    "text": "In this lab, a FPGA design was implemented to 1) blink an LED at 2.4Hz using an on-board high-speed oscillator, 2) control 2 LEDs with 4 switches, and 3) display a 4-digit binary input in hexadecimal using a 7-segment display. The logic of the second function, controlling LEDs with switches, is shown below:\n\nTable 1: Logic of switch-controlled LEDs\n\n\ns[3:2]\nLED[1]\ns[1:0]\nLED[0]\n\n\n\n\n00\n0\n00\n0\n\n\n01\n1\n01\n0\n\n\n10\n1\n10\n0\n\n\n11\n0\n11\n1"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#introduction",
-    "href": "labs/lab1/lab1.html#introduction",
-    "title": "Lab 1: FPGA and MCU Setup and Testing",
-    "section": "",
-    "text": "In this lab, a FPGA design was implemented to 1) blink an LED at 2.4Hz using an on-board high-speed oscillator, 2) control 2 LEDs with 4 switches, and 3) display a 4-digit binary input in hexadecimal using a 7-segment display. The logic of the second function, controlling LEDs with switches, is shown below:\n\nTable 1: Logic of switch-controlled LEDs\n\n\ns[3:2]\nLED[1]\ns[1:0]\nLED[0]\n\n\n\n\n00\n0\n00\n0\n\n\n01\n1\n01\n0\n\n\n10\n1\n10\n0\n\n\n11\n0\n11\n1"
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#design",
-    "href": "labs/lab1/lab1.html#design",
-    "title": "Lab 1: FPGA and MCU Setup and Testing",
-    "section": "Design",
-    "text": "Design\nThe top level design, lab1_gt, included three modules: the on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library, a counter for the blinking LED, and a 7-segment display decoder. The general idea of the design can be visualized with the block diagram below:\n\n\n\n\n\n\nFigure 1: Block diagram of the FPGA design\n\n\n\nThe 7-segment display decoder simply contained a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value. Each segment of the display is a LED controlled by an I/O pin from the UPduino board, and the shape of each hexadecimal value is unique, which will later be demonstrated in the Results section of this page.\nThe LED decoder included combinational logic to assign led[0] and led[1] using the inputs switches[3:0]. According to Table 1, led[1] can simply be assigned through a XOR gate and led[0] through an AND gate. The module also takes in a 24 MHz clock input clk given by the high-speed oscillator. It then uses a counter incremented at each clock cycle to toggle led[2] every 5 million cycles, allowing the LED to blink at 2.4 Hz.\nOn the physical side of design, the 7-segment display was externally accessed on a breadboard. The switch used for inputs and the LEDs are soldered on the board provided by the course. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 2: Schematics of the circuit design\n\n\n\nA resistor value of \\(220 \\Omega\\) are chosen considering the voltage and current across the LEDs. According to the 7-segment display datasheet, the ideal current across the LEDs on the display should be 20mA. Given that \\(V = IR\\), a driving voltage of \\(3.3V\\) and a voltage drop of \\(2.1V\\) across red LEDs,\n\\[\nR = \\frac{3.3V - 2.1V}{0.02A} = 60 \\Omega\n\\]\nSince \\(220 \\Omega &gt; 60 \\Omega\\), a \\(220 \\Omega\\) resistor would allow the current to stay within the safety range and was tested to provide enough brightness."
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#results",
-    "href": "labs/lab1/lab1.html#results",
-    "title": "Lab 1: FPGA and MCU Setup and Testing",
-    "section": "Testing and Results",
-    "text": "Testing and Results\nAt the beginning of the lab, we first had to solder the components onto the board. After soldering the board, I tested it with the Radiant tutorial provided on the course website and verified that the componenets are working as expected.\nThe led2_counter module, which is used to make one of the LEDs blink at 2.4 Hz, is hard to test through a testbench due to its use of high-frequency oscillators. Alternatively, we can directly verify its functionality using an oscilloscope to measure the frequency of the blinking LED. As shown in Figure 3, led[2] is indeed blinking at approximately 2.4 Hz, fitting the one of the requirements of the lab.\n\n\n\n\n\n\nFigure 3: Oscilloscope result of frequency of blinking LED, led[2]\n\n\n\nSince the inputs were only four switches, or 16 combinations, the other two self-designed modules, lab1_gt and seven_seg_decoder, can be easily tested through automated testbenches. I wrote two testbenches, one for the top level module and the other for the seven segment display decoder, then created TV-file test vectors accordingly. Using Questa to simulate, the following figures show that both modules have successfully passed their testbench. Note that the led[2] is previously tested and can be neglected here.\n\n\n\n\n\n\n\n\n\n\n\n(a) Waveform of the simulated top level module\n\n\n\n\n\n\n\n\n\n\n\n(b) Ending statement showing no errors for top level module\n\n\n\n\n\n\n\nFigure 4: Testbench results for the top level module lab1_gt\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Waveform of the simulated segment display module\n\n\n\n\n\n\n\n\n\n\n\n(b) Ending statement showing no errors for segment display module\n\n\n\n\n\n\n\nFigure 5: Testbench results for the segment display module seven_seg_decoder\n\n\n\nAfter verifying the code with testbenches, the circuit which I built also has to be tested. The following video shows a completely demo of me trying all 16 combination of switch inputs on my system. As shown in the video, each combination of switches, relating to a single hexadecimal digit, has a unique pattern and was able to turn on successfully. On top of that, the three LEDs close to the left-bottom corner of the ribbon cable performed as expected. The two non-blinking LEDs, with the right one being led[0], worked according to the described logic of led[1] and led[0]. Although this video was sped up by 1.5 times, the blinking LED led[2] was blinking at the expected frequency of 2.4 Hz, as previously verified."
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#conclusion",
-    "href": "labs/lab1/lab1.html#conclusion",
-    "title": "Lab 1: FPGA and MCU Setup and Testing",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn this lab, I successfully designed and built a seven-segment display, which was able to translate a 4-bit input given by a set of switches into unique single digit hexadecimal number. I was also able to create the LEDs as the lab required. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 15 hours on the lab. A lot of time was put into installing things and getting familiarized with the apps and environment. Hopefully, the whole lab flow would be easier in the future, and I can work more efficiently, focusing on designing and verifying the systems."
-  },
-  {
-    "objectID": "labs/lab1/lab1.html#ai-prototype-summary",
-    "href": "labs/lab1/lab1.html#ai-prototype-summary",
-    "title": "Lab 1: FPGA and MCU Setup and Testing",
-    "section": "AI Prototype Summary",
-    "text": "AI Prototype Summary\nFor the AI prototype, I chose to use the default model of ChatGPT. After putting in the promopt, it returned its first code which had this error and caused systhesis to fail:\nERROR &lt;35901063&gt; - c:/users/user/desktop/e155_lab1/fpga/radiant_project/ai/source/impl_1/top.sv(17): instantiating unknown module SB_HFOSC. VERI-1063 [top.sv:17]\nLooking at this error, I noticed that it was using a different module name compared to what we used, HSOSC, but I wasn’t sure if this module specified by chatGPT was actually available. However, I decided to simply throw in the error. ChatGPT insisted that SB_HFOSC was the right module, and repeatedly asked me to check my settings. At some point, it even threw in the idea of declaring the module as a black box with (* blackbox *), whicih also caused other trivial issues and was still unable to solve the root cause. Knowing that this is a rabbit hole, I decided to search up SB_HFOSC online and found the following information in the iCE40 Oscillator Usage Guide:\n\n1.1. Key Features The following oscillators are available to iCEcube2 users: SB_LFOSC – Low Frequency Oscillator, SB_HFOSC – High Frequency Oscillator with output divider The following oscillators are available to Lattice Radiant Software users: LSOSC – Low Frequency Oscillator, HSOSC – High Frequency Oscillator with output divider\n\nI gave this information back to ChatGPT, and it then returned another draft of the module, which passed systhesis this time.\nOverall, I would rate the experience for coding with ChatGPT a 5.5/10. It did help explaining the calculations and also drafting the code, but I feel never really felt confident in the things it produced and had to also do a self mental check. Personally, I feel more confident in debugging and finding the non-reasonable parts from a piece of code than writing one from scratch. In this case, for example, I was able to find the unfamiliar module from ChatGPT’s code and also think of ways to make the code cleaner, but that was also partially because I had prior knowledge to the prompt. This time, ChatGPT providing a somewhat feasible draft did help improve the work efficiency, thus I rated it an above average score. That being said, the quality of it’s code is not always consistent, and I would most likely suggest one to be fairly confident in the topic of the prompt before asking a LLM to code from scratch."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html",
-    "href": "labs/lab3/lab3.html",
-    "title": "Lab 3: Keypad Scanner",
-    "section": "",
-    "text": "The goal of this design is to practice multiplexing by designing a FPGA that can scan a 4-by-4 matrix keypad and display the two most recently-pressed digits on a dual 7-segment display. Only one 7-segment decoder module can be used for both digits on the display, resulting in the need of time-multiplexing, and the user inputs from the keypad may be asynchronous."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#introduction",
-    "href": "labs/lab3/lab3.html#introduction",
-    "title": "Lab 3: Keypad Scanner",
-    "section": "",
-    "text": "The goal of this design is to practice multiplexing by designing a FPGA that can scan a 4-by-4 matrix keypad and display the two most recently-pressed digits on a dual 7-segment display. Only one 7-segment decoder module can be used for both digits on the display, resulting in the need of time-multiplexing, and the user inputs from the keypad may be asynchronous."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#design",
-    "href": "labs/lab3/lab3.html#design",
-    "title": "Lab 3: Keypad Scanner",
-    "section": "Design",
-    "text": "Design\nThe top level design, lab3_gt, included multiple modules:\n\nThe on-board high-speed oscillator (HSOSC) from the iCE40 UltraPlus primitive library\nA keypad scanner to scan the keypad for presses and synchronize the input with a synchronizer\nA debouncer for debouncing check on presses and releases, waiting for 100 ms\nA main FSM to determine “an actual press” on the keypad, design described below\nA keypad decoder to translate the row and column pressed into a 4-bit binary number\nA digit selector to toggle or select between the digits shown on the display\nA 7-segment display decoder.\n\nThe general idea of the design can be visualized with the block diagram below:\n\n\n\n\n\n\nFigure 1: Block diagram of the FPGA design\n\n\n\nReused from lab 1 and 2, digitSelector selects the digit which will be displayed on the dual 7-segment display with 60 Hz and segDecoder translates a given 4-bit binary number into 7-segment displayable hexadecimal. The 60 Hz frequency was chosen such that the human eyes can not catch that the two digits are turning on and off, creating the illusion that both digits are always on at the same time. The module achieves such frequency by taking in a 6 MHz clock input clk given by the high-speed oscillator and using a counter incremented at each clock cycle to toggle the enabling signal for each digit at 60 Hz. It then outputs both enabling signals and the 4-bit binary of the digit with the enabled signal.\nThe 7-segment display decoder contains a set of combinational logic to translate a 4-bit binary signal into a single hexadecimal value. Each segment of the display is a LED controlled by an I/O pin from the UPduino board, and the shape of each hexadecimal value is unique. As per the constraint of this lab, this module is only used once and takes the 4-bit binary input of the selected digit given by digitSelector.\nThe main finite state machine, pressFSM, was designed with the following state transition diagrams:\n\n\n\n\n\n\nFigure 2: State transition diagram of the main FSM\n\n\n\nThis FSM includes four states: IDLE, DEBOUNCE, HOLD, and RELEASE. The IDLE state works with the keypad_scanner to look for any pressed key. The keypad scanner drives voltage through each column of the keypad repeatedly, from column 0 to column 3, and searches for a pressed key when a corresponding row is high. When a key press is detected, the FSM transition into DEBOUNCE, which sends a startDebounce signal to the debouncer and waits for the countDone signal. The countDone signal indicates that the debounce period (100 ms) has ended, confirming that the key is in fact pressed and allowing the FSM to transition into state HOLD. Note that if the press is no longer detected (active rows changed when the same column is driven), the DEBOUNCE state moves back to the IDLE state. In state HOLD, if the rows input of the column originally pressed changes, then the FSM enters state RELEASE. This state uses a similar method with DEBOUNCE to check whether a key is actually released. The FSM moves on to IDLE if the release is true, and moves back to HOLD if it thinks that the release was simply a debounce.\nIn terms of the circuitry design, similar to Lab 2, the dual 7-segment display was externally accessed on a breadboard, with each of its two common anode connected to a 2N3906 PNP transistor to provide enough current. The 4-by-4 keypad matrix was also externally connected, with a pull-down resistor of \\(680 \\ohm\\) connecting the rows to ground. Given the large \\(100 k \\ohm\\) internal pull-up resistors in the PCB provided by the course, this pull-down resistor was chosen to be small enough to prevent the presence of a voltage divider. Two LEDs, D7 and D8, on the PCB are also used to show the states which the FSM is in, mainly for debugging purposes. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 3: Schematics of the circuit design"
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#testing-and-results",
-    "href": "labs/lab3/lab3.html#testing-and-results",
-    "title": "Lab 3: Keypad Scanner",
-    "section": "Testing and Results",
-    "text": "Testing and Results\nEach of the modules are testes with automated testbenches. The keypad_scanner was tested with inputting different rows and checking in two clock cycles if they are in sync. The keypad_decoder was simply tested with a set of combinational logic, making sure that the correct input of cols and rows outputs the right key in hexadecimal. The FSM module was tested, as the simulation tutorial, with key presses and releases, and ensuring that it passes through each of the 4 states. The debouncer and the digit_selector works very similarly, and only needs to show that the clock toggles.\nUsing Questa to simulate, the following figures show that All modules have successfully passed their testbench.\n\n\n\nWaveform of the keypad scanner module keypad_scanner\n\n\n\n\n\nWaveform of the keypad decoder module keypad_decoder\n\n\n\n\n\nWaveform of the FSM module press_FSM\n\n\n\n\n\n\n\n\nFigure 4: Waveform of the simulated segment display module\n\n\n\n:::\nAfter verifying the code with testbenches, the circuit which I built also has to be tested. There was no obvious blinking or toggling between the two digits, and output are correctly registered when keys are pressed."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#conclusion",
-    "href": "labs/lab3/lab3.html#conclusion",
-    "title": "Lab 3: Keypad Scanner",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn this lab, I successfully designed and built an FPGA design that was able to correctly display the two most recently-pressed key on a 4-by-4 matrix keypad using a dual 7-segment display. There was no observable blinking between the two digits, and the most recently-pressed digit shows on the right. When multiple keys are pressed, the system only register the original one and neglect the others. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 17 hours on the lab. I spent quite some time understanding how I wanted to scan my keypad and designing the cleanest FSM possible. Thanks to those efforts, the hardware debugging did not take much time. However, I hope to become more natural with coming up with FSMs and dealing with asynchronous inputs."
-  },
-  {
-    "objectID": "labs/lab3/lab3.html#ai-prototype-summary",
-    "href": "labs/lab3/lab3.html#ai-prototype-summary",
-    "title": "Lab 3: Keypad Scanner",
-    "section": "AI Prototype Summary",
-    "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the first prompt, the resulted design was unable to synthesize the first time. A synthesis error said that new_key is constantly driven from multiple places. Therefore, I asked it to fix it. Its second try also did not synthesize successfully, where there was a syntax error around always_ff. I also feeded back this error, and ChatGPT somehow came to the conclusion that my Lattice Radiant toolchain is not set up for full SystemVerilog-2005/2012 features. Later on, it decided to change its syntax to Verilog-2001 in its third try, which passed synthesis. The code it produced looks functionable at first sight. However, some of its choices, such as not having an else statement for the next state logic in FSM made me question whether this design would really work in real world.\nFor the second approach of using modular prompts, after tailoring the port names of my seven-segment decoder into the code which ChatGPT produced, synthesis passed the first time. The general logic between the two prompts seemed similar, but the second prompt has a cleaner code and design. For example, the FSM of the second prompt had only 3 states whereas the first one had 4. The second prompt merged the press and release debounce into one. Similarly though, I still don’t like the fact that there is no else statements for the next state logic.\nDespite their uncertainty of capabilities, the prompts were able to generate synthesizable designs fairly fast enough."
-  },
-  {
-    "objectID": "labs/lab5/lab5.html",
-    "href": "labs/lab5/lab5.html",
-    "title": "Lab 5: Interrupts",
-    "section": "",
-    "text": "The goal of this design is to practice implementing interrupts by measuring the rotational speed of a motor with a MCU."
-  },
-  {
-    "objectID": "labs/lab5/lab5.html#introduction",
-    "href": "labs/lab5/lab5.html#introduction",
-    "title": "Lab 5: Interrupts",
-    "section": "",
-    "text": "The goal of this design is to practice implementing interrupts by measuring the rotational speed of a motor with a MCU."
-  },
-  {
-    "objectID": "labs/lab5/lab5.html#design",
-    "href": "labs/lab5/lab5.html#design",
-    "title": "Lab 5: Interrupts",
-    "section": "Design",
-    "text": "Design\nFor this lab, the motor being tested, with a known 408 pulses per revolution (PPR), is connected to a quadrature encoders whose two ports, encoder A and encoder B, have a 90 degree out of phase. By counting both the rising and falling edges of both encoder A and B, each pulse is equivalent to 4 trigger events, and thus the rotational speed, in rev/s, can be given by: \\[\nV_{rot} = \\frac{count_{trigger}}{4*408}\n\\]\nI used libraries provided by the course for setting up most of the MCU. However, I reused the timer functions which I created in lab 4, since I was more familiar with its prescalar calculations. Referencing the STM32L432KC reference manual, programming manual, and datasheet, I was able to utilize functions to set up and enable the interrupts. Specifically, PA9 for encoder A and PA10 for encoder B was chosen as they were 5V compatible.\nTo enable the interrupts and correctly handle them, I wrote the functions EXTI9_5_IRQHandler and EXTI15_10_IRQHandler, respectively for PA9 and PA10. The handlers should update (increase or decrease) the count of triggers and determine the direction of the rotation. From observation, it can be seen that which ever encoder came first for each rotating direction has high on rising edge and low on falling, whereas the other encoder is a low and high, respectively. On the other hand, which ever came the later for each rotating direction had both encoders on high or low when there is an edge. Using such logic, we can find the direction which the motor is spinning by reading the input pins when interrupts happen. The flow chart for the interrupt design is described in the following picture:\n\n\n\nFlow chart of interrupt design\n\n\nThen, for every 1 second delay, the device prints the rotation speed and direction which the motor is spinning.\nThe circuitry design was referenced from the motor datasheet attached above, and no additional components were connected. The schematics for the physical circuit design is shown in the following graph:\n\n\n\n\n\n\nFigure 1: Schematics of the circuit design"
-  },
-  {
-    "objectID": "labs/lab5/lab5.html#testing-and-results",
-    "href": "labs/lab5/lab5.html#testing-and-results",
-    "title": "Lab 5: Interrupts",
-    "section": "Testing and Results",
-    "text": "Testing and Results\nWhen 10.02V is supplied to the motor, the output of one of its encoder has a frequency of 954 Hz, as shown in the following oscilloscope trace:\n\n\n\n\n\n\nFigure 2: Oscilloscope trace of encoder at 10.02V\n\n\n\nGiven that the PPR is 408, its rotational speed should be: \\[\n\\omega_{10.02V} = \\frac{954 \\ Hz}{408 \\ rev^{-1}} \\approx 2.338 \\  rev/s\n\\]\nThe motor speed outputted by my device was 2.361 rev/s, which is close to the calculated result, and the rotational direction was confirmed to be correct through visual observation. When the motor is turned off, the outputted motor speed is then 0. At both high and low speed, the device showed a steady output of reasonable motor speed.\nTo compare the performaces between interrupts and manual polling, I disabled the interrupt and toggled a pin for when each loop of my while loop is being ran, providing the motor a voltage of 10.02 V. The output is shown in the graph below:\n\n\n\nOscilloscope trace of polling output at 10.02V\n\n\nThe toggled pin had a frequency of 7.81 kHz. The maximum motor speed which it should be able to detect is thus: \\[\n\\omega_{max, pol} = \\frac{7.81 * 10^3 \\ Hz}{408 \\ rev^{-1}} \\approx 19.14 \\  rev/s\n\\]\nThis made sense since when I tried to gate and use polling, the device also outputted correct motor speed even up until 4 rev/s. As for the interrupt, using a function generator, I found that the device can no longer output the correct frequency which it was receiving at around 13 kHz. Therefore, the maximum motor speed it should be able to detect is: \\[\n\\omega_{max, int} = \\frac{13 * 10^3 \\ Hz}{408 \\ rev^{-1}} \\approx 31.86 \\  rev/s\n\\]\nThe interrupt would thus work better at a high speed."
-  },
-  {
-    "objectID": "labs/lab5/lab5.html#conclusion",
-    "href": "labs/lab5/lab5.html#conclusion",
-    "title": "Lab 5: Interrupts",
-    "section": "Conclusion",
-    "text": "Conclusion\nIn this lab, I successfully designed and built a MCU design that was able to correctly measure the motor speed and rotational direction. As mentioned in previous sections, the motor speed are close to theoretical values and was steady throughout operations. Therefore, I believe that my design for this lab meets all the requirements of this lab. This week, I spent 8 hours on the lab. One issue that I spent the most time debugging was my hardware, which I believe had some soldering issues. When the MCU is connected with the ribbon cable, I was unable to read to the pins. However, when I directly wire the circuit to the MCU on a breadboard, my device worked fine."
-  },
-  {
-    "objectID": "labs/lab5/lab5.html#ai-prototype-summary",
-    "href": "labs/lab5/lab5.html#ai-prototype-summary",
-    "title": "Lab 5: Interrupts",
-    "section": "AI Prototype Summary",
-    "text": "AI Prototype Summary\nFor this AI prototype, I used ChatGPT. When feeding it the prompt initially, it was completely unable to run as it was using the wrong syntax, such as GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1; or HAL_NVIC_EnableIRQ(EXTI0_IRQn);. After providing it the link to the header file of the device, however, it was able to generate correct syntax by using bit masking. At this point, the general logic of enabling and handling the interrupt seemed fine, but as it was not specified in the prompt, the code was missing parts that would calculate and output the motor speed. Interestingly, after asking for calculating and outputting the motor speed, ChatGPT once again generated new code with the wrong syntax, similar to those before the header file was provided. Therefore, although I do think that ChatGPT provides a reasonable place to start, for example how to enable the interrupts, it lacks more of integrating the system and outputting at our desired times."
-  },
-  {
-    "objectID": "posts/week0_learningGoals.html",
-    "href": "posts/week0_learningGoals.html",
-    "title": "Learning Goals",
-    "section": "",
-    "text": "I think this course will help me develop both hard and soft skills over the semester, and I’m excited to dive deeper into learning about microprocessors and digital systems.\nE85 really stood out as a valuable class to me because I had a lot of fun designing a multicycle RISC-V processor. Having focused on verification through research over the past summer, I’m eager to return to the design side and strengthen my skills in RTL design. In particular, I want to deepen my fluency in SystemVerilog, focusing on writing more efficient and clean code. As someone who hopes to pursue a career in hardware engineering, I see this as an important skill to have, allowing me to build a stronger foundation in design.\nOn the other hand, having heard that this class has a heavy workload, I also want to improve my time management and efficiency. While I feel fairly confident in learning through hands-on project, I want to push myself to work more systematically and efficiently through the labs and final project. I’m also looking forward to developing my technical writing skills, which I believe this course will give me the chance to by approaching projects more systematically and thoughtfully."
+    "objectID": "proposal.html#bill-of-materials",
+    "href": "proposal.html#bill-of-materials",
+    "title": "Project Proposal",
+    "section": "Bill of Materials",
+    "text": "Bill of Materials\n\n\n\n\n\n\n\n\n\n\nName\nPart #\nManufacturer\nQuantity\nPrice\n\n\n\n\nMicrophone\nMAX4466\nAdafruit\nx1\n$6.95\n\n\nAudio Codec\nMAX98357A\nAdafruit\nx1\n$5.95\n\n\nVGA Breakout Cord\n3124\nAdafruit\nx1\n$4.50\n\n\nVGA Display\n\n\nx1\nstockroom\n\n\nOp-amp\nMCP601\n\nx1\nstockroom\n\n\nPotentiometer\n\n\nx1\nstockroom\n\n\nSpeaker\n\n\nx1\nstockroom\n\n\nSTM32L432KC Microcontroller\n\nSTMicroelectronics\nx1\nE155 teaching team\n\n\nUPDuino v3.1 ICE40 UP5K FPGA\n\ntinyVision.ai\nx1\nE155 teaching team\n\n\n\n\n\nTotal including shipping + tax\n$31.66 (shipping $12.56 & tax $1.70)"
   }
 ]
