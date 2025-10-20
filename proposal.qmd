@@ -4,13 +4,13 @@ title: "Project Proposal"
 Julia Gong and Georgia Tai
 
 ## Project Description
-This project aims to take in sound inputs, whether using a keyboard, any instruments, or someone signing, transcribe the sound onto a score real-time with a given bpm, and play back the input melody. An FPGA will be used as the main calculation and display engine, using Fast Fourier Transform (FFT) to handle frequency analysis and driving a VGA display. A MCU will be used for interfacing the audio inputs and outputs.
+This project aims to take in sound inputs, whether using a keyboard, any instruments, or someone signing, transcribe the sound onto a score in real-time with a given bpm, and play back the input melody. An FPGA will be used as the main calculation and display engine, using Fast Fourier Transform (FFT) to handle frequency analysis and driving a VGA display. A MCU will be used for interfacing the audio inputs and outputs.
 
-On the hardware level, an analog microphone will take in sounds, where the MCU will transform them into digital signals using ADC and send the transformed signals to the FPGA. The FPGA and the MCU are connected with a SPI. Then, the FPGA will use FFT to extract the frequency and duration of the note inputted. The array of notes will then be used by the FPGA to calculate the pixels for displaying the score on a VGA display. This array of notes, after transcription ends, will be sent to the MCU through SPI to generate the playback audio. The user should be able to start the playback with a hardware component such as a switch or a button, and control the volume with a potentiometer.
+On the hardware level, an analog microphone will take in sounds, where the MCU will convert them into digital signals using ADC and send the converted signals to the FPGA. The MCU will then send the digital signals to the FPGA using SPI. Then, the FPGA will use FFT to extract the frequency and duration of the note inputted. The array of notes will then be used by the FPGA to calculate the pixels for displaying the score on a VGA display. This array of notes, after transcription ends, will be sent to the MCU through SPI to generate the playback audio. The user should be able to control the music transcription and play back audio with a hardware components such as a switch or a button, and control the volume with a potentiometer.
 
 [maybe we should describe more in detail on each component...? e.g. frequency of vga, expected constraints]
 
-[block diagram - Julia]
+![This image shows the block diagram of the music transcriber system.](images/proposal_block.jpeg)
 
 ## Project Specifications
 ### Input: detection and analysis
@@ -31,11 +31,68 @@ On the hardware level, an analog microphone will take in sounds, where the MCU w
 
 ## Design Overview
 
+The input signals from the microphone remain the riskiest element of the system. To improve the microphone input detection, the Maxim MAX4466 was chosen since it has a built in amplifier with a maximum adjustable gain of x125. 
+
 [description of functions of fpga and mcu - Georgia]
 
 ## Calculations
 
-[fft calculations - Julia]
+### Fast Fourier Transform Calculations
+The Fast Fourier Transform transforms a signal from the time to frequency domain by recursively dividing a discrete fourier transform (DFT) into its odd and even indexed elements. The odd and even DFTs are of size N/2, where N is the size of its non-spit DFT. Using the symmetry and periodicity properties of complex exponentials, the even part corresponds to a half sized DFT and odd part corresponds to a half sized DFT that is multiplied by the twiddle factor (which is complex exponential expressed by $W_N$).
+
+These equations below show the DFT and how the DFT can be split into its even and odd components.
+
+DFT equation:
+$$
+X[k] = \sum_{n=0}^{N-1} x[n] W_N^{kn}
+$$
+DFT equation split into even and odd components:
+$$
+X[k]  = \sum_{m=0}^{\frac{N}{2}-1} x[2m] W_N^{k(2m)} 
++ \sum_{m=0}^{\frac{N}{2}-1} x[2m+1] W_N^{k(2m+1)}
+$$
+where 
+$$
+W_N = e^{-j \frac{2\pi}{N}}
+$$
+
+Using Radix-2 decompositions, an N point FFT can be computed through:
+
+* $\log_2(N)$ levels of transforms
+* Each transform has $N/2$ butterfly operations
+* A total of $\frac{N}{2} \log_2(N)$ butterfly operations
+
+We decided to use a 512 point FFT for higher resolution processing of our microphone inputs. 
+Since N = 512, we would require:
+
+* $\log_2(512) = 9$ levels of transforms
+* $512/2 = 256$ butterfly operations
+* total of $\frac{512}{2} \log_2(512) = $ butterfly operations
+
+To calculate the amount of FPGA Block RAM used, each complex sample and twiddle factor contains 4 bytes (16 bits each for real and imaginary). There are a total of 512 complex samples and 256 twiddle factors. 
+
+Total number of bytes used: (512 x 4) + (256 x 4) = 3072 bytes or 3kB
+
+Each butterfly operation takes in two complex inputs (ex A and B), multiplies B by the twiddle factor, and adds/subtract. Four multiplications will be needed in hardware, which will be handled by 4 DSPs. A butterfly operation will required an approximated 300 LUTs (16 each for add/subtract, 32 each for complex add/subtract, 40 for multiply overhead when using DSPs, 40 for twiddle address, 100 for pipelined registers). An approximated LUTs are used for the FFT controller 400.
+
+The number of LUTs required for a 512 point FFT with 2 pipelined butterfly operations can be calculated by:
+
+$$
+\text{Total LUTs} = (\text{LUTs per butterfly}) \times (\text{\# of pipelined butterflies}) + \text{LUTs for controller}
+$$
+
+$$
+\text{Total LUTs} = 300 \times 2 + 400 = 1000 \text{ LUTs}
+$$
+
+
+In order to calculate the duration of the notes using FFTs, two overlapping FFTs will be used. Using overlapping FFTs will ensure that input signals will be captured. The FPGA will check for new note activity after every FFT is computer to detect the start and stop of notes. The amount of FFT frames for a note can then be converted to note duration. The FFT frame length will depend on the MCU ADC sampling rate. 
+
+Using 2 overlapping FFTs will doule the amount of memory and LUTs used. The FFT computation will require approximately 6kB of block RAM and 2000 LUTs. 
+
+
+
+
 [vga calculations - Georgia]
 
 ## Proposed Timeline and Work Distribution
@@ -51,7 +108,7 @@ On the hardware level, an analog microphone will take in sounds, where the MCU w
 |      |             | Continuing to debug real time note display on VGA                                          | 15hr+ |        |                                     |
 |      |             | Implementing duration detection for different bpms                                         | 7hr+  |        | Less priority, if time allows       |
 | 5    | 11/24       | Integrating playback audio using SPI communication, audio codec, and speaker               | 8hr+  |        | 11/26-30: Thanksgiving break        |
-| 6    | 12/1        | Debugging integration/system in general                                                    | 10hr+ |        |                                     |
+| 6    | 12/1        | Debugging integration/system in general                                                    | 10hr+ | Both       |                                     |
 |      |             | Prepare for Final Checkoff (e.g. write-up)                                                 | 6hr+  | Both   | 12/2-4: Final Check-off             |
 |      |             | Prepare for Demo Day                                                                       | 3hr+  | Both   | 12/5: Demo Day                      |
 : Proposed Timeline of Project
