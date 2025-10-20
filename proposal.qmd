@@ -33,20 +33,14 @@ The input signals from the microphone remain the riskiest element of the system.
 
 ### FPGA: UPDuino v3.1 (iCE40UP5K)
 * FFT & Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in SPRAM.
-
 * Duration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in SPRAM.
-
 * VGA Controller - VGA timing signals and framebuffer data extracted from SPRAM will be used to compose the score on a VGA screen in real time.
-
 * SPI Peripheral - This provides the FPGA as an SPI interface which the MCU can read and write to, bridging the connection between the two.
 
 ### MCU: STM32L432KC
 * ADC - The microphone specifies to connect its output to the ADC pin. This will allow the MCU to buffer the samples and convert our desired input in to digital signals.
-
 * I2S - This will allow the MCU to synthesize the audio for playback and send it to the audio codec, where the audio codec we chose to use expects I2S.
-
 * Control - The MCU will handle user commands, reading buttons/switches for the start/end of transcription or playback and potentiometer for the volume of the playback audio.
-
 * SPI Controller - The MCU will act as the SPI controller to send digital sound inputs to the FPGA and to receive the transcribed note array when transcription stops.
 
 
@@ -108,7 +102,7 @@ Using 2 overlapping FFTs will doule the amount of memory and LUTs used. The FFT 
 Suppose that we use a VGA screen of 640x480 @ 60 Hz, which normally has 800 pixels per line and 525 lines per frame, we can calculate the clock timing by:
 
 $$
-\text{Pixel clock} = (\text{pixels per line}) \times (\text{lines per frame}) + \text{frames per second}
+\text{Pixel clock} = (\text{pixels per line}) \times (\text{lines per frame}) \times \text{frames per second}
 $$
 
 $$
@@ -117,10 +111,10 @@ $$
 
 The visible pixels per frame is:
 $$
-\text{# of pixelx} = 640 \times 480 = 307200 \text{ pixels}
+\text{number of pixels} = 640 \times 480 = 307200 \text{ pixels}
 $$
 
-In the case which scores and notes can be drawn with just black and white, we only need one bpp for each pixel. The memory required is thus $307200 \text{ bits}$, or $38.4 \text{ KB}$. 
+In the case which scores and notes can be drawn with just black and white, we only need one bpp for each pixel. The memory required is thus 307200 bits, or 38.4 kB. 
 
 Given that the UPDuino v3.1 has a SPRAM of 128 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.
 
