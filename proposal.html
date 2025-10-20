@@ -231,9 +231,9 @@ window.Quarto = {
 <section id="fpga-upduino-v3.1-ice40up5k" class="level3">
 <h3 class="anchored" data-anchor-id="fpga-upduino-v3.1-ice40up5k">FPGA: UPDuino v3.1 (iCE40UP5K)</h3>
 <ul>
-<li>FFT &amp; Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in SPRAM.</li>
-<li>Duration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in SPRAM.</li>
-<li>VGA Controller - VGA timing signals and framebuffer data extracted from SPRAM will be used to compose the score on a VGA screen in real time.</li>
+<li>FFT &amp; Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in DPRAM.</li>
+<li>Duration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in DPRAM.</li>
+<li>VGA Controller - VGA timing signals and framebuffer data extracted from DPRAM will be used to compose the score on a VGA screen in real time.</li>
 <li>SPI Peripheral - This provides the FPGA as an SPI interface which the MCU can read and write to, bridging the connection between the two.</li>
 </ul>
 </section>
@@ -299,7 +299,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 \text{number of pixels} = 640 \times 480 = 307200 \text{ pixels}
 \]</span></p>
 <p>In the case which scores and notes can be drawn with just black and white, we only need one bpp for each pixel. The memory required is thus 307200 bits, or 38.4 kB.</p>
-<p>Given that the UPDuino v3.1 has a SPRAM of 128 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.</p>
+<p>Given that the UPDuino v3.1 has a DPRAM of 120 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.</p>
 <p>As for the estimated LUTs, the VGA controller should mainly be composed of counters (to keep tract of the pixels), pixel address calculator, framebuffer reader, RGB output mapping, and FSM control. The counters should each be around 10 bits (for 800 pixels per line and 525 lines), which gives around 10 LUTs for each of the horizontal and vertical counters. The address generator will need to compute both constant multiplication and addition, which will result in ~50 LUTs for considering 10 bits for both counters previously mentioned. The framebuffer reader may take 100 LUTs to read the address, construct a read control FSM, shift pixels, and buffer the frames if needed. The RGB output mapping will most likely need ~20 LUTs to check if a pixel is visible and the value of each of the three colors. Around 50 LUTs are estimated for the FSM control logic, which will handle the synchronization and mode logic of the VGA display.</p>
 <p>The total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our estimated LUTs for the FFT control is about 2000. Given that there are 5k available LUTs on the FPGA, we should have a reasonable amount of space to modify and complex our design, for example adding more buffers to the VGA display.</p>
 </section>
@@ -311,10 +311,10 @@ W_N = e^{-j \frac{2\pi}{N}}
 <colgroup>
 <col style="width: 3%">
 <col style="width: 7%">
-<col style="width: 56%">
+<col style="width: 53%">
 <col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 22%">
+<col style="width: 9%">
+<col style="width: 21%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -332,7 +332,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td>10/27</td>
 <td>Design FFT hardware on FGPA</td>
 <td>15hr+</td>
-<td></td>
+<td>Julia (Georgia)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -340,7 +340,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td></td>
 <td>Working microphone and SPI between FPGA &amp; MCU</td>
 <td>8hr+</td>
-<td></td>
+<td>Georgia</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -348,7 +348,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td>11/3</td>
 <td>VGA implementation: setting score interface, able to display notes (no input dependencies)</td>
 <td>15hr+</td>
-<td></td>
+<td>Georgia (Julia)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -364,7 +364,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td>11/10</td>
 <td>Connecting input and VGA, allowing notes obtained by FFT to display on screen</td>
 <td>10hr+</td>
-<td></td>
+<td>Both</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -380,7 +380,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td></td>
 <td>Continuing to debug real time note display on VGA</td>
 <td>15hr+</td>
-<td></td>
+<td>Georgia (Julia)</td>
 <td></td>
 </tr>
 <tr class="even">
@@ -388,7 +388,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td></td>
 <td>Implementing duration detection for different bpms</td>
 <td>7hr+</td>
-<td></td>
+<td>Julia</td>
 <td>Less priority, if time allows</td>
 </tr>
 <tr class="odd">
@@ -396,7 +396,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td>11/24</td>
 <td>Integrating playback audio using SPI communication, audio codec, and speaker</td>
 <td>8hr+</td>
-<td></td>
+<td>Both</td>
 <td>11/26-30: Thanksgiving break</td>
 </tr>
 <tr class="even">
@@ -450,8 +450,8 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td style="text-align: center;">Microphone</td>
 <td style="text-align: center;">MAX4466</td>
 <td style="text-align: center;">Adafruit</td>
-<td style="text-align: center;">x1</td>
-<td style="text-align: center;">$6.95</td>
+<td style="text-align: center;">x2</td>
+<td style="text-align: center;">$6.95 * 2 = $13.90</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Audio Codec</td>
@@ -514,7 +514,7 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">Total including shipping + tax</td>
-<td style="text-align: center;">$31.66 (shipping $12.56 &amp; tax $1.70)</td>
+<td style="text-align: center;">$39.26 (shipping $12.56 &amp; tax $2.35)</td>
 </tr>
 </tbody>
 </table>
@@ -595,7 +595,7 @@ W_N = e^{-j \frac{2\pi}{N}}
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/georgiatai\.github\.io\/E155-final-project\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

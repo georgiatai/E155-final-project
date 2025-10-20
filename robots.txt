@@ -1,1 +1,1 @@
-Sitemap: https://georgiatai.github.io/E155-portfolio/sitemap.xml
+Sitemap: https://georgiatai.github.io/E155-final-project/sitemap.xml
