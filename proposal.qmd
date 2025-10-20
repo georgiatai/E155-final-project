@@ -8,8 +8,6 @@ This project aims to take in sound inputs, whether using a keyboard, any instrum
 
 On the hardware level, an analog microphone will take in sounds, where the MCU will convert them into digital signals using ADC and send the converted signals to the FPGA. The MCU will then send the digital signals to the FPGA using SPI. Then, the FPGA will use FFT to extract the frequency and duration of the note inputted. The array of notes will then be used by the FPGA to calculate the pixels for displaying the score on a VGA display. This array of notes, after transcription ends, will be sent to the MCU through SPI to generate the playback audio. The user should be able to control the music transcription and play back audio with a hardware components such as a switch or a button, and control the volume with a potentiometer.
 
-[maybe we should describe more in detail on each component...? e.g. frequency of vga, expected constraints]
-
 ![This image shows the block diagram of the music transcriber system.](images/proposal_block.jpeg)
 
 ## Project Specifications
@@ -33,7 +31,24 @@ On the hardware level, an analog microphone will take in sounds, where the MCU w
 
 The input signals from the microphone remain the riskiest element of the system. To improve the microphone input detection, the Maxim MAX4466 was chosen since it has a built in amplifier with a maximum adjustable gain of x125. 
 
-[description of functions of fpga and mcu - Georgia]
+### FPGA: UPDuino v3.1 (iCE40UP5K)
+* FFT & Pitch Detection - A 512-point FFT will be run by the FPGA to extract dominant frequencies from the digital audio samples sent from the MCU over SPI. The results will be stored in SPRAM.
+
+* Duration Detection - The FPGA will count the FFT frames of a specific note and convert the count using the current BPM to infer duration of a note. The array of note events will also be stored in SPRAM.
+
+* VGA Controller - VGA timing signals and framebuffer data extracted from SPRAM will be used to compose the score on a VGA screen in real time.
+
+* SPI Peripheral - This provides the FPGA as an SPI interface which the MCU can read and write to, bridging the connection between the two.
+
+### MCU: STM32L432KC
+* ADC - The microphone specifies to connect its output to the ADC pin. This will allow the MCU to buffer the samples and convert our desired input in to digital signals.
+
+* I2S - This will allow the MCU to synthesize the audio for playback and send it to the audio codec, where the audio codec we chose to use expects I2S.
+
+* Control - The MCU will handle user commands, reading buttons/switches for the start/end of transcription or playback and potentiometer for the volume of the playback audio.
+
+* SPI Controller - The MCU will act as the SPI controller to send digital sound inputs to the FPGA and to receive the transcribed note array when transcription stops.
+
 
 ## Calculations
 
@@ -67,7 +82,7 @@ Since N = 512, we would require:
 
 * $\log_2(512) = 9$ levels of transforms
 * $512/2 = 256$ butterfly operations
-* total of $\frac{512}{2} \log_2(512) = $ butterfly operations
+* total of $\frac{512}{2} \log_2(512) = 2304$ butterfly operations
 
 To calculate the amount of FPGA Block RAM used, each complex sample and twiddle factor contains 4 bytes (16 bits each for real and imaginary). There are a total of 512 complex samples and 256 twiddle factors. 
 
@@ -85,15 +100,33 @@ $$
 \text{Total LUTs} = 300 \times 2 + 400 = 1000 \text{ LUTs}
 $$
 
-
 In order to calculate the duration of the notes using FFTs, two overlapping FFTs will be used. Using overlapping FFTs will ensure that input signals will be captured. The FPGA will check for new note activity after every FFT is computer to detect the start and stop of notes. The amount of FFT frames for a note can then be converted to note duration. The FFT frame length will depend on the MCU ADC sampling rate. 
 
 Using 2 overlapping FFTs will doule the amount of memory and LUTs used. The FFT computation will require approximately 6kB of block RAM and 2000 LUTs. 
 
+### VGA Calculations
+Suppose that we use a VGA screen of 640x480 @ 60 Hz, which normally has 800 pixels per line and 525 lines per frame, we can calculate the clock timing by:
 
+$$
+\text{Pixel clock} = (\text{pixels per line}) \times (\text{lines per frame}) + \text{frames per second}
+$$
 
+$$
+\text{Pixel clock} = 800 \times 525 \times 60 = 25.2 \text{ MHz}
+$$
 
-[vga calculations - Georgia]
+The visible pixels per frame is:
+$$
+\text{# of pixelx} = 640 \times 480 = 307200 \text{ pixels}
+$$
+
+In the case which scores and notes can be drawn with just black and white, we only need one bpp for each pixel. The memory required is thus $307200 \text{ bits}$, or $38.4 \text{ KB}$. 
+
+Given that the UPDuino v3.1 has a SPRAM of 128 kB, the estimated memory used by FFT (6 kB) and by VGA (~40 kB), can easily fit within.
+
+As for the estimated LUTs, the VGA controller should mainly be composed of counters (to keep tract of the pixels), pixel address calculator, framebuffer reader, RGB output mapping, and FSM control. The counters should each be around 10 bits (for 800 pixels per line and 525 lines), which gives around 10 LUTs for each of the horizontal and vertical counters. The address generator will need to compute both constant multiplication and addition, which will result in ~50 LUTs for considering 10 bits for both counters previously mentioned. The framebuffer reader may take 100 LUTs to read the address, construct a read control FSM, shift pixels, and buffer the frames if needed. The RGB output mapping will most likely need ~20 LUTs to check if a pixel is visible and the value of each of the three colors. Around 50 LUTs are estimated for the FSM control logic, which will handle the synchronization and mode logic of the VGA display. 
+
+The total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our estimated LUTs for the FFT control is about 2000. Given that there are 5k available LUTs on the FPGA, we should have a reasonable amount of space to modify and complex our design, for example adding more buffers to the VGA display.
 
 ## Proposed Timeline and Work Distribution
 
