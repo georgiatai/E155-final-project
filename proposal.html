@@ -209,15 +209,15 @@ window.Quarto = {
 <li>User can stop and start transcription using physical hardware (e.g.&nbsp;switch/button)</li>
 <li>System converts analog microphone signals into digital</li>
 <li>Uses FFT to extract clear signal from input</li>
-<li>Calculates frequency and duration of inputs accurately</li>
+<li>System calculates input frequency and rounds to the nearest half note (e.g.&nbsp;A3#, C4)</li>
+<li>System able to detect duration accurate to 1/16 beat at the given BPM</li>
 </ul>
 </section>
 <section id="output-display-and-audio" class="level3">
 <h3 class="anchored" data-anchor-id="output-display-and-audio">Output: display and audio</h3>
 <ul>
 <li>Display updates at &gt; 24 Hz</li>
-<li>Notes display in real time</li>
-<li>Note durations are displayed for 120 bpm</li>
+<li>Note durations are displayed for 120 BPM</li>
 <li>Playback audio resembles the input</li>
 <li>Playback audio uses an audio codec so that output sound is not square wave</li>
 <li>User can control the volume of playback audio</li>

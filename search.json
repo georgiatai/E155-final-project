@@ -25,7 +25,7 @@
     "href": "proposal.html#project-specifications",
     "title": "Project Proposal",
     "section": "Project Specifications",
-    "text": "Project Specifications\n\nInput: detection and analysis\n\nUser can stop and start transcription using physical hardware (e.g. switch/button)\nSystem converts analog microphone signals into digital\nUses FFT to extract clear signal from input\nCalculates frequency and duration of inputs accurately\n\n\n\nOutput: display and audio\n\nDisplay updates at &gt; 24 Hz\nNotes display in real time\nNote durations are displayed for 120 bpm\nPlayback audio resembles the input\nPlayback audio uses an audio codec so that output sound is not square wave\nUser can control the volume of playback audio\nUser can control when to playback the transcribed audio (e.g. switch/button), but can only play the audio when transcription is stopped"
+    "text": "Project Specifications\n\nInput: detection and analysis\n\nUser can stop and start transcription using physical hardware (e.g. switch/button)\nSystem converts analog microphone signals into digital\nUses FFT to extract clear signal from input\nSystem calculates input frequency and rounds to the nearest half note (e.g. A3#, C4)\nSystem able to detect duration accurate to 1/16 beat at the given BPM\n\n\n\nOutput: display and audio\n\nDisplay updates at &gt; 24 Hz\nNote durations are displayed for 120 BPM\nPlayback audio resembles the input\nPlayback audio uses an audio codec so that output sound is not square wave\nUser can control the volume of playback audio\nUser can control when to playback the transcribed audio (e.g. switch/button), but can only play the audio when transcription is stopped"
   },
   {
     "objectID": "proposal.html#design-overview",
