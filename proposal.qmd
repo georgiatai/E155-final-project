@@ -21,6 +21,7 @@ On the hardware level, an analog microphone will take in sounds, where the MCU w
 ### Output: display and audio
 * Display updates at > 24 Hz
 * Note durations are displayed for 120 BPM
+* Notes are displayed on VGA monitor ~50ms after note is released
 * Playback audio resembles the input 
 * Playback audio uses an audio codec so that output sound is not square wave
 * User can control the volume of playback audio
@@ -45,6 +46,17 @@ The input signals from the microphone remain the riskiest element of the system.
 
 
 ## Calculations
+
+### Delay for Note Display
+
+The shortest note that our system will recognize is a 16th note. Given 120 BPM, the length of a 16th note is 0.125 seconds. Therefore, the delay between the end of the note to when it is displayed on the VGA display must be less than 0.125 seconds so that a 16th note can be processed. 
+
+The total latency of our system can be estimated by: $T_{samplingWindow} + T_{spi} + T_{fft} + T_{postProcessing} + T_{display}$
+
+where the audio is sampled at 48kHz such that $T_{samplingWindow} = 512/48,000 = 10.67ms. $ SPI communication between the MCU and FPGA is set to sending 12 bit precision at 4Mhz such that $T_{spi} = 0.00025ms * 12bits * 512 samples = 1.536ms.$ The 512-point FFT requires 2304 butterfly operations, where 2 butterfly operations will be pipelined. There will be 1152 cycles. The FPGA will operate at 8MHz such that $T_{fft} = 1152 * 0.000125ms = 0.144ms.$ Buffer time for post processing is estimated such that $T_{display} = 2ms.$ The VGA will be refreshing at a rate of 60Hz, such that $T_{display} = 16.7 ms$
+
+Therefore, $T_{total} = 10.67ms + 1.536ms + 0.144ms + 2ms + 16.7ms = 31.05ms. To give flexibility with our note display, the estimated expected delay for each note should be 50ms. 
+
 
 ### Fast Fourier Transform Calculations
 The Fast Fourier Transform transforms a signal from the time to frequency domain by recursively dividing a discrete fourier transform (DFT) into its odd and even indexed elements. The odd and even DFTs are of size N/2, where N is the size of its non-spit DFT. Using the symmetry and periodicity properties of complex exponentials, the even part corresponds to a half sized DFT and odd part corresponds to a half sized DFT that is multiplied by the twiddle factor (which is complex exponential expressed by $W_N$).
