@@ -21,7 +21,7 @@ On the hardware level, an analog microphone will take in sounds, where the MCU w
 ### Output: display and audio
 * Display updates at > 24 Hz
 * Note durations are displayed for 120 BPM
-* Notes are displayed on VGA monitor ~50ms after note is released
+* Notes are displayed on VGA monitor ~75 ms after note is released
 * Playback audio resembles the input 
 * Playback audio uses an audio codec so that output sound is not square wave
 * User can control the volume of playback audio
@@ -51,11 +51,19 @@ The input signals from the microphone remain the riskiest element of the system.
 
 The shortest note that our system will recognize is a 16th note. Given 120 BPM, the length of a 16th note is 0.125 seconds. Therefore, the delay between the end of the note to when it is displayed on the VGA display must be less than 0.125 seconds so that a 16th note can be processed. 
 
-The total latency of our system can be estimated by: $T_{samplingWindow} + T_{spi} + T_{fft} + T_{postProcessing} + T_{display}$
+The total latency of our system can be estimated by: 
+$$
+T_{total} = T_{samplingWindow} + T_{spi} + T_{fft} + T_{postProcessing} + T_{display}
+$$
 
-where the audio is sampled at 48kHz such that $T_{samplingWindow} = 512/48,000 = 10.67ms. $ SPI communication between the MCU and FPGA is set to sending 12 bit precision at 4Mhz such that $T_{spi} = 0.00025ms * 12bits * 512 samples = 1.536ms.$ The 512-point FFT requires 2304 butterfly operations, where 2 butterfly operations will be pipelined. There will be 1152 cycles. The FPGA will operate at 8MHz such that $T_{fft} = 1152 * 0.000125ms = 0.144ms.$ Buffer time for post processing is estimated such that $T_{display} = 2ms.$ The VGA will be refreshing at a rate of 60Hz, such that $T_{display} = 16.7 ms.$
+where the audio is sampled at 48 kHz such that $T_{samplingWindow} = 512/48000 = 10.67 \text{ ms}$. SPI communication between the MCU and FPGA is set to sending 12 bit precision at 4 Mhz such that $T_{spi} = 0.00025 \text{ ms} \times 12 \text{ bits} \times 512 \text{ samples} = 1.536 \text{ ms}$. The 512-point FFT requires 2304 butterfly operations, where 2 butterfly operations will be pipelined. There will be 1152 cycles. The FPGA will operate at 8MHz such that $T_{fft} = 1152 \times 0.000125 \text{ ms} = 0.144 \text{ ms}$. Buffer time for post processing is estimated such that $T_{display} = 2 \text{ ms}$. The VGA will be refreshing at a rate of 60 Hz, such that $T_{display} = 16.7 \text{ ms}$.
 
-Therefore, $T_{total} = 10.67ms + 1.536ms + 0.144ms + 2ms + 16.7ms = 31.05ms.$ To give flexibility with our note display, the estimated expected delay for each note should be 50ms. 
+Therefore, 
+$$
+T_{total} = 10.67 \text{ ms} + 1.536 \text{ ms} + 0.144 \text{ ms} + 2 \text{ ms} + 16.7 \text{ ms} = 31.05 \text{ ms}
+$$ 
+
+To give flexibility with our note display, the estimated expected delay for each note should be 75 ms. 
 
 
 ### Fast Fourier Transform Calculations
@@ -155,15 +163,16 @@ The total estimated LUTs for the VGA thus adds up to at least 250 LUTs. Our esti
 
 ## Bill of Materials
 
-|             Name             |   Part #  |    Manufacturer    |            Quantity            |                Price                 |
-|:----------------------------:|:---------:|:------------------:|:------------------------------:|:------------------------------------:|
-| Microphone                   | MAX4466   | Adafruit           | x2                             | $6.95 * 2 = $13.90                   |
-| Audio Codec                  | MAX98357A | Adafruit           | x1                             | $5.95                                |
-| VGA Breakout Cord            | 3124      | Adafruit           | x1                             | $4.50                                |
-| VGA Display                  |           |                    | x1                             | stockroom                            |
-| Op-amp                       | MCP601    |                    | x1                             | stockroom                            |
-| Potentiometer                |           |                    | x1                             | stockroom                            |
-| Speaker                      |           |                    | x1                             | stockroom                            |
-| STM32L432KC Microcontroller  |           | STMicroelectronics | x1                             | E155 teaching team                   |
-| UPDuino v3.1 ICE40 UP5K FPGA |           | tinyVision.ai      | x1                             | E155 teaching team                   |
-|                              |           |                    | Total including shipping + tax | $39.26 (shipping $12.56 & tax $2.35) |
+|             Name                    |   Part #  |    Manufacturer    |            Quantity            |                Price                 |
+|:-----------------------------------:|:---------:|:------------------:|:------------------------------:|:------------------------------------:|
+| Microphone                          | MAX4466   | Adafruit           | x2                             | $6.95 * 2 = $13.90                   |
+| Audio Codec                         | MAX98357A | Adafruit           | x1                             | $5.95                                |
+| VGA Breakout Cord                   | 3124      | Adafruit           | x1                             | $4.50                                |
+| Audio Jack to Micro USB B converter |           | PIIHUSW            | x1                             | $7.57 (with Amazon Prime)            |
+| VGA Display                         |           |                    | x1                             | stockroom                            |
+| Op-amp                              | MCP601    |                    | x1                             | stockroom                            |
+| Potentiometer                       |           |                    | x1                             | stockroom                            |
+| Speaker                             |           |                    | x1                             | stockroom                            |
+| STM32L432KC Microcontroller         |           | STMicroelectronics | x1                             | E155 teaching team                   |
+| UPDuino v3.1 ICE40 UP5K FPGA        |           | tinyVision.ai      | x1                             | E155 teaching team                   |
+|                                     |           |                    | Total including shipping + tax | $46.83 (shipping $12.56 & tax $2.35) |
