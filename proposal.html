@@ -159,6 +159,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a>
   <ul class="collapse">
+  <li><a href="#delay-for-note-display" id="toc-delay-for-note-display" class="nav-link" data-scroll-target="#delay-for-note-display">Delay for Note Display</a></li>
   <li><a href="#fast-fourier-transform-calculations" id="toc-fast-fourier-transform-calculations" class="nav-link" data-scroll-target="#fast-fourier-transform-calculations">Fast Fourier Transform Calculations</a></li>
   <li><a href="#vga-calculations" id="toc-vga-calculations" class="nav-link" data-scroll-target="#vga-calculations">VGA Calculations</a></li>
   </ul></li>
@@ -218,6 +219,7 @@ window.Quarto = {
 <ul>
 <li>Display updates at &gt; 24 Hz</li>
 <li>Note durations are displayed for 120 BPM</li>
+<li>Notes are displayed on VGA monitor ~75 ms after note is released</li>
 <li>Playback audio resembles the input</li>
 <li>Playback audio uses an audio codec so that output sound is not square wave</li>
 <li>User can control the volume of playback audio</li>
@@ -249,6 +251,18 @@ window.Quarto = {
 </section>
 <section id="calculations" class="level2">
 <h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
+<section id="delay-for-note-display" class="level3">
+<h3 class="anchored" data-anchor-id="delay-for-note-display">Delay for Note Display</h3>
+<p>The shortest note that our system will recognize is a 16th note. Given 120 BPM, the length of a 16th note is 0.125 seconds. Therefore, the delay between the end of the note to when it is displayed on the VGA display must be less than 0.125 seconds so that a 16th note can be processed.</p>
+<p>The total latency of our system can be estimated by: <span class="math display">\[
+T_{total} = T_{samplingWindow} + T_{spi} + T_{fft} + T_{postProcessing} + T_{display}
+\]</span></p>
+<p>where the audio is sampled at 48 kHz such that <span class="math inline">\(T_{samplingWindow} = 512/48000 = 10.67 \text{ ms}\)</span>. SPI communication between the MCU and FPGA is set to sending 12 bit precision at 4 Mhz such that <span class="math inline">\(T_{spi} = 0.00025 \text{ ms} \times 12 \text{ bits} \times 512 \text{ samples} = 1.536 \text{ ms}\)</span>. The 512-point FFT requires 2304 butterfly operations, where 2 butterfly operations will be pipelined. There will be 1152 cycles. The FPGA will operate at 8MHz such that <span class="math inline">\(T_{fft} = 1152 \times 0.000125 \text{ ms} = 0.144 \text{ ms}\)</span>. Buffer time for post processing is estimated such that <span class="math inline">\(T_{display} = 2 \text{ ms}\)</span>. The VGA will be refreshing at a rate of 60 Hz, such that <span class="math inline">\(T_{display} = 16.7 \text{ ms}\)</span>.</p>
+<p>Therefore, <span class="math display">\[
+T_{total} = 10.67 \text{ ms} + 1.536 \text{ ms} + 0.144 \text{ ms} + 2 \text{ ms} + 16.7 \text{ ms} = 31.05 \text{ ms}
+\]</span></p>
+<p>To give flexibility with our note display, the estimated expected delay for each note should be 75 ms.</p>
+</section>
 <section id="fast-fourier-transform-calculations" class="level3">
 <h3 class="anchored" data-anchor-id="fast-fourier-transform-calculations">Fast Fourier Transform Calculations</h3>
 <p>The Fast Fourier Transform transforms a signal from the time to frequency domain by recursively dividing a discrete fourier transform (DFT) into its odd and even indexed elements. The odd and even DFTs are of size N/2, where N is the size of its non-spit DFT. Using the symmetry and periodicity properties of complex exponentials, the even part corresponds to a half sized DFT and odd part corresponds to a half sized DFT that is multiplied by the twiddle factor (which is complex exponential expressed by <span class="math inline">\(W_N\)</span>).</p>
@@ -430,11 +444,11 @@ W_N = e^{-j \frac{2\pi}{N}}
 <h2 class="anchored" data-anchor-id="bill-of-materials">Bill of Materials</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 8%">
-<col style="width: 15%">
-<col style="width: 24%">
-<col style="width: 29%">
+<col style="width: 26%">
+<col style="width: 7%">
+<col style="width: 14%">
+<col style="width: 23%">
+<col style="width: 27%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -468,53 +482,60 @@ W_N = e^{-j \frac{2\pi}{N}}
 <td style="text-align: center;">$4.50</td>
 </tr>
 <tr class="even">
+<td style="text-align: center;">Audio Jack to Micro USB B converter</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">PIIHUSW</td>
+<td style="text-align: center;">x1</td>
+<td style="text-align: center;">$7.57 (with Amazon Prime)</td>
+</tr>
+<tr class="odd">
 <td style="text-align: center;">VGA Display</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">x1</td>
 <td style="text-align: center;">stockroom</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Op-amp</td>
 <td style="text-align: center;">MCP601</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">x1</td>
 <td style="text-align: center;">stockroom</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">Potentiometer</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">x1</td>
 <td style="text-align: center;">stockroom</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">Speaker</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">x1</td>
 <td style="text-align: center;">stockroom</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">STM32L432KC Microcontroller</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">STMicroelectronics</td>
 <td style="text-align: center;">x1</td>
 <td style="text-align: center;">E155 teaching team</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">UPDuino v3.1 ICE40 UP5K FPGA</td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">tinyVision.ai</td>
 <td style="text-align: center;">x1</td>
 <td style="text-align: center;">E155 teaching team</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;"></td>
 <td style="text-align: center;">Total including shipping + tax</td>
-<td style="text-align: center;">$39.26 (shipping $12.56 &amp; tax $2.35)</td>
+<td style="text-align: center;">$46.83 (shipping $12.56 &amp; tax $2.35)</td>
 </tr>
 </tbody>
 </table>
