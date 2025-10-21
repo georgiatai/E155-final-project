@@ -53,9 +53,9 @@ The shortest note that our system will recognize is a 16th note. Given 120 BPM, 
 
 The total latency of our system can be estimated by: $T_{samplingWindow} + T_{spi} + T_{fft} + T_{postProcessing} + T_{display}$
 
-where the audio is sampled at 48kHz such that $T_{samplingWindow} = 512/48,000 = 10.67ms. $ SPI communication between the MCU and FPGA is set to sending 12 bit precision at 4Mhz such that $T_{spi} = 0.00025ms * 12bits * 512 samples = 1.536ms.$ The 512-point FFT requires 2304 butterfly operations, where 2 butterfly operations will be pipelined. There will be 1152 cycles. The FPGA will operate at 8MHz such that $T_{fft} = 1152 * 0.000125ms = 0.144ms.$ Buffer time for post processing is estimated such that $T_{display} = 2ms.$ The VGA will be refreshing at a rate of 60Hz, such that $T_{display} = 16.7 ms$
+where the audio is sampled at 48kHz such that $T_{samplingWindow} = 512/48,000 = 10.67ms. $ SPI communication between the MCU and FPGA is set to sending 12 bit precision at 4Mhz such that $T_{spi} = 0.00025ms * 12bits * 512 samples = 1.536ms.$ The 512-point FFT requires 2304 butterfly operations, where 2 butterfly operations will be pipelined. There will be 1152 cycles. The FPGA will operate at 8MHz such that $T_{fft} = 1152 * 0.000125ms = 0.144ms.$ Buffer time for post processing is estimated such that $T_{display} = 2ms.$ The VGA will be refreshing at a rate of 60Hz, such that $T_{display} = 16.7 ms.$
 
-Therefore, $T_{total} = 10.67ms + 1.536ms + 0.144ms + 2ms + 16.7ms = 31.05ms. To give flexibility with our note display, the estimated expected delay for each note should be 50ms. 
+Therefore, $T_{total} = 10.67ms + 1.536ms + 0.144ms + 2ms + 16.7ms = 31.05ms.$ To give flexibility with our note display, the estimated expected delay for each note should be 50ms. 
 
 
 ### Fast Fourier Transform Calculations
