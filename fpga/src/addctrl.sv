@@ -29,10 +29,22 @@ always_ff@(posedge clk, reset) begin
     end
 
 // address generation
-addgen #(BIT_WIDTH, N) addgen(.clk(clk), .reset(reset), .fft_enable(fft_enable), .add_a(add_a), .add_b(add_b), .add_tw(add_tw), .mem_write0(agu_mem_write0), .mem_write1(mem_write_1), .read_sel(read_sel), .fft_done(fft_done));
+addgen #(.BIT_WIDTH(BIT_WIDTH), .level(N)) 
+addgen(.clk(clk), 
+       .reset(reset), 
+       .fft_enable(fft_enable), 
+       .add_a(add_a), 
+       .add_b(add_b), 
+       .add_tw(add_tw), 
+       .mem_write0(agu_mem_write0), 
+       .mem_write1(mem_write_1), 
+       .read_sel(read_sel), 
+       .fft_done(fft_done));
 
 // bit reverse
-bitrev #(N) bitrev(.bit_norm(add_rd), .bit_rev(add_bitrev));
+bitrev #(.N(N)) 
+bitrev(.bit_norm(add_rd), 
+       .bit_rev(add_bitrev));
 
 // fft_done signal which will be used to determine index of fft calculated
 always_ff @(posedge clk, reset) begin
