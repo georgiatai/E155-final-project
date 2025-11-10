@@ -19,7 +19,13 @@ logic [31:0] real_btw, img_btw; // intemediate B*TW real/img values
 // B' = A - B(TW)
 
 // complex multiplication to calculate B*TW, each uses 2 8 bit multipliers
-multiply #(BIT_WIDTH) tw_mult(real_b, img_b, real_tw, img_tw, real_btw, img_btw);
+cmplxmult #(.BIT_WIDTH(BIT_WIDTH)) 
+tw_mult(.real_a(real_b), 
+        .img_a(img_b), 
+        .real_b(real_tw), 
+        .img_b(img_tw), 
+        .real_cmplx_prod(real_btw), 
+        .img_cmplx_prod(img_btw));
 
 // complex adds for A' and B'
 // signed integer multiplication procudes redundant signed bits in product, so preserve bits [30;15]
