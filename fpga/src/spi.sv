@@ -11,12 +11,12 @@ module spi #(parameter BIT_WIDTH = 16)
          input logic [BIT_WIDTH - 1:0] duration, // decoded duration
          output logic miso,
          output logic received_wd, // goes high when word is received
-         output logic [BIT_WIDTH*2 - 1:0] fft_in // input data for fft
+         output logic [BIT_WIDTH - 1:0] fft_in // input data for fft , only 16 bit real
         ); 
 
 // for MISO transaction
-logic [BIT_WIDTH*2 - 1:0] data_captured; // 33 bits to acomodate for MOSI bit
-logic [5:0] bits_captured; // indicates number of bits captured, used to check for 32
+logic [BIT_WIDTH - 1:0] data_captured; // 33 bits to acomodate for MOSI bit
+logic [4:0] bits_captured; // indicates number of bits captured, used to check for 16
 
 // for MOSI transaction
 logic [BIT_WIDTH*2 - 1:0] data_sent;
@@ -27,10 +27,10 @@ always_ff @(posedge sclk)
     if (cs) bits_captured <= 0;
     else begin
         bits_captured <= bits_captured + 1'b1;
-        data_captured <= {data_captured[2*BIT_WIDTH - 1:0], mosi}; // shifts input, starting from the left, into data captured on every clk
-            if (bits_captured == 6'd31) begin // captures 32 bits
+        data_captured <= {data_captured[BIT_WIDTH - 1:0], mosi}; // shifts input, starting from the left, into data captured on every clk
+            if (bits_captured == 5'd15) begin // captures 32 bits
                 received_wd <= 1'b1; // received 2 bytes
-                fft_in <= data_captured[2* BIT_WIDTH - 1: 0]; // only shift in data, leaving out MOSI bit
+                fft_in <= data_captured[ BIT_WIDTH - 1: 0]; // only shift in data, leaving out MOSI bit
             end
             else begin
             // still receiving 2 bytes

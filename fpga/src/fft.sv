@@ -7,7 +7,7 @@ module fft #(parameter BIT_WIDTH = 16, N = 9)
              input logic fft_start, // start fft once data finishes loading
              input logic fft_load, 
              input logic [N - 1:0] add_rd, // register address
-             input logic [2*BIT_WIDTH - 1:0] din, // complex number
+             input logic [BIT_WIDTH - 1:0] din, // 16 bit real number
              output logic [2*BIT_WIDTH - 1:0] dout, // complex number
              output logic fft_done
              );
@@ -19,7 +19,7 @@ logic [N - 1:0] r0_add_a, r0_add_b, r1_add_a, r1_add_b; // A and B ports address
 logic [2*BIT_WIDTH - 1:0] r0_out_a, r0_out_b, r1_out_a, r1_out_b;
 
 // A and B complex/real
-logic [2*BIT_WIDTH - 1:0] write_a, write_b, out_a, out_b;
+logic [2*BIT_WIDTH - 1:0] write_a, write_b, out_a, out_b, din_cmplx;
 logic [BIT_WIDTH - 1:0] real_write_a, img_write_a, real_write_b, img_write_b;
 
 // bufferfly real/img
@@ -31,8 +31,9 @@ logic [N - 2:0] add_tw; // twiddle address
 logic [BIT_WIDTH - 1:0] real_tw, img_tw;
 
 // load initial data, otherwise take outputs from RAM
-assign write_a = fft_load ? din : out_a;
-assign write_b = fft_load ? din : out_b;
+assign din_cmplx = {din, 16'b0};
+assign write_a = fft_load ? din_cmplx : out_a;
+assign write_b = fft_load ? din_cmplx : out_b;
 // split into real and imaginary components
 assign real_write_a = write_a[2*BIT_WIDTH - 1: BIT_WIDTH]; // bits 31-16
 assign img_write_a = write_a[BIT_WIDTH - 1:0]; // bits 15-0
