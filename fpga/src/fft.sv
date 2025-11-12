@@ -6,7 +6,7 @@ module fft #(parameter BIT_WIDTH = 16, N = 9)
             (input logic clk, reset,
              input logic fft_start, // start fft once data finishes loading
              input logic fft_load, 
-             input logic [N - 1:0] add_rd, // register address
+             input logic [N - 1:0] add_rd, // index of input sample
              input logic [BIT_WIDTH - 1:0] din, // 16 bit real number
              output logic [2*BIT_WIDTH - 1:0] dout, // complex number
              output logic fft_done

@@ -14,7 +14,7 @@ module ram2p #(parameter BIT_WIDTH = 16, N = 9)
 logic [2*BIT_WIDTH - 1:0] mem[2**N-1:0];
 
 always_ff @(posedge clk)
-    if (w) begin
+    if (we) begin
         mem[add_a] <= {real_din_a, img_din_a};
         mem[add_b] <= {real_din_b, img_din_b};
     end
