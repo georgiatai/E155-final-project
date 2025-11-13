@@ -11,6 +11,11 @@ void initADC(void) {
 
     // Enable ADC clock
     RCC->AHB2ENR |= RCC_AHB2ENR_ADCEN;
+    // Enable system clock as source clock for ADC
+    RCC->CCIPR |= _VAL2FLD(RCC_CCIPR_ADCSEL, 0b11);
+
+    // clock pre-scalar
+    ADC1_COMMON_BASE->CCR |= _VAL2FLD(ADC_CRR_PRESC, 0b0111); // div by 16 prescalar
 
     // Ensure ADC is disabled before configuration
     if (ADC1->CR & ADC_CR_ADEN) {
@@ -29,8 +34,7 @@ void initADC(void) {
 
     // Enable ADC voltage regulator
     ADC1->CR |= ADC_CR_ADVREGEN;
-    for (volatile int i = 0; i < 2000; i++);
-    printf("pause");
+    delay(200); 
 
     // Calibrate ADC
     ADC1->CR |= ADC_CR_ADCAL;
@@ -38,8 +42,10 @@ void initADC(void) {
     printf("start cal");
     while (ADC1->CR & ADC_CR_ADCAL);
     printf("end_cal");
+    delay(10);
 
     // Enable ADC
+    ADC1->CFGR |= ADC_CFGR_CONT; // allow for continuous mode
     ADC1->ISR |= ADC_ISR_ADRDY;
     ADC1->CR |= ADC_CR_ADEN;
     while (!(ADC1->ISR & ADC_ISR_ADRDY));

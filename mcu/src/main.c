@@ -11,6 +11,7 @@ int main(void) {
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;
     RCC->AHB2ENR |= RCC_AHB2ENR_GPIOBEN;
 
+    init_delay();
     // Configure LED pin as output
     pinMode(LED_PIN, GPIO_OUTPUT);
 
