@@ -24,12 +24,20 @@ void initADC(void) {
     // Select channel 5 (PA0)
     ADC1->SQR1 = (5 << ADC_SQR1_SQ1_Pos);
 
+    // disable deep-powder down mode
+    ADC1->CR &= ~(ADC_CR_DEEPPWD);
+
     // Enable ADC voltage regulator
-    ADC1->CR |= ADC_CR_ADVREGEN_0;
+    ADC1->CR |= ADC_CR_ADVREGEN;
+    for (volatile int i = 0; i < 2000; i++);
+    printf("pause");
 
     // Calibrate ADC
     ADC1->CR |= ADC_CR_ADCAL;
+
+    printf("start cal");
     while (ADC1->CR & ADC_CR_ADCAL);
+    printf("end_cal");
 
     // Enable ADC
     ADC1->ISR |= ADC_ISR_ADRDY;

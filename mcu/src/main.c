@@ -16,9 +16,12 @@ int main(void) {
 
     // Initialize Peripherals
     //initSPI(0b010, 0, 0);  // BR=0b010, CPOL=0, CPHA=0
+    printf("hi");
     initADC();
+    printf("ADC init done");
 
     while (1) {
+        printf("Turning on pin");
         digitalWrite(LED_PIN, 1);
         uint16_t adcValue = readADC();
         printf("adc val: %d", adcValue);
