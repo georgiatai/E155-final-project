@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module fftdec_tb;
+module testbench_fftdec();
 
     // Parameters
     parameter BIT_WIDTH = 16;
