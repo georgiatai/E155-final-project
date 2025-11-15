@@ -2,8 +2,7 @@
 // 11/2/2025
 // This file contains the lookup table for the twiddle factor values used in the FFT
 
-module twiddleLUT(input logic clk, reset, 
-                  input logic [8:0] tw_add, // 9 bit twiddle address (double check bit width)
+module twiddleLUT(input logic [8:0] tw_add, // 9 bit twiddle address (double check bit width)
                   output logic [15:0] real_tw, // cos value
                   output logic [15:0] img_tw // sin value
                   );

@@ -47,7 +47,7 @@ assign total_bf = 8'b1111_1111;
 
 // address generation logic for A, B, and TW
 // address generation unit for {m, n} pair, m is address of A factor and n is address of B factor
-// where m = Rotate_N(2j, 1) and n = Rotate_N(2j+1, i)
+// where m = Rotate_N(2j, i) and n = Rotate_N(2j+1, i)
     always_comb begin
         a = fft_bf << 1'b1; // multiply bf index by 2
         b = a + 1'b1; 

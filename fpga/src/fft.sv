@@ -80,8 +80,6 @@ ram1 (.clk(clk),
 
 // twiddle LUT
 twiddleLUT twiddle_lut (
-    .clk(clk),
-    .reset(reset),
     .tw_add(add_tw),
     .real_tw(real_tw),
     .img_tw(img_tw));
