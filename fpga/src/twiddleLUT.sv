@@ -2,7 +2,7 @@
 // 11/2/2025
 // This file contains the lookup table for the twiddle factor values used in the FFT
 
-module twiddleLUT(input logic [8:0] tw_add, // 9 bit twiddle address (double check bit width)
+module twiddleLUT(input logic [7:0] tw_add, // 8 bits good for 255
                   output logic [15:0] real_tw, // cos value
                   output logic [15:0] img_tw // sin value
                   );
@@ -10,7 +10,7 @@ module twiddleLUT(input logic [8:0] tw_add, // 9 bit twiddle address (double che
     // memory allocation buffer for real and imaginary twiddle factor values
     // 256 elements with 16 bit length
     logic [15:0] twiddle_cos [0:255];
-    logic [15:0] twiddle_cos [0:255];
+    logic [15:0] twiddle_sin [0:255];
 
     // main LUT for twiddle addresses and values, where index [k] holds address
     // twiddle_cos = cos(2pi*k / 512)      twiddle_sin = sin(2pi*k / 512)
