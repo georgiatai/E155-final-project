@@ -6,8 +6,8 @@ module ram1p #(parameter BIT_WIDTH = 16, N = 9)
               (input logic clk, 
                input logic we,
                input logic [N - 1:0] add,
-               input logic [BIT_WIDTH - 1:0] din,
-               output logic [BIT_WIDTH - 1:0] dout);
+               input logic [2*BIT_WIDTH - 1:0] din,
+               output logic [2*BIT_WIDTH - 1:0] dout);
 
 logic [BIT_WIDTH - 1:0] mem[2**N - 1:0];
 
@@ -18,4 +18,3 @@ always_ff @(posedge clk)
 assign dout = mem[add];
 
 endmodule
-
