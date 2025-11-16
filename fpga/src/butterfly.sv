@@ -12,7 +12,7 @@ module butterfly #(parameter BIT_WIDTH = 16)
                  output logic [BIT_WIDTH - 1:0] img_ap, img_bp    // output data A'/B' img
     );
 
-logic [31:0] real_btw, img_btw; // intemediate B*TW real/img values
+logic [BIT_WIDTH - 1:0] real_btw, img_btw; // intemediate B*TW real/img values
 
 // main butterfly computation:
 // A' = A + B(TW)
@@ -20,21 +20,21 @@ logic [31:0] real_btw, img_btw; // intemediate B*TW real/img values
 
 // complex multiplication to calculate B*TW, each uses 2 8 bit multipliers
 cmplxmult #(.BIT_WIDTH(BIT_WIDTH)) 
-tw_mult(.real_a(real_b), 
-        .img_a(img_b), 
-        .real_b(real_tw), 
-        .img_b(img_tw), 
-        .real_cmplx_prod(real_btw), 
-        .img_cmplx_prod(img_btw));
+	tw_mult(.real_a(real_b), 
+			.img_a(img_b), 
+			.real_b(real_tw), 
+			.img_b(img_tw), 
+			.real_cmplx_prod(real_btw), 
+			.img_cmplx_prod(img_btw));
 
 // complex adds for A' and B'
 // signed integer multiplication procudes redundant signed bits in product, so preserve bits [30;15]
 // A'
-real_ap = real_a + real_btw;
-img_ap = img_a + img_btw;
+assign real_ap = real_a + real_btw;
+assign img_ap = img_a + img_btw;
 
 // B'
-real_bp = real_a - real_btw;
-img_bp  = img_a - img_btw;
+assign real_bp = real_a - real_btw;
+assign img_bp  = img_a - img_btw;
 
 endmodule
