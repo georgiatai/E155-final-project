@@ -29,7 +29,7 @@ logic [level - 1:0] a, b, tw, tw_mask;
 assign total_bf = 8'b1111_1111;
 
 // loops through each of the levels and butterflies
-    always_ff @(posedge clk, reset) begin
+    always_ff @(posedge clk) begin
         if (~reset) begin
             fft_level <= 0;
             fft_bf <= 0;
@@ -57,7 +57,7 @@ assign total_bf = 8'b1111_1111;
         add_b = (b << fft_level) | (b >> level - fft_level);
 
         // generate tw add by masking out (N - 1 - fft_level) least significant bits of bf index
-        tw_mask = {{1'b1}, {[level - 1]'b0}} >> fft_level; // shift dependent on level
+        tw_mask = {1'b1, 8'b0} >> fft_level; // shift dependent on level
         // this masking ensures that at level 0, tw = 1_0000_0000 and add_tw = 0000_0000
         // add_tw corresponds to address on twiddleLUT.sv
         tw = tw_mask & fft_bf; // masking with butterfly index to generate tw address
