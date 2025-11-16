@@ -9,9 +9,9 @@ module fftfull #(parameter BIT_WIDTH = 16, N = 9, FFT_SIZE = 512, FS = 48000)
                 (input logic clk, reset,
                  input logic fft_start, 
                  input logic fft_load,
+				 input logic [BIT_WIDTH - 1:0] din,
                  input logic [N - 1:0] add_rd,
-                 input logic [BIT_WIDTH - 1:0] din,
-                 output logic [9:0] note);
+                 output logic [7:0] note);
 
 // fft logic
 logic [2*BIT_WIDTH - 1:0] dout;
