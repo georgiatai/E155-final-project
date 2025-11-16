@@ -22,6 +22,7 @@ logic [2*BIT_WIDTH - 1:0] write_a, write_b, out_a, out_b, din_cmplx;
 logic [BIT_WIDTH - 1:0] real_write_a, img_write_a, real_write_b, img_write_b;
 
 // bufferfly real/img
+logic [2*BIT_WIDTH - 1:0] a, b;
 logic [BIT_WIDTH - 1:0] real_a, img_a, real_b, img_b; // butterfly inputs
 logic [BIT_WIDTH - 1:0] real_ap, img_ap, real_bp, img_bp; // butterfly outputs
 
@@ -45,37 +46,47 @@ assign img_write_b = write_b[BIT_WIDTH - 1:0]; // bits 15-0
 // at level 0, will be writing to RAM1 and reading from RAM0
 // so read from RAM0 when read_sel = 0 and RAM1 when read_sel = 1
 // imaginary and real values
-assign real_a = (read_sel ? r1_out_a : r0_out_a)[2*BIT_WIDTH - 1 : BIT_WIDTH];
-assign img_a  = (read_sel ? r1_out_a : r0_out_a)[BIT_WIDTH - 1 : 0];
-assign real_b = (read_sel ? r1_out_b : r0_out_b)[2*BIT_WIDTH - 1 : BIT_WIDTH];
-assign img_b  = (read_sel ? r1_out_b : r0_out_b)[BIT_WIDTH - 1 : 0];
-
+assign a = (read_sel ? r1_out_a : r0_out_a);
+assign b = (read_sel ? r1_out_b : r0_out_b);
+assign real_a = a[2*BIT_WIDTH - 1:BIT_WIDTH];
+assign img_a = a[BIT_WIDTH - 1:0];
+assign real_b = b[2*BIT_WIDTH - 1:BIT_WIDTH];
+assign img_b = b[BIT_WIDTH - 1:0];
 
 
 // two port RAM0 and RAM1
-ram2p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
-ram0 (.clk(clk),
-      .we(mem_write0),
-      .add_a(r0_add_a),
-      .add_b(r0_add_b),
-      .real_din_a(real_write_a),
-      .img_din_a(img_write_a),
-      .real_din_b(real_write_b),
-      .img_din_b(img_write_b),
-      .dout_a(r0_out_a),
-      .dout_b(r0_out_b));
+ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
+	ram0_a(.clk(clk),
+		   .we(mem_write0),
+		   .add(r0_add_a),
+		   .din({real_write_a, img_write_a}),
+		   .dout(r0_out_a)
+		   );
+		   
+ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
+	ram0_b(.clk(clk),
+		   .we(mem_write0),
+		   .add(r0_add_b),
+		   .din({real_write_b, img_write_b}),
+		   .dout(r0_out_b)
+		   );
+		   
+ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
+	ram1_a(.clk(clk),
+		   .we(mem_write1),
+		   .add(r1_add_a),
+		   .din({real_write_a, img_write_a}),
+		   .dout(r1_out_a)
+		   );
+		   
+ram1p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
+	ram1_b(.clk(clk),
+		   .we(mem_write1),
+		   .add(r1_add_b),
+		   .din({real_write_b, img_write_b}),
+		   .dout(r1_out_b)
+		   );
 
-ram2p #(.BIT_WIDTH(BIT_WIDTH),.N(N)) 
-ram1 (.clk(clk),
-      .we(mem_write1),
-      .add_a(r1_add_a),
-      .add_b(r1_add_b),
-      .real_din_a(real_ap),
-      .img_din_a(img_ap),
-      .real_din_b(real_bp),
-      .img_din_b(img_bp),
-      .dout_a(r1_out_a),
-      .dout_b(r1_out_b));
 
 // twiddle LUT
 twiddleLUT twiddle_lut (
