@@ -1,0 +1,1 @@
+C:/lscc/radiant/2024.2/questasim/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 7077888 work.testbench_fftfull(fast) -quiet -auto_acc_if_foreign -work work -L iCE40UP +acc -allow_unnamed -o _opt1 -id 16-00be43eaec61-691d0baf-394-3bec +__design_bin_path+C:/Users/jgong/my_designs/proj_fft +__betafsm

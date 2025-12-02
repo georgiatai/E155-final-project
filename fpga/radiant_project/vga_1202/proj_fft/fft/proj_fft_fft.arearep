@@ -1,0 +1,67 @@
+----------------------------------------------------------------------
+Report for cell vgatop.TECH
+Register bits:  112 of 5280 (2.121%)
+I/O cells:      7
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               CCU2        62          100.0
+                            FD1P3XZ       112          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB         1          100.0
+                               LUT4       455          100.0
+                              MAC16         2          100.0
+                                 OB         6          100.0
+                              PLL_B         1          100.0
+SUB MODULES
+                         musicscore         1
+                           note_rom         1
+pllclk(CLKHF_DIV="0b00",DIVR="0",DIVF="16",DIVQ="5")         1
+                          treblerom         1
+                            vgactrl         1
+                              TOTAL       645
+----------------------------------------------------------------------
+Report for cell musicscore.v1
+Instance Path : score
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        50           80.6
+                            FD1P3XZ        91           81.2
+                               LUT4       395           86.8
+                              MAC16         2          100.0
+SUB MODULES
+                           note_rom         1
+                          treblerom         1
+                              TOTAL       540
+----------------------------------------------------------------------
+Report for cell note_rom.v1
+Instance Path : score.note_rom_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        20           17.9
+                               LUT4        30            6.6
+                              TOTAL        50
+----------------------------------------------------------------------
+Report for cell treblerom.v1
+Instance Path : score.clef_rom
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                            FD1P3XZ        28           25.0
+                               LUT4       237           52.1
+                              TOTAL       265
+----------------------------------------------------------------------
+Report for cell vgactrl.v1
+Instance Path : vgactrl
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        12           19.4
+                            FD1P3XZ        21           18.8
+                               LUT4        59           13.0
+                              TOTAL        92
+----------------------------------------------------------------------
+Report for cell pllclk(CLKHF_DIV="0b00",DIVR="0",DIVF="16",DIVQ="5").v1
+Instance Path : pllclk
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                         HSOSC_CORE         1          100.0
+                              PLL_B         1          100.0
+                              TOTAL         2

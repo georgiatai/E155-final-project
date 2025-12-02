@@ -1,0 +1,60 @@
+---------------------------------------------------
+Report for cell vgatop
+   Instance path: vgatop
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        653        100.0
+                               LUTGATE	        529        100.0
+                                LUTCCU	        124        100.0
+                                 IOBUF	          7        100.0
+                                PFUREG	        112        100.0
+                                   DSP	          2        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                            musicscore	          1        74.3
+pllclk(CLKHF_DIV="0b00",DIVR="0",DIVF="16",DIVQ="5")	          1         0.0
+                               vgactrl	          1        12.6
+---------------------------------------------------
+Report for cell musicscore
+   Instance path: vgatop/score
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        485        74.3
+                               LUTGATE	        385        72.8
+                                LUTCCU	        100        80.6
+                                PFUREG	         91        81.2
+                                   DSP	          2        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                              note_rom	          1         4.6
+                             treblerom	          1        35.1
+---------------------------------------------------
+Report for cell note_rom
+   Instance path: vgatop/score/note_rom_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         30         4.6
+                               LUTGATE	         30         5.7
+                                PFUREG	         20        17.9
+---------------------------------------------------
+Report for cell treblerom
+   Instance path: vgatop/score/clef_rom
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        229        35.1
+                               LUTGATE	        229        43.3
+                                PFUREG	         28        25.0
+---------------------------------------------------
+Report for cell vgactrl
+   Instance path: vgatop/vgactrl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         82        12.6
+                               LUTGATE	         58        11.0
+                                LUTCCU	         24        19.4
+                                PFUREG	         21        18.8
+---------------------------------------------------
+Report for cell pllclk(CLKHF_DIV="0b00",DIVR="0",DIVF="16",DIVQ="5")
+   Instance path: vgatop/pllclk
+                     Cell usage:
+                                  cell	      count    Res Usage(%)

@@ -1,0 +1,1906 @@
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2025.1.0.39.0
+
+Tue Dec  2 03:26:50 2025
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -html -rpt proj_fft_fft.tws proj_fft_fft_syn.udb -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml
+
+-----------------------------------------
+Design:          vgatop
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+    1  Timing Overview
+        1.1  SDC Constraints
+        1.2  Constraint Coverage
+        1.3  Overall Summary
+        1.4  Unconstrained Report
+        1.5  Combinational Loop
+        1.6  Error/Warning Messages
+    2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+        2.1  Clock Summary
+        2.2  Endpoint slacks
+        2.3  Detailed Report
+    3  Hold at Speed Grade M Corner at -40 Degrees
+        3.1  Endpoint slacks
+        3.2  Detailed Report
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+==============================================
+1  Timing Overview
+==============================================
+
+1.1  SDC Constraints
+=====================
+create_clock -name {pllclk/clk_ref} -period 20.8333 [get_pins {pllclk/u_hsosc/CLKHF }] 
+create_generated_clock -name {pll_clk_internal} -source [get_pins {pllclk/u_pll/REFERENCECLK}] -multiply_by 17 -divide_by 32 [get_pins {pllclk/u_pll/OUTGLOBAL }] 
+
+1.2  Constraint Coverage
+---------------------------
+Constraint Coverage: 32.4553%
+
+
+1.3  Overall Summary
+---------------------------
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 5 endpoints;  Total Negative Slack: 8.312 ns 
+ Hold at Speed Grade M Corner at -40 Degrees                          Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+
+1.4  Unconstrained Report
+===========================
+
+1.4.1  Unconstrained Start/End Points
+--------------------------------------
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+        Listing 10 Start Points         |           Type           
+-------------------------------------------------------------------
+score/hcount_d2__i10/Q                  |          No required time
+score/hcount_d2__i9/Q                   |          No required time
+score/hcount_d2__i8/Q                   |          No required time
+score/hcount_d2__i7/Q                   |          No required time
+score/active_d2_c/Q                     |          No required time
+score/vcount_d2__i1/Q                   |          No required time
+score/hcount_d2__i6/Q                   |          No required time
+score/hcount_d2__i5/Q                   |          No required time
+score/hcount_d2__i4/Q                   |          No required time
+score/hcount_d2__i3/Q                   |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                        45
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+score/hcount_d1__i1/SR                  |           No arrival time
+score/hcount_d2__i10/SR                 |           No arrival time
+score/hcount_d2__i9/SR                  |           No arrival time
+score/hcount_d2__i8/SR                  |           No arrival time
+score/hcount_d2__i7/SR                  |           No arrival time
+score/active_d2_c/SR                    |           No arrival time
+score/vcount_d2__i1/SR                  |           No arrival time
+score/hcount_d1__i0/SR                  |           No arrival time
+score/vcount_d1__i2/SR                  |           No arrival time
+score/hcount_d2__i6/SR                  |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                        63
+                                        |                          
+-------------------------------------------------------------------
+
+1.4.2  Start/End Points Without Timing Constraints
+---------------------------------------------------
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 6 Start or End Points      |           Type           
+-------------------------------------------------------------------
+reset                                   |                     input
+hsync                                   |                    output
+vsync                                   |                    output
+vga_rgb[2]                              |                    output
+vga_rgb[1]                              |                    output
+vga_rgb[0]                              |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                         6
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+--------------------------------------------------
+There is no instance satisfying reporting criteria
+
+
+
+1.5  Combinational Loop
+========================
+None
+
+
+1.6  Error/Warning Messages
+============================
+WARNING "70001950" - External Feedback path not found for pll clock pllclk/u_pll/OUTGLOBAL.
+
+===============================================================
+2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+===============================================================
+
+2.1  Clock Summary
+=======================
+
+2.1.1 Clock "pll_clk_internal"
+=======================
+create_generated_clock -name {pll_clk_internal} -source [get_pins {pllclk/u_pll/REFERENCECLK}] -multiply_by 17 -divide_by 32 [get_pins {pllclk/u_pll/OUTGLOBAL }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+         Clock pll_clk_internal         |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From pll_clk_internal                  |             Target |          39.216 ns |         25.500 MHz 
+                                        | Actual (all paths) |          41.993 ns |         23.813 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+         Clock pll_clk_internal         |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From pllclk/clk_ref                    |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+
+2.1.2 Clock "pllclk/clk_ref"
+=======================
+create_clock -name {pllclk/clk_ref} -period 20.8333 [get_pins {pllclk/u_hsosc/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+          Clock pllclk/clk_ref          |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From pllclk/clk_ref                    |             Target |          20.833 ns |         48.000 MHz 
+                                        | Actual (all paths) |          20.830 ns |         48.008 MHz 
+pllclk/u_hsosc/CLKHF (MPW)              |   (50% duty cycle) |          20.830 ns |         48.008 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+------------------------------------------------------------------------------------------------------
+          Clock pllclk/clk_ref          |   Worst Time Between Edges   |           Comment            
+------------------------------------------------------------------------------------------------------
+ From pll_clk_internal                  |                         ---- |                      No path 
+------------------------------------------------------------------------------------------------------
+
+2.2  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+score/clef_rom/addr_d1__i13/D            |   -2.778 ns 
+score/clef_rom/addr_d1__i12/D            |   -2.220 ns 
+score/clef_rom/addr_d1__i11/D            |   -1.662 ns 
+score/clef_rom/addr_d1__i10/D            |   -1.104 ns 
+score/clef_rom/addr_d1__i9/D             |   -0.546 ns 
+score/clef_rom/addr_d1__i8/D             |    0.012 ns 
+score/clef_rom/addr_d1__i7/D             |    0.570 ns 
+score/clef_rom/addr_d1__i6/D             |    1.128 ns 
+score/clef_rom/addr_d1__i5/D             |    1.686 ns 
+score/clef_rom/addr_d1__i4/D             |    2.324 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           5 
+                                         |             
+-------------------------------------------------------
+
+2.3  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i13/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 23
+Delay Ratio      : 71.2% (route), 28.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : -2.778 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/CI1->score/add_74_add_5_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 44.623  2       
+score/n5174                                               NET DELAY            0.280                 44.903  2       
+score/add_74_add_5_7/CI0->score/add_74_add_5_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 45.181  2       
+score/n8600                                               NET DELAY            0.280                 45.461  2       
+score/add_74_add_5_7/CI1->score/add_74_add_5_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 45.739  2       
+score/n5176                                               NET DELAY            0.280                 46.019  2       
+score/add_74_add_5_9/CI0->score/add_74_add_5_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 46.297  2       
+score/n8603                                               NET DELAY            0.280                 46.577  2       
+score/add_74_add_5_9/CI1->score/add_74_add_5_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 46.855  2       
+score/n5178                                               NET DELAY            0.280                 47.135  2       
+score/add_74_add_5_11/CI0->score/add_74_add_5_11/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 47.413  2       
+score/n8606                                               NET DELAY            0.280                 47.693  2       
+score/add_74_add_5_11/D1->score/add_74_add_5_11/S1
+                                          FA2             D1_TO_S1_DELAY       0.477                 48.170  1       
+score/n62[10]                                             NET DELAY            2.075                 50.245  1       
+score/clef_rom/addr_d1__i13/D                             ENDPOINT             0.000                 50.245  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i13/CK                            CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(50.245)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                                 -2.778  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i12/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 22
+Delay Ratio      : 71.5% (route), 28.5% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : -2.220 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/CI1->score/add_74_add_5_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 44.623  2       
+score/n5174                                               NET DELAY            0.280                 44.903  2       
+score/add_74_add_5_7/CI0->score/add_74_add_5_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 45.181  2       
+score/n8600                                               NET DELAY            0.280                 45.461  2       
+score/add_74_add_5_7/CI1->score/add_74_add_5_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 45.739  2       
+score/n5176                                               NET DELAY            0.280                 46.019  2       
+score/add_74_add_5_9/CI0->score/add_74_add_5_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 46.297  2       
+score/n8603                                               NET DELAY            0.280                 46.577  2       
+score/add_74_add_5_9/CI1->score/add_74_add_5_9/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 46.855  2       
+score/n5178                                               NET DELAY            0.280                 47.135  2       
+score/add_74_add_5_11/D0->score/add_74_add_5_11/S0
+                                          FA2             D0_TO_S0_DELAY       0.477                 47.612  1       
+score/n62[9]                                              NET DELAY            2.075                 49.687  1       
+score/clef_rom/addr_d1__i12/D                             ENDPOINT             0.000                 49.687  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i12/CK                            CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(49.687)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                                 -2.220  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i11/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 21
+Delay Ratio      : 71.8% (route), 28.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : -1.662 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/CI1->score/add_74_add_5_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 44.623  2       
+score/n5174                                               NET DELAY            0.280                 44.903  2       
+score/add_74_add_5_7/CI0->score/add_74_add_5_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 45.181  2       
+score/n8600                                               NET DELAY            0.280                 45.461  2       
+score/add_74_add_5_7/CI1->score/add_74_add_5_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 45.739  2       
+score/n5176                                               NET DELAY            0.280                 46.019  2       
+score/add_74_add_5_9/CI0->score/add_74_add_5_9/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 46.297  2       
+score/n8603                                               NET DELAY            0.280                 46.577  2       
+score/add_74_add_5_9/D1->score/add_74_add_5_9/S1
+                                          FA2             D1_TO_S1_DELAY       0.477                 47.054  1       
+score/n62[8]                                              NET DELAY            2.075                 49.129  1       
+score/clef_rom/addr_d1__i11/D                             ENDPOINT             0.000                 49.129  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i11/CK                            CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(49.129)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                                 -1.662  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i10/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 20
+Delay Ratio      : 72.1% (route), 27.9% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : -1.104 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/CI1->score/add_74_add_5_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 44.623  2       
+score/n5174                                               NET DELAY            0.280                 44.903  2       
+score/add_74_add_5_7/CI0->score/add_74_add_5_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 45.181  2       
+score/n8600                                               NET DELAY            0.280                 45.461  2       
+score/add_74_add_5_7/CI1->score/add_74_add_5_7/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 45.739  2       
+score/n5176                                               NET DELAY            0.280                 46.019  2       
+score/add_74_add_5_9/D0->score/add_74_add_5_9/S0
+                                          FA2             D0_TO_S0_DELAY       0.477                 46.496  1       
+score/n62[7]                                              NET DELAY            2.075                 48.571  1       
+score/clef_rom/addr_d1__i10/D                             ENDPOINT             0.000                 48.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i10/CK                            CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(48.571)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                                 -1.104  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i9/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 19
+Delay Ratio      : 72.4% (route), 27.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : -0.546 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/CI1->score/add_74_add_5_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 44.623  2       
+score/n5174                                               NET DELAY            0.280                 44.903  2       
+score/add_74_add_5_7/CI0->score/add_74_add_5_7/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 45.181  2       
+score/n8600                                               NET DELAY            0.280                 45.461  2       
+score/add_74_add_5_7/D1->score/add_74_add_5_7/S1
+                                          FA2             D1_TO_S1_DELAY       0.477                 45.938  1       
+score/n62[6]                                              NET DELAY            2.075                 48.013  1       
+score/clef_rom/addr_d1__i9/D                              ENDPOINT             0.000                 48.013  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i9/CK                             CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(48.013)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                                 -0.546  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i8/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 18
+Delay Ratio      : 72.7% (route), 27.3% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : 0.011 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/CI1->score/add_74_add_5_5/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 44.623  2       
+score/n5174                                               NET DELAY            0.280                 44.903  2       
+score/add_74_add_5_7/D0->score/add_74_add_5_7/S0
+                                          FA2             D0_TO_S0_DELAY       0.477                 45.380  1       
+score/n62[5]                                              NET DELAY            2.075                 47.455  1       
+score/clef_rom/addr_d1__i8/D                              ENDPOINT             0.000                 47.455  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i8/CK                             CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(47.455)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                  0.011  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i7/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 17
+Delay Ratio      : 73.1% (route), 26.9% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : 0.569 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/CI0->score/add_74_add_5_5/CO0
+                                          FA2             CI0_TO_CO0_DELAY     0.278                 44.065  2       
+score/n8597                                               NET DELAY            0.280                 44.345  2       
+score/add_74_add_5_5/D1->score/add_74_add_5_5/S1
+                                          FA2             D1_TO_S1_DELAY       0.477                 44.822  1       
+score/n62[4]                                              NET DELAY            2.075                 46.897  1       
+score/clef_rom/addr_d1__i7/D                              ENDPOINT             0.000                 46.897  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i7/CK                             CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(46.897)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                  0.569  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i6/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 16
+Delay Ratio      : 73.4% (route), 26.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : 1.127 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY            2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY            6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN            0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY        1.391                  9.841  12      
+vcount[2]                                                 NET DELAY            0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY         0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY            2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY         0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY            2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY            2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY         0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY            2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY            2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 23.358  1       
+active_video_N_112                                        NET DELAY            2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY         0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY            2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY         0.477                 28.462  15      
+score/n219                                                NET DELAY            2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY         0.477                 31.014  7       
+score/n1482                                               NET DELAY            2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 33.566  1       
+score/n7951                                               NET DELAY            2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY         0.477                 36.118  1       
+score/n7954                                               NET DELAY            2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY         2.323                 40.516  1       
+score/n350[1]                                             NET DELAY            2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY      0.358                 42.949  2       
+score/n8594                                               NET DELAY            0.280                 43.229  2       
+score/add_74_add_5_3/CI1->score/add_74_add_5_3/CO1
+                                          FA2             CI1_TO_CO1_DELAY     0.278                 43.507  2       
+score/n5172                                               NET DELAY            0.280                 43.787  2       
+score/add_74_add_5_5/D0->score/add_74_add_5_5/S0
+                                          FA2             D0_TO_S0_DELAY       0.477                 44.264  1       
+score/n62[3]                                              NET DELAY            2.075                 46.339  1       
+score/clef_rom/addr_d1__i6/D                              ENDPOINT             0.000                 46.339  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name        Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+                                                          CONSTRAINT           0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY        0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY            2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                                0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                                0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY            6.225                 47.665  112     
+score/clef_rom/addr_d1__i6/CK                             CLOCK PIN            0.000                 47.665  1       
+                                                          Uncertainty       -(0.000)                 47.665  
+                                                          Setup time        -(0.199)                 47.466  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Required Time                                                                                        47.466  
+Arrival Time                                                                                      -(46.339)  
+----------------------------------------  --------------  ----------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                  1.127  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i5/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 15
+Delay Ratio      : 73.8% (route), 26.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : 1.685 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ---------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY       0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY           2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                               0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                               0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY           6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN           0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ---------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY       1.391                  9.841  12      
+vcount[2]                                                 NET DELAY           0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY        0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY           2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY        0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY           2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY        0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY           2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY        0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY           2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY        0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY           2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY        0.477                 23.358  1       
+active_video_N_112                                        NET DELAY           2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY        0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY           2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY        0.477                 28.462  15      
+score/n219                                                NET DELAY           2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY        0.477                 31.014  7       
+score/n1482                                               NET DELAY           2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY        0.477                 33.566  1       
+score/n7951                                               NET DELAY           2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY        0.477                 36.118  1       
+score/n7954                                               NET DELAY           2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY        2.323                 40.516  1       
+score/n350[1]                                             NET DELAY           2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/CO0
+                                          FA2             B0_TO_CO0_DELAY     0.358                 42.949  2       
+score/n8594                                               NET DELAY           0.280                 43.229  2       
+score/add_74_add_5_3/D1->score/add_74_add_5_3/S1
+                                          FA2             D1_TO_S1_DELAY      0.477                 43.706  1       
+score/n62[2]                                              NET DELAY           2.075                 45.781  1       
+score/clef_rom/addr_d1__i5/D                              ENDPOINT            0.000                 45.781  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name       Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  ---------------  --------  ---------------------  ------  
+                                                          CONSTRAINT          0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY       0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY           2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                               0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                               0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY           6.225                 47.665  112     
+score/clef_rom/addr_d1__i5/CK                             CLOCK PIN           0.000                 47.665  1       
+                                                          Uncertainty      -(0.000)                 47.665  
+                                                          Setup time       -(0.199)                 47.466  
+----------------------------------------  --------------  ---------------  --------  ---------------------  ------  
+Required Time                                                                                       47.466  
+Arrival Time                                                                                     -(45.781)  
+----------------------------------------  --------------  ---------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.685  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/clef_rom/addr_d1__i4/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 14
+Delay Ratio      : 74.3% (route), 25.7% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 39.215 ns 
+Path Slack       : 2.323 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name      Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  --------------  --------  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY      0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY          2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                              0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                              0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY          6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN          0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name      Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  --------------  --------  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY      1.391                  9.841  12      
+vcount[2]                                                 NET DELAY          0.280                 10.121  12      
+vgactrl/i2_2_lut/B->vgactrl/i2_2_lut/Z    LUT4            B_TO_Z_DELAY       0.477                 10.598  1       
+vgactrl/n6_adj_134                                        NET DELAY          2.075                 12.673  1       
+vgactrl/i3_4_lut_adj_16/B->vgactrl/i3_4_lut_adj_16/Z
+                                          LUT4            B_TO_Z_DELAY       0.477                 13.150  2       
+vgactrl/n3838                                             NET DELAY          2.075                 15.225  2       
+vgactrl/i39_4_lut/C->vgactrl/i39_4_lut/Z  LUT4            C_TO_Z_DELAY       0.477                 15.702  1       
+vgactrl/n37_adj_136                                       NET DELAY          2.075                 17.777  1       
+vgactrl/i6_3_lut/A->vgactrl/i6_3_lut/Z    LUT4            A_TO_Z_DELAY       0.477                 18.254  1       
+vgactrl/n2                                                NET DELAY          2.075                 20.329  1       
+vgactrl/i2763_4_lut/A->vgactrl/i2763_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY       0.477                 20.806  2       
+vgactrl/n3232                                             NET DELAY          2.075                 22.881  2       
+vgactrl/i2765_3_lut/A->vgactrl/i2765_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY       0.477                 23.358  1       
+active_video_N_112                                        NET DELAY          2.075                 25.433  1       
+score/i1_3_lut/A->score/i1_3_lut/Z        LUT4            A_TO_Z_DELAY       0.477                 25.910  1       
+score/n6_adj_148                                          NET DELAY          2.075                 27.985  1       
+score/i4_4_lut/D->score/i4_4_lut/Z        LUT4            D_TO_Z_DELAY       0.477                 28.462  15      
+score/n219                                                NET DELAY          2.075                 30.537  15      
+score/i1784_4_lut/C->score/i1784_4_lut/Z  LUT4            C_TO_Z_DELAY       0.477                 31.014  7       
+score/n1482                                               NET DELAY          2.075                 33.089  7       
+score/n1482_bdd_4_lut/A->score/n1482_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY       0.477                 33.566  1       
+score/n7951                                               NET DELAY          2.075                 35.641  1       
+score/n7951_bdd_4_lut/A->score/n7951_bdd_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY       0.477                 36.118  1       
+score/n7954                                               NET DELAY          2.075                 38.193  1       
+score/mult_153/A1->score/mult_153/O1      MAC16           A_TO_O_DELAY       2.323                 40.516  1       
+score/n350[1]                                             NET DELAY          2.075                 42.591  1       
+score/add_74_add_5_3/B0->score/add_74_add_5_3/S0
+                                          FA2             B0_TO_S0_DELAY     0.477                 43.068  1       
+score/n62[1]                                              NET DELAY          2.075                 45.143  1       
+score/clef_rom/addr_d1__i4/D                              ENDPOINT           0.000                 45.143  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name      Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  --------------  --------  ---------------------  ------  
+                                                          CONSTRAINT         0.000                 39.215  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY      0.000                 39.215  2       
+pllclk/clk_ref                                            NET DELAY          2.075                 41.290  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                              0.000                 41.290  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                              0.150                 41.440  112     
+pll_clk_internal                                          NET DELAY          6.225                 47.665  112     
+score/clef_rom/addr_d1__i4/CK                             CLOCK PIN          0.000                 47.665  1       
+                                                          Uncertainty     -(0.000)                 47.665  
+                                                          Setup time      -(0.199)                 47.466  
+----------------------------------------  --------------  --------------  --------  ---------------------  ------  
+Required Time                                                                                      47.466  
+Arrival Time                                                                                    -(45.143)  
+----------------------------------------  --------------  --------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                2.323  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+===============================================================
+3  Hold at Speed Grade M Corner at -40 Degrees
+===============================================================
+
+3.1  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+score/hcount_d2__i5/D                    |    1.671 ns 
+score/hcount_d2__i6/D                    |    1.671 ns 
+score/vcount_d1__i2/D                    |    1.671 ns 
+score/hcount_d1__i0/D                    |    1.671 ns 
+score/vcount_d2__i1/D                    |    1.671 ns 
+score/hcount_d2__i7/D                    |    1.671 ns 
+score/hcount_d2__i8/D                    |    1.671 ns 
+score/hcount_d2__i9/D                    |    1.671 ns 
+score/hcount_d2__i10/D                   |    1.671 ns 
+score/hcount_d1__i1/D                    |    1.671 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+3.2  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : score/hcount_d1__i5/Q  (FD1P3XZ)
+Path End         : score/hcount_d2__i5/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i5/CK                                    CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/hcount_d1__i5/CK->score/hcount_d1__i5/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  4       
+score/hcount_d1[5]                                        NET DELAY      0.280                 10.121  4       
+score/hcount_d2__i5/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d2__i5/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : score/hcount_d1__i6/Q  (FD1P3XZ)
+Path End         : score/hcount_d2__i6/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i6/CK                                    CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/hcount_d1__i6/CK->score/hcount_d1__i6/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  3       
+score/hcount_d1[6]                                        NET DELAY      0.280                 10.121  3       
+score/hcount_d2__i6/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d2__i6/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/vcount_704__i2/Q  (FD1P3XZ)
+Path End         : score/vcount_d1__i2/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+vgactrl/vcount_704__i2/CK                                 CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+vgactrl/vcount_704__i2/CK->vgactrl/vcount_704__i2/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  12      
+vcount[2]                                                 NET DELAY      0.280                 10.121  12      
+score/vcount_d1__i2/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/vcount_d1__i2/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/hcount_703__i0/Q  (FD1P3XZ)
+Path End         : score/hcount_d1__i0/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+vgactrl/hcount_703__i0/CK                                 CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+vgactrl/hcount_703__i0/CK->vgactrl/hcount_703__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  4       
+hcount[0]                                                 NET DELAY      0.280                 10.121  4       
+score/hcount_d1__i0/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i0/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : score/vcount_d1__i1/Q  (FD1P3XZ)
+Path End         : score/vcount_d2__i1/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/vcount_d1__i1/CK                                    CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/vcount_d1__i1/CK->score/vcount_d1__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  2       
+score/vcount_d1[1]                                        NET DELAY      0.280                 10.121  2       
+score/vcount_d2__i1/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/vcount_d2__i1/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : score/hcount_d1__i7/Q  (FD1P3XZ)
+Path End         : score/hcount_d2__i7/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i7/CK                                    CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/hcount_d1__i7/CK->score/hcount_d1__i7/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  3       
+score/hcount_d1[7]                                        NET DELAY      0.280                 10.121  3       
+score/hcount_d2__i7/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d2__i7/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : score/hcount_d1__i8/Q  (FD1P3XZ)
+Path End         : score/hcount_d2__i8/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i8/CK                                    CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/hcount_d1__i8/CK->score/hcount_d1__i8/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  3       
+score/hcount_d1[8]                                        NET DELAY      0.280                 10.121  3       
+score/hcount_d2__i8/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d2__i8/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : score/hcount_d1__i9/Q  (FD1P3XZ)
+Path End         : score/hcount_d2__i9/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i9/CK                                    CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/hcount_d1__i9/CK->score/hcount_d1__i9/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  3       
+score/hcount_d1[9]                                        NET DELAY      0.280                 10.121  3       
+score/hcount_d2__i9/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d2__i9/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : score/hcount_d1__i10/Q  (FD1P3XZ)
+Path End         : score/hcount_d2__i10/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i10/CK                                   CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+score/hcount_d1__i10/CK->score/hcount_d1__i10/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  2       
+score/hcount_d1[10]                                       NET DELAY      0.280                 10.121  2       
+score/hcount_d2__i10/D                                    ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d2__i10/CK                                   CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : vgactrl/hcount_703__i1/Q  (FD1P3XZ)
+Path End         : score/hcount_d1__i1/D  (FD1P3XZ)
+Source Clock     : pll_clk_internal (R)
+Destination Clock: pll_clk_internal (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.671 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+vgactrl/hcount_703__i1/CK                                 CLOCK PIN      0.000                  8.450  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+vgactrl/hcount_703__i1/CK->vgactrl/hcount_703__i1/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY  1.391                  9.841  4       
+hcount[1]                                                 NET DELAY      0.280                 10.121  4       
+score/hcount_d1__i1/D                                     ENDPOINT       0.000                 10.121  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr   Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+                                                          CONSTRAINT     0.000                  0.000  1       
+pllclk/u_hsosc/CLKHF                      HSOSC_CORE      CLOCK LATENCY  0.000                  0.000  2       
+pllclk/clk_ref                                            NET DELAY      2.075                  2.075  2       
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL
+                                          PLL_B                          0.000                  2.075  112     
+pllclk/u_pll/REFERENCECLK->pllclk/u_pll/OUTGLOBAL (TOTAL_ADJUSTMENTS)
+                                          PLL_B                          0.150                  2.225  112     
+pll_clk_internal                                          NET DELAY      6.225                  8.450  112     
+score/hcount_d1__i1/CK                                    CLOCK PIN      0.000                  8.450  1       
+                                                          Uncertainty    0.000                  8.450  
+                                                          Hold time      0.000                  8.450  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Required Time                                                                                  -8.450  
+Arrival Time                                                                                   10.121  
+----------------------------------------  --------------  -------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                            1.671  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+

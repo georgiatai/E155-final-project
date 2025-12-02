@@ -1,0 +1,340 @@
+
+                         Lattice Mapping Report File
+
+Design:  vgatop
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2025.1.0.39.0
+Mapped on: Tue Dec  2 03:27:07 2025
+
+Design Information
+------------------
+
+Command line:   map -pdc C:/Users/User/Desktop/proj_fft/pins.pdc -i
+     proj_fft_fft_syn.udb -o proj_fft_fft_map.udb -mp proj_fft_fft.mrp -hierrpt
+     -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml
+
+Design Summary
+--------------
+
+   Number of slice registers: 112 out of  5280 (2%)
+   Number of I/O registers:      0 out of   117 (0%)
+   Number of LUT4s:           653 out of  5280 (12%)
+      Number of logic LUT4s:             458
+      Number of inserted feedthru LUT4s:  71
+      Number of ripple logic:             62 (124 LUT4s)
+   Number of IO sites used:   7 out of 39 (18%)
+      Number of IO sites used for general PIO: 7
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 7 out of 36 (19%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 7 out of 39 (18%)
+   Number of DSPs:             2 out of 8 (25%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             0 out of 30 (0%)
+   Number of PLLs:             1 out of 1 (100%)
+   Number of Clocks:  2
+      Net pll_clk_internal: 104 loads, 104 rising, 0 falling (Driver: Pin
+     pllclk.u_pll/OUTGLOBAL)
+      Net pllclk.clk_ref: 1 loads, 1 rising, 0 falling (Driver: Pin
+     pllclk.u_hsosc/CLKHF)
+   Number of Clock Enables:  2
+      Net vsync_pad.vcc: 1 loads, 0 SLICEs
+      Net vgactrl.n21: 10 loads, 10 SLICEs
+   Number of LSRs:  3
+      Net n6: 63 loads, 63 SLICEs
+      Net score.n171: 9 loads, 9 SLICEs
+      Net score.found_in_box: 7 loads, 7 SLICEs
+   Top 10 highest fanout non-clock nets:
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net score.clef_rom.addr_d2[3]: 112 loads
+      Net score.clef_rom.addr_d2[2]: 108 loads
+      Net score.clef_rom.addr_d2[1]: 97 loads
+      Net score.clef_rom.addr_d2[0]: 81 loads
+      Net score.clef_rom.addr_d2[4]: 77 loads
+      Net n6: 63 loads
+      Net score.clef_rom.addr_d2[5]: 56 loads
+      Net vsync_pad.vcc: 52 loads
+      Net score.clef_rom.addr_d2[6]: 24 loads
+      Net score.clef_rom.addr_d2[7]: 22 loads
+
+
+
+
+
+   Number of warnings:  32
+   Number of criticals: 0
+   Number of errors:    0
+
+Design Errors/Criticals/Warnings
+--------------------------------
+
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (1) : No port
+     matched 'seg[6]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (2) : No port
+     matched 'seg[5]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (6) : No port
+     matched 'seg[1]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (8) : No port
+     matched 'anode2'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (9) : No port
+     matched 'anode1'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (11) : No port
+     matched 'A_note'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (12) : No port
+     matched 'debug_pll_clk'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (13) : No port
+     matched 'led_load'.
+WARNING <1027013> - map: No port matched 'seg[6]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (1) : Can't
+     resolve object 'seg[6]' in constraint 'ldc_set_location -site {48}
+     [get_ports {seg[6]}]'.
+WARNING <1027013> - map: No port matched 'seg[5]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (2) : Can't
+     resolve object 'seg[5]' in constraint 'ldc_set_location -site {47}
+     [get_ports {seg[5]}]'.
+WARNING <1027013> - map: No port matched 'seg[1]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (6) : Can't
+     resolve object 'seg[1]' in constraint 'ldc_set_location -site {2}
+     [get_ports {seg[1]}]'.
+WARNING <1027013> - map: No port matched 'anode2'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (8) : Can't
+     resolve object 'anode2' in constraint 'ldc_set_location -site {21}
+     [get_ports anode2]'.
+WARNING <1027013> - map: No port matched 'anode1'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (9) : Can't
+     resolve object 'anode1' in constraint 'ldc_set_location -site {10}
+     [get_ports anode1]'.
+
+                                    Page 2
+
+
+
+
+
+Design Errors/Criticals/Warnings (cont)
+---------------------------------------
+WARNING <1027013> - map: No port matched 'A_note'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (11) : Can't
+     resolve object 'A_note' in constraint 'ldc_set_location -site {37}
+     [get_ports A_note]'.
+WARNING <1027013> - map: No port matched 'debug_pll_clk'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (12) : Can't
+     resolve object 'debug_pll_clk' in constraint 'ldc_set_location -site {28}
+     [get_ports debug_pll_clk]'.
+WARNING <1027013> - map: No port matched 'led_load'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (13) : Can't
+     resolve object 'led_load' in constraint 'ldc_set_location -site {42}
+     [get_ports led_load]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {48}
+     [get_ports {seg[6]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {47}
+     [get_ports {seg[5]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {2}
+     [get_ports {seg[1]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {21}
+     [get_ports anode2]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {10}
+     [get_ports anode1]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {37}
+     [get_ports A_note]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {28}
+     [get_ports debug_pll_clk]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {42}
+     [get_ports led_load]'.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| hsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vga_rgb[2]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vga_rgb[1]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vga_rgb[0]          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| found_note          | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+PLL/DLL Summary
+---------------
+
+PLL 1:                                 Pin/Node Value
+  PLL Instance Name:                            pllclk/u_pll
+  Input Reference Clock:               NODE     pllclk.clk_ref
+
+                                    Page 3
+
+
+
+
+
+PLL/DLL Summary (cont)
+----------------------
+  Output Clock(CoreA):                          NONE
+  Output Clock(GlobalA):               NODE     pll_clk_internal
+  Output Clock(CoreB):                          NONE
+  Output Clock(GlobalB):                        NONE
+  Feedback input:                      NODE     pllclk.intfbout_wire
+  Internal Feedback output:            NODE     pllclk.intfbout_wire
+  BYPASS signal:                                GND
+  LATCH signal:                                 GND
+  Lock Signal:                         NODE     sig_000.FeedThruLUT
+  Input Clock Frequency (MHz):                  NA
+  Reference Divider:                            0
+  Feedback Divider:                             16
+  VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
+  ENABLE_ICEGATE_PORTB:                         0
+  PLLOUT_SELECT_PORTA:                          GENCLK
+  PLLOUT_SELECT_PORTB:                          GENCLK
+  SHIFTREG_DIV_MODE:                            0
+  DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
+  FDA_RELATIVE:                                 0
+  FEEDBACK_PATH:                                SIMPLE
+  DELAY_ADJUSTMENT_MODE_FEEDBACK:               FIXED
+  FDA_FEEDBACK:                                 0
+  FILTER_RANGE:                                 1
+  EXTERNAL_DIVIDE_FACTOR:                       NONE
+  TEST Mode:                                    0
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            pllclk/u_hsosc
+  Power UP:                            NODE     vsync_pad.vcc
+  Enable Signal:                       NODE     vsync_pad.vcc
+  OSC Output:                          NODE     pllclk.clk_ref
+  DIV Setting:                                  00
+
+ASIC Components
+---------------
+
+Instance Name: score/mult_153
+         Type: DSP
+Instance Name: score/mult_15
+         Type: DSP
+Instance Name: pllclk/u_pll
+         Type: PLL
+Instance Name: pllclk/u_hsosc
+         Type: HFOSC
+
+Constraint Summary
+------------------
+
+   Total number of constraints: 18
+   Total number of constraints dropped: 8
+   Dropped constraints are:
+     ldc_set_location -site {48} [get_ports {seg[6]}]
+     ldc_set_location -site {47} [get_ports {seg[5]}]
+
+                                    Page 4
+
+
+
+
+
+Constraint Summary (cont)
+-------------------------
+     ldc_set_location -site {2} [get_ports {seg[1]}]
+     ldc_set_location -site {21} [get_ports anode2]
+     ldc_set_location -site {10} [get_ports anode1]
+     ldc_set_location -site {37} [get_ports A_note]
+     ldc_set_location -site {28} [get_ports debug_pll_clk]
+     ldc_set_location -site {42} [get_ports led_load]
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 0 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 75 MB
+Checksum -- map: 84e6fee89210249d7e41fe1352beadfcb116752a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 5
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor
+     Corporation,  All rights reserved.

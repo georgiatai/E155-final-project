@@ -1,0 +1,19 @@
+<top name = "vgatop"  library = "work"  arch = ""  entry = "Verilog">
+
+<clocks>
+    <clockitem name = "pll_clk_internal"  type = "net" />
+    <clockitem name = "pllclk/clk_external"  type = "net" />
+    <clockitem name = "pllclk/clk_ref"  type = "net" />
+</clocks>
+
+<!--
+    //=============================================================
+    //  Number of Clocks processed: 3
+    //
+    //  If a clock cannot be found in the top level pins section,
+    //  that means it is an internal clock.
+    //
+    //=============================================================
+-->
+
+</top>
