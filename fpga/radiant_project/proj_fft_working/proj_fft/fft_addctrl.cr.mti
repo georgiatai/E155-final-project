@@ -1,0 +1,22 @@
+C:/Users/jgong/my_designs/proj_fft/source/fft/addgen.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/addgen.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module addgen
+
+Top level modules:
+	addgen
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module testbench_addctrl
+
+Top level modules:
+	testbench_addctrl
+
+} {} {}} C:/Users/jgong/my_designs/proj_fft/source/fft/addctrl.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/jgong/my_designs/proj_fft/source/fft/addctrl.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module addctrl
+
+Top level modules:
+	addctrl
+
+} {} {}}

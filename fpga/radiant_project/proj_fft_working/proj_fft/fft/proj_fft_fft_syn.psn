@@ -1,0 +1,109 @@
+POSTSYN: Post Synthesis Process Radiant Software (64-bit) 2025.1.0.39.0
+Command Line: postsyn -a iCE40UP -p iCE40UP5K -t SG48 -sp High-Performance_1.2V -oc Industrial -top -w -o proj_fft_fft_syn.udb -ldc proj_fft_fft.ldc -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml proj_fft_fft.vm 
+   Architecture:     iCE40UP
+   Device:           iCE40UP5K
+   Package:          SG48
+   Performance:      High-Performance_1.2V
+Reading input file 'proj_fft_fft.vm' ...
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[7]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[6]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[5]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[4]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[3]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[2]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[1]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[0]' in Module 'fft_ctrl' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[7]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[6]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[5]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[4]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[3]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[2]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[1]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[0]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[7]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[6]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[5]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[4]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[3]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[2]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[1]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[0]' in Module 'ramdp8b' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[7]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[6]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[5]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[4]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[3]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[2]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[1]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[0]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[7]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[6]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[5]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[4]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[3]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[2]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[1]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[0]' in Module 'ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[7]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[6]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[5]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[4]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[3]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[2]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[1]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[0]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[7]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[6]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[5]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[4]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[3]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[2]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[1]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[0]' in Module 'ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[7]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[6]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[5]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[4]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[3]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[2]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[1]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[0]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[7]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[6]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[5]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[4]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[3]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[2]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[1]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[0]' in Module 'ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[0]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[1]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[2]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[3]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[4]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[5]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[6]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Port 'din_ram[7]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[0]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[1]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[2]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[3]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[4]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[5]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[6]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+WARNING <35811117> - Attribute 'rom_style' on Wire 'din_ram[7]' in Module 'dfiveshLUT' cannot be supported. It will be ignored.
+Reading constraint file 'proj_fft_fft.ldc' ...
+Removing unused logic ...
+Starting design annotation....
+ 
+Constraint Summary:
+   Total number of constraints: 2
+   Total number of constraints dropped: 0
+ 
+Writing output file 'proj_fft_fft_syn.udb'.
+POSTSYN finished successfully.
+Total CPU Time: 1 secs 
+Total REAL Time: 2 secs 
+Peak Memory Usage: 58 MB
+Checksum -- postsyn: 5617db3f1c190985a8ded1cf2fa36353d3160ef4

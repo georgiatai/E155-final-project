@@ -1,0 +1,80 @@
+-a "iCE40UP"
+-p iCE40UP5K
+-t SG48
+-sp "High-Performance_1.2V"
+-frequency 200
+-optimization_goal Area
+-bram_utilization 100
+-ramstyle Auto
+-romstyle auto
+-dsp_utilization 100
+-use_dsp 1
+-use_carry_chain 1
+-carry_chain_length 0
+-resource_sharing 1
+-propagate_constants 1
+-remove_duplicate_regs 1
+
+-max_fanout 1000
+-fsm_encoding_style Auto
+
+-fix_gated_clocks 1
+-loop_limit 1950
+
+
+
+
+
+
+-use_io_reg auto
+
+
+
+
+
+
+
+
+
+-drc_cfg 35103300 20
+-use_io_insertion 1
+
+-resolve_mixed_drivers 0
+-sdc "proj_fft_fft_cpe.ldc"
+-path "C:/Users/User/Desktop/proj_fft/ramdp8b"
+-path "C:/Users/User/Desktop/proj_fft/ramdualpt"
+-path "C:/lscc/radiant/2025.1/ispfpga/ice40tp/data" "C:/Users/User/Desktop/proj_fft/fft" "C:/Users/User/Desktop/proj_fft" "C:/Users/User/Desktop/proj_fft/source/fft" "C:/Users/User/Desktop/proj_fft/ramdualpt" "C:/Users/User/Desktop/proj_fft/ramdp8b"
+-ver "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/User/Desktop/proj_fft/source/fft/fft.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv"
+-ver "C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v"
+-sver "C:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/mux.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/afourLUT.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv"
+-ver "C:/Users/User/Desktop/proj_fft/ramdp8b/rtl/ramdp8b.v"
+-sver "C:/Users/User/Desktop/proj_fft/source/fft/vgactrl.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/vgatop.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/pllclk.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/treblerom.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/musicscore.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/sharp_rom.sv"
+"C:/Users/User/Desktop/proj_fft/source/fft/note_rom.sv"
+
+
+-path "C:/Users/User/Desktop/proj_fft"
+-top fft_ctrl
+-udb "proj_fft_fft_rtl.udb"
+-output_hdl "proj_fft_fft.vm"
+

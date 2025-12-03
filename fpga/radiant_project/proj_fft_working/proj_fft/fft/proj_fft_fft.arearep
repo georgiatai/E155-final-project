@@ -1,0 +1,663 @@
+----------------------------------------------------------------------
+Report for cell fft_ctrl.TECH
+Register bits:  508 of 5280 (9.621%)
+I/O cells:      14
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        20          100.0
+                               CCU2       157          100.0
+                            FD1P3XZ       508          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB         2          100.0
+                               LUT4      1134          100.0
+                              MAC16         7          100.0
+                                 OB        12          100.0
+SUB MODULES
+                            addctrl         1
+                             addgen         1
+                          butterfly         1
+                          cmplxmult         1
+                         dfiveshLUT         1
+                                fft         1
+                    fftdec(FS=5000)         1
+                   fftfull(FS=5000)         1
+                            freqLUT         1
+                           multiply         1
+                       multiply_U15         1
+                       multiply_U16         1
+                       multiply_U17         1
+                                mux         1
+                            ramdp8b         1
+ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+                          ramdualpt         1
+                      ramdualpt_U21         1
+                      ramdualpt_U22         1
+                      ramdualpt_U23         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U18         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U19         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U20         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U13         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U14         1
+                        seg_display         1
+                         twiddleLUT         1
+                              TOTAL      1889
+----------------------------------------------------------------------
+Report for cell mux.v1
+Instance Path : mux
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         5            0.4
+                              TOTAL         5
+----------------------------------------------------------------------
+Report for cell ramdp8b.v1
+Instance Path : ram_databuf
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+SUB MODULES
+ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+                              TOTAL        20
+----------------------------------------------------------------------
+Report for cell ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1).v1
+Instance Path : ram_databuf.lscc_ram_dp_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+SUB MODULES
+ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+                              TOTAL        19
+----------------------------------------------------------------------
+Report for cell ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1).v1
+Instance Path : ram_databuf.lscc_ram_dp_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+SUB MODULES
+ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+                              TOTAL        18
+----------------------------------------------------------------------
+Report for cell ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0).v1
+Instance Path : ram_databuf.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell fftfull(FS=5000).v1
+Instance Path : fftfull
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        18           90.0
+                                FA2       135           86.0
+                            FD1P3XZ       424           83.5
+                               LUT4      1007           88.8
+                              MAC16         7          100.0
+SUB MODULES
+                            addctrl         1
+                             addgen         1
+                          butterfly         1
+                          cmplxmult         1
+                                fft         1
+                    fftdec(FS=5000)         1
+                            freqLUT         1
+                           multiply         1
+                       multiply_U15         1
+                       multiply_U16         1
+                       multiply_U17         1
+                          ramdualpt         1
+                      ramdualpt_U21         1
+                      ramdualpt_U22         1
+                      ramdualpt_U23         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U18         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U19         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U20         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U13         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U14         1
+                         twiddleLUT         1
+                              TOTAL      1631
+----------------------------------------------------------------------
+Report for cell freqLUT.v1
+Instance Path : fftfull.freqLUT
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        80            7.1
+                              TOTAL        80
+----------------------------------------------------------------------
+Report for cell fftdec(FS=5000).v1
+Instance Path : fftfull.fftdec
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        22           14.0
+                            FD1P3XZ       105           20.7
+                               LUT4       223           19.7
+                              MAC16         3           42.9
+                              TOTAL       353
+----------------------------------------------------------------------
+Report for cell fft.v1
+Instance Path : fftfull.fft
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B        18           90.0
+                                FA2       113           72.0
+                            FD1P3XZ       319           62.8
+                               LUT4       704           62.1
+                              MAC16         4           57.1
+SUB MODULES
+                            addctrl         1
+                             addgen         1
+                          butterfly         1
+                          cmplxmult         1
+                           multiply         1
+                       multiply_U15         1
+                       multiply_U16         1
+                       multiply_U17         1
+                          ramdualpt         1
+                      ramdualpt_U21         1
+                      ramdualpt_U22         1
+                      ramdualpt_U23         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U18         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U19         1
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U20         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U13         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U14         1
+                         twiddleLUT         1
+                              TOTAL      1195
+----------------------------------------------------------------------
+Report for cell twiddleLUT.v1
+Instance Path : fftfull.fft.twiddle_lut
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         2           10.0
+                                FA2         9            5.7
+                               LUT4        16            1.4
+                              TOTAL        27
+----------------------------------------------------------------------
+Report for cell ramdualpt.v1
+Instance Path : fftfull.fft.ram1_b_bfa
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        72            6.3
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+                              TOTAL       114
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1).v1
+Instance Path : fftfull.fft.ram1_b_bfa.lscc_ram_dp_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        72            6.3
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)         1
+                              TOTAL       113
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1).v1
+Instance Path : fftfull.fft.ram1_b_bfa.lscc_ram_dp_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        72            6.3
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)         1
+                              TOTAL       112
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0).v1
+Instance Path : fftfull.fft.ram1_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        11            1.0
+                              TOTAL        20
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0).v1
+Instance Path : fftfull.fft.ram1_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        12            1.1
+                              TOTAL        21
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0).v1
+Instance Path : fftfull.fft.ram1_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        24            2.1
+                              TOTAL        33
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0).v1
+Instance Path : fftfull.fft.ram1_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        25            2.2
+                              TOTAL        34
+----------------------------------------------------------------------
+Report for cell ramdualpt_U21.v1
+Instance Path : fftfull.fft.ram1_a_bfa
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        32            2.8
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U18         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12         1
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U18.v1
+Instance Path : fftfull.fft.ram1_a_bfa.lscc_ram_dp_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        32            2.8
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12         1
+                              TOTAL        73
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12.v1
+Instance Path : fftfull.fft.ram1_a_bfa.lscc_ram_dp_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        32            2.8
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0         1
+                              TOTAL        72
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U0.v1
+Instance Path : fftfull.fft.ram1_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U1.v1
+Instance Path : fftfull.fft.ram1_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2.v1
+Instance Path : fftfull.fft.ram1_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3.v1
+Instance Path : fftfull.fft.ram1_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_U22.v1
+Instance Path : fftfull.fft.ram0_b_bfa
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        51            4.5
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U19         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U13         1
+                              TOTAL        93
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U19.v1
+Instance Path : fftfull.fft.ram0_b_bfa.lscc_ram_dp_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        51            4.5
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U13         1
+                              TOTAL        92
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U13.v1
+Instance Path : fftfull.fft.ram0_b_bfa.lscc_ram_dp_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        51            4.5
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4         1
+                              TOTAL        91
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U4.v1
+Instance Path : fftfull.fft.ram0_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         9            0.8
+                              TOTAL        18
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U5.v1
+Instance Path : fftfull.fft.ram0_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        10            0.9
+                              TOTAL        19
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U6.v1
+Instance Path : fftfull.fft.ram0_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        16            1.4
+                              TOTAL        25
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U7.v1
+Instance Path : fftfull.fft.ram0_b_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4        16            1.4
+                              TOTAL        25
+----------------------------------------------------------------------
+Report for cell ramdualpt_U23.v1
+Instance Path : fftfull.fft.ram0_a_bfa
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        32            2.8
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U20         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U14         1
+                              TOTAL        74
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U20.v1
+Instance Path : fftfull.fft.ram0_a_bfa.lscc_ram_dp_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        32            2.8
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8         1
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U14         1
+                              TOTAL        73
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=32,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=32,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U14.v1
+Instance Path : fftfull.fft.ram0_a_bfa.lscc_ram_dp_inst.mem_main
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         4           20.0
+                            FD1P3XZ        32            6.3
+                               LUT4        32            2.8
+SUB MODULES
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9         1
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8         1
+                              TOTAL        72
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b011000,POSy=32'b0)_U8.v1
+Instance Path : fftfull.fft.ram0_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b010000,POSy=32'b0)_U9.v1
+Instance Path : fftfull.fft.ram0_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U10.v1
+Instance Path : fftfull.fft.ram0_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="32,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U11.v1
+Instance Path : fftfull.fft.ram0_a_bfa.lscc_ram_dp_inst.mem_main.NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                            FD1P3XZ         8            1.6
+                               LUT4         8            0.7
+                              TOTAL        17
+----------------------------------------------------------------------
+Report for cell butterfly.v1
+Instance Path : fftfull.fft.butterfly_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        79           50.3
+                               LUT4        51            4.5
+                              MAC16         4           57.1
+SUB MODULES
+                          cmplxmult         1
+                           multiply         1
+                       multiply_U15         1
+                       multiply_U16         1
+                       multiply_U17         1
+                              TOTAL       139
+----------------------------------------------------------------------
+Report for cell cmplxmult.v1
+Instance Path : fftfull.fft.butterfly_inst.tw_mult
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        45           28.7
+                               LUT4        19            1.7
+                              MAC16         4           57.1
+SUB MODULES
+                           multiply         1
+                       multiply_U15         1
+                       multiply_U16         1
+                       multiply_U17         1
+                              TOTAL        72
+----------------------------------------------------------------------
+Report for cell multiply.v1
+Instance Path : fftfull.fft.butterfly_inst.tw_mult.mult4
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         9            5.7
+                              MAC16         1           14.3
+                              TOTAL        10
+----------------------------------------------------------------------
+Report for cell multiply_U15.v1
+Instance Path : fftfull.fft.butterfly_inst.tw_mult.mult3
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        18           11.5
+                               LUT4         2            0.2
+                              MAC16         1           14.3
+                              TOTAL        21
+----------------------------------------------------------------------
+Report for cell multiply_U16.v1
+Instance Path : fftfull.fft.butterfly_inst.tw_mult.mult2
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              MAC16         1           14.3
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell multiply_U17.v1
+Instance Path : fftfull.fft.butterfly_inst.tw_mult.mult1
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        18           11.5
+                               LUT4         1            0.1
+                              MAC16         1           14.3
+                              TOTAL        20
+----------------------------------------------------------------------
+Report for cell addctrl.v1
+Instance Path : fftfull.fft.addctrl_inst
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        20           12.7
+                            FD1P3XZ        43            8.5
+                               LUT4       188           16.6
+SUB MODULES
+                             addgen         1
+                              TOTAL       252
+----------------------------------------------------------------------
+Report for cell addgen.v1
+Instance Path : fftfull.fft.addctrl_inst.addgen
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        15            9.6
+                            FD1P3XZ        34            6.7
+                               LUT4       151           13.3
+                              TOTAL       200
+----------------------------------------------------------------------
+Report for cell dfiveshLUT.v1
+Instance Path : LUT
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                              EBR_B         1            5.0
+                              TOTAL         1
+----------------------------------------------------------------------
+Report for cell seg_display.v1
+Instance Path : disp
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4        15            1.3
+                              TOTAL        15

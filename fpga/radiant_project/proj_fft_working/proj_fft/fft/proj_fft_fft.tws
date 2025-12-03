@@ -1,0 +1,2227 @@
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2025.1.0.39.0
+
+Tue Dec  2 20:04:50 2025
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -html -rpt proj_fft_fft.tws proj_fft_fft_syn.udb -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml
+
+-----------------------------------------
+Design:          fft_ctrl
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+    1  Timing Overview
+        1.1  SDC Constraints
+        1.2  Constraint Coverage
+        1.3  Overall Summary
+        1.4  Unconstrained Report
+        1.5  Combinational Loop
+    2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+        2.1  Clock Summary
+        2.2  Endpoint slacks
+        2.3  Detailed Report
+    3  Hold at Speed Grade M Corner at -40 Degrees
+        3.1  Endpoint slacks
+        3.2  Detailed Report
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+==============================================
+1  Timing Overview
+==============================================
+
+1.1  SDC Constraints
+=====================
+create_clock -name {clk} -period 83.3333 [get_pins {hf_osc/CLKHF }] 
+
+1.2  Constraint Coverage
+---------------------------
+Constraint Coverage: 94.5309%
+
+
+1.3  Overall Summary
+---------------------------
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 137 endpoints;  Total Negative Slack: 593.410 ns 
+ Hold at Speed Grade M Corner at -40 Degrees                          Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+
+1.4  Unconstrained Report
+===========================
+
+1.4.1  Unconstrained Start/End Points
+--------------------------------------
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+         Listing 4 Start Points         |           Type           
+-------------------------------------------------------------------
+note_hold__i1/Q                         |          No required time
+note_hold__i4/Q                         |          No required time
+note_hold__i5/Q                         |          No required time
+note_hold__i8/Q                         |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                         4
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+fft_start_d2_c/SR                       |           No arrival time
+adr_fft_d2__i0/SR                       |           No arrival time
+fft_load_d1_c/SR                        |           No arrival time
+adr_fft_d2__i8/SR                       |           No arrival time
+adr_fft_d2__i7/SR                       |           No arrival time
+adr_fft_d2__i6/SR                       |           No arrival time
+adr_fft_d1__i0/SR                       |           No arrival time
+adr_fft_d2__i5/SR                       |           No arrival time
+adr_fft_d2__i4/SR                       |           No arrival time
+note_hold__i1/SR                        |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                       239
+                                        |                          
+-------------------------------------------------------------------
+
+1.4.2  Start/End Points Without Timing Constraints
+---------------------------------------------------
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 10 Start or End Points     |           Type           
+-------------------------------------------------------------------
+reset                                   |                     input
+A_note                                  |                     input
+anode1                                  |                    output
+anode2                                  |                    output
+seg[6]                                  |                    output
+seg[5]                                  |                    output
+seg[4]                                  |                    output
+seg[3]                                  |                    output
+seg[2]                                  |                    output
+seg[1]                                  |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                        14
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+--------------------------------------------------
+There is no instance satisfying reporting criteria
+
+
+
+1.5  Combinational Loop
+========================
+None
+
+===============================================================
+2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+===============================================================
+
+2.1  Clock Summary
+=======================
+
+2.1.1 Clock "clk"
+=======================
+create_clock -name {clk} -period 83.3333 [get_pins {hf_osc/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+               Clock clk                |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From clk                               |             Target |          83.333 ns |         12.000 MHz 
+                                        | Actual (all paths) |          89.955 ns |         11.117 MHz 
+hf_osc/CLKHF (MPW)                      |   (50% duty cycle) |          20.830 ns |         48.008 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+
+2.2  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+fftfull/fftdec/frequency__i10/D          |   -6.623 ns 
+fftfull/fftdec/frequency__i2/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i9/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i8/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i7/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i3/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i4/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i1/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i5/D           |   -6.623 ns 
+fftfull/fftdec/frequency__i6/D           |   -6.623 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|         137 
+                                         |             
+-------------------------------------------------------
+
+2.3  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i10/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i3295_4_lut/D->fftfull/fftdec/i3295_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4924                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i10/D                           ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i10/CK                          CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i2/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i2993_4_lut/D->fftfull/fftdec/i2993_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4622                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i2/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i2/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i9/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i3293_4_lut/D->fftfull/fftdec/i3293_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4922                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i9/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i9/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i8/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i3291_4_lut/D->fftfull/fftdec/i3291_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4920                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i8/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i8/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i7/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i3289_4_lut/D->fftfull/fftdec/i3289_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4918                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i7/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i7/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i3/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i3287_4_lut/D->fftfull/fftdec/i3287_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4916                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i3/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i3/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i4/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i2982_4_lut/D->fftfull/fftdec/i2982_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4611                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i4/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i4/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i1/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+i1_4_lut_adj_410/D->i1_4_lut_adj_410/Z    LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+n5003                                                     NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i1/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i1/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i5/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i2959_4_lut/D->fftfull/fftdec/i2959_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4588                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i5/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i5/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fftdec/magnitude_max__i0/Q  (FD1P3XZ)
+Path End         : fftfull/fftdec/frequency__i6/D  (FD1P3XZ)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 34
+Delay Ratio      : 80.9% (route), 19.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : -6.622 ns  (Failed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                  0.000  546     
+clk                                                       NET DELAY        24.900                 24.900  546     
+fftfull/fftdec/magnitude_max__i0/CK                       CLOCK PIN         0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+fftfull/fftdec/magnitude_max__i0/CK->fftfull/fftdec/magnitude_max__i0/Q
+                                          FD1P3XZ         CK_TO_Q_DELAY     1.391                 26.291  1       
+fftfull/fftdec/magnitude_max[0]                           NET DELAY         2.075                 28.366  1       
+fftfull/fftdec/LessThan_8_i4_4_lut/A->fftfull/fftdec/LessThan_8_i4_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 28.843  1       
+fftfull/fftdec/n4_c                                       NET DELAY         2.075                 30.918  1       
+fftfull/fftdec/LessThan_8_i6_3_lut/A->fftfull/fftdec/LessThan_8_i6_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 31.395  1       
+fftfull/fftdec/n6_c                                       NET DELAY         2.075                 33.470  1       
+fftfull/fftdec/LessThan_8_i8_3_lut/A->fftfull/fftdec/LessThan_8_i8_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 33.947  1       
+fftfull/fftdec/n8                                         NET DELAY         2.075                 36.022  1       
+fftfull/fftdec/LessThan_8_i10_3_lut/A->fftfull/fftdec/LessThan_8_i10_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 36.499  1       
+fftfull/fftdec/n10_adj_1997                               NET DELAY         2.075                 38.574  1       
+fftfull/fftdec/LessThan_8_i12_3_lut/A->fftfull/fftdec/LessThan_8_i12_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 39.051  1       
+fftfull/fftdec/n12_c                                      NET DELAY         2.075                 41.126  1       
+fftfull/fftdec/LessThan_8_i14_3_lut/A->fftfull/fftdec/LessThan_8_i14_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 41.603  1       
+fftfull/fftdec/n14_adj_1998                               NET DELAY         2.075                 43.678  1       
+fftfull/fftdec/LessThan_8_i16_3_lut/A->fftfull/fftdec/LessThan_8_i16_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 44.155  1       
+fftfull/fftdec/n16_c                                      NET DELAY         2.075                 46.230  1       
+fftfull/fftdec/LessThan_8_i18_3_lut/A->fftfull/fftdec/LessThan_8_i18_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 46.707  1       
+fftfull/fftdec/n18                                        NET DELAY         2.075                 48.782  1       
+fftfull/fftdec/LessThan_8_i20_3_lut/A->fftfull/fftdec/LessThan_8_i20_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 49.259  1       
+fftfull/fftdec/n20                                        NET DELAY         2.075                 51.334  1       
+fftfull/fftdec/LessThan_8_i22_3_lut/A->fftfull/fftdec/LessThan_8_i22_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 51.811  1       
+fftfull/fftdec/n22_c                                      NET DELAY         2.075                 53.886  1       
+fftfull/fftdec/LessThan_8_i24_3_lut/A->fftfull/fftdec/LessThan_8_i24_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 54.363  1       
+fftfull/fftdec/n24                                        NET DELAY         2.075                 56.438  1       
+fftfull/fftdec/LessThan_8_i26_3_lut/A->fftfull/fftdec/LessThan_8_i26_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 56.915  1       
+fftfull/fftdec/n26                                        NET DELAY         2.075                 58.990  1       
+fftfull/fftdec/LessThan_8_i28_3_lut/A->fftfull/fftdec/LessThan_8_i28_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 59.467  1       
+fftfull/fftdec/n28                                        NET DELAY         2.075                 61.542  1       
+fftfull/fftdec/LessThan_8_i30_3_lut/A->fftfull/fftdec/LessThan_8_i30_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 62.019  1       
+fftfull/fftdec/n30                                        NET DELAY         2.075                 64.094  1       
+fftfull/fftdec/LessThan_8_i32_3_lut/A->fftfull/fftdec/LessThan_8_i32_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 64.571  1       
+fftfull/fftdec/n32                                        NET DELAY         2.075                 66.646  1       
+fftfull/fftdec/LessThan_8_i34_3_lut/A->fftfull/fftdec/LessThan_8_i34_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 67.123  1       
+fftfull/fftdec/n34_c                                      NET DELAY         2.075                 69.198  1       
+fftfull/fftdec/LessThan_8_i36_3_lut/A->fftfull/fftdec/LessThan_8_i36_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 69.675  1       
+fftfull/fftdec/n36                                        NET DELAY         2.075                 71.750  1       
+fftfull/fftdec/LessThan_8_i38_3_lut/A->fftfull/fftdec/LessThan_8_i38_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 72.227  1       
+fftfull/fftdec/n38                                        NET DELAY         2.075                 74.302  1       
+fftfull/fftdec/LessThan_8_i40_3_lut/A->fftfull/fftdec/LessThan_8_i40_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 74.779  1       
+fftfull/fftdec/n40_c                                      NET DELAY         2.075                 76.854  1       
+fftfull/fftdec/LessThan_8_i42_3_lut/A->fftfull/fftdec/LessThan_8_i42_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 77.331  1       
+fftfull/fftdec/n42                                        NET DELAY         2.075                 79.406  1       
+fftfull/fftdec/LessThan_8_i44_3_lut/A->fftfull/fftdec/LessThan_8_i44_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 79.883  1       
+fftfull/fftdec/n44_adj_1999                               NET DELAY         2.075                 81.958  1       
+fftfull/fftdec/LessThan_8_i46_3_lut/A->fftfull/fftdec/LessThan_8_i46_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 82.435  1       
+fftfull/fftdec/n46_adj_2000                               NET DELAY         2.075                 84.510  1       
+fftfull/fftdec/LessThan_8_i48_3_lut/A->fftfull/fftdec/LessThan_8_i48_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 84.987  1       
+fftfull/fftdec/n48_adj_2001                               NET DELAY         2.075                 87.062  1       
+fftfull/fftdec/LessThan_8_i50_3_lut/A->fftfull/fftdec/LessThan_8_i50_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 87.539  1       
+fftfull/fftdec/n50                                        NET DELAY         2.075                 89.614  1       
+fftfull/fftdec/LessThan_8_i52_3_lut/A->fftfull/fftdec/LessThan_8_i52_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 90.091  1       
+fftfull/fftdec/n52_c                                      NET DELAY         2.075                 92.166  1       
+fftfull/fftdec/LessThan_8_i54_3_lut/A->fftfull/fftdec/LessThan_8_i54_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 92.643  1       
+fftfull/fftdec/n54                                        NET DELAY         2.075                 94.718  1       
+fftfull/fftdec/LessThan_8_i56_3_lut/A->fftfull/fftdec/LessThan_8_i56_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 95.195  1       
+fftfull/fftdec/n56                                        NET DELAY         2.075                 97.270  1       
+fftfull/fftdec/LessThan_8_i58_3_lut/A->fftfull/fftdec/LessThan_8_i58_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                 97.747  1       
+fftfull/fftdec/n58_c                                      NET DELAY         2.075                 99.822  1       
+fftfull/fftdec/LessThan_8_i60_3_lut/A->fftfull/fftdec/LessThan_8_i60_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                100.299  1       
+fftfull/fftdec/n60                                        NET DELAY         2.075                102.374  1       
+fftfull/fftdec/LessThan_8_i62_3_lut/A->fftfull/fftdec/LessThan_8_i62_3_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                102.851  1       
+fftfull/fftdec/n62                                        NET DELAY         2.075                104.926  1       
+fftfull/fftdec/i11_4_lut/A->fftfull/fftdec/i11_4_lut/Z
+                                          LUT4            A_TO_Z_DELAY      0.477                105.403  85      
+n106                                                      NET DELAY         4.150                109.553  85      
+fftfull/fftdec/i1_3_lut_4_lut_adj_317/C->fftfull/fftdec/i1_3_lut_4_lut_adj_317/Z
+                                          LUT4            C_TO_Z_DELAY      0.477                110.030  14      
+n907                                                      NET DELAY         2.075                112.105  14      
+fftfull/fftdec/i2957_4_lut/D->fftfull/fftdec/i2957_4_lut/Z
+                                          LUT4            D_TO_Z_DELAY      0.477                112.582  1       
+fftfull/fftdec/n4586                                      NET DELAY         2.075                114.657  1       
+fftfull/fftdec/frequency__i6/D                            ENDPOINT          0.000                114.657  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr      Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+                                                          CONSTRAINT        0.000                 83.333  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY     0.000                 83.333  546     
+clk                                                       NET DELAY        24.900                108.233  546     
+fftfull/fftdec/frequency__i6/CK                           CLOCK PIN         0.000                108.233  1       
+                                                          Uncertainty    -(0.000)                108.233  
+                                                          Setup time     -(0.199)                108.034  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Required Time                                                                                    108.034  
+Arrival Time                                                                                  -(114.656)  
+----------------------------------------  --------------  -------------  --------  ---------------------  ------  
+Path Slack  (Failed)                                                                              -6.622  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+===============================================================
+3  Hold at Speed Grade M Corner at -40 Degrees
+===============================================================
+
+3.1  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR0              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR1              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR2              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR3              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR4              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR5              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR6              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR7              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR8              
+                                         |    1.565 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WE              
+                                         |    1.578 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+3.2  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : adr_fft__i0/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR0  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i0/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i0/CK->adr_fft__i0/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[0]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR0
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i1/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR1  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i1/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i1/CK->adr_fft__i1/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[1]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR1
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i2/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR2  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i2/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i2/CK->adr_fft__i2/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[2]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR2
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i3/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR3  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i3/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i3/CK->adr_fft__i3/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[3]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR3
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i4/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR4  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i4/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i4/CK->adr_fft__i4/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[4]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR4
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i5/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR5  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i5/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i5/CK->adr_fft__i5/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[5]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR5
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i6/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR6  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i6/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i6/CK->adr_fft__i6/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[6]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR6
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i7/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR7  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i7/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i7/CK->adr_fft__i7/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[7]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR7
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_fft__i8/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR8  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.565 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+adr_fft__i8/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+adr_fft__i8/CK->adr_fft__i8/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+adr_fft[8]                                                NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RADDR8
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.106                 25.006  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -25.006  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.565  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : data_load_c/Q  (FD1P3XZ)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WE  (EBR_B)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 16.8% (route), 83.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.578 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+data_load_c/CK                                            CLOCK PIN       0.000                 24.900  1       
+
+
+Data Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+data_load_c/CK->data_load_c/Q             FD1P3XZ         CK_TO_Q_DELAY   1.391                 26.291  4       
+data_load                                                 NET DELAY       0.280                 26.571  4       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WE
+                                                          ENDPOINT        0.000                 26.571  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name  Delay Name     Incr    Arrival/Required Time  Fanout  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+                                                          CONSTRAINT      0.000                  0.000  1       
+hf_osc/CLKHF                              HSOSC_CORE      CLOCK LATENCY   0.000                  0.000  546     
+clk                                                       NET DELAY      24.900                 24.900  546     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                          CLOCK PIN       0.000                 24.900  1       
+                                                          Uncertainty     0.000                 24.900  
+                                                          Hold time       0.093                 24.993  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Required Time                                                                                  -24.993  
+Arrival Time                                                                                    26.571  
+----------------------------------------  --------------  -------------  ------  ---------------------  ------  
+Path Slack  (Passed)                                                                             1.578  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+

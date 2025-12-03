@@ -1,0 +1,1038 @@
+m255
+K4
+z2
+Z0 !s12c _opt2
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+!s11f MIXED_VERSIONS
+Z2 !s12c _opt1
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+!s12c _opt
+R1
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 dC:/Users/jgong/my_designs/proj_fft
+T_opt
+!s110 1763266451
+VIXZSC]TYdZ>@Uj:=9n;]92
+04 7 4 work fftfull fast 0
+=1-00be43eaec61-69194f92-394-10b0
+R1
+!s12f OEM25U19 
+Z4 !s12b OEM100
+Z5 !s124 OEM100
+Z6 !s135 nogc
+Z7 o-quiet -auto_acc_if_foreign -work work -L iCE40UP +acc
+Z8 tCvgOpt 0
+n@_opt
+Z9 OL;O;2024.2;79
+R3
+T_opt1
+!s110 1763511216
+V<b3g0kM43d8DeMnE6MA[P0
+04 17 4 work testbench_fftfull fast 0
+=16-00be43eaec61-691d0baf-394-3bec
+R1
+!s12f OEM25U41 
+R4
+R5
+R6
+R7
+R8
+n@_opt1
+R9
+R3
+T_opt2
+!s110 1763681192
+VDb_RE`W<BLN6Dd_JDEL3g3
+04 14 4 work testbench_ctrl fast 0
+=13-505a65349729-691fa3a7-23a-e050
+R1
+!s12f OEM25U42 
+R4
+R5
+R6
+R7
+R8
+n@_opt2
+R9
+vaddctrl
+2C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv
+Z10 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+Z11 !s110 1763681183
+!i10b 1
+!s100 ]8FWkf[McTNR]^EmF3=FI0
+ILm9[k]M_@^g^3E4Iczjc03
+S1
+Z12 dC:/Users/User/Desktop/proj_fft
+w1763656956
+8C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv
+!i122 2055
+Z13 L0 5 62
+Z14 VDg1SIo80bB@j0V0VzS_@n1
+Z15 OL;L;2024.2;79
+r1
+!s85 0
+31
+Z16 !s108 1763681183.000000
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv|
+!i113 0
+Z17 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+vaddgen
+2C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv
+R10
+R11
+!i10b 1
+!s100 hggXTSH4>zA=ibhJKn@LU3
+IdmHbD2hf]::7>5@CB[cBG0
+S1
+R12
+w1763658508
+8C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/addgen.sv
+!i122 2056
+L0 8 146
+R14
+R15
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv|
+!i113 0
+R17
+R8
+vbitrev
+2C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv
+R10
+R11
+!i10b 1
+!s100 Ve2o0:NjSW0El^`GBJjR70
+IEIVSAYoM1b::G:EoA8_Lo0
+S1
+R12
+w1763256396
+8C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv
+!i122 2057
+L0 5 12
+R14
+R15
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv|
+!i113 0
+R17
+R8
+vbutterfly
+2C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv
+R10
+R11
+!i10b 1
+!s100 BDi;LVQ?]H92_ZQ1Qe1zb3
+IW=h6`n]zlhgY=gm5^Q>Nn1
+S1
+R12
+w1763614193
+8C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv
+!i122 2058
+L0 6 35
+R14
+R15
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv|
+!i113 0
+R17
+R8
+vcmplxmult
+2C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv
+R10
+R11
+!i10b 1
+!s100 lV@NVO@UbPCmXOoU`g^FL2
+IXiIf9:6dG5=]JPd;TEe6H0
+S1
+R12
+w1763624671
+8C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv
+!i122 2059
+L0 5 18
+R14
+R15
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv|
+!i113 0
+R17
+R8
+vdfiveshLUT
+2C:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv
+R10
+Z18 !s110 1763681185
+!i10b 1
+!s100 b[BYLMBdaPQKi^R`9gX]K2
+IVQmAWU5:^I<h5?fKKQS560
+S1
+R12
+w1763632558
+8C:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv
+!i122 2067
+L0 1 520
+R14
+R15
+r1
+!s85 0
+31
+Z19 !s108 1763681185.000000
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv|
+!i113 0
+R17
+R8
+ndfivesh@l@u@t
+vfft
+2C:/Users/User/Desktop/proj_fft/source/fft/fft.sv
+R10
+Z20 !s110 1763681184
+!i10b 1
+!s100 all]MMzf^K0?cCVibTaoN2
+I8Y2M0`h@`:cDGd>U`Kg?P2
+S1
+R12
+w1763680942
+8C:/Users/User/Desktop/proj_fft/source/fft/fft.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/fft.sv
+!i122 2060
+L0 5 250
+R14
+R15
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/fft.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/fft.sv|
+!i113 0
+R17
+R8
+vfft_ctrl
+2C:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv
+R10
+R18
+!i10b 1
+!s100 cfMT>Xe1T]9j<AoFF7Fm:2
+I?G<A`KN=6_6J_PY7E0W<Z0
+S1
+R12
+w1763678937
+8C:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv
+!i122 2068
+L0 3 145
+R14
+R15
+r1
+!s85 0
+31
+R19
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv|
+!i113 0
+R17
+R8
+vfftdec
+2C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv
+R10
+R20
+!i10b 1
+!s100 8m5c>AmhTZ0RhmiF`bh4n2
+I^GkG6=@Q07EYF90PX;?Y:0
+S1
+R12
+w1763661748
+8C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv
+!i122 2061
+R13
+R14
+R15
+r1
+!s85 0
+31
+Z21 !s108 1763681184.000000
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv|
+!i113 0
+R17
+R8
+vfftfull
+2C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv
+R10
+R20
+!i10b 1
+!s100 i@F7W_hA@hZIaoXe:Tm370
+IC`4`9`1X;l_2H8FaC6_N[3
+S1
+R12
+w1763655716
+8C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv
+!i122 2062
+L0 8 38
+R14
+R15
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv|
+!i113 0
+R17
+R8
+vfreqLUT
+2C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv
+R10
+R20
+!i10b 1
+!s100 YOXl7f8;A@6K3GO8Hz]a?1
+I7;GC>lDcX>ZVXo9JB5LkZ3
+S1
+R12
+w1763255512
+8C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv
+!i122 2063
+L0 5 37
+R14
+R15
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv|
+!i113 0
+R17
+R8
+nfreq@l@u@t
+vmultiply
+2C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv
+R10
+R20
+!i10b 1
+!s100 L@K5002A9l>BVCHITQ6MB0
+I3FbV]e=AB@MQE[8lYUNPH1
+S1
+R12
+w1763614170
+8C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/multiply.sv
+!i122 2064
+L0 6 13
+R14
+R15
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv|
+!i113 0
+R17
+R8
+vmux
+2C:/Users/User/Desktop/proj_fft/source/fft/mux.sv
+R10
+R18
+!i10b 1
+!s100 :g23;7[aAM36c@FG<aYIO3
+I`]BbTS0Lk=1[hRl5MjI2G3
+S1
+R12
+w1763629010
+8C:/Users/User/Desktop/proj_fft/source/fft/mux.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/mux.sv
+!i122 2069
+L0 8 20
+R14
+R15
+r1
+!s85 0
+31
+R19
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/mux.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/mux.sv|
+!i113 0
+R17
+R8
+vram1p
+2C:/Users/jgong/my_designs/proj_fft/source/fft/ram1p.sv
+R10
+!s110 1763266439
+!i10b 1
+!s100 GfRjHhKUL[IID6W[FSd@[3
+IA8Ynfd;?@lzfIfU]C_n^83
+S1
+R3
+w1763266434
+8C:/Users/jgong/my_designs/proj_fft/source/fft/ram1p.sv
+FC:/Users/jgong/my_designs/proj_fft/source/fft/ram1p.sv
+!i122 22
+L0 5 16
+R14
+R15
+r1
+!s85 0
+31
+!s108 1763266439.000000
+!s107 C:/Users/jgong/my_designs/proj_fft/source/fft/ram1p.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/jgong/my_designs/proj_fft/source/fft/ram1p.sv|
+!i113 0
+R17
+R8
+vramdq
+Z22 2C:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v
+Z23 !s110 1763513434
+!i10b 1
+!s100 63dCdR]P1aHSc:`JJ^JDT3
+IUonURie=E5YMnf8fnL=MJ0
+R3
+Z24 w1763437650
+Z25 8C:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v
+Z26 FC:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v
+!i122 771
+L0 11 174
+R14
+Z27 OL;L;2024.3;79
+r1
+!s85 0
+31
+Z28 !s108 1763513434.000000
+Z29 !s107 C:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v|
+Z30 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/jgong/my_designs/proj_fft/ramdq/rtl/ramdq.v|
+!i113 0
+Z31 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
+vramdq_ipgen_lscc_ram_dq
+R22
+R23
+!i10b 1
+!s100 OgXW@@7HVBm6JZGMLJQ0=0
+I6Vjf3]n0K9@Gh;2X]XM9d3
+R3
+R24
+R25
+R26
+!i122 771
+L0 240 341
+R14
+R27
+r1
+!s85 0
+31
+R28
+R29
+R30
+!i113 0
+R31
+R8
+vramdq_ipgen_lscc_ram_dq_core
+R22
+R23
+!i10b 1
+!s100 bd=PzH[O7n<N?a_fkdnA;3
+IW9Ilm6:Slm^QmZ^bST[R>2
+R3
+R24
+R25
+R26
+!i122 771
+L0 2302 2776
+R14
+R27
+r1
+!s85 0
+31
+R28
+R29
+R30
+!i113 0
+R31
+R8
+vramdq_ipgen_lscc_ram_dq_inst
+R22
+R23
+!i10b 1
+!s100 DW^K1dF=3OZ@fXlI=BCJ61
+IAJEgU[6eE6A<F[P[D=@dj3
+R3
+R24
+R25
+R26
+!i122 771
+L0 1132 1114
+R14
+R27
+r1
+!s85 0
+31
+R28
+R29
+R30
+!i113 0
+R31
+R8
+vramdq_ipgen_lscc_ram_dq_main
+R22
+R23
+!i10b 1
+!s100 U6^eI0AQm`IZ7T::Gi[1a1
+I4Sz:dz^>56F`WJG1IcclQ1
+R3
+R24
+R25
+R26
+!i122 771
+L0 636 379
+R14
+R27
+r1
+!s85 0
+31
+R28
+R29
+R30
+!i113 0
+R31
+R8
+vramdq_ipgen_lscc_write_through
+R22
+R23
+!i10b 1
+!s100 5QGje]oGIDKSZ9HBkn>CY2
+IQ^Z:C7CAU?[8O85>cF`=T1
+R3
+R24
+R25
+R26
+!i122 771
+L0 1018 59
+R14
+R27
+r1
+!s85 0
+31
+R28
+R29
+R30
+!i113 0
+R31
+R8
+vramdualpt
+Z32 2C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v
+R20
+!i10b 1
+!s100 TXRk5:?DC4NFHXRb7J:U;0
+Ijb^V85:BI:396;WfE`^;P0
+R12
+Z33 w1763449170
+Z34 8C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v
+Z35 FC:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v
+!i122 2066
+L0 11 186
+R14
+R15
+r1
+!s85 0
+31
+R21
+Z36 !s107 C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v|
+Z37 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v|
+!i113 0
+R31
+R8
+vramdualpt_ipgen_lscc_ram_dp
+R32
+R20
+!i10b 1
+!s100 ZQfNOO?A>QHPcL7S>6kT>0
+Ib36[:oTIcg`oBTf_MbWC_3
+R12
+R33
+R34
+R35
+!i122 2066
+L0 252 350
+R14
+R15
+r1
+!s85 0
+31
+R21
+R36
+R37
+!i113 0
+R31
+R8
+vramdualpt_ipgen_lscc_ram_dp_core
+R32
+R18
+!i10b 1
+!s100 cV5PO[_P9Q[3__LW80OY@1
+IzZY8J8^5m6jV_][<`KL?F1
+R12
+R33
+R34
+R35
+!i122 2066
+L0 3996 2847
+R14
+R15
+r1
+!s85 0
+31
+R21
+R36
+R37
+!i113 0
+R31
+R8
+vramdualpt_ipgen_lscc_ram_dp_main
+R32
+R20
+!i10b 1
+!s100 BMCMXk43d`hbUO1;g?n9F3
+IHI;ADB;:QZH:`G`?Wn;SQ3
+R12
+R33
+R34
+R35
+!i122 2066
+L0 657 3278
+R14
+R15
+r1
+!s85 0
+31
+R21
+R36
+R37
+!i113 0
+R31
+R8
+vseg_display
+2C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv
+R10
+R18
+!i10b 1
+!s100 nlnV9b@QJ<knMgb@=`nam3
+Io4]V=V5<YA_KS?=B_hzz@0
+S1
+R12
+w1763642800
+8C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv
+!i122 2070
+L0 7 27
+R14
+R15
+r1
+!s85 0
+31
+R19
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv|
+!i113 0
+R17
+R8
+vtestbench_addctrl
+2C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv
+R10
+!s110 1763358439
+!i10b 1
+!s100 UV`WL>4n@;g3T6Qik4ene3
+I:QGzU;ln=zM8Ldc:eI`Km1
+S1
+R3
+w1763358429
+8C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv
+FC:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv
+!i122 51
+L0 7 86
+R14
+R15
+r1
+!s85 0
+31
+!s108 1763358439.000000
+!s107 C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addctrl.sv|
+!i113 0
+R17
+R8
+vtestbench_addgen
+2C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addgen.sv
+R10
+!s110 1763355182
+!i10b 1
+!s100 oOgU=O33MV45OT`M=BKTb2
+IVanL6c1]`2:Wbe1`9<GHd2
+S1
+R3
+w1763355138
+8C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addgen.sv
+FC:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addgen.sv
+!i122 33
+L0 7 120
+R14
+R15
+r1
+!s85 0
+31
+!s108 1763355182.000000
+!s107 C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addgen.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/jgong/my_designs/proj_fft/source/fft/testbench_addgen.sv|
+!i113 0
+R17
+R8
+vtestbench_ctrl
+2C:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv
+R10
+R18
+!i10b 1
+!s100 K>l]W`3am8OVMYFGUFzDX1
+IaMfVUXMR?>MLV`@Hbm25S1
+S1
+R12
+w1763681174
+8C:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv
+!i122 2071
+L0 3 135
+R14
+R15
+r1
+!s85 0
+31
+R19
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv|
+!i113 0
+R17
+R8
+vtestbench_fftfull
+2C:/Users/User/Desktop/proj_fft/source/fft/testbench_fullfft.sv
+R10
+!s110 1763658655
+!i10b 1
+!s100 39cD80SKM0dfOCYNO56aK1
+IK?Qd:KGC;boz642TI9gz71
+S1
+R12
+w1763654075
+8C:/Users/User/Desktop/proj_fft/source/fft/testbench_fullfft.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/testbench_fullfft.sv
+!i122 1916
+L0 3 174
+R14
+R15
+r1
+!s85 0
+31
+!s108 1763658655.000000
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/testbench_fullfft.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/testbench_fullfft.sv|
+!i113 0
+R17
+R8
+vtwiddleLUT
+2C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv
+R10
+R20
+!i10b 1
+!s100 8;Q>H@]hPFIk1^QHeY`:T3
+IKcIUK0z`IkODmnP^14o:M0
+S1
+R12
+w1763615092
+8C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv
+FC:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv
+!i122 2065
+L0 5 275
+R14
+R15
+r1
+!s85 0
+31
+R21
+!s107 C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv|
+!i113 0
+R17
+R8
+ntwiddle@l@u@t

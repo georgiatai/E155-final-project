@@ -1,0 +1,2104 @@
+Lattice Timing Report -  Setup  and Hold, Version Radiant Software (64-bit) 2025.1.0.39.0
+
+Tue Dec  2 20:06:12 2025
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor Corporation,  All rights reserved.
+
+Command line:    timing -sethld -v 10 -u 10 -endpoints 10 -nperend 1 -sp High-Performance_1.2V -hsp m -pwrprd -html -rpt proj_fft_fft.twr proj_fft_fft.udb -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml
+
+-----------------------------------------
+Design:          fft_ctrl
+Family:          iCE40UP
+Device:          iCE40UP5K
+Package:         SG48
+Performance:     High-Performance_1.2V
+Package Status:                     Preliminary    Version 1.5
+**Performance Hardware Data Status :   Advanced Version 1.0
+-----------------------------------------
+
+
+=====================================================================
+                    Table of Contents
+=====================================================================
+    1  Timing Overview
+        1.1  SDC Constraints
+        1.2  Constraint Coverage
+        1.3  Overall Summary
+        1.4  Unconstrained Report
+        1.5  Combinational Loop
+    2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+        2.1  Clock Summary
+        2.2  Endpoint slacks
+        2.3  Detailed Report
+    3  Hold at Speed Grade m Corner at -40 Degrees
+        3.1  Endpoint slacks
+        3.2  Detailed Report
+
+=====================================================================
+                    End of Table of Contents
+=====================================================================
+
+==============================================
+1  Timing Overview
+==============================================
+
+1.1  SDC Constraints
+=====================
+create_clock -name {clk} -period 83.3333 [get_pins {hf_osc/CLKHF }] 
+
+1.2  Constraint Coverage
+---------------------------
+Constraint Coverage: 93.6003%
+
+
+1.3  Overall Summary
+---------------------------
+ Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees     Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+ Hold at Speed Grade m Corner at -40 Degrees                          Timing Errors: 0 endpoints;  Total Negative Slack: 0.000 ns 
+
+1.4  Unconstrained Report
+===========================
+
+1.4.1  Unconstrained Start/End Points
+--------------------------------------
+
+Clocked but unconstrained timing start points
+-------------------------------------------------------------------
+         Listing 4 Start Points         |           Type           
+-------------------------------------------------------------------
+note_hold__i1/Q                         |          No required time
+note_hold__i4/Q                         |          No required time
+note_hold__i5/Q                         |          No required time
+note_hold__i8/Q                         |          No required time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing start po |                          
+ints                                    |                         4
+                                        |                          
+-------------------------------------------------------------------
+
+Clocked but unconstrained timing end points
+-------------------------------------------------------------------
+         Listing 10 End Points          |           Type           
+-------------------------------------------------------------------
+counter_1272__i24/SR                    |           No arrival time
+{counter_1272__i22/SR   counter_1272__i23/SR}                           
+                                        |           No arrival time
+{counter_1272__i20/SR   counter_1272__i21/SR}                           
+                                        |           No arrival time
+{counter_1272__i18/SR   counter_1272__i19/SR}                           
+                                        |           No arrival time
+{counter_1272__i16/SR   counter_1272__i17/SR}                           
+                                        |           No arrival time
+{counter_1272__i14/SR   counter_1272__i15/SR}                           
+                                        |           No arrival time
+{counter_1272__i12/SR   counter_1272__i13/SR}                           
+                                        |           No arrival time
+{counter_1272__i10/SR   counter_1272__i11/SR}                           
+                                        |           No arrival time
+{counter_1272__i8/SR   counter_1272__i9/SR}                           
+                                        |           No arrival time
+{counter_1272__i6/SR   counter_1272__i7/SR}                           
+                                        |           No arrival time
+-------------------------------------------------------------------
+                                        |                          
+Number of unconstrained timing end poin |                          
+ts                                      |                       143
+                                        |                          
+-------------------------------------------------------------------
+
+1.4.2  Start/End Points Without Timing Constraints
+---------------------------------------------------
+
+I/O ports without constraint
+----------------------------
+Possible constraints to use on I/O ports are:
+set_input_delay,
+set_output_delay,
+set_max_delay,
+create_clock,
+create_generated_clock,
+...
+
+-------------------------------------------------------------------
+     Listing 10 Start or End Points     |           Type           
+-------------------------------------------------------------------
+A_note                                  |                     input
+reset                                   |                     input
+led_start                               |                    output
+led_load                                |                    output
+sharp                                   |                    output
+seg[0]                                  |                    output
+seg[1]                                  |                    output
+seg[2]                                  |                    output
+seg[3]                                  |                    output
+seg[4]                                  |                    output
+-------------------------------------------------------------------
+                                        |                          
+Number of I/O ports without constraint  |                        14
+                                        |                          
+-------------------------------------------------------------------
+
+Nets without clock definition
+Define a clock on a top level port or a generated clock on a clock divider pin associated with this net(s).
+--------------------------------------------------
+There is no instance satisfying reporting criteria
+
+
+
+1.5  Combinational Loop
+========================
+None
+
+===============================================================
+2  Setup at Speed Grade High-Performance_1.2V Corner at 100 Degrees
+===============================================================
+
+2.1  Clock Summary
+=======================
+
+2.1.1 Clock "clk"
+=======================
+create_clock -name {clk} -period 83.3333 [get_pins {hf_osc/CLKHF }] 
+
+Single Clock Domain
+-------------------------------------------------------------------------------------------------------
+               Clock clk                |                    |       Period       |     Frequency      
+-------------------------------------------------------------------------------------------------------
+ From clk                               |             Target |          83.333 ns |         12.000 MHz 
+                                        | Actual (all paths) |          62.895 ns |         15.900 MHz 
+hf_osc/CLKHF (MPW)                      |   (50% duty cycle) |          20.792 ns |         48.095 MHz 
+-------------------------------------------------------------------------------------------------------
+
+Clock Domain Crossing
+
+2.2  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA12              
+                                         |   20.438 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA14              
+                                         |   20.874 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA10              
+                                         |   21.309 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA4              
+                                         |   21.546 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA6              
+                                         |   21.863 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA12              
+                                         |   22.144 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA0              
+                                         |   22.179 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA8              
+                                         |   22.261 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA14              
+                                         |   22.659 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA4              
+                                         |   22.736 ns 
+-------------------------------------------------------
+                                         |             
+Setup # of endpoints with negative slack:|           0 
+                                         |             
+-------------------------------------------------------
+
+2.3  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA12  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 24
+Delay Ratio      : 74.0% (route), 26.0% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 20.438 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.000                 55.972  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI0->fftfull/fft/butterfly_inst/add_1517_12/CO0
+                                          SLICE_R22C18B      CIN0_TO_COUT0_DELAY     0.277                 56.249  2       
+fftfull/fft/butterfly_inst/n15988                            NET DELAY               0.000                 56.249  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI1->fftfull/fft/butterfly_inst/add_1517_12/CO1
+                                          SLICE_R22C18B      CIN1_TO_COUT1_DELAY     0.277                 56.526  2       
+fftfull/fft/butterfly_inst/n10537                            NET DELAY               0.000                 56.526  2       
+fftfull/fft/butterfly_inst/add_1517_14/CI0->fftfull/fft/butterfly_inst/add_1517_14/CO0
+                                          SLICE_R22C18C      CIN0_TO_COUT0_DELAY     0.277                 56.803  2       
+fftfull/fft/butterfly_inst/n16000                            NET DELAY               0.000                 56.803  2       
+fftfull/fft/butterfly_inst/add_1517_14/CI1->fftfull/fft/butterfly_inst/add_1517_14/CO1
+                                          SLICE_R22C18C      CIN1_TO_COUT1_DELAY     0.277                 57.080  2       
+fftfull/fft/butterfly_inst/n10539                            NET DELAY               0.661                 57.741  2       
+fftfull/fft/butterfly_inst/add_1517_16/D0->fftfull/fft/butterfly_inst/add_1517_16/S0
+                                          SLICE_R22C18D      D0_TO_F0_DELAY          0.449                 58.190  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[15]
+                                                             NET DELAY               4.388                 62.578  1       
+fftfull/fft/i5871_2_lut_3_lut/C->fftfull/fft/i5871_2_lut_3_lut/Z
+                                          SLICE_R10C18B      D1_TO_F1_DELAY          0.449                 63.027  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[14]
+                                                             NET DELAY               5.063                 68.090  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA12
+                                                             ENDPOINT                0.000                 68.090  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(68.089)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       20.438  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA14  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 25
+Delay Ratio      : 73.2% (route), 26.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 20.874 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/CO1
+                                          SLICE_R6C13A       C1_TO_COUT1_DELAY       0.343                 34.751  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10333
+                                                             NET DELAY               0.000                 34.751  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CO0
+                                          SLICE_R6C13B       CIN0_TO_COUT0_DELAY     0.277                 35.028  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15901
+                                                             NET DELAY               0.000                 35.028  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CO1
+                                          SLICE_R6C13B       CIN1_TO_COUT1_DELAY     0.277                 35.305  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10335
+                                                             NET DELAY               0.000                 35.305  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CO0
+                                          SLICE_R6C13C       CIN0_TO_COUT0_DELAY     0.277                 35.582  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15913
+                                                             NET DELAY               0.000                 35.582  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CO1
+                                          SLICE_R6C13C       CIN1_TO_COUT1_DELAY     0.277                 35.859  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10337
+                                                             NET DELAY               0.000                 35.859  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CO0
+                                          SLICE_R6C13D       CIN0_TO_COUT0_DELAY     0.277                 36.136  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15925
+                                                             NET DELAY               0.000                 36.136  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CO1
+                                          SLICE_R6C13D       CIN1_TO_COUT1_DELAY     0.277                 36.413  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10339
+                                                             NET DELAY               0.555                 36.968  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CO0
+                                          SLICE_R6C14A       CIN0_TO_COUT0_DELAY     0.277                 37.245  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15937
+                                                             NET DELAY               0.000                 37.245  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CO1
+                                          SLICE_R6C14A       CIN1_TO_COUT1_DELAY     0.277                 37.522  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10341
+                                                             NET DELAY               0.000                 37.522  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CO0
+                                          SLICE_R6C14B       CIN0_TO_COUT0_DELAY     0.277                 37.799  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15985
+                                                             NET DELAY               0.000                 37.799  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CO1
+                                          SLICE_R6C14B       CIN1_TO_COUT1_DELAY     0.277                 38.076  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10343
+                                                             NET DELAY               0.000                 38.076  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CO0
+                                          SLICE_R6C14C       CIN0_TO_COUT0_DELAY     0.277                 38.353  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15997
+                                                             NET DELAY               0.000                 38.353  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CO1
+                                          SLICE_R6C14C       CIN1_TO_COUT1_DELAY     0.277                 38.630  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10345
+                                                             NET DELAY               0.661                 39.291  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_15/D0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_15/S0
+                                          SLICE_R6C14D       D0_TO_F0_DELAY          0.449                 39.740  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[13]
+                                                             NET DELAY               4.309                 44.049  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i14_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i14_1_lut/Z
+                                          SLICE_R17C14A      D1_TO_F1_DELAY          0.449                 44.498  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[13]
+                                                             NET DELAY               4.137                 48.635  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/C0->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/CO0
+                                          SLICE_R24C14D      C0_TO_COUT0_DELAY       0.343                 48.978  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/n16003
+                                                             NET DELAY               0.661                 49.639  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/D1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/S1
+                                          SLICE_R24C14D      D1_TO_F1_DELAY          0.449                 50.088  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[14]
+                                                             NET DELAY               3.622                 53.710  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i15_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i15_1_lut/Z
+                                          SLICE_R23C18B      C1_TO_F1_DELAY          0.449                 54.159  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[14]
+                                                             NET DELAY               3.027                 57.186  1       
+fftfull/fft/butterfly_inst/add_1517_16/C0->fftfull/fft/butterfly_inst/add_1517_16/CO0
+                                          SLICE_R22C18D      C0_TO_COUT0_DELAY       0.343                 57.529  2       
+fftfull/fft/butterfly_inst/n16012                            NET DELAY               0.661                 58.190  2       
+fftfull/fft/butterfly_inst/add_1517_16/D1->fftfull/fft/butterfly_inst/add_1517_16/S1
+                                          SLICE_R22C18D      D1_TO_F1_DELAY          0.449                 58.639  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[16]
+                                                             NET DELAY               3.503                 62.142  1       
+fftfull/fft/i5870_2_lut_3_lut/C->fftfull/fft/i5870_2_lut_3_lut/Z
+                                          SLICE_R11C18C      C0_TO_F0_DELAY          0.449                 62.591  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[15]
+                                                             NET DELAY               5.063                 67.654  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA14
+                                                             ENDPOINT                0.000                 67.654  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(67.653)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       20.874  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA10  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 23
+Delay Ratio      : 74.1% (route), 25.9% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 21.309 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.000                 55.972  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI0->fftfull/fft/butterfly_inst/add_1517_12/CO0
+                                          SLICE_R22C18B      CIN0_TO_COUT0_DELAY     0.277                 56.249  2       
+fftfull/fft/butterfly_inst/n15988                            NET DELAY               0.000                 56.249  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI1->fftfull/fft/butterfly_inst/add_1517_12/CO1
+                                          SLICE_R22C18B      CIN1_TO_COUT1_DELAY     0.277                 56.526  2       
+fftfull/fft/butterfly_inst/n10537                            NET DELAY               0.000                 56.526  2       
+fftfull/fft/butterfly_inst/add_1517_14/CI0->fftfull/fft/butterfly_inst/add_1517_14/CO0
+                                          SLICE_R22C18C      CIN0_TO_COUT0_DELAY     0.277                 56.803  2       
+fftfull/fft/butterfly_inst/n16000                            NET DELAY               0.661                 57.464  2       
+fftfull/fft/butterfly_inst/add_1517_14/D1->fftfull/fft/butterfly_inst/add_1517_14/S1
+                                          SLICE_R22C18C      D1_TO_F1_DELAY          0.449                 57.913  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[14]
+                                                             NET DELAY               3.794                 61.707  1       
+fftfull/fft/i5872_2_lut_3_lut/C->fftfull/fft/i5872_2_lut_3_lut/Z
+                                          SLICE_R11C18D      D0_TO_F0_DELAY          0.449                 62.156  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[13]
+                                                             NET DELAY               5.063                 67.219  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA10
+                                                             ENDPOINT                0.000                 67.219  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(67.218)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       21.309  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA4  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 20
+Delay Ratio      : 75.4% (route), 24.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 21.546 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.661                 56.633  2       
+fftfull/fft/butterfly_inst/add_1517_12/D0->fftfull/fft/butterfly_inst/add_1517_12/S0
+                                          SLICE_R22C18B      D0_TO_F0_DELAY          0.449                 57.082  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[11]
+                                                             NET DELAY               3.873                 60.955  1       
+fftfull/fft/i5877_2_lut_3_lut/C->fftfull/fft/i5877_2_lut_3_lut/Z
+                                          SLICE_R14C18A      D0_TO_F0_DELAY          0.449                 61.404  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[10]
+                                                             NET DELAY               5.578                 66.982  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA4
+                                                             ENDPOINT                0.000                 66.982  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(66.981)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       21.546  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA6  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 21
+Delay Ratio      : 74.8% (route), 25.2% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 21.863 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.000                 55.972  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI0->fftfull/fft/butterfly_inst/add_1517_12/CO0
+                                          SLICE_R22C18B      CIN0_TO_COUT0_DELAY     0.277                 56.249  2       
+fftfull/fft/butterfly_inst/n15988                            NET DELAY               0.661                 56.910  2       
+fftfull/fft/butterfly_inst/add_1517_12/D1->fftfull/fft/butterfly_inst/add_1517_12/S1
+                                          SLICE_R22C18B      D1_TO_F1_DELAY          0.449                 57.359  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[12]
+                                                             NET DELAY               2.763                 60.122  1       
+fftfull/fft/i5876_2_lut_3_lut/C->fftfull/fft/i5876_2_lut_3_lut/Z
+                                          SLICE_R19C18A      D0_TO_F0_DELAY          0.449                 60.571  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[11]
+                                                             NET DELAY               6.094                 66.665  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA6
+                                                             ENDPOINT                0.000                 66.665  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(66.664)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       21.863  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA12  (EBR_EBR_R7C20)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 24
+Delay Ratio      : 73.3% (route), 26.7% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 22.144 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.000                 55.972  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI0->fftfull/fft/butterfly_inst/add_1517_12/CO0
+                                          SLICE_R22C18B      CIN0_TO_COUT0_DELAY     0.277                 56.249  2       
+fftfull/fft/butterfly_inst/n15988                            NET DELAY               0.000                 56.249  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI1->fftfull/fft/butterfly_inst/add_1517_12/CO1
+                                          SLICE_R22C18B      CIN1_TO_COUT1_DELAY     0.277                 56.526  2       
+fftfull/fft/butterfly_inst/n10537                            NET DELAY               0.000                 56.526  2       
+fftfull/fft/butterfly_inst/add_1517_14/CI0->fftfull/fft/butterfly_inst/add_1517_14/CO0
+                                          SLICE_R22C18C      CIN0_TO_COUT0_DELAY     0.277                 56.803  2       
+fftfull/fft/butterfly_inst/n16000                            NET DELAY               0.000                 56.803  2       
+fftfull/fft/butterfly_inst/add_1517_14/CI1->fftfull/fft/butterfly_inst/add_1517_14/CO1
+                                          SLICE_R22C18C      CIN1_TO_COUT1_DELAY     0.277                 57.080  2       
+fftfull/fft/butterfly_inst/n10539                            NET DELAY               0.661                 57.741  2       
+fftfull/fft/butterfly_inst/add_1517_16/D0->fftfull/fft/butterfly_inst/add_1517_16/S0
+                                          SLICE_R22C18D      D0_TO_F0_DELAY          0.449                 58.190  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[15]
+                                                             NET DELAY               4.388                 62.578  1       
+fftfull/fft/i5871_2_lut_3_lut/C->fftfull/fft/i5871_2_lut_3_lut/Z
+                                          SLICE_R10C18B      D1_TO_F1_DELAY          0.449                 63.027  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[14]
+                                                             NET DELAY               3.357                 66.384  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA12
+                                                             ENDPOINT                0.000                 66.384  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(66.383)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       22.144  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA0  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 18
+Delay Ratio      : 76.0% (route), 24.0% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 22.179 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               1.216                 56.079  2       
+fftfull/fft/butterfly_inst/add_1517_10/D0->fftfull/fft/butterfly_inst/add_1517_10/S0
+                                          SLICE_R22C18A      D0_TO_F0_DELAY          0.449                 56.528  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[9]
+                                                             NET DELAY               4.309                 60.837  1       
+fftfull/fft/i5879_2_lut_3_lut/C->fftfull/fft/i5879_2_lut_3_lut/Z
+                                          SLICE_R10C18B      D0_TO_F0_DELAY          0.449                 61.286  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[8]
+                                                             NET DELAY               5.063                 66.349  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA0
+                                                             ENDPOINT                0.000                 66.349  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(66.348)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       22.179  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA8  (EBR_EBR_R7C10)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 22
+Delay Ratio      : 74.2% (route), 25.8% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 22.261 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.000                 55.972  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI0->fftfull/fft/butterfly_inst/add_1517_12/CO0
+                                          SLICE_R22C18B      CIN0_TO_COUT0_DELAY     0.277                 56.249  2       
+fftfull/fft/butterfly_inst/n15988                            NET DELAY               0.000                 56.249  2       
+fftfull/fft/butterfly_inst/add_1517_12/CI1->fftfull/fft/butterfly_inst/add_1517_12/CO1
+                                          SLICE_R22C18B      CIN1_TO_COUT1_DELAY     0.277                 56.526  2       
+fftfull/fft/butterfly_inst/n10537                            NET DELAY               0.661                 57.187  2       
+fftfull/fft/butterfly_inst/add_1517_14/D0->fftfull/fft/butterfly_inst/add_1517_14/S0
+                                          SLICE_R22C18C      D0_TO_F0_DELAY          0.449                 57.636  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[13]
+                                                             NET DELAY               3.794                 61.430  1       
+fftfull/fft/i5873_2_lut_3_lut/C->fftfull/fft/i5873_2_lut_3_lut/Z
+                                          SLICE_R13C18A      D0_TO_F0_DELAY          0.449                 61.879  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[12]
+                                                             NET DELAY               4.388                 66.267  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA8
+                                                             ENDPOINT                0.000                 66.267  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(66.266)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       22.261  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA14  (EBR_EBR_R7C20)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 25
+Delay Ratio      : 72.4% (route), 27.6% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 22.659 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/CO1
+                                          SLICE_R6C13A       C1_TO_COUT1_DELAY       0.343                 34.751  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10333
+                                                             NET DELAY               0.000                 34.751  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CO0
+                                          SLICE_R6C13B       CIN0_TO_COUT0_DELAY     0.277                 35.028  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15901
+                                                             NET DELAY               0.000                 35.028  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_3/CO1
+                                          SLICE_R6C13B       CIN1_TO_COUT1_DELAY     0.277                 35.305  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10335
+                                                             NET DELAY               0.000                 35.305  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CO0
+                                          SLICE_R6C13C       CIN0_TO_COUT0_DELAY     0.277                 35.582  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15913
+                                                             NET DELAY               0.000                 35.582  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_5/CO1
+                                          SLICE_R6C13C       CIN1_TO_COUT1_DELAY     0.277                 35.859  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10337
+                                                             NET DELAY               0.000                 35.859  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CO0
+                                          SLICE_R6C13D       CIN0_TO_COUT0_DELAY     0.277                 36.136  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15925
+                                                             NET DELAY               0.000                 36.136  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_7/CO1
+                                          SLICE_R6C13D       CIN1_TO_COUT1_DELAY     0.277                 36.413  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10339
+                                                             NET DELAY               0.555                 36.968  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CO0
+                                          SLICE_R6C14A       CIN0_TO_COUT0_DELAY     0.277                 37.245  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15937
+                                                             NET DELAY               0.000                 37.245  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_9/CO1
+                                          SLICE_R6C14A       CIN1_TO_COUT1_DELAY     0.277                 37.522  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10341
+                                                             NET DELAY               0.000                 37.522  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CO0
+                                          SLICE_R6C14B       CIN0_TO_COUT0_DELAY     0.277                 37.799  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15985
+                                                             NET DELAY               0.000                 37.799  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_11/CO1
+                                          SLICE_R6C14B       CIN1_TO_COUT1_DELAY     0.277                 38.076  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10343
+                                                             NET DELAY               0.000                 38.076  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CI0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CO0
+                                          SLICE_R6C14C       CIN0_TO_COUT0_DELAY     0.277                 38.353  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n15997
+                                                             NET DELAY               0.000                 38.353  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CI1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_13/CO1
+                                          SLICE_R6C14C       CIN1_TO_COUT1_DELAY     0.277                 38.630  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/n10345
+                                                             NET DELAY               0.661                 39.291  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_15/D0->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_15/S0
+                                          SLICE_R6C14D       D0_TO_F0_DELAY          0.449                 39.740  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[13]
+                                                             NET DELAY               4.309                 44.049  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i14_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i14_1_lut/Z
+                                          SLICE_R17C14A      D1_TO_F1_DELAY          0.449                 44.498  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[13]
+                                                             NET DELAY               4.137                 48.635  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/C0->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/CO0
+                                          SLICE_R24C14D      C0_TO_COUT0_DELAY       0.343                 48.978  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/n16003
+                                                             NET DELAY               0.661                 49.639  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/D1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_15/S1
+                                          SLICE_R24C14D      D1_TO_F1_DELAY          0.449                 50.088  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[14]
+                                                             NET DELAY               3.622                 53.710  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i15_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i15_1_lut/Z
+                                          SLICE_R23C18B      C1_TO_F1_DELAY          0.449                 54.159  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[14]
+                                                             NET DELAY               3.027                 57.186  1       
+fftfull/fft/butterfly_inst/add_1517_16/C0->fftfull/fft/butterfly_inst/add_1517_16/CO0
+                                          SLICE_R22C18D      C0_TO_COUT0_DELAY       0.343                 57.529  2       
+fftfull/fft/butterfly_inst/n16012                            NET DELAY               0.661                 58.190  2       
+fftfull/fft/butterfly_inst/add_1517_16/D1->fftfull/fft/butterfly_inst/add_1517_16/S1
+                                          SLICE_R22C18D      D1_TO_F1_DELAY          0.449                 58.639  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[16]
+                                                             NET DELAY               3.503                 62.142  1       
+fftfull/fft/i5870_2_lut_3_lut/C->fftfull/fft/i5870_2_lut_3_lut/Z
+                                          SLICE_R11C18C      C0_TO_F0_DELAY          0.449                 62.591  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[15]
+                                                             NET DELAY               3.278                 65.869  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA14
+                                                             ENDPOINT                0.000                 65.869  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(65.868)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       22.659  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q  (SLICE_R17C12A)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA4  (EBR_EBR_R7C20)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 20
+Delay Ratio      : 74.9% (route), 25.1% (logic)
+Clock Skew       : 0.000 ns 
+Setup Constraint : 83.333 ns 
+Path Slack       : 22.736 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                  0.000  313     
+LUT/clk                                                      NET DELAY               5.499                  5.499  313     
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK
+                                                             CLOCK PIN               0.000                  5.499  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/CK->fftfull/fft/addctrl_inst/addgen/add_tw_2cyc_i1/Q
+                                          SLICE_R17C12A      CLK_TO_Q1_DELAY         1.388                  6.887  68      
+fftfull/fft/addctrl_inst/addgen/add_tw_2cyc[7]
+                                                             NET DELAY               4.375                 11.262  68      
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/C->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4642_3_lut/Z
+                                          SLICE_R17C17A      B0_TO_F0_DELAY          0.449                 11.711  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n6257
+                                                             NET DELAY               3.873                 15.584  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i4643_3_lut/Z
+                                          SLICE_R19C11B      D1_TO_F1_DELAY          0.476                 16.060  2       
+fftfull/fft/butterfly_inst/tw_mult/mult3/img_b[6]
+                                                             NET DELAY               6.265                 22.325  2       
+fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/A6->fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0/O14
+                                          DSP_DSP_R1C11      A_TO_O_DELAY            7.298                 29.623  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full[14]
+                                                             NET DELAY               4.785                 34.408  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult4/prod_full_30__I_0_1/S1
+                                          SLICE_R6C13A       C1_TO_F1_DELAY          0.449                 34.857  1       
+fftfull/fft/butterfly_inst/tw_mult/mult4/ia_ib[0]
+                                                             NET DELAY               4.904                 39.761  1       
+fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/tw_mult/sub_3_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D1_TO_F1_DELAY          0.449                 40.210  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw_15__N_1072[0]
+                                                             NET DELAY               4.058                 44.268  1       
+fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/C1->fftfull/fft/butterfly_inst/tw_mult/mult1/add_8572_1/S1
+                                          SLICE_R24C13A      C1_TO_F1_DELAY          0.449                 44.717  2       
+fftfull/fft/butterfly_inst/tw_mult/mult1/real_btw[0]
+                                                             NET DELAY               3.873                 48.590  2       
+fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/A->fftfull/fft/butterfly_inst/sub_7_inv_0_i1_1_lut/Z
+                                          SLICE_R18C16B      D0_TO_F0_DELAY          0.449                 49.039  1       
+fftfull/fft/butterfly_inst/n1_adj_1996[0]
+                                                             NET DELAY               3.542                 52.581  1       
+fftfull/fft/butterfly_inst/add_1517_2/C0->fftfull/fft/butterfly_inst/add_1517_2/CO0
+                                          SLICE_R22C17A      C0_TO_COUT0_DELAY       0.343                 52.924  2       
+fftfull/fft/butterfly_inst/n15856                            NET DELAY               0.000                 52.924  2       
+fftfull/fft/butterfly_inst/add_1517_2/CI1->fftfull/fft/butterfly_inst/add_1517_2/CO1
+                                          SLICE_R22C17A      CIN1_TO_COUT1_DELAY     0.277                 53.201  2       
+fftfull/fft/butterfly_inst/n10527                            NET DELAY               0.000                 53.201  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI0->fftfull/fft/butterfly_inst/add_1517_4/CO0
+                                          SLICE_R22C17B      CIN0_TO_COUT0_DELAY     0.277                 53.478  2       
+fftfull/fft/butterfly_inst/n15904                            NET DELAY               0.000                 53.478  2       
+fftfull/fft/butterfly_inst/add_1517_4/CI1->fftfull/fft/butterfly_inst/add_1517_4/CO1
+                                          SLICE_R22C17B      CIN1_TO_COUT1_DELAY     0.277                 53.755  2       
+fftfull/fft/butterfly_inst/n10529                            NET DELAY               0.000                 53.755  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI0->fftfull/fft/butterfly_inst/add_1517_6/CO0
+                                          SLICE_R22C17C      CIN0_TO_COUT0_DELAY     0.277                 54.032  2       
+fftfull/fft/butterfly_inst/n15916                            NET DELAY               0.000                 54.032  2       
+fftfull/fft/butterfly_inst/add_1517_6/CI1->fftfull/fft/butterfly_inst/add_1517_6/CO1
+                                          SLICE_R22C17C      CIN1_TO_COUT1_DELAY     0.277                 54.309  2       
+fftfull/fft/butterfly_inst/n10531                            NET DELAY               0.000                 54.309  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI0->fftfull/fft/butterfly_inst/add_1517_8/CO0
+                                          SLICE_R22C17D      CIN0_TO_COUT0_DELAY     0.277                 54.586  2       
+fftfull/fft/butterfly_inst/n15928                            NET DELAY               0.000                 54.586  2       
+fftfull/fft/butterfly_inst/add_1517_8/CI1->fftfull/fft/butterfly_inst/add_1517_8/CO1
+                                          SLICE_R22C17D      CIN1_TO_COUT1_DELAY     0.277                 54.863  2       
+fftfull/fft/butterfly_inst/n10533                            NET DELAY               0.555                 55.418  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI0->fftfull/fft/butterfly_inst/add_1517_10/CO0
+                                          SLICE_R22C18A      CIN0_TO_COUT0_DELAY     0.277                 55.695  2       
+fftfull/fft/butterfly_inst/n15976                            NET DELAY               0.000                 55.695  2       
+fftfull/fft/butterfly_inst/add_1517_10/CI1->fftfull/fft/butterfly_inst/add_1517_10/CO1
+                                          SLICE_R22C18A      CIN1_TO_COUT1_DELAY     0.277                 55.972  2       
+fftfull/fft/butterfly_inst/n10535                            NET DELAY               0.661                 56.633  2       
+fftfull/fft/butterfly_inst/add_1517_12/D0->fftfull/fft/butterfly_inst/add_1517_12/S0
+                                          SLICE_R22C18B      D0_TO_F0_DELAY          0.449                 57.082  1       
+fftfull/fft/butterfly_inst/out_b_31__N_440[11]
+                                                             NET DELAY               3.873                 60.955  1       
+fftfull/fft/i5877_2_lut_3_lut/C->fftfull/fft/i5877_2_lut_3_lut/Z
+                                          SLICE_R14C18A      D0_TO_F0_DELAY          0.449                 61.404  2       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/real_write_b[10]
+                                                             NET DELAY               4.388                 65.792  2       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WDATA4
+                                                             ENDPOINT                0.000                 65.792  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr      Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+                                                             CONSTRAINT              0.000                 83.333  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY           0.000                 83.333  313     
+LUT/clk                                                      NET DELAY               5.499                 88.832  313     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN               0.000                 88.832  1       
+                                                             Uncertainty          -(0.000)                 88.832  
+                                                             Setup time           -(0.304)                 88.528  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Required Time                                                                                              88.528  
+Arrival Time                                                                                            -(65.791)  
+----------------------------------------  -----------------  -------------------  --------  ---------------------  ------  
+Path Slack  (Passed)                                                                                       22.736  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+
+===============================================================
+3  Hold at Speed Grade m Corner at -40 Degrees
+===============================================================
+
+3.1  Endpoint slacks
+=======================
+-------------------------------------------------------
+          Listing 10 End Points          |    Slack    
+-------------------------------------------------------
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR4              
+                                         |    1.454 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR6              
+                                         |    1.454 ns 
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR8              
+                                         |    1.454 ns 
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/D              
+                                         |    1.624 ns 
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i1/D              
+                                         |    1.624 ns 
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i2/D              
+                                         |    1.624 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i7/D              
+                                         |    1.624 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i8/D              
+                                         |    1.624 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/D              
+                                         |    1.624 ns 
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i6/D              
+                                         |    1.624 ns 
+-------------------------------------------------------
+                                         |             
+Hold # of endpoints with negative slack: |           0 
+                                         |             
+-------------------------------------------------------
+
+3.2  Detailed Report
+=======================
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Detail report of critical paths
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    Detailed Report for timing paths 
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ ++++Path 1  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Path Begin       : adr_ram_i4/Q  (SLICE_R8C22B)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR4  (EBR_EBR_R7C22)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.8% (route), 52.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.454 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  314     
+LUT/clk                                                      NET DELAY        3.084                  3.084  314     
+{adr_ram_i4/CK   adr_ram_i5/CK}                              CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+adr_ram_i4/CK->adr_ram_i4/Q               SLICE_R8C22B       CLK_TO_Q0_DELAY  0.779                  3.863  3       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/adr_ram[4]
+                                                             NET DELAY        0.712                  4.575  3       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR4
+                                                             ENDPOINT         0.000                  4.575  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  314     
+LUT/clk                                                      NET DELAY        3.084                  3.084  314     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.037                  3.121  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.121  
+Arrival Time                                                                                         4.575  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.454  
+
+
+
+
+++++ Path 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_ram_i6/Q  (SLICE_R8C24D)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR6  (EBR_EBR_R7C22)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.8% (route), 52.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.454 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  314     
+LUT/clk                                                      NET DELAY        3.084                  3.084  314     
+{adr_ram_i6/CK   adr_ram_i7/CK}                              CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+adr_ram_i6/CK->adr_ram_i6/Q               SLICE_R8C24D       CLK_TO_Q0_DELAY  0.779                  3.863  3       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/adr_ram[6]
+                                                             NET DELAY        0.712                  4.575  3       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR6
+                                                             ENDPOINT         0.000                  4.575  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  314     
+LUT/clk                                                      NET DELAY        3.084                  3.084  314     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.037                  3.121  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.121  
+Arrival Time                                                                                         4.575  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.454  
+
+
+
+
+++++ Path 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : adr_ram_i8/Q  (SLICE_R8C24B)
+Path End         : ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR8  (EBR_EBR_R7C22)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 1
+Delay Ratio      : 47.8% (route), 52.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.454 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  314     
+LUT/clk                                                      NET DELAY        3.084                  3.084  314     
+adr_ram_i8/CK                                                CLOCK PIN        0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+adr_ram_i8/CK->adr_ram_i8/Q               SLICE_R8C24B       CLK_TO_Q1_DELAY  0.779                  3.863  3       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/adr_ram[8]
+                                                             NET DELAY        0.712                  4.575  3       
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WADDR8
+                                                             ENDPOINT         0.000                  4.575  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name       Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+                                                             CONSTRAINT       0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY    0.000                  0.000  314     
+LUT/clk                                                      NET DELAY        3.084                  3.084  314     
+ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/WCLK
+                                                             CLOCK PIN        0.000                  3.084  1       
+                                                             Uncertainty      0.000                  3.084  
+                                                             Hold time        0.037                  3.121  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Required Time                                                                                       -3.121  
+Arrival Time                                                                                         4.575  
+----------------------------------------  -----------------  ---------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                 1.454  
+
+
+
+
+++++ Path 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0/RDATA8  (EBR_EBR_R7C12)
+Path End         : fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/D  (SLICE_R8C12C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0/RDATA8
+                                          EBR_EBR_R7C12      RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.rd_data_w[4]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/i3212_2_lut/B->fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/i3212_2_lut/Z
+                                          SLICE_R8C12C       D1_TO_F1_DELAY       0.252                  4.708  1       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/n4841
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i4/CK   fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
+
+++++ Path 5 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA0  (EBR_EBR_R20C16)
+Path End         : fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i1/D  (SLICE_R19C16C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA0
+                                          EBR_EBR_R20C16     RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.rd_data_w[0]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3087_2_lut/B->fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3087_2_lut/Z
+                                          SLICE_R19C16C      D0_TO_F0_DELAY       0.252                  4.708  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n4716
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i1/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i1/CK   fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i2/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
+
+++++ Path 6 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA2  (EBR_EBR_R20C16)
+Path End         : fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i2/D  (SLICE_R19C16C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA2
+                                          EBR_EBR_R20C16     RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.rd_data_w[1]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3199_2_lut/B->fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3199_2_lut/Z
+                                          SLICE_R19C16C      D1_TO_F1_DELAY       0.252                  4.708  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n4828
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i2/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i1/CK   fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i2/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
+
+++++ Path 7 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA12  (EBR_EBR_R7C18)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i7/D  (SLICE_R8C18C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA12
+                                          EBR_EBR_R7C18      RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.rd_data_w[6]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3156_2_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3156_2_lut/Z
+                                          SLICE_R8C18C       D0_TO_F0_DELAY       0.252                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n4785
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i7/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i7/CK   fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i8/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
+
+++++ Path 8 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA14  (EBR_EBR_R7C18)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i8/D  (SLICE_R8C18C)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA14
+                                          EBR_EBR_R7C18      RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.rd_data_w[7]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3155_2_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3155_2_lut/Z
+                                          SLICE_R8C18C       D1_TO_F1_DELAY       0.252                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n4784
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i8/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i7/CK   fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i8/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
+
+++++ Path 9 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA8  (EBR_EBR_R7C18)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/D  (SLICE_R8C18A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA8
+                                          EBR_EBR_R7C18      RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.rd_data_w[4]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3158_2_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3158_2_lut/Z
+                                          SLICE_R8C18A       D0_TO_F0_DELAY       0.252                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n4787
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/CK   fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i6/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
+
+++++ Path 10 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+Path Begin       : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA10  (EBR_EBR_R7C18)
+Path End         : fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i6/D  (SLICE_R8C18A)
+Source Clock     : clk (R)
+Destination Clock: clk (R)
+Logic Level      : 2
+Delay Ratio      : 43.8% (route), 56.2% (logic)
+Clock Skew       : 0.000 ns 
+Hold Constraint  : 0.000 ns 
+Path Slack       : 1.624 ns  (Passed)
+
+
+Source Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK
+                                                             CLOCK PIN            0.000                  3.084  1       
+
+
+Data Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RCLK->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0/RDATA10
+                                          EBR_EBR_R7C18      RCLK_TO_RDATA_DELAY  0.660                  3.744  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.rd_data_w[5]
+                                                             NET DELAY            0.712                  4.456  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3157_2_lut/B->fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/i3157_2_lut/Z
+                                          SLICE_R8C18A       D1_TO_F1_DELAY       0.252                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/n4786
+                                                             NET DELAY            0.000                  4.708  1       
+fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i6/D
+                                                             ENDPOINT             0.000                  4.708  1       
+
+
+Destination Clock Path
+Name                                      Cell/Site Name     Delay Name           Incr   Arrival/Required Time  Fanout  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+                                                             CONSTRAINT           0.000                  0.000  1       
+hf_osc/CLKHF                              HFOSC_HFOSC_R1C32  CLOCK LATENCY        0.000                  0.000  314     
+LUT/clk                                                      NET DELAY            3.084                  3.084  314     
+{fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i5/CK   fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.genblk6.rd_buff_r__i6/CK}
+                                                             CLOCK PIN            0.000                  3.084  1       
+                                                             Uncertainty          0.000                  3.084  
+                                                             Hold time            0.000                  3.084  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Required Time                                                                                           -3.084  
+Arrival Time                                                                                             4.708  
+----------------------------------------  -----------------  -------------------  -----  ---------------------  ------  
+Path Slack  (Passed)                                                                                     1.624  
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+                    End of Detailed Report for timing paths 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+##########################################################
+
+
+

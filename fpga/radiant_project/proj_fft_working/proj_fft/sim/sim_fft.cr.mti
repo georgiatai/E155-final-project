@@ -1,0 +1,116 @@
+C:/Users/User/Desktop/proj_fft/source/fft/fft.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/fft.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module fft
+
+Top level modules:
+	fft
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module multiply
+
+Top level modules:
+	multiply
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module butterfly
+
+Top level modules:
+	butterfly
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/mux.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/mux.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module fftdec
+
+Top level modules:
+	fftdec
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/testbench_ctrl.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module testbench_ctrl
+
+Top level modules:
+	testbench_ctrl
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module seg_display
+
+Top level modules:
+	seg_display
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module bitrev
+
+Top level modules:
+	bitrev
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module addctrl
+
+Top level modules:
+	addctrl
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module cmplxmult
+
+Top level modules:
+	cmplxmult
+
+} {} {}} C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v {1 {vlog -work work -vopt -stats=none C:/Users/User/Desktop/proj_fft/ramdualpt/rtl/ramdualpt.v
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module ramdualpt
+-- Compiling module ramdualpt_ipgen_lscc_ram_dp
+-- Compiling module ramdualpt_ipgen_lscc_ram_dp_main
+-- Compiling module ramdualpt_ipgen_lscc_ram_dp_core
+
+Top level modules:
+	ramdualpt
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/afourLUT.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/afourLUT.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module afourLUT
+
+Top level modules:
+	afourLUT
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module twiddleLUT
+
+Top level modules:
+	twiddleLUT
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module addgen
+
+Top level modules:
+	addgen
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module fftfull
+
+Top level modules:
+	fftfull
+
+} {} {}} C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv
+Questa Lattice OEM Edition-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+-- Compiling module freqLUT
+
+Top level modules:
+	freqLUT
+
+} {} {}}

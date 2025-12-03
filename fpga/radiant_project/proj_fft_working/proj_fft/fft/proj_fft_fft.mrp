@@ -1,0 +1,406 @@
+
+                         Lattice Mapping Report File
+
+Design:  fft_ctrl
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2025.1.0.39.0
+Mapped on: Tue Dec  2 20:05:07 2025
+
+Design Information
+------------------
+
+Command line:   map -pdc C:/Users/User/Desktop/proj_fft/pins.pdc -i
+     proj_fft_fft_syn.udb -o proj_fft_fft_map.udb -mp proj_fft_fft.mrp -hierrpt
+     -gui -msgset C:/Users/User/Desktop/proj_fft/promote.xml
+
+Design Summary
+--------------
+
+   Number of slice registers: 508 out of  5280 (10%)
+   Number of I/O registers:      0 out of   117 (0%)
+   Number of LUT4s:           1530 out of  5280 (29%)
+      Number of logic LUT4s:             1135
+      Number of inserted feedthru LUT4s:  80
+      Number of replicated LUT4s:          1
+      Number of ripple logic:            157 (314 LUT4s)
+   Number of IO sites used:   14 out of 39 (36%)
+      Number of IO sites used for general PIO: 14
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 14 out of 36 (39%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 14 out of 39 (36%)
+   Number of DSPs:             7 out of 8 (88%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             20 out of 30 (67%)
+   Number of PLLs:             0 out of 1 (0%)
+   Number of Clocks:  1
+      Net clk: 523 loads, 523 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
+   Number of Clock Enables:  17
+      Net VCC_net: 13 loads, 0 SLICEs
+      Pin reset: 32 loads, 0 SLICEs (Net: reset_c)
+      Net n5186: 4 loads, 4 SLICEs
+      Net n7071: 9 loads, 9 SLICEs
+      Net data_load: 1 loads, 0 SLICEs
+      Net n4569: 1 loads, 1 SLICEs
+      Net n5129: 32 loads, 32 SLICEs
+      Net n5154: 50 loads, 50 SLICEs
+      Net n5202: 9 loads, 9 SLICEs
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net n5093: 54 loads, 54 SLICEs
+      Net n5183: 5 loads, 5 SLICEs
+      Net fftfull.fft.read_sel_N_1901: 8 loads, 0 SLICEs
+      Net fftfull.fft.read_sel: 8 loads, 0 SLICEs
+      Net fftfull.fft.mem_write1: 8 loads, 0 SLICEs
+      Net fftfull.fft.mem_write0: 8 loads, 0 SLICEs
+      Net fftfull.fft.addctrl_inst.addgen.n5885: 5 loads, 5 SLICEs
+      Net fftfull.fft.addctrl_inst.addgen.n5888: 9 loads, 9 SLICEs
+   Number of LSRs:  5
+      Net reset_c_N_1900: 187 loads, 187 SLICEs
+      Net n83: 10 loads, 10 SLICEs
+      Net fftfull.fft.n76: 5 loads, 5 SLICEs
+      Net fftfull.fft.addctrl_inst.addgen.n22: 14 loads, 14 SLICEs
+      Net fftfull.fft.addctrl_inst.addgen.n4582: 12 loads, 12 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net reset_c: 302 loads
+      Net reset_c_N_1900: 187 loads
+      Net led_load_c: 150 loads
+      Net bf_enable: 100 loads
+      Net n106: 84 loads
+      Net fftfull.fft.add_tw_2cyc[7]: 68 loads
+      Net bf_cal_enable: 65 loads
+      Net fftfull.fft.delay_2cyc: 64 loads
+      Net n5093: 54 loads
+      Net n5154: 50 loads
+
+
+
+
+
+   Number of warnings:  28
+   Number of criticals: 0
+   Number of errors:    0
+
+Design Errors/Criticals/Warnings
+--------------------------------
+
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (3) : No port
+     matched 'vsync'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (4) : No port
+     matched 'vga_rgb[0]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (5) : No port
+     matched 'vga_rgb[1]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (7) : No port
+     matched 'vga_rgb[2]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (12) : No port
+     matched 'debug_pll_clk'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (14) : No port
+     matched 'found_note'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (15) : No port
+     matched 'hsync'.
+WARNING <1027013> - map: No port matched 'vsync'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (3) : Can't
+     resolve object 'vsync' in constraint 'ldc_set_location -site {18}
+     [get_ports vsync]'.
+WARNING <1027013> - map: No port matched 'vga_rgb[0]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (4) : Can't
+     resolve object 'vga_rgb[0]' in constraint 'ldc_set_location -site {13}
+
+                                    Page 2
+
+
+
+
+
+Design Errors/Criticals/Warnings (cont)
+---------------------------------------
+     [get_ports {vga_rgb[0]}]'.
+WARNING <1027013> - map: No port matched 'vga_rgb[1]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (5) : Can't
+     resolve object 'vga_rgb[1]' in constraint 'ldc_set_location -site {12}
+     [get_ports {vga_rgb[1]}]'.
+WARNING <1027013> - map: No port matched 'vga_rgb[2]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (7) : Can't
+     resolve object 'vga_rgb[2]' in constraint 'ldc_set_location -site {20}
+     [get_ports {vga_rgb[2]}]'.
+WARNING <1027013> - map: No port matched 'debug_pll_clk'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (12) : Can't
+     resolve object 'debug_pll_clk' in constraint 'ldc_set_location -site {28}
+     [get_ports debug_pll_clk]'.
+WARNING <1027013> - map: No port matched 'found_note'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (14) : Can't
+     resolve object 'found_note' in constraint 'ldc_set_location -site {38}
+     [get_ports found_note]'.
+WARNING <1027013> - map: No port matched 'hsync'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_fft/pins.pdc (15) : Can't
+     resolve object 'hsync' in constraint 'ldc_set_location -site {9} [get_ports
+     hsync]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {18}
+     [get_ports vsync]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {13}
+     [get_ports {vga_rgb[0]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {12}
+     [get_ports {vga_rgb[1]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {20}
+     [get_ports {vga_rgb[2]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {28}
+     [get_ports debug_pll_clk]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {38}
+     [get_ports found_note]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {9}
+     [get_ports hsync]'.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| A_note              | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_start           | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| led_load            | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sharp               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg[0]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg[1]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+                                    Page 3
+
+
+
+
+
+IO (PIO) Attributes (cont)
+--------------------------
+| seg[2]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg[3]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg[4]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg[5]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| seg[6]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| anode2              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| anode1              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+Removed logic
+-------------
+
+Block i1 was optimized away.
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            hf_osc
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     clk
+  DIV Setting:                                  10
+
+ASIC Components
+---------------
+
+Instance Name: hf_osc
+         Type: HFOSC
+Instance Name: ram_databuf/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_
+     ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fftdec/mult_103
+         Type: DSP
+Instance Name: fftfull/fftdec/dout_0__I_0
+         Type: DSP
+Instance Name: fftfull/fftdec/dout_16__I_0
+         Type: DSP
+Instance Name: fftfull/fft/twiddle_lut/real_tw_15__I_0
+         Type: EBR
+Instance Name: fftfull/fft/twiddle_lut/mux_4
+         Type: EBR
+Instance Name: fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+
+                                    Page 4
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+Instance Name: fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[3].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[2].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROU
+     TE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fftfull/fft/butterfly_inst/tw_mult/mult4/img_b_0__I_0
+         Type: DSP
+Instance Name: fftfull/fft/butterfly_inst/tw_mult/mult3/img_b_0__I_0_2
+         Type: DSP
+Instance Name: fftfull/fft/butterfly_inst/tw_mult/mult2/real_b_0__I_0
+         Type: DSP
+Instance Name: fftfull/fft/butterfly_inst/tw_mult/mult1/real_b_0__I_0_2
+         Type: DSP
+Instance Name: LUT/adr_ram_8__I_0
+         Type: EBR
+
+Constraint Summary
+------------------
+
+   Total number of constraints: 17
+   Total number of constraints dropped: 7
+   Dropped constraints are:
+     ldc_set_location -site {18} [get_ports vsync]
+
+                                    Page 5
+
+
+
+
+
+Constraint Summary (cont)
+-------------------------
+     ldc_set_location -site {13} [get_ports {vga_rgb[0]}]
+     ldc_set_location -site {12} [get_ports {vga_rgb[1]}]
+     ldc_set_location -site {20} [get_ports {vga_rgb[2]}]
+     ldc_set_location -site {28} [get_ports debug_pll_clk]
+     ldc_set_location -site {38} [get_ports found_note]
+     ldc_set_location -site {9} [get_ports hsync]
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 1 secs
+   Total REAL Time: 2 secs
+   Peak Memory Usage: 94 MB
+Checksum -- map: 6e2f0800cc74263bd4283acc2c7117614427a8a3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    Page 6
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor
+     Corporation,  All rights reserved.

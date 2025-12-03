@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/User/Desktop/proj_fft/source/fft/fft.sv" "C:/Users/User/Desktop/proj_fft/source/fft/addgen.sv" "C:/Users/User/Desktop/proj_fft/source/fft/addctrl.sv" "C:/Users/User/Desktop/proj_fft/source/fft/bitrev.sv" "C:/Users/User/Desktop/proj_fft/source/fft/butterfly.sv" "C:/Users/User/Desktop/proj_fft/source/fft/cmplxmult.sv" "C:/Users/User/Desktop/proj_fft/source/fft/twiddleLUT.sv" "C:/Users/User/Desktop/proj_fft/source/fft/multiply.sv" "C:/Users/User/Desktop/proj_fft/source/fft/freqLUT.sv" "C:/Users/User/Desktop/proj_fft/source/fft/fftdec.sv" "C:/Users/User/Desktop/proj_fft/source/fft/fftfull.sv" "C:/Users/User/Desktop/proj_fft/source/fft/fft_ctrl.sv" "C:/Users/User/Desktop/proj_fft/source/fft/mux.sv" "C:/Users/User/Desktop/proj_fft/source/fft/seg_display.sv" "C:/Users/User/Desktop/proj_fft/source/fft/afourLUT.sv" "C:/Users/User/Desktop/proj_fft/source/fft/dfiveshLUT.sv" "C:/Users/User/Desktop/proj_fft/source/fft/vgactrl.sv" "C:/Users/User/Desktop/proj_fft/source/fft/vgatop.sv" "C:/Users/User/Desktop/proj_fft/source/fft/pllclk.sv" "C:/Users/User/Desktop/proj_fft/source/fft/treblerom.sv" "C:/Users/User/Desktop/proj_fft/source/fft/musicscore.sv" "C:/Users/User/Desktop/proj_fft/source/fft/sharp_rom.sv" "C:/Users/User/Desktop/proj_fft/source/fft/note_rom.sv"
+-path "C:/Users/User/Desktop/proj_fft"
+-top fft_ctrl
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"

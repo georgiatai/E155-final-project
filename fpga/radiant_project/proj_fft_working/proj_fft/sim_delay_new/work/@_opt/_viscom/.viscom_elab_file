@@ -1,0 +1,1 @@
+C:/lscc/radiant/2025.1/questasim/win64/VisualizerRls/bin/viscom.exe -nolock -quiet -jmem_size 7077888 work.testbench_ctrl(fast) -quiet -auto_acc_if_foreign -work work -L iCE40UP +acc -allow_unnamed -o _opt -id 6-505a65349729-692e169a-4b-e548 +__design_bin_path+C:/Users/User/Desktop/proj_fft/sim_delay_new +__betafsm
