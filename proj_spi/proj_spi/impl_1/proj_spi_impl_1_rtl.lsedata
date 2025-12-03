@@ -1,0 +1,21 @@
+<top name = "top"  library = "work"  arch = ""  entry = "Verilog">
+
+<clocks>
+    <clockitem name = "clk"  type = "net" />
+    <clockitem name = "sclk"  type = "port" />
+    <clockitem name = "vgatop_inst/pll_clk_internal"  type = "net" />
+    <clockitem name = "vgatop_inst/pllclk/clk_external"  type = "net" />
+    <clockitem name = "fft_ctrl_inst/clk"  type = "net" />
+</clocks>
+
+<!--
+    //=============================================================
+    //  Number of Clocks processed: 5
+    //
+    //  If a clock cannot be found in the top level pins section,
+    //  that means it is an internal clock.
+    //
+    //=============================================================
+-->
+
+</top>

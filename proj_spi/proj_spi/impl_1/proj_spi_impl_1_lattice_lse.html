@@ -1,0 +1,2193 @@
+<HTML>
+<HEAD>
+<TITLE>Synthesis Report</TITLE>
+<link href="file:///C:/lscc/radiant/2025.1/data/theme/css/light/report.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="file:///C:/lscc/radiant/2025.1/data/theme/css/print/report.css" rel="stylesheet" type="text/css" media="print"/>
+<style type="text/css">
+#toc {
+  position: fixed;
+  right: 2px;
+  top: 2px;
+  padding: 2px 5px 2px 5px;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+}
+#toc_list {
+  display: none;
+  }
+</style>
+
+<script type="text/javascript">
+<!--
+function showTocList() {
+var a = document.getElementById("toc_list");
+a.style.display = "block";
+}
+
+function hideTocList() {
+var a = document.getElementById("toc_list");
+if (a)
+    a.style.display = "none";
+}
+
+//-->
+</script>
+
+</HEAD>
+
+<BODY>
+
+<DIV id="content" onclick="hideTocList()"><PRE>
+<A name="Syn"></A><B><U><big>Synthesis Report</big></U></B>
+synthesis:  version Radiant Software (64-bit) 2025.1.0.39.0
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor Corporation,  All rights reserved.
+Wed Dec  3 11:00:43 2025
+
+
+Command Line:  C:\lscc\radiant\2025.1\ispfpga\bin\nt64\synthesis.exe -f C:/Users/User/Desktop/proj_spi/proj_spi/impl_1/proj_spi_impl_1_lattice.synproj -logfile proj_spi_impl_1_lattice.srp -gui -msgset C:/Users/User/Desktop/proj_spi/proj_spi/promote.xml 
+
+INFO <35002000> - synthesis: Lattice Synthesis Engine launched.
+
+Synthesis options:
+The -a option is iCE40UP.
+The -t option is SG48.
+The -sp option is High-Performance_1.2V.
+The -p option is iCE40UP5K.
+
+###################### Device Information ######################
+----------------------------------------------------------------
+Lattice Family        | iCE40UP
+----------------------------------------------------------------
+Device                | iCE40UP5K
+----------------------------------------------------------------
+Package               | SG48
+----------------------------------------------------------------
+Performance Grade     | High-Performance_1.2V
+----------------------------------------------------------------
+################################################################
+
+####################### Device Resources #######################
+----------------------------------------------------------------
+Logic Cells           | 5280
+----------------------------------------------------------------
+RAM Blocks            | 30
+----------------------------------------------------------------
+DSP Blocks            | 8
+----------------------------------------------------------------
+PLLs                  | 1
+----------------------------------------------------------------
+I/O Pins              | 56
+----------------------------------------------------------------
+################################################################
+
+Resolving user-selected strategy settings...
+
+INFO <35001797> - synthesis: Use DCC Insertion disabled by default.
+
+###################### Strategy Settings #######################
+----------------------------------------------------------------
+Optimization Goal     | Area
+----------------------------------------------------------------
+Top-level Module Name | top
+----------------------------------------------------------------
+Target Frequency      | 200.000 MHz
+----------------------------------------------------------------
+Maximum Fanout        | 1000
+----------------------------------------------------------------
+Timing Path Count     | 3
+----------------------------------------------------------------
+RAM Read/Write Check  | False
+----------------------------------------------------------------
+BRAM Utilization      | 100.0%
+----------------------------------------------------------------
+DSP Usage             | True
+----------------------------------------------------------------
+DSP Utilization       | 100.0%
+----------------------------------------------------------------
+FSM Encoding Style    | Auto
+----------------------------------------------------------------
+Resolve Mixed Drivers | False
+----------------------------------------------------------------
+Fix Gated Clocks      | True
+----------------------------------------------------------------
+Mux Style             | Auto
+----------------------------------------------------------------
+Use Carry Chain       | True
+----------------------------------------------------------------
+Carry Chain Length    | Infinite
+----------------------------------------------------------------
+Loop Limit            | 1950
+----------------------------------------------------------------
+Use I/O Insertion     | True
+----------------------------------------------------------------
+Use I/O Registers     | True
+----------------------------------------------------------------
+Resource Sharing      | True
+----------------------------------------------------------------
+Propagate Constants   | True
+----------------------------------------------------------------
+Remove Duplicate Reg  | True
+----------------------------------------------------------------
+Force GSR             | False
+----------------------------------------------------------------
+ROM Style             | Auto
+----------------------------------------------------------------
+RAM Style             | Auto
+----------------------------------------------------------------
+Remove LOC Properties | False
+----------------------------------------------------------------
+Partition Flow        | False
+----------------------------------------------------------------
+Use DCC Insertion     | None
+----------------------------------------------------------------
+################################################################
+
+
+The -comp option is FALSE.
+The -syn option is FALSE.
+
+Output HDL filename: proj_spi_impl_1.vm
+-sdc option: SDC file input is proj_spi_impl_1_cpe.ldc.
+-path C:/Users/User/Desktop/proj_spi/proj_spi (searchpath added)
+-path C:/Users/User/Desktop/proj_spi/proj_spi/impl_1 (searchpath added)
+-path C:/Users/User/Desktop/proj_spi/proj_spi/ramdp8b (searchpath added)
+-path C:/Users/User/Desktop/proj_spi/proj_spi/ramdualpt (searchpath added)
+-path C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1 (searchpath added)
+-path C:/lscc/radiant/2025.1/ispfpga/ice40tp/data (searchpath added)
+Mixed language design
+Verilog design file: C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.v
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/ramdp8b/rtl/ramdp8b.v
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/spi.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/top.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/addctrl.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/addgen.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/afourLUT.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/bitrev.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/butterfly.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/cmplxmult.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/dfiveshLUT.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/fft.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/fftdec.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/fftfull.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/freqLUT.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/multiply.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/mux.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/seg_display.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/twiddleLUT.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/vgatop.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/vgactrl.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/treblerom.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/pllclk.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv
+Verilog design file: C:/Users/User/Desktop/proj_spi/proj_spi/source/impl_1/notedur.sv
+VHDL library: pmi
+VHDL design file: C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.vhd
+WARNING <35935050> - synthesis: input port TRIM9 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM8 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM7 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM6 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM5 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM4 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM3 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM2 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM1 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port TRIM0 is not connected on this instance. VDB-5050
+WARNING <35935050> - synthesis: input port I is not connected on this instance. VDB-5050
+
+Compiling design...
+
+Analyzing Verilog file c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v. VERI-1482
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(1): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_addsub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_addsub.v(40): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(2): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_add.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_add.v(50): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/adder/rtl/lscc_adder.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(3): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_complex_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_complex_mult.v(52): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(4): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_counter.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_counter.v(39): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/counter/rtl/lscc_cntr.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(5): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_fifo.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_fifo.v(44): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/fifo/rtl/lscc_fifo.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(6): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_fifo_dc.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_fifo_dc.v(47): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/fifo_dc/rtl/lscc_fifo_dc.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(7): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_mac.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_mac.v(52): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(8): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_multaddsubsum.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_multaddsubsum.v(53): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(9): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_multaddsub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_multaddsub.v(52): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(10): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_mult.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_mult.v(51): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(11): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dp.v(48): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dp.v(49): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(12): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dq.v(45): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dq.v(46): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(13): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_rom.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_rom.v(45): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/rom/rtl/lscc_rom.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(14): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_sub.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_sub.v(50): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(15): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dp_be.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dp_be.v(49): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dp_be.v(50): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(16): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dq_be.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dq_be.v(45): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ram_dq_be.v(46): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v. VERI-1328
+INFO <35901328> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.v(17): analyzing included file c:/lscc/radiant/2025.1/ip/pmi/pmi_dsp.v. VERI-1328
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/ramdp8b/rtl/ramdp8b.v. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/spi.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/top.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/addctrl.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/addgen.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/afourlut.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/bitrev.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/butterfly.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/cmplxmult.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/dfiveshlut.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fftdec.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fftfull.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/freqlut.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/multiply.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/mux.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/seg_display.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/twiddlelut.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/vgatop.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/vgactrl.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/treblerom.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/pllclk.sv. VERI-1482
+WARNING <35901818> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/pllclk.sv(5): initial value of parameter DIVR is omitted. VERI-1818
+WARNING <35901818> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/pllclk.sv(6): initial value of parameter DIVF is omitted. VERI-1818
+WARNING <35901818> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/pllclk.sv(7): initial value of parameter DIVQ is omitted. VERI-1818
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv. VERI-1482
+Analyzing Verilog file c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/notedur.sv. VERI-1482
+Analyzing VHDL file c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.vhd. VHDL-1481
+Analyzing VHDL file c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.vhd
+
+INFO <35921014> - synthesis: c:/lscc/radiant/2025.1/ip/pmi/pmi_ice40up.vhd(4): analyzing package components. VHDL-1014
+INFO <35921504> - synthesis: The default VHDL library search path is now "C:/Users/User/Desktop/proj_spi/proj_spi/impl_1". VHDL-1504
+Top module language type = Verilog.
+Top module name (Verilog, mixed language): top
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/top.sv(5): compiling module top. VERI-1018
+INFO <35901018> - synthesis: C:/lscc/radiant/2025.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(756): compiling module HSOSC(CLKHF_DIV=2'b0). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/spi.sv(5): compiling module spi(SPI_WIDTH=32'b01000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv(3): compiling module fft_ctrl(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000). VERI-1018
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv(23): expression size 32 truncated to fit in target size 2. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv(122): expression size 32 truncated to fit in target size 9. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv(134): expression size 32 truncated to fit in target size 9. VERI-1209
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdp8b/rtl/ramdp8b.v(11): compiling module ramdp8b. VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdp8b/rtl/ramdp8b.v(252): compiling module ramdp8b_ipgen_lscc_ram_dp(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdp8b/rtl/ramdp8b.v(657): compiling module ramdp8b_ipgen_lscc_ram_dp_main(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=8,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=8,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdp8b/rtl/ramdp8b.v(3996): compiling module ramdp8b_ipgen_lscc_ram_dp_core(MEM_ID="ramdp8b",MEM_SIZE="8,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0). VERI-1018
+INFO <35901018> - synthesis: C:/lscc/radiant/2025.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(693): compiling module PDP4K(DATA_WIDTH_W="8",DATA_WIDTH_R="8"). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fftfull.sv(8): compiling module fftfull(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(5): compiling module fft(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v(11): compiling module ramdualpt. VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v(252): compiling module ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v(657): compiling module ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v(3996): compiling module ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v(3996): compiling module ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0). VERI-1018
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(155): actual bit length 32 differs from formal bit length 16 for port wr_data_i. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(158): actual bit length 32 differs from formal bit length 16 for port rd_data_o. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(167): actual bit length 32 differs from formal bit length 16 for port wr_data_i. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(170): actual bit length 32 differs from formal bit length 16 for port rd_data_o. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(179): actual bit length 32 differs from formal bit length 16 for port wr_data_i. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(182): actual bit length 32 differs from formal bit length 16 for port rd_data_o. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(191): actual bit length 32 differs from formal bit length 16 for port wr_data_i. VERI-1330
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft.sv(194): actual bit length 32 differs from formal bit length 16 for port rd_data_o. VERI-1330
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/twiddlelut.sv(5): compiling module twiddleLUT. VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/addctrl.sv(5): compiling module addctrl(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/addgen.sv(8): compiling module addgen(BIT_WIDTH=32'b010000,level=32'b01001,FFT_SIZE=32'b01000000000). VERI-1018
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/addgen.sv(109): expression size 16 truncated to fit in target size 9. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/addgen.sv(144): expression size 9 truncated to fit in target size 8. VERI-1209
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/bitrev.sv(5): compiling module bitrev(N=32'b01001). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/butterfly.sv(6): compiling module butterfly(BIT_WIDTH=32'b010000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/cmplxmult.sv(5): compiling module cmplxmult(BIT_WIDTH=32'b010000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/multiply.sv(6): compiling module multiply(BIT_WIDTH=32'b010000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fftdec.sv(5): compiling module fftdec(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/freqlut.sv(5): compiling module freqLUT(BIT_WIDTH=32'b010000). VERI-1018
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/fft_ctrl.sv(195): actual bit length 32 differs from formal bit length 9 for port note_count. VERI-1330
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/notedur.sv(3): compiling module notedur. VERI-1018
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/notedur.sv(36): expression size 32 truncated to fit in target size 6. VERI-1209
+WARNING <35935040> - synthesis: Register new_note clock is stuck at Zero. VDB-5040
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/vgatop.sv(3): compiling module vgatop. VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/pllclk.sv(3): compiling module pllclk(DIVR="0",DIVF="16",DIVQ="5"). VERI-1018
+INFO <35901018> - synthesis: C:/lscc/radiant/2025.1/ispfpga/../cae_library/synthesis/verilog/iCE40UP.v(428): compiling module PLL_B(PLLOUT_SELECT_PORTA="GENCLK",PLLOUT_SELECT_PORTB="GENCLK",DIVF="16",DIVQ="5",FILTER_RANGE="1"). VERI-1018
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/vgactrl.sv(3): compiling module vgactrl. VERI-1018
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/vgactrl.sv(57): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/vgactrl.sv(60): expression size 32 truncated to fit in target size 11. VERI-1209
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(2): compiling module musicscore. VERI-1018
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(103): expression size 32 truncated to fit in target size 8. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(104): expression size 32 truncated to fit in target size 8. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(105): expression size 32 truncated to fit in target size 14. VERI-1209
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/treblerom.sv(3): compiling module treblerom. VERI-1018
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/treblerom.sv(13): net clef_bitmap does not have a driver. VDB-1002
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(166): expression size 32 truncated to fit in target size 11. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(170): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(173): expression size 11 truncated to fit in target size 10. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(176): expression size 32 truncated to fit in target size 10. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(179): expression size 11 truncated to fit in target size 10. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(205): expression size 32 truncated to fit in target size 11. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(206): expression size 32 truncated to fit in target size 11. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(223): expression size 32 truncated to fit in target size 11. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(224): expression size 32 truncated to fit in target size 11. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(255): expression size 32 truncated to fit in target size 11. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(287): expression size 32 truncated to fit in target size 15. VERI-1209
+WARNING <35901209> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/musicscore.sv(316): expression size 32 truncated to fit in target size 15. VERI-1209
+INFO <35901018> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(1): compiling module note_rom. VERI-1018
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(9): net whole_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(10): net whole_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(11): net half_up_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(12): net half_up_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(13): net half_down_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(14): net half_down_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(15): net quarter_up_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(16): net quarter_up_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(17): net quarter_down_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(18): net quarter_down_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(19): net eighth_up_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(20): net eighth_up_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(21): net eighth_down_bitmap does not have a driver. VDB-1002
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(22): net eighth_down_sharp_bitmap does not have a driver. VDB-1002
+WARNING <35901330> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/top.sv(54): actual bit length 1 differs from formal bit length 4 for port duration. VERI-1330
+WARNING <35931002> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/top.sv(54): net duration does not have a driver. VDB-1002
+
+<A name="lse_parameter"></A><B><U><big>Parameter Setting</big></U></B>
+
+[Parameter Setting Section Start]
+
+	[Parameter Settings for Instance(s): hf_osc]
+	(Module: HSOSC)
+		CLKHF_DIV                 2'b00
+
+	[Parameter Settings for Instance(s): spi_inst]
+	(Module: spi)
+		SPI_WIDTH                 32'b00000000000000000000000000001000
+
+	[Parameter Settings for Instance(s): fft_ctrl_inst]
+	(Module: fft_ctrl)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+		N                         32'b00000000000000000000000000001001
+		FFT_SIZE                  32'b00000000000000000000001000000000
+		FS                        32'b00000000000000000001001110001000
+
+	[Parameter Settings for Instance(s): ram_databuf]
+	(Module: ramdp8b)
+		MEM_ID                    "ramdp8b"
+
+	[Parameter Settings for Instance(s): fftfull]
+	(Module: fftfull)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+		N                         32'b00000000000000000000000000001001
+		FFT_SIZE                  32'b00000000000000000000001000000000
+		FS                        32'b00000000000000000001001110001000
+
+	[Parameter Settings for Instance(s): pllclk]
+	(Module: pllclk)
+		DIVR                      "0"
+		DIVF                      "16"
+		DIVQ                      "5"
+
+	[Parameter Settings for Instance(s): lscc_ram_dp_inst]
+	(Module: ramdp8b_ipgen_lscc_ram_dp)
+		MEM_ID                    "ramdp8b"
+		MEM_SIZE                  "8,512"
+		FAMILY                    "iCE40UP"
+		WADDR_DEPTH               512
+		WADDR_WIDTH               9
+		WDATA_WIDTH               8
+		RADDR_DEPTH               512
+		RADDR_WIDTH               9
+		RDATA_WIDTH               8
+		REGMODE                   "reg"
+		GSR                       "enable"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "hex"
+		MODULE_TYPE               "ram_dp"
+		INIT_DATA_TYPE            1
+		INIT_MODE                 "none"
+		BYTE_ENABLE               0
+		BYTE_SIZE                 8
+		BYTE_WIDTH                1
+		PIPELINES                 0
+		ECC_ENABLE                0
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		T_FAMILY                  "iCE40UP"
+		INIT_DATA                 "DYNAMIC"
+
+	[Parameter Settings for Instance(s): fft]
+	(Module: fft)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+		N                         32'b00000000000000000000000000001001
+		FFT_SIZE                  32'b00000000000000000000001000000000
+
+	[Parameter Settings for Instance(s): fftdec]
+	(Module: fftdec)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+		N                         32'b00000000000000000000000000001001
+		FFT_SIZE                  32'b00000000000000000000001000000000
+		FS                        32'b00000000000000000001001110001000
+
+	[Parameter Settings for Instance(s): freqLUT]
+	(Module: freqLUT)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+
+	[Parameter Settings for Instance(s): u_pll]
+	(Module: PLL_B)
+		FEEDBACK_PATH             "SIMPLE"
+		DELAY_ADJUSTMENT_MODE_FEEDBACK "FIXED"
+		FDA_FEEDBACK              "0"
+		DELAY_ADJUSTMENT_MODE_RELATIVE "FIXED"
+		FDA_RELATIVE              "0"
+		SHIFTREG_DIV_MODE         "0"
+		PLLOUT_SELECT_PORTA       "GENCLK"
+		PLLOUT_SELECT_PORTB       "GENCLK"
+		DIVR                      "0"
+		DIVF                      "16"
+		DIVQ                      "5"
+		FILTER_RANGE              "1"
+		EXTERNAL_DIVIDE_FACTOR    "NONE"
+		ENABLE_ICEGATE_PORTA      "0"
+		ENABLE_ICEGATE_PORTB      "0"
+		TEST_MODE                 "0"
+		FREQUENCY_PIN_REFERENCECLK "NONE"
+
+	[Parameter Settings for Instance(s): mem_main]
+	(Module: ramdp8b_ipgen_lscc_ram_dp_main)
+		_FCODE_LIFCL_             1
+		_FCODE_ICE_               2
+		_FCODE_AP6_               3
+		_FCODE_COMMON_            0
+		MEM_ID                    "ramdp8b"
+		MEM_SIZE                  "8,512"
+		FAMILY                    "iCE40UP"
+		FAMILY_CODE               2
+		WADDR_DEPTH               512
+		WADDR_WIDTH               9
+		WDATA_WIDTH               8
+		RADDR_DEPTH               512
+		RADDR_WIDTH               9
+		RDATA_WIDTH               8
+		REGMODE                   "reg"
+		GSR                       "enable"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_DATA                 "DYNAMIC"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "hex"
+		MODULE_TYPE               "ram_dp"
+		INIT_MODE                 "none"
+		BYTE_ENABLE               0
+		BYTE_SIZE                 8
+		BYTE_WIDTH                1
+		PIPELINES                 0
+		ECC_ENABLE                0
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		IS_BYTE_ENABLE            1'b0
+		IS_GSR_EN                 "ENABLED"
+		IS_ECC                    "DISABLE"
+		STRING_LENGTH             66
+		NON_MIX.OPT_DATA_WIDTH    32'b00000000000000000000000000001000
+		NON_MIX.OPT_ADDR_DEPTH    32'b00000000000000000000001000000000
+		NON_MIX.OPT_ADDR_WIDTH    32'b00000000000000000000000000001001
+		NON_MIX.EBR_DATA          32'b00000000000000000000000000000001
+		NON_MIX.EBR_ADDR          32'b00000000000000000000000000000001
+		NON_MIX.BYTE_WIDTH_IMPL   1
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].ECO_POSX 32'b00000000000000000000000000000000
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].ECO_POSY 32'b00000000000000000000000000000000
+		NON_MIX.ADDR_ROUTE[0].i0  0
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].i1 0
+
+	[Parameter Settings for Instance(s): ram0_a_bfa, ram0_b_bfa, ram1_a_bfa, ram1_b_bfa]
+	(Module: ramdualpt)
+		MEM_ID                    "ramdualpt"
+
+	[Parameter Settings for Instance(s): addctrl_inst]
+	(Module: addctrl)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+		N                         32'b00000000000000000000000000001001
+		FFT_SIZE                  32'b00000000000000000000001000000000
+
+	[Parameter Settings for Instance(s): butterfly_inst]
+	(Module: butterfly)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+
+	[Parameter Settings for Instance(s): NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0]
+	(Module: ramdp8b_ipgen_lscc_ram_dp_core)
+		_FCODE_LIFCL_             1
+		_FCODE_ICE_               2
+		_FCODE_AP6_               3
+		_FCODE_COMMON_            0
+		MEM_ID                    "ramdp8b"
+		MEM_SIZE                  "8,512"
+		FAMILY                    "iCE40UP"
+		FAMILY_CODE               2
+		DATA_WIDTH_W              32'b00000000000000000000000000001000
+		ADDR_WIDTH_W              32'b00000000000000000000000000001001
+		DATA_WIDTH_R              32'b00000000000000000000000000001000
+		ADDR_WIDTH_R              32'b00000000000000000000000000001001
+		REGMODE                   "reg"
+		GSR                       "enabled"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "binary"
+		INIT_DATA                 "DYNAMIC"
+		INIT_MODE                 "none"
+		BYTE_ENABLE               1'b0
+		BYTE_WIDTH                1
+		ECC_ENABLE                0
+		CSDECODE_W                0
+		CSDECODE_R                0
+		OPTIMIZATION              "speed"
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		POSx                      32'b00000000000000000000000000000000
+		POSy                      32'b00000000000000000000000000000000
+		STRING_SIZE               32'b00000000000000000000000000101000
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		POS_X0                    32'b00000000000000000000000000000000
+		POS_X1                    32'b00000000000000000000000000000000
+		POS_X2                    32'b00000000000000000000000000000000
+		POS_X3                    32'b00000000000000000000000000000000
+		POS_X4                    32'b00000000000000000000000000000000
+		POS_X5                    32'b00000000000000000000000000000000
+		POS_X6                    32'b00000000000000000000000000000000
+		POS_X7                    32'b00000000000000000000000000000000
+		POS_Y0                    32'b00000000000000000000000000000000
+		POS_Y1                    32'b00000000000000000000000000000000
+		POS_Y2                    32'b00000000000000000000000000000000
+		POS_Y3                    32'b00000000000000000000000000000000
+		POS_Y4                    32'b00000000000000000000000000000000
+		POS_Y5                    32'b00000000000000000000000000000000
+		POS_Y6                    32'b00000000000000000000000000000000
+		POS_Y7                    32'b00000000000000000000000000000000
+		NUM_STRING                "9876543210"
+		BLOCK_POS                 "[0,0]"
+		BLOCK_SIZE                "[8,2048]"
+		ICE_MEM.R                 "8"
+		ICE_MEM.W                 "8"
+		ICE_MEM.X_T0              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T1              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T2              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T3              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T4              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T5              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T6              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T7              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T8              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T9              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TA              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TB              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TC              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TD              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TE              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TF              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X0                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X1                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X2                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X3                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X4                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X5                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X6                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X7                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X8                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X9                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XA                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XB                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XC                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XD                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XE                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XF                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.genblk1[0].i0     0
+		ICE_MEM.genblk1[1].i0     1
+		ICE_MEM.genblk1[2].i0     2
+		ICE_MEM.genblk1[3].i0     3
+		ICE_MEM.genblk1[4].i0     4
+		ICE_MEM.genblk1[5].i0     5
+		ICE_MEM.genblk1[6].i0     6
+		ICE_MEM.genblk1[7].i0     7
+		ICE_MEM.genblk1[8].i0     8
+		ICE_MEM.genblk1[9].i0     9
+		ICE_MEM.genblk1[10].i0    10
+		ICE_MEM.genblk1[11].i0    11
+		ICE_MEM.genblk1[12].i0    12
+		ICE_MEM.genblk1[13].i0    13
+		ICE_MEM.genblk1[14].i0    14
+		ICE_MEM.genblk1[15].i0    15
+
+	[Parameter Settings for Instance(s): lscc_ram_dp_inst]
+	(Module: ramdualpt_ipgen_lscc_ram_dp)
+		MEM_ID                    "ramdualpt"
+		MEM_SIZE                  "16,512"
+		FAMILY                    "iCE40UP"
+		WADDR_DEPTH               512
+		WADDR_WIDTH               9
+		WDATA_WIDTH               16
+		RADDR_DEPTH               512
+		RADDR_WIDTH               9
+		RDATA_WIDTH               16
+		REGMODE                   "reg"
+		GSR                       "enable"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "hex"
+		MODULE_TYPE               "ram_dp"
+		INIT_DATA_TYPE            1
+		INIT_MODE                 "none"
+		BYTE_ENABLE               0
+		BYTE_SIZE                 8
+		BYTE_WIDTH                1
+		PIPELINES                 0
+		ECC_ENABLE                0
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		T_FAMILY                  "iCE40UP"
+		INIT_DATA                 "DYNAMIC"
+
+	[Parameter Settings for Instance(s): addgen]
+	(Module: addgen)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+		level                     32'b00000000000000000000000000001001
+		FFT_SIZE                  32'b00000000000000000000001000000000
+
+	[Parameter Settings for Instance(s): bitrev]
+	(Module: bitrev)
+		N                         32'b00000000000000000000000000001001
+		bit_reversed[0].b         0
+		bit_reversed[1].b         1
+		bit_reversed[2].b         2
+		bit_reversed[3].b         3
+		bit_reversed[4].b         4
+		bit_reversed[5].b         5
+		bit_reversed[6].b         6
+		bit_reversed[7].b         7
+		bit_reversed[8].b         8
+
+	[Parameter Settings for Instance(s): tw_mult]
+	(Module: cmplxmult)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+
+	[Parameter Settings for Instance(s): ICE_MEM.u_mem0, ICE_MEM.u_mem0, ICE_MEM.u_mem0]
+	(Module: PDP4K)
+		INITVAL_0                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_1                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_2                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_3                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_4                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_5                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_6                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_7                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_8                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_9                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_A                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_B                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_C                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_D                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_E                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INITVAL_F                 "0x0000000000000000000000000000000000000000000000000000000000000000"
+		DATA_WIDTH_W              "8"
+		DATA_WIDTH_R              "8"
+
+	[Parameter Settings for Instance(s): mem_main]
+	(Module: ramdualpt_ipgen_lscc_ram_dp_main)
+		_FCODE_LIFCL_             1
+		_FCODE_ICE_               2
+		_FCODE_AP6_               3
+		_FCODE_COMMON_            0
+		MEM_ID                    "ramdualpt"
+		MEM_SIZE                  "16,512"
+		FAMILY                    "iCE40UP"
+		FAMILY_CODE               2
+		WADDR_DEPTH               512
+		WADDR_WIDTH               9
+		WDATA_WIDTH               16
+		RADDR_DEPTH               512
+		RADDR_WIDTH               9
+		RDATA_WIDTH               16
+		REGMODE                   "reg"
+		GSR                       "enable"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_DATA                 "DYNAMIC"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "hex"
+		MODULE_TYPE               "ram_dp"
+		INIT_MODE                 "none"
+		BYTE_ENABLE               0
+		BYTE_SIZE                 8
+		BYTE_WIDTH                1
+		PIPELINES                 0
+		ECC_ENABLE                0
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		IS_BYTE_ENABLE            1'b0
+		IS_GSR_EN                 "ENABLED"
+		IS_ECC                    "DISABLE"
+		STRING_LENGTH             66
+		NON_MIX.OPT_DATA_WIDTH    32'b00000000000000000000000000001000
+		NON_MIX.OPT_ADDR_DEPTH    32'b00000000000000000000001000000000
+		NON_MIX.OPT_ADDR_WIDTH    32'b00000000000000000000000000001001
+		NON_MIX.EBR_DATA          32'b00000000000000000000000000000010
+		NON_MIX.EBR_ADDR          32'b00000000000000000000000000000001
+		NON_MIX.BYTE_WIDTH_IMPL   1
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].ECO_POSX 32'b00000000000000000000000000000000
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].ECO_POSY 32'b00000000000000000000000000000000
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].ECO_POSX 32'b00000000000000000000000000001000
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].ECO_POSY 32'b00000000000000000000000000000000
+		NON_MIX.ADDR_ROUTE[0].i0  0
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].i1 0
+		NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].i1 1
+
+	[Parameter Settings for Instance(s): mult1, mult2, mult3, mult4]
+	(Module: multiply)
+		BIT_WIDTH                 32'b00000000000000000000000000010000
+
+	[Parameter Settings for Instance(s): NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0]
+	(Module: ramdualpt_ipgen_lscc_ram_dp_core)
+		_FCODE_LIFCL_             1
+		_FCODE_ICE_               2
+		_FCODE_AP6_               3
+		_FCODE_COMMON_            0
+		MEM_ID                    "ramdualpt"
+		MEM_SIZE                  "16,512"
+		FAMILY                    "iCE40UP"
+		FAMILY_CODE               2
+		DATA_WIDTH_W              32'b00000000000000000000000000001000
+		ADDR_WIDTH_W              32'b00000000000000000000000000001001
+		DATA_WIDTH_R              32'b00000000000000000000000000001000
+		ADDR_WIDTH_R              32'b00000000000000000000000000001001
+		REGMODE                   "reg"
+		GSR                       "enabled"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "binary"
+		INIT_DATA                 "DYNAMIC"
+		INIT_MODE                 "none"
+		BYTE_ENABLE               1'b0
+		BYTE_WIDTH                1
+		ECC_ENABLE                0
+		CSDECODE_W                0
+		CSDECODE_R                0
+		OPTIMIZATION              "speed"
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		POSx                      32'b00000000000000000000000000000000
+		POSy                      32'b00000000000000000000000000000000
+		STRING_SIZE               32'b00000000000000000000000000101000
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		POS_X0                    32'b00000000000000000000000000000000
+		POS_X1                    32'b00000000000000000000000000000000
+		POS_X2                    32'b00000000000000000000000000000000
+		POS_X3                    32'b00000000000000000000000000000000
+		POS_X4                    32'b00000000000000000000000000000000
+		POS_X5                    32'b00000000000000000000000000000000
+		POS_X6                    32'b00000000000000000000000000000000
+		POS_X7                    32'b00000000000000000000000000000000
+		POS_Y0                    32'b00000000000000000000000000000000
+		POS_Y1                    32'b00000000000000000000000000000000
+		POS_Y2                    32'b00000000000000000000000000000000
+		POS_Y3                    32'b00000000000000000000000000000000
+		POS_Y4                    32'b00000000000000000000000000000000
+		POS_Y5                    32'b00000000000000000000000000000000
+		POS_Y6                    32'b00000000000000000000000000000000
+		POS_Y7                    32'b00000000000000000000000000000000
+		NUM_STRING                "9876543210"
+		BLOCK_POS                 "[0,0]"
+		BLOCK_SIZE                "[8,2048]"
+		ICE_MEM.R                 "8"
+		ICE_MEM.W                 "8"
+		ICE_MEM.X_T0              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T1              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T2              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T3              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T4              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T5              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T6              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T7              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T8              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T9              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TA              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TB              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TC              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TD              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TE              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TF              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X0                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X1                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X2                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X3                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X4                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X5                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X6                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X7                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X8                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X9                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XA                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XB                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XC                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XD                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XE                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XF                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.genblk1[0].i0     0
+		ICE_MEM.genblk1[1].i0     1
+		ICE_MEM.genblk1[2].i0     2
+		ICE_MEM.genblk1[3].i0     3
+		ICE_MEM.genblk1[4].i0     4
+		ICE_MEM.genblk1[5].i0     5
+		ICE_MEM.genblk1[6].i0     6
+		ICE_MEM.genblk1[7].i0     7
+		ICE_MEM.genblk1[8].i0     8
+		ICE_MEM.genblk1[9].i0     9
+		ICE_MEM.genblk1[10].i0    10
+		ICE_MEM.genblk1[11].i0    11
+		ICE_MEM.genblk1[12].i0    12
+		ICE_MEM.genblk1[13].i0    13
+		ICE_MEM.genblk1[14].i0    14
+		ICE_MEM.genblk1[15].i0    15
+
+	[Parameter Settings for Instance(s): NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0]
+	(Module: ramdualpt_ipgen_lscc_ram_dp_core)
+		_FCODE_LIFCL_             1
+		_FCODE_ICE_               2
+		_FCODE_AP6_               3
+		_FCODE_COMMON_            0
+		MEM_ID                    "ramdualpt"
+		MEM_SIZE                  "16,512"
+		FAMILY                    "iCE40UP"
+		FAMILY_CODE               2
+		DATA_WIDTH_W              32'b00000000000000000000000000001000
+		ADDR_WIDTH_W              32'b00000000000000000000000000001001
+		DATA_WIDTH_R              32'b00000000000000000000000000001000
+		ADDR_WIDTH_R              32'b00000000000000000000000000001001
+		REGMODE                   "reg"
+		GSR                       "enabled"
+		RESETMODE                 "sync"
+		RESET_RELEASE             "sync"
+		INIT_FILE                 "none"
+		INIT_FILE_FORMAT          "binary"
+		INIT_DATA                 "DYNAMIC"
+		INIT_MODE                 "none"
+		BYTE_ENABLE               1'b0
+		BYTE_WIDTH                1
+		ECC_ENABLE                0
+		CSDECODE_W                0
+		CSDECODE_R                0
+		OPTIMIZATION              "speed"
+		OUTPUT_CLK_EN             0
+		BYTE_ENABLE_POL           "active-high"
+		POSx                      32'b00000000000000000000000000001000
+		POSy                      32'b00000000000000000000000000000000
+		STRING_SIZE               32'b00000000000000000000000000101000
+		INIT_VALUE_00             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_01             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_02             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_03             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_04             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_05             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_06             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_07             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_08             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_09             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_0F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_10             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_11             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_12             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_13             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_14             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_15             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_16             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_17             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_18             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_19             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_1F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_20             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_21             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_22             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_23             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_24             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_25             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_26             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_27             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_28             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_29             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_2F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_30             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_31             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_32             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_33             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_34             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_35             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_36             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_37             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_38             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_39             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_3F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_40             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_41             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_42             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_43             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_44             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_45             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_46             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_47             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_48             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_49             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_4F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_50             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_51             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_52             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_53             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_54             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_55             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_56             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_57             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_58             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_59             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_5F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_60             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_61             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_62             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_63             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_64             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_65             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_66             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_67             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_68             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_69             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_6F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_70             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_71             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_72             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_73             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_74             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_75             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_76             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_77             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_78             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_79             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7A             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7B             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7C             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7D             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7E             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		INIT_VALUE_7F             "0x0000000000000000000000000000000000000000000000000000000000000000"
+		POS_X0                    32'b00000000000000000000000000001000
+		POS_X1                    32'b00000000000000000000000000000000
+		POS_X2                    32'b00000000000000000000000000000000
+		POS_X3                    32'b00000000000000000000000000000000
+		POS_X4                    32'b00000000000000000000000000000000
+		POS_X5                    32'b00000000000000000000000000000000
+		POS_X6                    32'b00000000000000000000000000000000
+		POS_X7                    32'b00000000000000000000000000000000
+		POS_Y0                    32'b00000000000000000000000000000000
+		POS_Y1                    32'b00000000000000000000000000000000
+		POS_Y2                    32'b00000000000000000000000000000000
+		POS_Y3                    32'b00000000000000000000000000000000
+		POS_Y4                    32'b00000000000000000000000000000000
+		POS_Y5                    32'b00000000000000000000000000000000
+		POS_Y6                    32'b00000000000000000000000000000000
+		POS_Y7                    32'b00000000000000000000000000000000
+		NUM_STRING                "9876543210"
+		BLOCK_POS                 "[8,0]"
+		BLOCK_SIZE                "[8,2048]"
+		ICE_MEM.R                 "8"
+		ICE_MEM.W                 "8"
+		ICE_MEM.X_T0              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T1              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T2              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T3              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T4              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T5              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T6              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T7              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T8              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_T9              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TA              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TB              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TC              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TD              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TE              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X_TF              "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X0                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X1                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X2                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X3                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X4                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X5                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X6                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X7                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X8                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.X9                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XA                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XB                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XC                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XD                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XE                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.XF                "0x0000000000000000000000000000000000000000000000000000000000000000"
+		ICE_MEM.genblk1[0].i0     0
+		ICE_MEM.genblk1[1].i0     1
+		ICE_MEM.genblk1[2].i0     2
+		ICE_MEM.genblk1[3].i0     3
+		ICE_MEM.genblk1[4].i0     4
+		ICE_MEM.genblk1[5].i0     5
+		ICE_MEM.genblk1[6].i0     6
+		ICE_MEM.genblk1[7].i0     7
+		ICE_MEM.genblk1[8].i0     8
+		ICE_MEM.genblk1[9].i0     9
+		ICE_MEM.genblk1[10].i0    10
+		ICE_MEM.genblk1[11].i0    11
+		ICE_MEM.genblk1[12].i0    12
+		ICE_MEM.genblk1[13].i0    13
+		ICE_MEM.genblk1[14].i0    14
+		ICE_MEM.genblk1[15].i0    15
+
+[Parameter Setting Section End]
+WARNING <35001771> - synthesis: Initial value found on net gnd_2 will be ignored due to unrecognized driver type
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/treblerom.sv(13): ram clef_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(9): ram whole_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(10): ram whole_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(11): ram half_up_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(12): ram half_up_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(13): ram half_down_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(14): ram half_down_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(15): ram quarter_up_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(16): ram quarter_up_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(17): ram quarter_down_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(18): ram quarter_down_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(19): ram eighth_up_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(20): ram eighth_up_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(21): ram eighth_down_bitmap_original_ramnet has no write-port on it. VDB-1038
+WARNING <35931038> - synthesis: c:/users/user/desktop/proj_spi/proj_spi/source/impl_1/note_rom.sv(22): ram eighth_down_sharp_bitmap_original_ramnet has no write-port on it. VDB-1038
+######## Missing driver on net duration. Patching with GND.
+WARNING <35935040> - synthesis: Register \spi_inst/miso clock is stuck at Zero. VDB-5040
+INFO <35001774> - synthesis: Extracted state machine for register '\fft_ctrl_inst/state' with one-hot encoding
+State machine has 3 reachable states with original encodings of:
+
+ 00 
+
+ 01 
+
+ 10 
+
+original encoding -> new encoding (one-hot encoding)
+
+ 00 -> 001
+
+ 01 -> 010
+
+ 10 -> 100
+
+
+
+
+CRITICAL <35001747> - synthesis: Bit(s) of register \fft_ctrl_inst/state_FSM stuck at '0': 3
+CRITICAL <35001747> - synthesis: Bit(s) of register driving \fft_ctrl_inst/fftfull/frequency[16:0] stuck at '0': 16, 15, 14, 13
+######## Missing driver on net n1070. Patching with GND.
+######## Missing driver on net n1073. Patching with GND.
+######## Missing driver on net n1076. Patching with GND.
+######## Missing driver on net n1079. Patching with GND.
+######## Missing driver on net n1082. Patching with GND.
+######## Missing driver on net n1085. Patching with GND.
+######## Missing driver on net n1088. Patching with GND.
+######## Missing driver on net n1091. Patching with GND.
+######## Missing driver on net n1094. Patching with GND.
+######## Missing driver on net n1097. Patching with GND.
+######## Missing driver on net n1100. Patching with GND.
+######## Missing driver on net n1103. Patching with GND.
+######## Missing driver on net n1106. Patching with GND.
+######## Missing driver on net n1109. Patching with GND.
+######## Missing driver on net n1112. Patching with GND.
+######## Missing driver on net n1115. Patching with GND.
+######## Missing driver on net n1118. Patching with GND.
+######## Missing driver on net n1121. Patching with GND.
+######## Missing driver on net n1124. Patching with GND.
+######## Missing driver on net n1127. Patching with GND.
+CRITICAL <35002028> - synthesis: I/O port's net has no driver and is unused: mosi
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/current_x_pos_i0 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/current_x_pos_i2 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/current_x_pos_i1 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i2 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i3 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i4 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i5 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i6 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i7 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i8 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i9 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i10 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i11 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i12 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i13 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i14 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i15 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i16 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i17 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i18 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i19 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i20 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i21 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i22 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i23 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i24 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i25 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i26 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i27 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i28 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i102 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i101 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i100 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i91 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i90 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i89 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i80 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i79 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i78 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i69 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i68 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i67 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i58 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i57 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i56 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i29 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i30 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i31 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i36 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i37 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i38 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i39 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i40 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i47 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i46 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i45 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i36 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i35 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i34 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i25 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i24 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i23 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i32 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i33 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i14 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i13 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i34 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i35 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i12 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i3 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i2 clock is stuck at One. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_x[9]__i1 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_duration[9]__i1 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s1_i2 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s1_i3 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s1_i4 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s1_i5 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s2_i2 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s2_i3 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s2_i4 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_type_s2_i5 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d1_i2 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d1_i3 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d1_i4 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d1_i5 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d2_i2 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d2_i3 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d2_i4 clock is stuck at Zero. VDB-5040
+WARNING <35935040> - synthesis: Register \vgatop_inst/score/note_rom_inst/note_type_d2_i5 clock is stuck at Zero. VDB-5040
+
+
+<A name="lse_area"></A><B><U><big>Area Report</big></U></B>
+
+################### Begin Area Report (top)######################
+Number of register bits => 675 of 5280 (12 % )
+EBR_B => 10
+CCU2 => 266
+FD1P3XZ => 675
+HSOSC_CORE => 1
+IB => 3
+LUT4 => 1589
+MAC16 => 4
+OB => 6
+PLL_B => 1
+################### End Area Report ##################
+Number of odd-length carry chains : 13
+Number of even-length carry chains : 33
+
+
+<A name="lse_clock"></A><B><U><big>Clock Report</big></U></B>
+
+################### Begin Clock Report ######################
+Clock Nets
+Number of Clocks: 3
+  Net : clk, loads : 1
+  Net : sclk_c, loads : 0
+  Net : vgatop_inst/pllclk/pll_clk_internal, loads : 0
+Clock Enable Nets
+Number of Clock Enables: 0
+Highest fanout non-clock nets
+Top 10 highest fanout non-clock nets:
+  Net : fft_ctrl_inst/clk_adj_2358, loads : 404
+  Net : fft_ctrl_inst/fftfull/fft/addctrl_inst/addgen/reset_c_N_1796, loads : 211
+  Net : reset_c, loads : 164
+  Net : fft_ctrl_inst/fft_load_d2, loads : 115
+  Net : vgatop_inst/score/clef_rom/addr_d2[3], loads : 107
+  Net : vgatop_inst/score/clef_rom/addr_d2[2], loads : 101
+  Net : vgatop_inst/score/clef_rom/addr_d2[1], loads : 92
+  Net : vgatop_inst/score/clef_rom/addr_d2[4], loads : 84
+  Net : fft_ctrl_inst/fftfull/fftdec/n110, loads : 83
+  Net : vgatop_inst/score/clef_rom/addr_d2[0], loads : 77
+################### End Clock Report ##################
+
+
+<A name="lse_constraint"></A><B><U><big>Constraint Report</big></U></B>
+
+################### Begin Constraint Report ######################
+Constraint Summary:
+  Total number of constraints: 0
+  Total number of constraints dropped: 0
+###################  End Constraint Report  ######################
+
+Peak Memory Usage: 246 MB
+
+--------------------------------------------------------------
+Total CPU Time: 15 secs 
+Total REAL Time: 15 secs 
+--------------------------------------------------------------
+Checksum -- synthesis -- netlist: 54fb657b5cbc8f5820ad0d94629e3d523e544cbd
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></DIV>
+
+<DIV id="toc" class="radiant"><span onmousemove="showTocList()">Contents</span>
+<UL id="toc_list">
+<LI><A href=#Syn>Top</A></LI>
+<LI><A href=#lse_parameter>Parameter Setting</A></LI>
+<LI><A href=#lse_area>Area Report</A></LI>
+<LI><A href=#lse_clock>Clock Report</A></LI>
+<LI><A href=#lse_constraint>Constraint Report</A></LI>
+</UL>
+</DIV>
+
+<button id="back_to_top" class="radiant" onclick="scrollToTop()">&lt;</button>
+<script type="text/javascript">
+<!--
+var scrollStep = 0;
+function scrollToTop(){
+  var funScroll = function() {
+    var top = document.body.scrollTop;
+    if (top == 0) {
+      scrollStep = 0;
+      return;
+    }
+    if (scrollStep == 0)
+      scrollStep = top/20 + 1;
+    top -= scrollStep;
+    if (top < 0)
+      top = 0;
+    document.body.scrollTop = top;
+    requestAnimationFrame(funScroll);
+  };
+  funScroll();
+}
+
+window.addEventListener('scroll', function(e) {
+  var backToTop = document.getElementById('back_to_top')
+  if (document.body.scrollTop > 0) {
+    backToTop.style.display = 'block';
+  } else {	backToTop.style.display = 'none'  }});
+
+//-->
+</script>
+
+<style type="text/css">
+#back_to_top {
+  bottom:20px; right:20px;
+  width:30px; height:30px;
+  font-size: 20px;
+  padding: 2px 5px 2px 5px;
+  position:fixed;
+  background-color:rgba(210,210,210,0.1);
+  border-style: solid;
+  border-color: rgba(192,192,192,0.8);
+  border-width:1px;
+  display:none;
+  -webkit-transform: rotate(90deg);
+  -webkit-transform-origin:50% 50%;
+}
+#back_to_top:focus {
+  outline-width:0px;
+}
+</style>
+
+</BODY>
+

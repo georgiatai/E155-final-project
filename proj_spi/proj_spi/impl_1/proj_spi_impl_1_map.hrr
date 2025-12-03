@@ -1,0 +1,430 @@
+---------------------------------------------------
+Report for cell top
+   Instance path: top
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	       2338        100.0
+                               LUTGATE	       1806        100.0
+                                LUTCCU	        532        100.0
+                                 IOBUF	          9        100.0
+                                PFUREG	        675        100.0
+                                   EBR	         10        100.0
+                                   DSP	          4        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+fft_ctrl(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000)	          1        44.6
+              spi(SPI_WIDTH=32'b01000)	          1         0.3
+                                vgatop	          1        43.0
+---------------------------------------------------
+Report for cell fft_ctrl(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000)
+   Instance path: top/fft_ctrl_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	       1042        44.6
+                               LUTGATE	        824        45.6
+                                LUTCCU	        218        41.0
+                                PFUREG	        387        57.3
+                                   EBR	         10        100.0
+                                   DSP	          4        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+fftfull(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000)	          1        42.2
+---------------------------------------------------
+Report for cell fftfull(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000)
+   Instance path: top/fft_ctrl_inst/fftfull
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        986        42.2
+                               LUTGATE	        788        43.6
+                                LUTCCU	        198        37.2
+                                PFUREG	        329        48.7
+                                   EBR	         10        100.0
+                                   DSP	          4        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+fft(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000)	          1        27.5
+fftdec(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000)	          1        11.3
+         freqLUT(BIT_WIDTH=32'b010000)	          1         3.4
+---------------------------------------------------
+Report for cell freqLUT(BIT_WIDTH=32'b010000)
+   Instance path: top/fft_ctrl_inst/fftfull/freqLUT
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         79         3.4
+                               LUTGATE	         79         4.4
+---------------------------------------------------
+Report for cell fftdec(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000,FS=32'b01001110001000)
+   Instance path: top/fft_ctrl_inst/fftfull/fftdec
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        264        11.3
+                               LUTGATE	        204        11.3
+                                LUTCCU	         60        11.3
+                                PFUREG	        106        15.7
+                                   DSP	          2        50.0
+---------------------------------------------------
+Report for cell fft(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000)
+   Instance path: top/fft_ctrl_inst/fftfull/fft
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        643        27.5
+                               LUTGATE	        505        28.0
+                                LUTCCU	        138        25.9
+                                PFUREG	        223        33.0
+                                   EBR	         10        100.0
+                                   DSP	          2        50.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+addctrl(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000)	          1         9.0
+       butterfly(BIT_WIDTH=32'b010000)	          1         3.8
+                             ramdualpt	          1         0.9
+                         ramdualpt_U13	          1         0.7
+                         ramdualpt_U14	          1         0.8
+                         ramdualpt_U15	          1         0.7
+                            twiddleLUT	          1         1.5
+---------------------------------------------------
+Report for cell twiddleLUT
+   Instance path: top/fft_ctrl_inst/fftfull/fft/twiddle_lut
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         34         1.5
+                               LUTGATE	         16         0.9
+                                LUTCCU	         18         3.4
+                                   EBR	          2        20.0
+---------------------------------------------------
+Report for cell ramdualpt
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_b_bfa
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         20         0.9
+                               LUTGATE	         20         1.1
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)	          1         0.9
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         20         0.9
+                               LUTGATE	         20         1.1
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)	          1         0.9
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         20         0.9
+                               LUTGATE	         20         1.1
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)	          1         0.4
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)	          1         0.4
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         10         0.4
+                               LUTGATE	         10         0.6
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         10         0.4
+                               LUTGATE	         10         0.6
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_U13
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_a_bfa
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         16         0.7
+                               LUTGATE	         16         0.9
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U10	          1         0.7
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U10
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         16         0.7
+                               LUTGATE	         16         0.9
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U6	          1         0.7
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U6
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         16         0.7
+                               LUTGATE	         16         0.9
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U1	          1         0.3
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U0	          1         0.3
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U0
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          8         0.3
+                               LUTGATE	          8         0.4
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U1
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          8         0.3
+                               LUTGATE	          8         0.4
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_U14
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_b_bfa
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         18         0.8
+                               LUTGATE	         18         1.0
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U11	          1         0.8
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U11
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         18         0.8
+                               LUTGATE	         18         1.0
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U7	          1         0.8
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U7
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         18         0.8
+                               LUTGATE	         18         1.0
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3	          1         0.4
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2	          1         0.4
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U2
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          9         0.4
+                               LUTGATE	          9         0.5
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U3
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          9         0.4
+                               LUTGATE	          9         0.5
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_U15
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_a_bfa
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         16         0.7
+                               LUTGATE	         16         0.9
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12	          1         0.7
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U12
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         16         0.7
+                               LUTGATE	         16         0.9
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U8	          1         0.7
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_main(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",WADDR_DEPTH=512,WADDR_WIDTH=9,WDATA_WIDTH=16,RADDR_DEPTH=512,RADDR_WIDTH=9,RDATA_WIDTH=16,INIT_FILE_FORMAT="hex",BYTE_ENABLE=0,BYTE_SIZE=8,BYTE_WIDTH=1)_U8
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         16         0.7
+                               LUTGATE	         16         0.9
+                                PFUREG	         16         2.4
+                                   EBR	          2        20.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U5	          1         0.3
+ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U4	          1         0.3
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b01000,POSy=32'b0)_U4
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          8         0.3
+                               LUTGATE	          8         0.4
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell ramdualpt_ipgen_lscc_ram_dp_core(MEM_ID="ramdualpt",MEM_SIZE="16,512",FAMILY="iCE40UP",DATA_WIDTH_W=32'b01000,DATA_WIDTH_R=32'b01000,BYTE_ENABLE=1'b0,POSx=32'b0,POSy=32'b0)_U5
+   Instance path: top/fft_ctrl_inst/fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NON_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          8         0.3
+                               LUTGATE	          8         0.4
+                                PFUREG	          8         1.2
+                                   EBR	          1        10.0
+---------------------------------------------------
+Report for cell butterfly(BIT_WIDTH=32'b010000)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/butterfly_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         88         3.8
+                               LUTGATE	         18         1.0
+                                LUTCCU	         70        13.2
+                                   DSP	          2        50.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+       cmplxmult(BIT_WIDTH=32'b010000)	          1         1.6
+---------------------------------------------------
+Report for cell cmplxmult(BIT_WIDTH=32'b010000)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/butterfly_inst/tw_mult
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         38         1.6
+                               LUTGATE	          2         0.1
+                                LUTCCU	         36         6.8
+                                   DSP	          2        50.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+        multiply(BIT_WIDTH=32'b010000)	          1         1.6
+     multiply(BIT_WIDTH=32'b010000)_U9	          1         0.0
+---------------------------------------------------
+Report for cell multiply(BIT_WIDTH=32'b010000)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/butterfly_inst/tw_mult/mult3
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         38         1.6
+                               LUTGATE	          2         0.1
+                                LUTCCU	         36         6.8
+                                   DSP	          1        25.0
+---------------------------------------------------
+Report for cell multiply(BIT_WIDTH=32'b010000)_U9
+   Instance path: top/fft_ctrl_inst/fftfull/fft/butterfly_inst/tw_mult/mult2
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   DSP	          1        25.0
+---------------------------------------------------
+Report for cell addctrl(BIT_WIDTH=32'b010000,N=32'b01001,FFT_SIZE=32'b01000000000)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/addctrl_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        211         9.0
+                               LUTGATE	        171         9.5
+                                LUTCCU	         40         7.5
+                                PFUREG	         43         6.4
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+addgen(BIT_WIDTH=32'b010000,level=32'b01001,FFT_SIZE=32'b01000000000)	          1         7.3
+---------------------------------------------------
+Report for cell addgen(BIT_WIDTH=32'b010000,level=32'b01001,FFT_SIZE=32'b01000000000)
+   Instance path: top/fft_ctrl_inst/fftfull/fft/addctrl_inst/addgen
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        170         7.3
+                               LUTGATE	        140         7.8
+                                LUTCCU	         30         5.6
+                                PFUREG	         34         5.0
+---------------------------------------------------
+Report for cell spi(SPI_WIDTH=32'b01000)
+   Instance path: top/spi_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          6         0.3
+                               LUTGATE	          6         0.3
+                                PFUREG	          4         0.6
+---------------------------------------------------
+Report for cell vgatop
+   Instance path: top/vgatop_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	       1006        43.0
+                               LUTGATE	        704        39.0
+                                LUTCCU	        302        56.8
+                                PFUREG	        284        42.1
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                            musicscore	          1        40.1
+   pllclk(DIVR="0",DIVF="16",DIVQ="5")	          1         0.0
+                               vgactrl	          1         2.9
+---------------------------------------------------
+Report for cell vgactrl
+   Instance path: top/vgatop_inst/vgactrl
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         67         2.9
+                               LUTGATE	         43         2.4
+                                LUTCCU	         24         4.5
+                                PFUREG	         21         3.1
+---------------------------------------------------
+Report for cell musicscore
+   Instance path: top/vgatop_inst/score
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        938        40.1
+                               LUTGATE	        660        36.5
+                                LUTCCU	        278        52.3
+                                PFUREG	        263        39.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                             treblerom	          1        10.1
+---------------------------------------------------
+Report for cell treblerom
+   Instance path: top/vgatop_inst/score/clef_rom
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	        236        10.1
+                               LUTGATE	        236        13.1
+                                PFUREG	         28         4.1
+---------------------------------------------------
+Report for cell pllclk(DIVR="0",DIVF="16",DIVQ="5")
+   Instance path: top/vgatop_inst/pllclk
+                     Cell usage:
+                                  cell	      count    Res Usage(%)

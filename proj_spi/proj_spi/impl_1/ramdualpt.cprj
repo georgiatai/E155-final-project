@@ -1,0 +1,8 @@
+-ver "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2025.1/ip/pmi/pmi_iCE40UP.vhd"
+-ver "C:/Users/User/Desktop/proj_spi/proj_spi/ramdualpt/rtl/ramdualpt.v"
+-sdc "C:/Users/User/Desktop/proj_spi/proj_spi/ramdualpt/constraints/ramdualpt.ldc"
+-path "C:/Users/User/Desktop/proj_spi/proj_spi/ramdualpt" "C:/Users/User/Desktop/proj_spi/proj_spi"
+-top ramdualpt
+-a "iCE40UP"
+-t "iCE40UP5K"

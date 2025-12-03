@@ -1,0 +1,406 @@
+
+                         Lattice Mapping Report File
+
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:  High-Performance_1.2V
+
+Mapper:    version Radiant Software (64-bit) 2025.1.0.39.0
+Mapped on: Wed Dec  3 11:01:09 2025
+
+Design Information
+------------------
+
+Command line:   map -pdc C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc -i
+     proj_spi_impl_1_syn.udb -o proj_spi_impl_1_map.udb -mp proj_spi_impl_1.mrp
+     -hierrpt -gui -msgset C:/Users/User/Desktop/proj_spi/proj_spi/promote.xml
+
+Design Summary
+--------------
+
+   Number of slice registers: 675 out of  5280 (13%)
+   Number of I/O registers:      0 out of   117 (0%)
+   Number of LUT4s:           2338 out of  5280 (44%)
+      Number of logic LUT4s:             1592
+      Number of inserted feedthru LUT4s: 213
+      Number of replicated LUT4s:          1
+      Number of ripple logic:            266 (532 LUT4s)
+   Number of IO sites used:   9 out of 39 (23%)
+      Number of IO sites used for general PIO: 9
+      Number of IO sites used for I3C: 0 out of 2 (0%)
+      (note: If I3C is not used, its site can be used as general PIO)
+      Number of IO sites used for PIO+I3C: 9 out of 36 (25%)
+      Number of IO sites used for OD+RGB IO buffers: 0 out of 3 (0%)
+      (note: If RGB LED drivers are not used, sites can be used as OD outputs,
+       see TN1288 iCE40 LED Driver Usage Guide)
+      Number of IO sites used for PIO+I3C+OD+RGB: 9 out of 39 (23%)
+   Number of DSPs:             4 out of 8 (50%)
+   Number of I2Cs:             0 out of 2 (0%)
+   Number of High Speed OSCs:  1 out of 1 (100%)
+   Number of Low Speed OSCs:   0 out of 1 (0%)
+   Number of RGB PWM:          0 out of 1 (0%)
+   Number of RGB Drivers:      0 out of 1 (0%)
+   Number of SCL FILTERs:      0 out of 2 (0%)
+   Number of SRAMs:            0 out of 4 (0%)
+   Number of WARMBOOTs:        0 out of 1 (0%)
+   Number of SPIs:             0 out of 2 (0%)
+   Number of EBRs:             10 out of 30 (33%)
+   Number of PLLs:             1 out of 1 (100%)
+   Number of Clocks:  4
+      Net clk: 3 loads, 3 rising, 0 falling (Driver: Pin hf_osc/CLKHF)
+      Net fft_ctrl_inst.clk_adj_2358: 381 loads, 381 rising, 0 falling (Driver:
+     Pin fft_ctrl_inst.clk_div_counter_2147__i2/Q)
+      Net sclk_c: 4 loads, 4 rising, 0 falling (Driver: Port sclk)
+      Net vgatop_inst.pll_clk_internal: 276 loads, 276 rising, 0 falling
+     (Driver: Pin vgatop_inst.pllclk.u_pll/OUTGLOBAL)
+   Number of Clock Enables:  29
+      Net VCC_net: 7 loads, 0 SLICEs
+      Pin reset: 16 loads, 0 SLICEs (Net: reset_c)
+      Net n13853: 32 loads, 32 SLICEs
+      Net n13679: 5 loads, 5 SLICEs
+
+                                    Page 1
+
+
+
+
+
+Design Summary (cont)
+---------------------
+      Net n13861: 5 loads, 5 SLICEs
+      Net n13722: 3 loads, 3 SLICEs
+      Net n13816: 54 loads, 54 SLICEs
+      Net n13767: 50 loads, 50 SLICEs
+      Net n13697: 9 loads, 9 SLICEs
+      Net n13688: 9 loads, 9 SLICEs
+      Net fft_ctrl_inst.n32293: 1 loads, 1 SLICEs
+      Net fft_ctrl_inst.fftfull.fftdec.n13742: 7 loads, 7 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.read_sel_N_1821: 4 loads, 0 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.read_sel: 4 loads, 0 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.mem_write1: 4 loads, 0 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.mem_write0: 4 loads, 0 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.addctrl_inst.addgen.n14445: 9 loads, 9
+     SLICEs
+      Net fft_ctrl_inst.fftfull.fft.addctrl_inst.addgen.n14442: 5 loads, 5
+     SLICEs
+      Net vgatop_inst.vgactrl.n21: 10 loads, 10 SLICEs
+      Net vgatop_inst.score.n13328: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13317: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13321: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13323: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13324: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13325: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13329: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13330: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13331: 8 loads, 8 SLICEs
+      Net vgatop_inst.score.n13332: 8 loads, 8 SLICEs
+   Number of LSRs:  7
+      Net reset_c_N_1796: 204 loads, 204 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.n76: 5 loads, 5 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.addctrl_inst.addgen.n22: 14 loads, 14 SLICEs
+      Net fft_ctrl_inst.fftfull.fft.addctrl_inst.addgen.n13356: 12 loads, 12
+     SLICEs
+      Net spi_inst.n763: 3 loads, 3 SLICEs
+      Net vgatop_inst.n6_adj_2233: 72 loads, 72 SLICEs
+      Net vgatop_inst.score.n13357: 9 loads, 9 SLICEs
+   Top 10 highest fanout non-clock nets:
+      Net reset_c_N_1796: 204 loads
+      Net reset_c: 167 loads
+      Net fft_load_d2: 116 loads
+      Net vgatop_inst.score.clef_rom.addr_d2[3]: 111 loads
+      Net vgatop_inst.score.clef_rom.addr_d2[2]: 105 loads
+      Net vgatop_inst.score.clef_rom.addr_d2[1]: 93 loads
+      Net n110: 85 loads
+      Net vgatop_inst.score.clef_rom.addr_d2[4]: 85 loads
+      Net vgatop_inst.score.clef_rom.addr_d2[0]: 78 loads
+      Net vgatop_inst.n6_adj_2233: 73 loads
+
+
+
+
+
+   Number of warnings:  42
+   Number of criticals: 0
+   Number of errors:    0
+
+
+
+
+                                    Page 2
+
+
+
+
+
+Design Errors/Criticals/Warnings
+--------------------------------
+
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (3) :
+     No port matched 'fft_start_posedge'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (6) :
+     No port matched 'received_wd'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (7) :
+     No port matched 'sample_in[0]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (8) :
+     No port matched 'sample_in[1]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (9) :
+     No port matched 'sample_in[2]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (10) :
+     No port matched 'sample_in[3]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (11) :
+     No port matched 'sample_in[4]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (12) :
+     No port matched 'sample_in[5]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (13) :
+     No port matched 'sample_in[6]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (14) :
+     No port matched 'sample_in[7]'.
+WARNING <1027013> - map: No port matched 'fft_start_posedge'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (3) :
+     Can't resolve object 'fft_start_posedge' in constraint 'ldc_set_location
+     -site {6} [get_ports fft_start_posedge]'.
+WARNING <1027013> - map: No port matched 'received_wd'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (6) :
+     Can't resolve object 'received_wd' in constraint 'ldc_set_location -site
+     {28} [get_ports received_wd]'.
+WARNING <1027013> - map: No port matched 'sample_in[0]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (7) :
+     Can't resolve object 'sample_in[0]' in constraint 'ldc_set_location -site
+     {20} [get_ports {sample_in[0]}]'.
+WARNING <1027013> - map: No port matched 'sample_in[1]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (8) :
+     Can't resolve object 'sample_in[1]' in constraint 'ldc_set_location -site
+     {12} [get_ports {sample_in[1]}]'.
+WARNING <1027013> - map: No port matched 'sample_in[2]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (9) :
+     Can't resolve object 'sample_in[2]' in constraint 'ldc_set_location -site
+     {13} [get_ports {sample_in[2]}]'.
+WARNING <1027013> - map: No port matched 'sample_in[3]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (10) :
+     Can't resolve object 'sample_in[3]' in constraint 'ldc_set_location -site
+     {18} [get_ports {sample_in[3]}]'.
+WARNING <1027013> - map: No port matched 'sample_in[4]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (11) :
+     Can't resolve object 'sample_in[4]' in constraint 'ldc_set_location -site
+     {9} [get_ports {sample_in[4]}]'.
+WARNING <1027013> - map: No port matched 'sample_in[5]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (12) :
+     Can't resolve object 'sample_in[5]' in constraint 'ldc_set_location -site
+     {44} [get_ports {sample_in[5]}]'.
+WARNING <1027013> - map: No port matched 'sample_in[6]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (13) :
+     Can't resolve object 'sample_in[6]' in constraint 'ldc_set_location -site
+     {3} [get_ports {sample_in[6]}]'.
+
+                                    Page 3
+
+
+
+
+
+Design Errors/Criticals/Warnings (cont)
+---------------------------------------
+WARNING <1027013> - map: No port matched 'sample_in[7]'.
+WARNING <1026001> - map: C:/Users/User/Desktop/proj_spi/proj_spi/pin.pdc (14) :
+     Can't resolve object 'sample_in[7]' in constraint 'ldc_set_location -site
+     {45} [get_ports {sample_in[7]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {6}
+     [get_ports fft_start_posedge]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {28}
+     [get_ports received_wd]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {20}
+     [get_ports {sample_in[0]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {12}
+     [get_ports {sample_in[1]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {13}
+     [get_ports {sample_in[2]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {18}
+     [get_ports {sample_in[3]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {9}
+     [get_ports {sample_in[4]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {44}
+     [get_ports {sample_in[5]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {3}
+     [get_ports {sample_in[6]}]'.
+WARNING <1011001> - map: Remove invalid constraint 'ldc_set_location -site {45}
+     [get_ports {sample_in[7]}]'.
+WARNING <71003020> - map: Top module port 'mosi' does not connect to anything.
+WARNING <71003020> - map: Top module port 'mosi' does not connect to anything.
+
+IO (PIO) Attributes
+-------------------
+
++---------------------+-----------+-----------+-------+-------+-----------+
+| IO Name             | Direction | Levelmode |  IO   |  IO   | Special   |
+|                     |           |  IO_TYPE  |  REG  |  DDR  | IO Buffer |
++---------------------+-----------+-----------+-------+-------+-----------+
+| sclk                | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| reset               | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[0]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[1]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| rgb[2]              | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| vsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| hsync               | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| miso                | OUTPUT    |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+| cs                  | INPUT     |           |       |       |           |
++---------------------+-----------+-----------+-------+-------+-----------+
+
+PLL/DLL Summary
+---------------
+
+PLL 1:                                 Pin/Node Value
+
+                                    Page 4
+
+
+
+
+
+PLL/DLL Summary (cont)
+----------------------
+  PLL Instance Name:                            vgatop_inst/pllclk/u_pll
+  Input Reference Clock:               NODE     clk
+  Output Clock(CoreA):                          NONE
+  Output Clock(GlobalA):               NODE     vgatop_inst.pll_clk_internal
+  Output Clock(CoreB):                          NONE
+  Output Clock(GlobalB):                        NONE
+  Feedback input:                      NODE     vgatop_inst.pllclk.intfbout_wire
+  Internal Feedback output:            NODE     vgatop_inst.pllclk.intfbout_wire
+  BYPASS signal:                                GND
+  LATCH signal:                                 GND
+  Lock Signal:                         NODE     sig_000.FeedThruLUT
+  Input Clock Frequency (MHz):                  NA
+  Reference Divider:                            0
+  Feedback Divider:                             16
+  VCO Divider:                                  5
+  ENABLE_ICEGATE_PORTA:                         0
+  ENABLE_ICEGATE_PORTB:                         0
+  PLLOUT_SELECT_PORTA:                          GENCLK
+  PLLOUT_SELECT_PORTB:                          GENCLK
+  SHIFTREG_DIV_MODE:                            0
+  DELAY_ADJUSTMENT_MODE_RELATIVE:               FIXED
+  FDA_RELATIVE:                                 0
+  FEEDBACK_PATH:                                SIMPLE
+  DELAY_ADJUSTMENT_MODE_FEEDBACK:               FIXED
+  FDA_FEEDBACK:                                 0
+  FILTER_RANGE:                                 1
+  EXTERNAL_DIVIDE_FACTOR:                       NONE
+  TEST Mode:                                    0
+
+OSC Summary
+-----------
+
+OSC 1:                                 Pin/Node Value
+  OSC Instance Name:                            hf_osc
+  Power UP:                            NODE     VCC_net
+  Enable Signal:                       NODE     VCC_net
+  OSC Output:                          NODE     clk
+  DIV Setting:                                  00
+
+ASIC Components
+---------------
+
+Instance Name: hf_osc
+         Type: HFOSC
+Instance Name: fft_ctrl_inst/fftfull/fftdec/mult_3
+         Type: DSP
+Instance Name: fft_ctrl_inst/fftfull/fftdec/dout_0__I_0
+         Type: DSP
+Instance Name: fft_ctrl_inst/fftfull/fft/twiddle_lut/mux_4
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/twiddle_lut/real_tw_15__I_0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram1_b_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+
+                                    Page 5
+
+
+
+
+
+ASIC Components (cont)
+----------------------
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram1_a_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram0_b_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[1].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name: fft_ctrl_inst/fftfull/fft/ram0_a_bfa/lscc_ram_dp_inst/mem_main/NO
+     N_MIX.ADDR_ROUTE[0].DATA_ROUTE[0].no_init.u_mem0/ICE_MEM.u_mem0
+         Type: EBR
+Instance Name:
+     fft_ctrl_inst/fftfull/fft/butterfly_inst/tw_mult/mult3/img_b_0__I_0
+         Type: DSP
+Instance Name:
+     fft_ctrl_inst/fftfull/fft/butterfly_inst/tw_mult/mult2/img_tw_0__I_0
+         Type: DSP
+Instance Name: vgatop_inst/pllclk/u_pll
+         Type: PLL
+
+Constraint Summary
+------------------
+
+   Total number of constraints: 17
+   Total number of constraints dropped: 10
+   Dropped constraints are:
+     ldc_set_location -site {6} [get_ports fft_start_posedge]
+     ldc_set_location -site {28} [get_ports received_wd]
+     ldc_set_location -site {20} [get_ports {sample_in[0]}]
+     ldc_set_location -site {12} [get_ports {sample_in[1]}]
+     ldc_set_location -site {13} [get_ports {sample_in[2]}]
+     ldc_set_location -site {18} [get_ports {sample_in[3]}]
+     ldc_set_location -site {9} [get_ports {sample_in[4]}]
+     ldc_set_location -site {44} [get_ports {sample_in[5]}]
+     ldc_set_location -site {3} [get_ports {sample_in[6]}]
+     ldc_set_location -site {45} [get_ports {sample_in[7]}]
+
+Run Time and Memory Usage
+-------------------------
+
+   Total CPU Time: 1 secs
+   Total REAL Time: 0 secs
+   Peak Memory Usage: 103 MB
+Checksum -- map: 58abfadd92dac3955db3e0ce16b1c79cec6be562
+
+
+
+
+
+
+                                    Page 6
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995
+     AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent
+     Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems
+     All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor
+     Corporation,  All rights reserved.

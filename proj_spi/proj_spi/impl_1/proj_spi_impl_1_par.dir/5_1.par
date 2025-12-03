@@ -1,0 +1,245 @@
+
+PAR: Place And Route Radiant Software (64-bit) 2025.1.0.39.0.
+PARed on: Wed Dec  3 11:01:19 2025
+
+Command Line: par -w -t 1 -cores 1 -hsp m -exp parPathBased=ON \
+	proj_spi_impl_1_map.udb proj_spi_impl_1_par.dir/5_1.udb 
+
+Loading proj_spi_impl_1_map.udb ...
+Loading device for application GENERIC from file 'itpa08.nph' in environment: C:/lscc/radiant/2025.1/ispfpga.
+Package Status:                     Preliminary    Version 1.5.
+Performance Hardware Data Status:   Advanced       Version 1.0.
+
+
+
+Design:  top
+Family:  iCE40UP
+Device:  iCE40UP5K
+Package: SG48
+Performance Grade:   High-Performance_1.2V
+WARNING <77001032> - par: Unable to find the instance/port 'mosi' in the constraint 'ldc_set_location -site {47} [get_ports mosi]'
+
+WARNING <77001031> - par: In the constraint 'ldc_set_location -site {47} [get_ports mosi]', the locate object is not specified
+
+
+Constraint Summary
+   Total number of constraints: 5
+   Total number of constraints dropped: 1
+   Dropped constraints are:
+     ldc_set_location -site {47} [get_ports mosi]
+
+WARNING <77001032> - par: Unable to find the instance/port 'mosi' in the constraint 'ldc_set_location -site {47} [get_ports mosi]'
+
+WARNING <77001031> - par: In the constraint 'ldc_set_location -site {47} [get_ports mosi]', the locate object is not specified
+
+WARNING <71003020> - par: Top module port 'mosi' does not connect to anything.
+WARNING <71003020> - par: Top module port 'mosi' does not connect to anything.
+WARNING <71003020> - par: Top module port 'mosi' does not connect to anything.
+WARNING <71003020> - par: Top module port 'mosi' does not connect to anything.
+Number of Signals: 3623
+Number of Connections: 9247
+Device utilization summary:
+
+   SLICE (est.)    1232/2640         47% used
+     LUT           2339/5280         44% used
+     REG            675/5280         13% used
+   PIO                9/56           16% used
+                      9/36           25% bonded
+   IOLOGIC            0/56            0% used
+   DSP                4/8            50% used
+   I2C                0/2             0% used
+   HFOSC              1/1           100% used
+   LFOSC              0/1             0% used
+   LEDDA_IP           0/1             0% used
+   RGBA_DRV           0/1             0% used
+   FILTER             0/2             0% used
+   SRAM               0/4             0% used
+   WARMBOOT           0/1             0% used
+   SPI                0/2             0% used
+   EBR               10/30           33% used
+   PLL                1/1           100% used
+   RGBOUTBUF          0/3             0% used
+   I3C                0/2             0% used
+   OPENDRAIN          0/3             0% used
+
+Pin Constraint Summary:
+   3 out of 9 pins locked (33% locked).
+.
+............
+Finished Placer Phase 0 (HIER). CPU time: 3 secs , REAL time: 4 secs 
+
+
+................
+Finished Placer Phase 0 (AP).  CPU time: 5 secs , REAL time: 6 secs 
+
+Starting Placer Phase 1. CPU time: 5 secs , REAL time: 6 secs 
+..  ..
+....................
+
+Placer score = 470783.
+
+Device SLICE utilization summary after final SLICE packing:
+   SLICE           1220/2640         46% used
+
+WARNING <77001032> - par: Unable to find the instance/port 'mosi' in the constraint 'ldc_set_location -site {47} [get_ports mosi]'
+
+WARNING <77001031> - par: In the constraint 'ldc_set_location -site {47} [get_ports mosi]', the locate object is not specified
+
+Finished Placer Phase 1. CPU time: 15 secs , REAL time: 16 secs 
+
+Starting Placer Phase 2.
+.
+
+Placer score =  503763
+Finished Placer Phase 2.  CPU time: 15 secs , REAL time: 16 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clocks :
+  PRIMARY "clk" from comp "hf_osc" on site "HFOSC_R1C32", clk load = 2, ce load = 0, sr load = 0
+  PRIMARY "vgatop_inst.pll_clk_internal" from OUTGLOBAL on comp "vgatop_inst.pllclk.u_pll" on site "PLL_R13C32", clk load = 147, ce load = 0, sr load = 0
+  PRIMARY "fft_ctrl_inst.clk_adj_2358" from Q1 on comp "fft_ctrl_inst.SLICE_277" on site "R14C2C", clk load = 224, ce load = 0, sr load = 0
+  PRIMARY "reset_c_N_1796" from F1 on comp "fft_ctrl_inst.fftfull.fft.addctrl_inst.addgen.SLICE_2013" on site "R9C12A", clk load = 0, ce load = 0, sr load = 113
+
+  PRIMARY  : 4 out of 8 (50%)
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   9 out of 56 (16.1%) I/O sites used.
+   9 out of 36 (25.0%) bonded I/O sites used.
+   Number of I/O components: 9; differential: 0
+   Number of Vref pins used: 0
+
+I/O Bank Usage Summary:
++----------+---------------+------------+------------+------------+
+| I/O Bank | Usage         | Bank Vccio | Bank Vref1 | Bank Vref2 |
++----------+---------------+------------+------------+------------+
+| 0        | 3 / 14 ( 21%) | 3.3V       |            |            |
+| 1        | 3 / 14 ( 21%) | 3.3V       |            |            |
+| 2        | 3 / 8 ( 37%)  | 3.3V       |            |            |
++----------+---------------+------------+------------+------------+
+
+Total Placer CPU time: 15 secs , REAL time: 16 secs 
+
+
+Checksum -- place: 2d8c1357a533343a44eb733cf5cbda860ab11a
+Writing design to file proj_spi_impl_1_par.dir/5_1.udb ...
+
+WARNING <77001032> - par: Unable to find the instance/port 'mosi' in the constraint 'ldc_set_location -site {47} [get_ports mosi]'
+
+WARNING <77001031> - par: In the constraint 'ldc_set_location -site {47} [get_ports mosi]', the locate object is not specified
+
+
+Start NBR router at 11:01:36 12/03/25
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in timing report. You should always run the timing    
+      tool to verify your design.                                
+*****************************************************************
+
+Starting routing resource preassignment
+CRITICAL <62202000> - par: Certain loads of primary clock signal clk could not be routed to the primary clock tree with dedicated routing resources. This clock may suffer from excessive skew or delay.
+Preassignment Summary:
+--------------------------------------------------------------------------------
+1 connections routed with dedicated routing resources
+4 global clock signals routed
+1647 connections routed (of 8705 total) (18.92%)
+---------------------------------------------------------
+Clock routing summary:
+Primary clocks (4 used out of 8 available):
+#0  Signal "fft_ctrl_inst.clk_adj_2358"
+       Clock   loads: 224   out of   224 routed (100.00%)
+       Data    loads: 0     out of     1 routed (  0.00%)
+#4  Signal "clk"
+       Clock   loads: 1     out of     2 routed ( 50.00%)
+#6  Signal "reset_c_N_1796"
+       Control loads: 113   out of   113 routed (100.00%)
+#7  Signal "vgatop_inst.pll_clk_internal"
+       Clock   loads: 147   out of   147 routed (100.00%)
+Other clocks:
+    Signal "sclk_c"
+       Clock   loads: 0     out of     3 routed (  0.00%)
+    Signal "vgatop_inst.pllclk.intfbout_wire"
+       Clock   loads: 1     out of     1 routed (100.00%)
+
+---------------------------------------------------------
+--------------------------------------------------------------------------------
+Completed routing resource preassignment
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Routing in Serial Mode ......
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Start NBR section for initial routing at 11:01:37 12/03/25
+Level 4, iteration 1
+138(0.05%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 16.749ns/0.000ns; real time: 8 secs 
+
+Info: Initial congestion level at 75.00% usage is 0
+Info: Initial congestion area  at 75.00% usage is 0 (0.00%)
+
+Start NBR section for normal routing at 11:01:43 12/03/25
+Level 4, iteration 1
+23(0.01%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 16.749ns/0.000ns; real time: 8 secs 
+Level 4, iteration 2
+7(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 16.749ns/0.000ns; real time: 8 secs 
+Level 4, iteration 3
+4(0.00%) conflicts; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 16.749ns/0.000ns; real time: 8 secs 
+Level 4, iteration 4
+0(0.00%) conflict; 0(0.00%) untouched conn; 0 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: 16.749ns/0.000ns; real time: 8 secs 
+
+Start NBR section for setup/hold timing optimization with effort level 3 at 11:01:43 12/03/25
+
+Start NBR section for post-routing at 11:01:44 12/03/25
+
+End NBR router with 0 unrouted connection(s)
+
+Checksum -- route: d43519b760cc1c7aad61a25a91a8e5a88f05de8e
+
+Total CPU time 9 secs 
+Total REAL time: 11 secs 
+Completely routed.
+End of route.  8705 routed (100.00%); 0 unrouted.
+
+Writing design to file proj_spi_impl_1_par.dir/5_1.udb ...
+
+
+All signals are completely routed.
+
+
+PAR_SUMMARY::Run status = Completed
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Estimated worst slack<setup/<ns>> = 16.749
+PAR_SUMMARY::Timing score<setup/<ns>> = 0.000
+PAR_SUMMARY::Estimated worst slack<hold/<ns>> = 1.743
+PAR_SUMMARY::Timing score<hold/<ns>> = 0.000
+PAR_SUMMARY::Number of errors = 0
+
+Note: user must run 'timing' for timing closure signoff.
+
+Total CPU  Time: 26 secs 
+Total REAL Time: 27 secs 
+Peak Memory Usage: 185.45 MB
+
+
+par done!
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2025 Lattice Semiconductor Corporation,  All rights reserved.

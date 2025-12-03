@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LatticeIPSummary>
+    <IpInfo IP_Module_Name="ramdualpt" IP_Name="RAM_DP" License_Feature="-" License_Status="-" Vendor="latticesemi.com" Version="2.4.0" Vlnv="latticesemi.com:module:ram_dp:2.4.0"/>
+    <IpInfo IP_Module_Name="ramdp8b" IP_Name="RAM_DP" License_Feature="-" License_Status="-" Vendor="latticesemi.com" Version="2.4.0" Vlnv="latticesemi.com:module:ram_dp:2.4.0"/>
+</LatticeIPSummary>

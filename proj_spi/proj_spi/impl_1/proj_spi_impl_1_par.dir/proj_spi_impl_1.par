@@ -1,0 +1,18 @@
+                         Lattice PAR Report File
+Radiant Software (64-bit) 2025.1.0.39.0
+Wed Dec  3 11:01:19 2025
+
+Command Line: par -w -n 1 -t 1 -s 1 -cores 1 -hsp m -exp parPathBased=ON \
+	proj_spi_impl_1_map.udb proj_spi_impl_1.udb 
+
+
+Level/       Number       Estimated       Timing       Estimated Worst    Timing          Run      Run
+Cost [udb]   Unrouted     Worst Slack     Score        Slack(hold)        Score(hold)     Time     Status
+----------   --------     -----------     ------       ---------------    -----------     ----     ------
+5_1   *      0            16.749          0            1.743              0               27       Completed
+
+* : Design saved.
+
+Total (real) run time for 1-seed: 27 secs 
+
+par done!
